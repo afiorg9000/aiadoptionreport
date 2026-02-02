@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LLPA AI Strategy Report - Brand Color Design System */
+
+@layer base {
+  :root {
+    /* LLPA Brand Colors - from logo */
+    --llpa-orange: 14 80% 55%;
+    --llpa-green: 100 55% 50%;
+    --llpa-blue: 200 75% 50%;
+    --llpa-yellow: 42 95% 55%;
+
+    /* Core palette */
+    --background: 0 0% 100%;
+    --foreground: 210 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 15%;
+
+    /* Primary - LLPA Blue */
+    --primary: 200 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light gray */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 25% 15%;
+
+    /* Muted */
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    /* Accent - LLPA Orange */
+    --accent: 14 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success - LLPA Green */
+    --success: 100 55% 50%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - LLPA Yellow */
+    --warning: 42 95% 55%;
+    --warning-foreground: 210 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 200 75% 50%;
+
+    --radius: 0.5rem;
+
+    /* LLPA specific tokens */
+    --llpa-dark: 210 25% 15%;
+    --llpa-light: 210 20% 98%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 25% 15% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(210 25% 15% / 0.06), 0 2px 4px -2px hsl(210 25% 15% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(210 25% 15% / 0.08), 0 4px 6px -4px hsl(210 25% 15% / 0.08);
+    --shadow-xl: 0 20px 25px -5px hsl(210 25% 15% / 0.1), 0 8px 10px -6px hsl(210 25% 15% / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 25% 10%;
+    --foreground: 210 20% 98%;
+
+    --card: 210 25% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 210 25% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 200 75% 55%;
+    --primary-foreground: 210 25% 10%;
+
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 210 20% 18%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 14 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 200 75% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .text-body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .llpa-gradient {
+    background: linear-gradient(135deg, hsl(var(--llpa-orange)), hsl(var(--llpa-green)), hsl(var(--llpa-blue)), hsl(var(--llpa-yellow)));
+  }
+
+  .llpa-gradient-bar {
+    background: linear-gradient(90deg, hsl(var(--llpa-orange)) 25%, hsl(var(--llpa-green)) 25%, hsl(var(--llpa-green)) 50%, hsl(var(--llpa-blue)) 50%, hsl(var(--llpa-blue)) 75%, hsl(var(--llpa-yellow)) 75%);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Citation link styles */
+  .citation-link {
+    @apply text-primary hover:text-primary/80 font-medium cursor-pointer transition-colors;
+  }
+
+  .citation-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Brand color accent classes */
+  .accent-orange { border-color: hsl(var(--llpa-orange)); }
+  .accent-green { border-color: hsl(var(--llpa-green)); }
+  .accent-blue { border-color: hsl(var(--llpa-blue)); }
+  .accent-yellow { border-color: hsl(var(--llpa-yellow)); }
+}
