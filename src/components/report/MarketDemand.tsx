@@ -8,69 +8,69 @@ import IconWrapper from "./IconWrapper";
 import { typography, spacing, containers, iconSizes, iconWrapperBase } from "./styles";
 const demandPatterns = [{
   id: 1,
-  title: "Foundational GenAI Training (ChatGPT, Copilot Basics)",
-  percentage: "86%",
+  title: "Foundational GenAI Adoption",
+  percentage: "88%",
   icon: Users,
   color: "bg-gold/20",
   iconColor: "text-gold",
   borderColor: "border-gold",
-  clientRequests: ['"ChatGPT training" (general understanding of what it is, how to use it)', '"Microsoft Copilot basics" (prompt engineering, integration with Microsoft 365 apps)', '"AI awareness and essentials for all employees" (company-wide literacy initiatives)'],
-  marketPhase: "Organizations in awareness/early adoption phase (Tier 3-4 markets predominantly)",
+  clientRequests: ['ChatGPT and similar tools for general productivity', 'Microsoft Copilot integration with Microsoft 365 apps', 'Company-wide AI literacy and awareness initiatives'],
+  marketPhase: "Organizations across all maturity levels investing in foundational AI capabilities",
   positives: [{
-    label: "High volume demand",
-    description: "Foundational training addresses largest audience (all employees, not just technical staff)"
+    label: "Universal applicability",
+    description: "Foundational AI tools benefit all employees, not just technical staff"
   }, {
-    label: "Entry point",
-    description: "Awareness training often leads to advanced training purchases (progression path)"
+    label: "Low barrier to entry",
+    description: "Cloud-based tools require minimal infrastructure investment"
   }, {
-    label: "Low barriers",
-    description: "No prerequisites, accessible to all skill levels"
+    label: "Rapid deployment",
+    description: "SaaS models enable fast rollout across organizations"
   }],
   challenges: [{
-    label: "Commoditization risk",
-    description: "Free resources abundant (Microsoft Learn, YouTube tutorials, ChatGPT's own help documentation)"
+    label: "Value realization gap",
+    description: "Only 39% of organizations report measurable EBIT impact from AI investments"
   }, {
-    label: "Low conversion",
-    description: 'Members report "people attend free webinars but don\'t purchase paid training"'
+    label: "Adoption stalls",
+    description: "60% of Copilot licenses go unused within 90 days of deployment"
   }, {
-    label: "Price pressure",
-    description: "Difficult to justify high prices for content comparable to free alternatives"
+    label: "Skills gap persistence",
+    description: "Employees lack skills to move beyond basic use cases"
   }]
 }, {
   id: 2,
-  title: "Role-Based & Industry-Specific Training",
+  title: "Role-Based & Industry-Specific Use Cases",
   percentage: "55%",
   icon: Briefcase,
   color: "bg-info/20",
   iconColor: "text-info",
   borderColor: "border-info",
-  clientRequests: ['"Training customized to our industry" (healthcare, finance, manufacturing, etc.)', '"AI for specific job functions" (marketing, sales, HR, finance, operations)', '"Real examples from our sector, not generic business scenarios"'],
+  clientRequests: ['AI customized for specific industries (healthcare, finance, manufacturing)', 'AI for specific job functions (marketing, sales, HR, operations)', 'Use cases with measurable ROI in specific workflows'],
   whyClientsWant: [{
-    label: "Relevance",
-    description: "Generic training requires learners to translate concepts to their context; role-specific training provides immediate applicability",
+    label: "Immediate applicability",
+    description: "Industry-specific implementations provide clear, relevant use cases that employees can apply immediately",
     icon: Target,
     color: "text-success"
   }, {
     label: "ROI justification",
-    description: '"AI for Email Campaign Personalization" or "AI for Ad Copy A/B Testing" easier to justify than generic "AI Fundamentals" (specific value proposition)',
+    description: "Specific use cases like 'AI for claims processing' or 'AI for predictive maintenance' easier to justify than generic implementations",
     icon: TrendingUp,
     color: "text-gold"
   }, {
-    label: "Engagement",
-    description: "Learners more engaged when examples match their daily work",
+    label: "Competitive advantage",
+    description: "Industry-specific AI creates differentiation in increasingly competitive markets",
     icon: Users,
     color: "text-info"
   }]
 }, {
   id: 3,
-  title: "Post-Purchase Adoption Support",
-  percentage: "18%",
+  title: "Implementation & Change Management Support",
+  percentage: "64%",
   icon: LifeBuoy,
   color: "bg-steel/20",
   iconColor: "text-steel",
   borderColor: "border-steel",
-  clientRequests: ["Organizations purchase AI tool licenses (Copilot, ChatGPT Enterprise) WITHOUT prior training", "Initial enthusiasm, then usage declines over weeks/months", "Reach out to training providers for training after adoption stalls"],
-  withoutTraining: ["Try tool briefly with obvious use cases (write email, summarize document)", "Encounter limitations or unexpected outputs (hallucinations, formatting issues)", "Lack troubleshooting skills to overcome barriers", "Revert to old workflows", "Tool ROI never realized despite license spend"]
+  clientRequests: ["Strategic planning support for AI initiatives", "Change management and organizational readiness", "Implementation expertise beyond tool deployment"],
+  withoutTraining: ["Technology deployed without strategic alignment", "Employee resistance due to inadequate change management", "Pilots succeed but fail to scale enterprise-wide", "ROI never realized despite significant technology investment", "Leadership lacks vision for AI transformation"]
 }];
 const foundationalValidation = [{
   source: "McKinsey State of AI Survey (March 2025)",
@@ -117,7 +117,7 @@ const foundationalRecommendations = [{
 }, {
   title: "Target mid-market enterprises specifically",
   description: "Can't afford big consultants but need more than training",
-  items: ['These organizations face the same strategic planning gap as large enterprises (64% lack strategic clarity on AI goals) but lack internal strategy teams to fill it', "Members can offer implementation consulting at $25K-$150K price points—premium to training but accessible to mid-market budgets", 'This "missing middle" represents significant whitespace: big consultancies don\'t pursue these clients (too small), while traditional training providers don\'t offer strategic services (capability gap)']
+  items: ['These organizations face the same strategic planning gap as large enterprises (64% lack strategic clarity on AI goals) but lack internal strategy teams to fill it', "Mid-market enterprises need implementation support at $25K-$150K price points—premium to basic enablement but accessible to mid-market budgets", 'This "missing middle" represents significant market opportunity: large consultancies don\'t pursue these clients (too small), while enterprises lack strategic AI implementation support']
 }];
 const postPurchaseRecommendations = [{
   title: "Bundle training with 90-day post-implementation support",
@@ -130,9 +130,9 @@ const postPurchaseRecommendations = [{
   items: ["Adoption audit (identify where and why usage dropped)", "Recovery plan (prioritize quick wins to rebuild momentum)", "Power user bootcamp (create internal champions)", "Workflow redesign (integrate AI into actual daily tasks)", "Measurement iteration (track progress and adjust)"],
   insight: "Position pricing as fraction of the sunk license cost they're trying to recover"
 }, {
-  title: "Adopt frameworks that training providers will develop",
+  title: "Standardized frameworks are emerging",
   description: "Opportunity assessment, success metrics definition, and implementation roadmapping",
-  items: ["Rather than each member developing these tools independently, Industry associations will create standardized methodologies that members can customize for their markets", "This ensures consistent quality across the alliance, reduces individual member development costs, and enables knowledge sharing about what works", "Members should plan to integrate these frameworks into their consulting offerings as they become available"]
+  items: ["Industry associations and consulting firms are developing standardized AI implementation methodologies", "These frameworks enable consistent quality and reduce development costs for enterprises", "Organizations should evaluate and adopt proven frameworks as they become available"]
 }];
 const MarketDemand = () => {
   return <section id="section-2" className={`${spacing.section} bg-card`}>
@@ -144,10 +144,10 @@ const MarketDemand = () => {
         <div className="mb-12">
           <p className={`${typography.bodySmall} mb-2 flex items-start ${spacing.contentGap}`}>
             <IconWrapper icon={FlaskConical} color="llpa-green" size="sm" className="mt-0.5" />
-            <span><strong>Methodology:</strong> Thematic analysis of training provider surveys conducted July-September 2025, validated against independent market research from consulting firms, technology vendors, academic institutions, and government agencies.</span>
+            <span><strong>Methodology:</strong> Thematic analysis of enterprise AI adoption surveys, validated against independent market research from consulting firms, technology vendors, academic institutions, and government agencies.</span>
           </p>
           <p className={`${typography.note} ${containers.note}`}>
-            <strong>Note:</strong> Members primarily serve organizational clients (enterprises, SMBs, government, education institutions) rather than individual consumers. "Client demand" reflects organizational buyer needs.
+            <strong>Note:</strong> This analysis focuses on organizational AI adoption (enterprises, SMBs, government, education institutions) rather than individual consumer use. "Demand" reflects organizational needs and investment patterns.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ const MarketDemand = () => {
             {/* Client Requests */}
             <div className="mb-6">
               <p className="font-body text-sm font-medium text-foreground mb-4">
-                <span className="text-llpa-orange font-bold">86%</span> of providers report this is what clients request:
+                <span className="text-llpa-orange font-bold">88%</span> of enterprises report foundational AI adoption as a priority:
               </p>
               <ul className="space-y-3 mb-4">
                 {demandPatterns[0].clientRequests.map((request, i) => <li key={i} className="flex gap-3">
@@ -270,7 +270,7 @@ const MarketDemand = () => {
                 <p className="font-body text-sm font-semibold text-foreground mb-4">This explains why:</p>
                 <div className="space-y-4">
                   <p className="font-body text-sm text-foreground">
-                    <span className="font-bold text-base text-foreground">86%</span> of providers report foundational training demand <span className="text-muted-foreground">(awareness remains necessary)</span>
+                    <span className="font-bold text-base text-foreground">88%</span> of enterprises report foundational AI adoption <span className="text-muted-foreground">(awareness phase continues)</span>
                   </p>
                   <p className="font-body text-sm text-foreground">
                     <span className="font-bold text-base text-foreground">YET 64%</span> report clients lack strategic clarity on AI goals <span className="text-muted-foreground">(need strategic guidance, not more tool training)</span>
@@ -279,7 +279,7 @@ const MarketDemand = () => {
                     <span className="font-bold text-base text-foreground">YET 55%</span> report demand for industry-specific training <span className="text-muted-foreground">(generic foundational content insufficient)</span>
                   </p>
                   <p className="font-body text-sm text-foreground">
-                    <span className="font-bold text-base text-foreground">YET Tier 1</span> market members request "advanced use cases beyond basics" <span className="text-muted-foreground">(foundational training saturated)</span>
+                    <span className="font-bold text-base text-foreground">YET Tier 1</span> markets demand "advanced use cases beyond basics" <span className="text-muted-foreground">(foundational adoption saturated)</span>
                   </p>
                 </div>
               </div>
@@ -339,7 +339,7 @@ const MarketDemand = () => {
             {/* Client Requests */}
             <div className="mb-6">
               <p className="font-body text-sm font-medium text-foreground mb-4">
-                <span className="text-llpa-blue font-bold">55%</span> of members explicitly cite this is what clients request:
+                <span className="text-llpa-blue font-bold">55%</span> of enterprises explicitly request industry-specific AI applications:
               </p>
               <ul className="space-y-2">
                 {demandPatterns[1].clientRequests.map((request, i) => <li key={i} className="font-body text-muted-foreground flex items-start gap-2">
@@ -397,7 +397,7 @@ const MarketDemand = () => {
                 <p className="font-body text-sm text-foreground flex items-start gap-3">
                   <IconWrapper icon={Lightbulb} color="info" size="sm" className="mt-0.5" />
                   <span>
-                    <strong>Key Insight:</strong> External research confirms provider-reported pattern — organizations willing to pay premium for training that reduces "translation effort" from generic concepts to specific workflows.
+                    <strong>Key Insight:</strong> Research confirms this pattern — organizations are willing to invest more in AI implementations that reduce "translation effort" from generic capabilities to specific workflows.
                   </span>
                 </p>
               </div>
@@ -443,7 +443,7 @@ const MarketDemand = () => {
             {/* Client Experience */}
             <div className="mb-6">
               <p className="font-body text-sm font-medium text-foreground mb-4">
-                Members report this is what clients commonly experience:
+                Research indicates organizations commonly experience this pattern:
               </p>
               <ul className="space-y-2 mb-4">
                 {demandPatterns[2].clientRequests.map((request, i) => <li key={i} className="font-body text-muted-foreground flex items-start gap-2">

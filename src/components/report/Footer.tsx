@@ -1,17 +1,9 @@
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
+import { Brain } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-slate-900 text-white">
-      {/* Color bar */}
-      <div className="h-1 flex mb-12">
-        <div className="flex-1 bg-llpa-orange" />
-        <div className="flex-1 bg-llpa-green" />
-        <div className="flex-1 bg-llpa-blue" />
-        <div className="flex-1 bg-llpa-yellow" />
-      </div>
-      
+    <footer className="py-16 bg-slate-950 text-white border-t border-white/5">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,53 +15,54 @@ const Footer = () => {
           {/* Logo & Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <BookOpen className="h-8 w-8 text-white" />
-              <span className="text-white font-semibold">AI Training Market Research</span>
+              <Brain className="h-6 w-6 text-blue-400" />
+              <span className="text-white font-semibold">AI Adoption Report</span>
             </div>
-            <p className="font-body text-sm text-white/70 leading-relaxed">
-              Comprehensive analysis of the global AI training landscape, synthesizing insights from training providers across 20+ countries.
+            <p className="font-body text-sm text-white/60 leading-relaxed">
+              Analysis of global enterprise AI adoption patterns, barriers, and future outlook. 
+              Synthesizing 425+ research sources.
             </p>
           </div>
 
           {/* Methodology */}
           <div>
-            <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-llpa-yellow mb-4">
-              Research Methodology
+            <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-blue-400 mb-4">
+              Methodology
             </h4>
-            <ul className="space-y-2 font-body text-sm text-white/70">
-              <li>• Global training provider surveys</li>
-              <li>• Course catalog analysis</li>
-              <li>• 425+ external research sources</li>
-              <li>• Four-factor maturity assessment</li>
+            <ul className="space-y-2 font-body text-sm text-white/60">
+              <li>• Global market analysis</li>
+              <li>• Academic research synthesis</li>
+              <li>• Industry survey data</li>
+              <li>• Forecasting model aggregation</li>
             </ul>
           </div>
 
           {/* Report Details */}
           <div>
-            <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-llpa-yellow mb-4">
+            <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-blue-400 mb-4">
               Report Details
             </h4>
             <div className="space-y-3 font-body text-sm">
               <div>
-                <span className="text-white/50">Report Date:</span>
-                <span className="ml-2 text-white/90">January 2025</span>
+                <span className="text-white/40">Report Date:</span>
+                <span className="ml-2 text-white/80">March 2026</span>
               </div>
               <div>
-                <span className="text-white/50">Research Period:</span>
-                <span className="ml-2 text-white/90">2024 – 2025</span>
+                <span className="text-white/40">Research Period:</span>
+                <span className="ml-2 text-white/80">2024 – 2026</span>
               </div>
               <div>
-                <span className="text-white/50">Coverage:</span>
-                <span className="ml-2 text-white/90">Global Enterprise AI Training Market</span>
+                <span className="text-white/40">Coverage:</span>
+                <span className="ml-2 text-white/80">Global Enterprise AI</span>
               </div>
             </div>
           </div>
         </motion.div>
 
-        <div className="h-px bg-white/10 my-12" />
+        <div className="h-px bg-white/5 my-12" />
 
-        <p className="font-body text-sm text-white/50 text-center">
-          © 2025 AI Training Market Research. Industry analysis report.
+        <p className="font-body text-sm text-white/40 text-center">
+          © 2026 AI Adoption Report
         </p>
       </div>
     </footer>

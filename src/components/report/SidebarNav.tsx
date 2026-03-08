@@ -15,49 +15,20 @@ const navData: NavItem[] = [
     items: [
       { id: "strategic-context", title: "Strategic Context" },
       { id: "critical-findings", title: "Critical Findings" },
-      { id: "key-metrics-summary", title: "Key Metrics Summary" },
-      { id: "strategic-imperatives", title: "Strategic Imperatives" },
     ],
   },
+  { id: "methodology", title: "Methodology" },
   {
     id: "section-1",
     title: "1. Global AI Landscape",
     items: [
-      {
-        id: "section-1-1",
-        title: "1.1 Maturity Tier Framework",
-        items: [
-          { id: "strategic-context-1", title: "Strategic Context" },
-          { id: "maturity-tier-framework", title: "Maturity Tier Framework" },
-          { id: "tier-classification", title: "Tier Classification" },
-          { id: "training-demand-tier", title: "Training Demand by Tier" },
-          { id: "methodology", title: "Methodology" },
-        ],
-      },
-      {
-        id: "section-1-2",
-        title: "1.2 Cross-Market Patterns",
-        items: [
-          { id: "pattern-1", title: "Pattern 1: Size-Class Divide" },
-          { id: "pattern-2", title: "Pattern 2: Skills Gap" },
-          { id: "pattern-3", title: "Pattern 3: Regulated Industries" },
-          { id: "pattern-4", title: "Pattern 4: Strategic Planning Gap" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "section-2",
-    title: "2. Market Demand",
-    items: [
-      { id: "demand-pattern-1", title: "Foundational GenAI Training" },
-      { id: "demand-pattern-2", title: "Role-Based Training" },
-      { id: "demand-pattern-3", title: "Post-Purchase Support" },
+      { id: "section-1-1", title: "1.1 Maturity Framework" },
+      { id: "section-1-2", title: "1.2 Cross-Market Patterns" },
     ],
   },
   {
     id: "section-3",
-    title: "3. Barriers to Adoption",
+    title: "2. Barriers to Adoption",
     items: [
       { id: "challenge-1", title: "Financial Constraints" },
       { id: "challenge-2", title: "Organizational Inertia" },
@@ -65,107 +36,36 @@ const navData: NavItem[] = [
   },
   {
     id: "section-4",
-    title: "4. Portfolio Analysis",
+    title: "3. Industry Adoption",
     items: [
-      {
-        id: "finding-1",
-        title: "Finding 1: Vendor Concentration",
-        items: [
-          { id: "portfolio-strength-ms", title: "Microsoft Ecosystem" },
-          { id: "critical-gap-non-ms", title: "Non-Microsoft Gap" },
-          { id: "recommended-curriculum", title: "Recommended Curriculum" },
-        ],
-      },
-      {
-        id: "finding-2",
-        title: "Finding 2: Skill Level Distribution",
-        items: [
-          { id: "portfolio-strength-beginner", title: "Beginner Foundation" },
-          { id: "critical-gap-advanced", title: "Advanced Gap" },
-          { id: "missing-content", title: "Missing Content" },
-        ],
-      },
-      { id: "finding-3", title: "Finding 3: Delivery Methods" },
-      {
-        id: "finding-4",
-        title: "Finding 4: Audience Segmentation",
-        items: [
-          { id: "vertical-1", title: "Financial Services" },
-          { id: "vertical-2", title: "Manufacturing" },
-          { id: "vertical-3", title: "Legal Services" },
-          { id: "vertical-4", title: "Public Sector" },
-          { id: "vertical-5", title: "Education" },
-        ],
-      },
+      { id: "financial-services", title: "Financial Services" },
+      { id: "healthcare", title: "Healthcare" },
+      { id: "manufacturing", title: "Manufacturing" },
+      { id: "retail", title: "Retail" },
+      { id: "professional-services", title: "Professional Services" },
+      { id: "public-sector", title: "Public Sector" },
     ],
   },
   {
-    id: "section-5",
-    title: "5. Member Capabilities",
+    id: "productivity-analysis",
+    title: "4. Productivity Evidence",
     items: [
-      {
-        id: "section-5-1",
-        title: "5.1 Tool Usage Patterns",
-        items: [
-          { id: "copilot-gap", title: "Copilot Training Gap" },
-          { id: "category-1", title: "Free/Low-Cost Tools" },
-          { id: "category-2", title: "Custom/Advanced AI" },
-        ],
-      },
-      { id: "section-5-2", title: "5.2 External Research" },
-      {
-        id: "section-5-3",
-        title: "5.3 Market Validation",
-        items: [
-          { id: "priority-highest", title: "Highest Priority" },
-          { id: "priority-high", title: "High Priority" },
-          { id: "priority-medium", title: "Medium Priority" },
-          { id: "priority-lower", title: "Lower Priority" },
-        ],
-      },
+      { id: "productivity-evidence", title: "4.1 Task-Level Gains" },
+      { id: "macro-evidence", title: "4.2 Aggregate Data" },
+      { id: "micro-macro-gap", title: "4.3 Solow Paradox" },
     ],
   },
   {
-    id: "section-6",
-    title: "6. Recommendations",
+    id: "future-outlook",
+    title: "5. Future Outlook",
     items: [
-      { id: "transformation-imperative", title: "Transformation Imperative" },
-      {
-        id: "part-a",
-        title: "Part A: Industry associations",
-        items: [
-          { id: "central-1", title: "Imperative 1" },
-          { id: "central-2", title: "Imperative 2" },
-          { id: "central-3", title: "Imperative 3" },
-          { id: "central-4", title: "Imperative 4" },
-          { id: "central-5", title: "Imperative 5" },
-        ],
-      },
-      {
-        id: "part-b",
-        title: "Part B: training providers Members",
-        items: [
-          { id: "member-1", title: "Imperative 1" },
-          { id: "member-2", title: "Imperative 2" },
-          { id: "member-3", title: "Imperative 3" },
-          { id: "member-4", title: "Imperative 4" },
-          { id: "member-5", title: "Imperative 5" },
-          { id: "member-6", title: "Imperative 6" },
-          { id: "member-7", title: "Imperative 7" },
-        ],
-      },
+      { id: "capability-progress", title: "5.1 Capability Progress" },
+      { id: "agi-timeline", title: "5.2 AGI Timeline" },
+      { id: "phase-transitions", title: "5.3 Phase Transitions" },
     ],
   },
   { id: "conclusion", title: "Conclusion" },
   { id: "references", title: "References" },
-  {
-    id: "appendices",
-    title: "Appendices",
-    items: [
-      { id: "appendix-a", title: "Appendix A" },
-      { id: "appendix-b", title: "Appendix B" },
-    ],
-  },
 ];
 
 // Flatten all IDs for scroll tracking

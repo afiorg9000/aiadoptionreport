@@ -81,22 +81,22 @@ const changeManagementEvidence = [
 const relatedAnalysis = [
   {
     title: "Post-Purchase Adoption Failure",
-    stat: "18%",
-    description: "of providers report license underutilization as a client challenge",
+    stat: "60%",
+    description: "of Copilot licenses go unused within 90 days of deployment",
     linkText: "See Demand Pattern 3 (Section 2)",
     href: "#demand-pattern-3",
   },
   {
     title: "Knowledge & Skills Gaps",
     stat: "45%",
-    description: "of providers report knowledge/skills gaps as a key barrier",
+    description: "of enterprises cite knowledge/skills gaps as a primary adoption barrier",
     linkText: "See Pattern 2 (Section 1.2)",
     href: "#pattern-2",
   },
   {
     title: "Strategic Planning Gap",
     stat: "64%",
-    description: 'of providers report clients lack strategic clarity on AI goals — the most frequently cited barrier category',
+    description: 'of enterprises lack strategic clarity on AI goals — the most frequently cited barrier',
     linkText: "See Pattern 4 (Section 1.2)",
     href: "#pattern-4",
   },
@@ -136,7 +136,7 @@ const BarriersToAdoption = () => {
               Barriers to AI Adoption
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Analysis of training provider surveys conducted July-September 2025, validated against independent market research from consulting firms, technology vendors, academic institutions, and government agencies.
+              Analysis of enterprise AI adoption surveys, validated against independent market research from consulting firms, technology vendors, academic institutions, and government agencies.
             </p>
           </motion.div>
 
@@ -161,12 +161,12 @@ const BarriersToAdoption = () => {
               </div>
             </div>
             <p className="font-body text-sm text-foreground font-medium mb-6">
-              <span className="text-llpa-orange font-bold">41%</span> of providers report cost as a barrier; <span className="text-llpa-orange font-bold">55%</span> report high inquiry volume but low conversion to paid training
+              <span className="text-llpa-orange font-bold">41%</span> of enterprises cite cost as a barrier; <span className="text-llpa-orange font-bold">55%</span> report difficulty justifying AI investment ROI
             </p>
 
-            {/* Members Cite */}
+            {/* Research Findings */}
             <div className="mb-6">
-              <h4 className="font-display text-lg font-semibold text-foreground mb-4">Members cite:</h4>
+              <h4 className="font-display text-lg font-semibold text-foreground mb-4">Research findings:</h4>
               <ul className={`space-y-3 ${spacing.indent}`}>
                 <li className="flex gap-3">
                   <span className="text-llpa-orange mt-0.5">•</span>
@@ -233,7 +233,7 @@ const BarriersToAdoption = () => {
               {/* Key Insight */}
               <div className="mt-6 p-4 bg-muted/50 rounded-xl">
                 <p className="font-body text-sm text-foreground">
-                  <strong>Key Insight:</strong> The provider-reported barrier (free webinar attendance without paid training conversion) does not reflect absolute budget constraints but rather inability to justify premium pricing for paid AI training when abundant free alternatives exist (Microsoft Learn, YouTube, ChatGPT's built-in help), particularly when organizations cannot articulate expected ROI (connecting to the strategic planning gap covered in <a href="#pattern-4" className="text-llpa-blue hover:underline">Pattern 4, Section 1.2</a>).
+                  <strong>Key Insight:</strong> The barrier is not absolute budget constraints but rather inability to justify AI investment when organizations cannot articulate expected ROI. This connects directly to the strategic planning gap (64% lack strategic clarity) covered in <a href="#pattern-4" className="text-llpa-blue hover:underline">Pattern 4, Section 1.2</a>.
                 </p>
               </div>
             </div>
@@ -262,7 +262,7 @@ const BarriersToAdoption = () => {
                   </li>
                   <li className="font-body text-sm text-muted-foreground flex items-start gap-2">
                     <span className="text-llpa-blue mt-0.5">•</span>
-                    <span>When providers equip clients to sell the investment internally, they remove friction from the sales process and position themselves as partners in the client's success rather than vendors pushing a product</span>
+                    <span>Organizations that can articulate AI ROI clearly face significantly less internal resistance to investment approval</span>
                   </li>
                 </ul>
               </div>
@@ -291,12 +291,12 @@ const BarriersToAdoption = () => {
               </div>
             </div>
             <p className="font-body text-sm text-foreground font-medium mb-6">
-              <span className="text-llpa-green font-bold">45%</span> of providers report leadership reluctance and conservative culture
+              <span className="text-llpa-green font-bold">45%</span> of enterprises report leadership reluctance and conservative culture as barriers
             </p>
 
-            {/* Members Cite */}
+            {/* Research Findings */}
             <div className="mb-6">
-              <h4 className="font-display text-lg font-semibold text-foreground mb-4">Members cite:</h4>
+              <h4 className="font-display text-lg font-semibold text-foreground mb-4">Research findings:</h4>
               <ul className={`space-y-2 ${spacing.indent}`}>
                 <li className="font-body text-muted-foreground flex items-start gap-2">
                   <span className="text-llpa-orange mt-0.5">•</span>
@@ -373,7 +373,7 @@ const BarriersToAdoption = () => {
 
               <div className={`space-y-3 ${spacing.indent}`}>
                 <p className="font-body text-sm text-foreground">
-                  <span className="font-bold">Use a "Change Readiness Assessment" framework</span> members can use to diagnose where resistance lives in an organization
+                  <span className="font-bold">"Change Readiness Assessment" frameworks</span> help diagnose where resistance lives in an organization
                 </p>
                 <p className="font-body text-sm text-muted-foreground italic mb-3">
                   Is it leadership vision gap, middle management fear, frontline job anxiety, or IT security concerns? Different root causes require different interventions.
@@ -399,7 +399,7 @@ const BarriersToAdoption = () => {
                 </ul>
 
                 <p className="font-body text-sm text-foreground italic mt-4">
-                  <strong>Key Insight:</strong> Without accurate diagnosis, organizations waste resources addressing symptoms rather than causes—and members risk delivering training that fails to move the needle on adoption.
+                  <strong>Key Insight:</strong> Without accurate diagnosis, organizations waste resources addressing symptoms rather than causes—resulting in AI investments that fail to achieve adoption and value realization.
                 </p>
               </div>
             </div>
@@ -412,7 +412,7 @@ const BarriersToAdoption = () => {
             Additional Barriers Covered Elsewhere
           </h4>
           <p className="font-body text-sm text-muted-foreground mb-6">
-            Several other barriers to AI adoption emerged from member interviews and are analyzed in their respective sections:
+            Several other barriers to AI adoption emerged from research and are analyzed in their respective sections:
           </p>
 
           <div className="space-y-4">

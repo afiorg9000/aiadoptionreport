@@ -433,6 +433,9 @@ export const references: Reference[] = [
   { id: 421, source: "Emerald Insight", description: "A systematic literature review of artificial intelligence (AI) in coaching", url: "https://www.emerald.com/insight/content/doi/10.1108/jwam-11-2024-0164/full/html" },
   { id: 422, source: "Training Industry", description: "How AI Is Shaping the Future of Corporate Training in 2025", url: "https://trainingindustry.com/articles/artificial-intelligence/how-ai-is-shaping-the-future-of-corporate-training-in-2025/" },
   { id: 424, source: "arXiv", description: "Superhuman AI Disclosure: Impacts on Toxicity, Fairness, and Trust Vary by Expertise and Persona Attributes", url: "https://arxiv.org/html/2503.15514v1" },
+  { id: 425, source: "Alex Imas (Substack)", description: "What is the impact of AI on productivity? Reconciling the micro and the macro evidence (March 2026)", url: "https://aleximas.substack.com/p/what-is-the-impact-of-ai-on-productivity" },
+  { id: 426, source: "Wang et al. (CMU/Stanford)", description: "How Well Does Agent Development Reflect Real-World Work? arXiv:2603.01203 (March 2026)", url: "https://arxiv.org/abs/2603.01203" },
+  { id: 427, source: "AI Agents for Human Work", description: "Benchmarking Agents Against Real-World Work - mapping 43 benchmarks to 1,016 occupations (2026)", url: "https://zorazrw.github.io/ai4work/" },
 ];
 
 export const executiveSummary = {

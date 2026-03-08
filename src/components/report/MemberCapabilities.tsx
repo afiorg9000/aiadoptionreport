@@ -81,13 +81,13 @@ const toolPriorityMedium = [
   },
 ];
 
-const advancedMembers = [
-  { name: "Bittnet", country: "Romania", capabilities: "EO video-script generation; multilingual SEO/content agents; course-recommendation chatbot; sales GPT agents", outcomes: "4 leads (one $17k), tripled engagement on some SEO/video strategies" },
-  { name: "Algebra", country: "Croatia", capabilities: "Student-portal chatbot (production ~1 year); LMS mentor bot (pilot) with context-aware RAG", outcomes: "Answers administrative/academic queries; accesses materials tied to each student's courses" },
-  { name: "CloudTeam", country: "Poland", capabilities: "Arudis AI tutor & microlearning platform; AI flashcards/quizzes; webinar support tooling", outcomes: "Comprehensive AI learning ecosystem" },
-  { name: "Rumos", country: "Portugal", capabilities: "Marketing automation, adoption workshops", outcomes: "40% time savings; successful post-purchase Copilot adoption programs" },
-  { name: "Lumify Work", country: "Australia", capabilities: "Content-creation initiative", outcomes: "~40% time-to-delivery reduction" },
-  { name: "Computrain", country: "Netherlands", capabilities: "AI Learning Buddy as a co-trainer for Office portfolio", outcomes: "Integrated AI assistance in training delivery" },
+const advancedProviders = [
+  { name: "Provider A", country: "Eastern Europe", capabilities: "Video-script generation; multilingual SEO/content agents; course-recommendation chatbot; sales automation", outcomes: "Lead generation improvement, tripled engagement on content strategies" },
+  { name: "Provider B", country: "Central Europe", capabilities: "Student-portal chatbot (production ~1 year); LMS mentor bot with context-aware RAG", outcomes: "Automated administrative/academic queries; personalized content access" },
+  { name: "Provider C", country: "Northern Europe", capabilities: "AI tutor & microlearning platform; AI flashcards/quizzes; webinar support tooling", outcomes: "Comprehensive AI learning ecosystem" },
+  { name: "Provider D", country: "Western Europe", capabilities: "Marketing automation, adoption workshops", outcomes: "40% time savings; successful post-purchase adoption programs" },
+  { name: "Provider E", country: "Asia-Pacific", capabilities: "Content-creation initiative", outcomes: "~40% time-to-delivery reduction" },
+  { name: "Provider F", country: "Western Europe", capabilities: "AI Learning Buddy as a co-trainer for software training", outcomes: "Integrated AI assistance in training delivery" },
 ];
 
 const MemberCapabilities = () => {
@@ -98,7 +98,7 @@ const MemberCapabilities = () => {
         <SectionHeader
           sectionNumber={5}
           label="Section 5"
-          title="Member Capabilities & Internal Tool Usage"
+          title="AI Tool Adoption Patterns"
           id="section-5-header"
         />
 
@@ -131,10 +131,10 @@ const MemberCapabilities = () => {
                   <strong>Purpose:</strong> Understanding what tools training providers actually use reveals:
                 </p>
                 <ul className="mt-2 space-y-1 font-body text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span>•</span><strong>Validated capabilities:</strong> Tools members have hands-on experience with (can teach credibly)</li>
-                  <li className="flex items-start gap-2"><span>•</span><strong>Training-practice gaps:</strong> Disconnect between what members use vs. what they teach</li>
-                  <li className="flex items-start gap-2"><span>•</span><strong>Advanced capabilities:</strong> Which members have sophisticated internal AI operations</li>
-                  <li className="flex items-start gap-2"><span>•</span><strong>Market insights:</strong> Members' tool choices reflect real-world effectiveness</li>
+                  <li className="flex items-start gap-2"><span>•</span><strong>Validated capabilities:</strong> Tools organizations have hands-on experience with</li>
+                  <li className="flex items-start gap-2"><span>•</span><strong>Adoption gaps:</strong> Disconnect between tool availability vs. actual usage</li>
+                  <li className="flex items-start gap-2"><span>•</span><strong>Advanced capabilities:</strong> Organizations with sophisticated internal AI operations</li>
+                  <li className="flex items-start gap-2"><span>•</span><strong>Market insights:</strong> Tool choices reflect real-world effectiveness</li>
                 </ul>
               </div>
             </div>
@@ -150,28 +150,28 @@ const MemberCapabilities = () => {
               </p>
 
               <ul className="space-y-1 font-body text-sm text-muted-foreground mb-6">
-                <li className="flex items-start gap-2"><span>•</span><strong>100%</strong> of members offer Copilot training to clients.</li>
+                <li className="flex items-start gap-2"><span>•</span><strong>100%</strong> of surveyed organizations offer Copilot training.</li>
                 <li className="flex items-start gap-2"><span>•</span><strong>86%</strong> of providers report clients requesting Copilot training.</li>
-                <li className="flex items-start gap-2"><span>•</span>Only <strong>36%</strong> of members (8/22) use Copilot internally.</li>
-                <li className="flex items-start gap-2"><span>•</span><strong>73%</strong> of members (16/22) use ChatGPT internally.</li>
+                <li className="flex items-start gap-2"><span>•</span>Only <strong>36%</strong> of organizations (8/22) use Copilot internally.</li>
+                <li className="flex items-start gap-2"><span>•</span><strong>73%</strong> of organizations (16/22) use ChatGPT internally.</li>
               </ul>
 
               <p className="font-body text-sm font-semibold text-foreground mb-2">Why This Matters:</p>
               <ul className="space-y-1 font-body text-sm text-muted-foreground mb-4">
-                <li className="flex items-start gap-2"><span>•</span><strong>Depth of expertise:</strong> Members extensively using ChatGPT but teaching Copilot may lack advanced implementation knowledge</li>
-                <li className="flex items-start gap-2"><span>•</span><strong>Use case discovery:</strong> Internal usage surfaces real-world challenges and workarounds that improve training quality</li>
+                <li className="flex items-start gap-2"><span>•</span><strong>Depth of expertise:</strong> Organizations extensively using ChatGPT but deploying Copilot may lack advanced implementation knowledge</li>
+                <li className="flex items-start gap-2"><span>•</span><strong>Use case discovery:</strong> Internal usage surfaces real-world challenges and workarounds</li>
                 <li className="flex items-start gap-2"><span>•</span><strong>Client credibility:</strong> Clients increasingly ask "do you use this yourselves?" — authentic experience strengthens positioning</li>
               </ul>
 
-              <p className="font-body text-sm font-semibold text-foreground mb-2">Why Members Choose ChatGPT Over Copilot Internally:</p>
+              <p className="font-body text-sm font-semibold text-foreground mb-2">Why Organizations Choose ChatGPT Over Copilot Internally:</p>
               <ul className="space-y-1 font-body text-sm text-muted-foreground mb-4">
-                <li className="flex items-start gap-2"><span>•</span>"Staff choose free tools over paid ones due to budget constraints" — Multiple members</li>
+                <li className="flex items-start gap-2"><span>•</span>"Staff choose free tools over paid ones due to budget constraints" — Survey respondents</li>
                 <li className="flex items-start gap-2"><span>•</span>Copilot licenses typically limited to 10-25 seats (executives/marketing only)</li>
                 <li className="flex items-start gap-2"><span>•</span>ChatGPT's flexibility for experimentation vs. Copilot's Microsoft 365 integration focus</li>
               </ul>
 
               <p className="font-body text-sm text-muted-foreground">
-                <strong>Strategic Implication:</strong> Members should increase internal Copilot deployment to build deeper expertise in their most-requested training topic, or explicitly position ChatGPT expertise as complementary offering.
+                <strong>Strategic Implication:</strong> Organizations should increase internal Copilot deployment to build deeper expertise, or explicitly position ChatGPT expertise as complementary offering.
               </p>
             </div>
 
@@ -179,17 +179,17 @@ const MemberCapabilities = () => {
             <div id="category-1" className="bg-card rounded-xl p-6 border border-border mb-8">
               <h4 className="font-display text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-info" />
-                Category 1: Free/Low-Cost Tools (16/22 members, 73%)
+                Category 1: Free/Low-Cost Tools (16/22 organizations, 73%)
               </h4>
               <p className="font-body text-sm text-muted-foreground mb-4">
-                Widely accessible AI tools that members use for daily productivity, content creation, and experimentation. These form the baseline of internal AI adoption.
+                Widely accessible AI tools used for daily productivity, content creation, and experimentation. These form the baseline of internal AI adoption.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-background rounded-xl p-4 border border-border">
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-body text-sm font-semibold text-foreground">ChatGPT</p>
-                    <span className="text-xs px-2 py-1 bg-success/20 text-success rounded">16/22 members</span>
+                    <span className="text-xs px-2 py-1 bg-success/20 text-success rounded">16/22 organizations</span>
                   </div>
                   <ul className="space-y-1 font-body text-xs text-muted-foreground">
                     <li>• Extensive use for content creation, admin tasks</li>
@@ -199,11 +199,11 @@ const MemberCapabilities = () => {
                 <div className="bg-background rounded-xl p-4 border border-border">
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-body text-sm font-semibold text-foreground">Microsoft Copilot</p>
-                    <span className="text-xs px-2 py-1 bg-warning/20 text-warning rounded">8/22 members</span>
+                    <span className="text-xs px-2 py-1 bg-warning/20 text-warning rounded">8/22 organizations</span>
                   </div>
                   <ul className="space-y-1 font-body text-xs text-muted-foreground">
-                    <li>• Typically 10-25 licenses for executives/marketing/training</li>
-                    <li>• Most members have pilot or limited deployment</li>
+                    <li>• Typically 10-25 licenses for executives/marketing</li>
+                    <li>• Most organizations have pilot or limited deployment</li>
                   </ul>
                 </div>
               </div>
@@ -213,29 +213,29 @@ const MemberCapabilities = () => {
             <div id="category-2" className="bg-card rounded-xl p-6 border border-border mb-8">
               <h4 className="font-display text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                 <Bot className="w-5 h-5 text-gold" />
-                Category 2: Custom/Advanced AI Solutions (13/22 members, 59%)
+                Category 2: Custom/Advanced AI Solutions (13/22 organizations, 59%)
               </h4>
               <p className="font-body text-sm text-muted-foreground mb-4">
-                These members represent the industry's advanced capability tier:
+                These organizations represent the industry's advanced capability tier:
               </p>
 
               <div className="space-y-3">
-                {advancedMembers.map((member, i) => (
+                {advancedProviders.map((provider, i) => (
                   <div key={i} className="bg-background rounded-xl p-4 border border-border">
-                    <p className="font-body text-sm font-semibold text-foreground mb-1">{member.name}</p>
+                    <p className="font-body text-sm font-semibold text-foreground mb-1">{provider.name}</p>
                     <p className="font-body text-xs text-muted-foreground mb-1">
-                      {member.capabilities}
+                      {provider.capabilities}
                     </p>
                     <p className="font-body text-xs text-muted-foreground">
-                      {member.outcomes}
+                      {provider.outcomes}
                     </p>
                   </div>
                 ))}
                 
-                {/* Additional members */}
+                {/* Additional providers */}
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Teknologisk Institut</p>
-                  <p className="font-body text-xs text-muted-foreground">Internal chatbot</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider G</p>
+                  <p className="font-body text-xs text-muted-foreground">Internal chatbot implementation</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
                   <p className="font-body text-sm font-semibold text-foreground mb-1">Semos Education</p>
@@ -428,7 +428,7 @@ const MemberCapabilities = () => {
                 <strong>Methodology:</strong> Analysis of external ROI benchmarks from consulting firms (McKinsey, Gartner, Forrester, BCG), technology vendors (Salesforce), and industry research organizations cross-referenced against provider-reported internal tool development.
               </p>
               <p className="font-body text-sm text-muted-foreground">
-                <strong>Objective:</strong> Evaluate which AI tools members are building against external ROI benchmarks. Members are actively building internal AI tools — but are they building the tools that deliver the highest value?
+                <strong>Objective:</strong> Evaluate which AI tools organizations are building against external ROI benchmarks. Organizations are actively building internal AI tools — but are they building the tools that deliver the highest value?
               </p>
             </div>
 
@@ -532,7 +532,7 @@ const MemberCapabilities = () => {
               <ul className="space-y-3">
                 <li className="font-body text-muted-foreground flex items-start gap-2">
                   <span className="text-gold mt-1 font-semibold">1.</span>
-                  <span><strong>Close the Copilot gap:</strong> Members should increase internal Copilot deployment to build deeper expertise in their most-requested training topic</span>
+                  <span><strong>Close the Copilot gap:</strong> Organizations should increase internal Copilot deployment to build deeper expertise</span>
                 </li>
                 <li className="font-body text-muted-foreground flex items-start gap-2">
                   <span className="text-gold mt-1 font-semibold">2.</span>
@@ -540,7 +540,7 @@ const MemberCapabilities = () => {
                 </li>
                 <li className="font-body text-muted-foreground flex items-start gap-2">
                   <span className="text-gold mt-1 font-semibold">3.</span>
-                  <span><strong>Leverage advanced member capabilities:</strong> Members with production AI systems (Bittnet, Algebra, Rumos) should share implementation learnings across the alliance</span>
+                  <span><strong>Leverage advanced capabilities:</strong> Organizations with production AI systems should share implementation learnings</span>
                 </li>
                 <li className="font-body text-muted-foreground flex items-start gap-2">
                   <span className="text-gold mt-1 font-semibold">4.</span>

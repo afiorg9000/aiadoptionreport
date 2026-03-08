@@ -9,7 +9,7 @@ type NavItem = {
 };
 
 interface MarketProfileSidebarProps {
-  groupedProfiles: Record<string, { country: string; member: string }[]>;
+  groupedProfiles: Record<string, { country: string; provider: string }[]>;
 }
 
 const NavItemComponent = ({

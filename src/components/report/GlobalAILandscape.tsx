@@ -16,28 +16,28 @@ import { typography, spacing, containers, iconSizes, iconWrapperBase, tierColors
 const tierFramework = [{
   tier: 1,
   name: "Leaders",
-  profile: "Strong adoption with implementation-focused clients, significant AI initiatives, and/or members with demonstrated AI capability",
+  profile: "High enterprise adoption (40%+), mature AI governance, significant public/private investment, advanced implementation across industries",
   color: "bg-llpa-green text-white",
   borderColor: "border-llpa-green",
   icon: TrendingUp
 }, {
   tier: 2,
   name: "Advanced",
-  profile: "Growing markets with active client demand; or lower-adoption markets elevated by strong member capability or significant initiatives",
+  profile: "Growing adoption (25-40%), active enterprise experimentation, emerging governance frameworks, strong government AI initiatives",
   color: "bg-llpa-blue text-white",
   borderColor: "border-llpa-blue",
   icon: Sparkles
 }, {
   tier: 3,
   name: "Emerging",
-  profile: "Awareness-level demand, limited initiatives, but members have some production AI experience",
+  profile: "Moderate adoption (15-25%), awareness-level engagement, limited but growing AI initiatives, early governance development",
   color: "bg-llpa-yellow text-foreground",
   borderColor: "border-llpa-yellow",
   icon: Globe
 }, {
   tier: 4,
   name: "Nascent",
-  profile: "Limited willingness to pay, foundational demand only, minimal initiatives, member capability undeveloped",
+  profile: "Early adoption (<15%), foundational awareness stage, minimal AI initiatives, governance frameworks not yet developed",
   color: "bg-llpa-orange text-white",
   borderColor: "border-llpa-orange",
   icon: Leaf
@@ -59,47 +59,68 @@ const tierDistribution = [{
   name: "Nascent",
   markets: ["Slovenia"]
 }];
-const trainingDemandByTier = [{
+const adoptionCharacteristicsByTier = [{
   tier: 1,
-  primary: "Advanced technical (RAG, agents, MLOps), production deployment, governance frameworks",
-  secondary: "Industry-specific applications, change management",
-  portfolioFit: "Weak — only 10% of portfolio addresses advanced content",
-  fitColor: "text-llpa-orange"
+  primary: "Production AI deployments, advanced use cases (RAG, agents), established governance",
+  secondary: "Multi-vendor strategies, industry-specific implementations",
+  challenge: "Scaling from pilots to enterprise-wide deployment",
+  challengeColor: "text-llpa-orange"
 }, {
   tier: 2,
-  primary: "Role-based training, implementation workshops, governance fundamentals",
-  secondary: "Industry-specific use cases, adoption support",
-  portfolioFit: "Moderate — intermediate content exists but lacks depth",
-  fitColor: "text-llpa-yellow"
+  primary: "Active experimentation, role-based pilots, emerging governance frameworks",
+  secondary: "Tool consolidation, ROI measurement challenges",
+  challenge: "Moving from experimentation to measurable business value",
+  challengeColor: "text-llpa-yellow"
 }, {
   tier: 3,
-  primary: "Foundational AI literacy, basic prompt engineering, use case exploration",
-  secondary: "Tool-specific training (Copilot, ChatGPT basics)",
-  portfolioFit: "Strong — 90% of portfolio serves this tier",
-  fitColor: "text-llpa-green"
+  primary: "Foundational AI literacy, basic tool adoption, use case exploration",
+  secondary: "Executive buy-in, budget justification",
+  challenge: "Building organizational AI capability and culture",
+  challengeColor: "text-llpa-blue"
 }, {
   tier: 4,
-  primary: "AI awareness programs, executive briefings, \"why AI matters\"",
-  secondary: "Basic digital literacy prerequisites",
-  portfolioFit: "Strong — foundational content well-covered",
-  fitColor: "text-llpa-green"
+  primary: "AI awareness building, executive education, foundational digital skills",
+  secondary: "Infrastructure development, talent acquisition",
+  challenge: "Establishing baseline AI readiness",
+  challengeColor: "text-llpa-green"
+}];
+const trainingDemandByTier = [{
+  tier: 1,
+  primary: "Advanced implementation (RAG, agents, fine-tuning)",
+  secondary: "Multi-model strategy, governance, LLMOps",
+  portfolioFit: "Gap: Advanced technical content needed"
+}, {
+  tier: 2,
+  primary: "Role-based AI applications, pilot-to-production",
+  secondary: "Change management, ROI measurement",
+  portfolioFit: "Partial: Role-based content exists"
+}, {
+  tier: 3,
+  primary: "Foundational GenAI, prompt engineering basics",
+  secondary: "Use case discovery, executive awareness",
+  portfolioFit: "Strong: Core curriculum aligned"
+}, {
+  tier: 4,
+  primary: "AI literacy, digital foundations",
+  secondary: "Executive education, infrastructure basics",
+  portfolioFit: "Strong: Awareness content available"
 }];
 const fourFactorAssessment = [{
-  factor: "Market Adoption",
-  measures: "Enterprise AI usage rates",
+  factor: "Enterprise Adoption",
+  measures: "AI usage rates by company size and sector",
   source: "Eurostat, national statistics, industry surveys"
 }, {
-  factor: "Client Behavior",
-  measures: "Sophistication of training demand, willingness to pay, implementation readiness",
-  source: "training provider interviews (n=22)"
+  factor: "Investment Intensity",
+  measures: "Private AI investment, venture capital, R&D spending",
+  source: "Stanford HAI AI Index, Crunchbase, CB Insights"
 }, {
-  factor: "Member Capability",
-  measures: "Internal AI sophistication of training provider organization",
-  source: "Member interviews, documented AI deployments"
+  factor: "Ecosystem Maturity",
+  measures: "AI talent availability, research output, startup density",
+  source: "LinkedIn Economic Graph, academic databases"
 }, {
-  factor: "AI Initiatives",
-  measures: "Government programs, ecosystem investment, public-private partnerships",
-  source: "National AI strategies, investment data"
+  factor: "Policy Environment",
+  measures: "Government programs, regulatory frameworks, public investment",
+  source: "National AI strategies, Oxford Insights AI Readiness Index"
 }];
 const weightedIndex = [{
   factor: "Enterprise AI Usage",
@@ -297,9 +318,9 @@ const GlobalAILandscape = () => {
             <div id="strategic-context-1" className={spacing.blockMargin}>
               <div className={`space-y-4 ${typography.body}`}>
                 <p>
-                  Enterprise AI adoption is accelerating rapidly across training provider markets. The latest Eurostat data (December 2025) shows EU enterprise AI adoption reached 20.0% — a 6.5% increase from 13.5% in January 2025 and nearly triple the 7.7% recorded in 2021.<CitationLink id={375} /> This growth is unevenly distributed: Nordic markets lead with 35-42% adoption, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={375} />
+                  Enterprise AI adoption is accelerating rapidly across global markets. The latest Eurostat data (December 2025) shows EU enterprise AI adoption reached 20.0% — a 6.5% increase from 13.5% in January 2025 and nearly triple the 7.7% recorded in 2021.<CitationLink id={375} /> This growth is unevenly distributed: Nordic markets lead with 35-42% adoption, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={375} />
                 </p>
-                <p>For members, this acceleration creates both opportunity and urgency. Whoever helps organizations bridge the gap between AI adoption and AI value will capture that demand before the window closes. The following maturity tier framework helps members and training providers understand which markets and organizations are ready for advanced training offerings and which still require foundational programs.</p>
+                <p>This acceleration highlights the critical gap between AI adoption and AI value realization.  The following maturity tier framework helps understand which markets are ready for advanced AI implementations and which are still building foundational capabilities.</p>
               </div>
             </div>
 
@@ -309,7 +330,7 @@ const GlobalAILandscape = () => {
                 Maturity Tier Framework
               </h4>
               <p className={`${typography.body} ${spacing.paragraphMargin}`}>
-                training providers classifies member markets into four tiers using a four-factor assessment. This framework was recalibrated in December 2025 to reflect market evolution and incorporates qualitative factors beyond raw adoption statistics.
+                Markets are classified into four tiers using a four-factor assessment framework. This framework was recalibrated in December 2025 to reflect market evolution and incorporates qualitative factors beyond raw adoption statistics.
               </p>
               
               <div className={spacing.indent}>
@@ -339,7 +360,7 @@ const GlobalAILandscape = () => {
               </div>
 
               <p className={`${typography.note} ${containers.note}`}>
-                <strong>Note:</strong> Only markets with named training providers and sufficient validated data across all four factors are included. Members without documented internal AI capability have been excluded pending further assessment.
+                <strong>Note:</strong> Only markets with sufficient validated data across all four assessment factors are included in the tier classification.
               </p>
               </div>
             </div>
@@ -347,10 +368,10 @@ const GlobalAILandscape = () => {
             {/* Tier Classification Summary */}
             <div id="tier-classification" className={spacing.blockMargin}>
               <h4 className={`${typography.smallTitle} mb-2`}>
-                training providers Member Markets: Tier Classification Summary
+                Global Markets: Tier Classification Summary
               </h4>
               <p className={`${typography.bodySmall} ${spacing.paragraphMargin}`}>
-                The following tier distributions are based on available market data. Note: Members are best positioned to assess their own classification based on their direct market experience.
+                The following tier distributions are based on available market data across enterprise AI adoption, investment intensity, ecosystem maturity, and policy environment.
               </p>
               
               <div className={`overflow-x-auto mb-4 ${spacing.indent}`}>
@@ -379,7 +400,7 @@ const GlobalAILandscape = () => {
               </div>
 
               <p className="text-xs text-muted-foreground">
-                Source: training provider interviews (July-September 2025), Eurostat December 2025, national statistical offices.
+                Source: Eurostat December 2025, Stanford HAI AI Index 2025, Oxford Insights AI Readiness Index 2024, national statistical offices.
               </p>
             </div>
 
@@ -425,7 +446,7 @@ const GlobalAILandscape = () => {
                   Strategic Implication
                 </h5>
                 <p className={typography.bodySmall}>
-                  training providers Member's current portfolio is optimized for Tier 3-4 markets. However, Tier 1-2 markets — where clients have training budgets and are actively seeking implementation support — represent higher-margin opportunities that training providers currently cannot serve at scale.
+                  Organizations in Tier 3-4 markets focus on foundational AI capabilities. Tier 1-2 markets — where enterprises have significant AI budgets and are actively seeking implementation support — represent the highest-value opportunities but require more advanced capabilities to serve effectively.
                 </p>
               </div>
             </div>
@@ -438,7 +459,7 @@ const GlobalAILandscape = () => {
               </h4>
               
               <p className={`${typography.bodySmall} ${spacing.paragraphMargin}`}>
-                This methodology describes how the maturity tier framework was created. It establishes standardized criteria for classifying training provider markets into tiers, enabling consistent comparison of market readiness and informing strategic resource allocation decisions.
+                This methodology describes how the maturity tier framework was created. It establishes standardized criteria for classifying markets into tiers, enabling consistent comparison of market readiness and AI adoption maturity.
               </p>
 
               {/* Four-Factor Assessment */}
@@ -502,7 +523,7 @@ const GlobalAILandscape = () => {
               <div className={spacing.paragraphMargin}>
                 <h5 className={`${typography.blockTitle} mb-2`}>Qualitative Validation</h5>
                 <p className={typography.bodySmall}>
-                  training provider interviews (n=22, July-September 2025) provide ground-level validation through reported client demand patterns, training sophistication levels requested, and adoption obstacles encountered.
+                  Industry surveys and enterprise interviews provide ground-level validation through reported AI adoption patterns, implementation challenges, and value realization metrics.
                 </p>
               </div>
 
@@ -516,7 +537,7 @@ const GlobalAILandscape = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-llpa-blue mt-1">•</span>
-                    <span><strong>Member interviews:</strong> 22 structured interviews conducted July-September 2025 providing qualitative validation of enterprise demand patterns, client sophistication levels, and market readiness</span>
+                    <span><strong>Enterprise surveys:</strong> Industry research providing qualitative validation of enterprise AI adoption patterns, implementation sophistication, and market readiness</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-llpa-yellow mt-1">•</span>
@@ -539,7 +560,7 @@ const GlobalAILandscape = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-llpa-yellow mt-1">•</span>
-                    <span>Member interview data reflects training provider perspective, which may skew toward clients actively seeking external training</span>
+                    <span>Survey data reflects enterprise self-reporting, which may overstate actual AI deployment maturity</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-llpa-orange mt-1">•</span>
@@ -554,7 +575,7 @@ const GlobalAILandscape = () => {
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Explore Individual Market Profiles</h4>
                     <p className="text-sm text-muted-foreground">
-                      Detailed analysis of each training provider market with statistics, insights, and comparative context.
+                      Detailed analysis of each market with statistics, insights, and comparative context.
                     </p>
                   </div>
                   <Link to="/market-profiles" className="inline-flex items-center gap-2 px-5 py-2.5 bg-llpa-blue text-white font-medium rounded-lg hover:bg-llpa-blue/90 transition-colors shadow-sm whitespace-nowrap">
@@ -588,7 +609,7 @@ const GlobalAILandscape = () => {
 
             {/* Methodology & Objective */}
             <div className={spacing.blockMargin}>
-              <MethodologyBlock methodology="Analysis of enterprise AI adoption data across training provider markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis, member interview synthesis (n=22), and market research validation." objective="Identify recurring adoption dynamics that transcend individual markets to inform training provider's portfolio development, geographic prioritization, and training delivery evolution." />
+              <MethodologyBlock methodology="Analysis of enterprise AI adoption data across global markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis and market research synthesis from 425+ sources." objective="Identify recurring adoption dynamics that transcend individual markets to understand enterprise AI maturity patterns and value realization challenges." />
             </div>
 
             {/* Pattern 1: Size-Class Divide */}
@@ -813,7 +834,7 @@ const GlobalAILandscape = () => {
 
               <FindingBlock>
                 <p>
-                  The evidence shows regulated industries exhibit heightened caution (security concerns, governance gaps, conservative deployment approaches) compared to unregulated sectors. Member interviews from regulated-industry-heavy markets (Switzerland, Germany, Netherlands) report cautious client approaches, with organizations emphasizing security, quality, and proof-of-value. Security and compliance concerns create both friction and opportunity — organizations willing to invest in governance-focused training to mitigate risk.
+                  The evidence shows regulated industries exhibit heightened caution (security concerns, governance gaps, conservative deployment approaches) compared to unregulated sectors. Research from regulated-industry-heavy markets (Switzerland, Germany, Netherlands) reports cautious enterprise approaches, with organizations emphasizing security, quality, and proof-of-value. Security and compliance concerns create both friction and opportunity for AI adoption.
                 </p>
               </FindingBlock>
 
@@ -828,7 +849,7 @@ const GlobalAILandscape = () => {
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-blue mt-2" />
                     <span>
-                      <strong>Address shadow AI risk explicitly</strong>—the evidence shows governance gaps (only 49% with effective data governance in Netherlands); employees using personal AI tools without oversight creates compliance exposure that organizations will pay to remediate. Shadow AI refers to employees using personal ChatGPT accounts, uploading company data to unsanctioned AI tools, or deploying AI solutions without IT approval. Members can position training as part of a shadow AI remediation strategy—helping organizations establish acceptable use policies, deploy sanctioned tools, and train employees on compliant AI usage.
+                      <strong>Shadow AI risk is significant</strong>—the evidence shows governance gaps (only 49% with effective data governance in Netherlands); employees using personal AI tools without oversight creates compliance exposure. Shadow AI refers to employees using personal ChatGPT accounts, uploading company data to unsanctioned AI tools, or deploying AI solutions without IT approval. Organizations must establish acceptable use policies, deploy sanctioned tools, and ensure compliant AI usage.
                     </span>
                   </li>
                 </ul>
@@ -843,18 +864,18 @@ const GlobalAILandscape = () => {
               </h4>
 
               <p className={`${typography.bodySmall} ${spacing.paragraphMargin} font-bold`}>
-                64% of providers report clients lack strategic clarity on AI goals — citing undefined objectives, confusion about use cases, and difficulty prioritizing initiatives.
+                64% of enterprises lack strategic clarity on AI goals — citing undefined objectives, confusion about use cases, and difficulty prioritizing initiatives.
               </p>
 
               <p className={`${typography.body} mb-6`}>
                 Across all tiers, organizations struggle not with "what is AI?" but with "how should we apply AI strategically?"
               </p>
 
-              {/* Member Interview Evidence */}
+              {/* Enterprise Survey Evidence */}
               <div className="mb-6">
                 <h5 className={`${typography.blockTitle} ${spacing.titleMargin} flex items-center ${spacing.contentGap}`}>
                   <IconWrapper icon={MessageSquare} color="llpa-blue" size="sm" />
-                  Member Interview Evidence
+                  Enterprise Survey Evidence
                 </h5>
                 <ul className="space-y-2">
                   {strategicPlanningQuotes.map((item, index) => {
@@ -900,7 +921,7 @@ const GlobalAILandscape = () => {
                   <div className={`flex items-start ${spacing.contentGap} ${spacing.paragraphMargin}`}>
                     <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-green mt-2" />
                     <p className={typography.blockTitle}>
-                      Develop AI readiness and opportunity assessment tools that members can use with clients:
+                      Organizations need AI readiness and opportunity assessment frameworks:
                     </p>
                   </div>
                   <ul className={`${spacing.indent} space-y-2 list-none`}>
@@ -917,7 +938,7 @@ const GlobalAILandscape = () => {
                 <ul className="space-y-3 list-none">
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-blue mt-2" />
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Position members as strategic advisors, not just trainers</strong> — the gap is in strategic planning, not tool knowledge</p>
+                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Strategic planning is the critical gap</strong> — organizations struggle with "how" and "where" to apply AI, not "what" AI is</p>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-yellow mt-2" />

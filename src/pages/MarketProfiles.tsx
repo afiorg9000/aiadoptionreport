@@ -11,14 +11,14 @@ interface MarketProfile {
   region: string;
   subRegion?: string;
   country: string;
-  member: string;
+  provider: string;
   tier: number;
   tierLabel: string;
   stats: {
     label: string;
     value: string;
   }[];
-  memberInsights: string;
+  marketInsights: string;
   strengths: string[];
   weaknesses: string[];
   comparativeContext: {
@@ -32,7 +32,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Nordic",
     country: "Denmark",
-    member: "Teknologisk Institut",
+    provider: "Provider A",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -41,7 +41,7 @@ const profiles: MarketProfile[] = [
       { label: "Large enterprise adoption (250+ employees)", value: "63%[2]" },
       { label: "GenAI individual usage", value: "48.4% (highest in EU)[3]" }
     ],
-    memberInsights: "Denmark's digitally mature corporate culture creates strong demand for advanced AI training. Clients request practical implementation support and governance frameworks, moving beyond basic awareness training. Public sector adoption drives consistent demand across government and municipal services.[80]",
+    marketInsights: "Denmark's digitally mature corporate culture creates strong demand for advanced AI training. Enterprises request practical implementation support and governance frameworks, moving beyond basic awareness training. Public sector adoption drives consistent demand across government and municipal services.[80]",
     strengths: [
       "Highest enterprise AI adoption in EU — Denmark leads all 27 EU member states with 42.03% of enterprises using AI technologies as of 2025, nearly double the EU average of 20% and more than triple the rate of lagging countries like Romania (5.2%).[1]",
       "Largest year-over-year growth in AI adoption — Denmark recorded the highest increase in AI adoption in the EU at 14.45 percentage points, demonstrating exceptional acceleration that doubled adoption from 27.6% in 2024 to 42% in 2025.[1]",
@@ -65,7 +65,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Netherlands",
-    member: "Computrain",
+    provider: "Provider B",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -74,7 +74,7 @@ const profiles: MarketProfile[] = [
       { label: "Cloud services adoption", value: "92% (highest in EU)[35]" },
       { label: "Enterprise AI growth", value: "140%+ YoY (fastest in Europe alongside Australia, Brazil, France)[26]" }
     ],
-    memberInsights: "Dutch enterprises demonstrate sophisticated AI maturity with emphasis on practical applications in logistics, financial services, and agriculture technology sectors. Clients expect hands-on implementation support with multilingual delivery capabilities.",
+    marketInsights: "Dutch enterprises demonstrate sophisticated AI maturity with emphasis on practical applications in logistics, financial services, and agriculture technology sectors. Organizations expect hands-on implementation support with multilingual delivery capabilities.",
     strengths: [
       "Highest cloud adoption rate in EU — Over 92% of Dutch enterprises use some form of cloud service—the highest rate in the EU—providing essential infrastructure for AI adoption and creating natural progression to AI-enabled cloud services.[35]",
       "Among fastest-growing AI markets globally — OpenAI's enterprise AI report identifies Netherlands alongside Australia, Brazil, and France as exceeding 140% year-over-year growth in business AI customers, indicating exceptional momentum.[26]",
@@ -98,7 +98,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Germany",
-    member: "TÜV Rheinland",
+    provider: "Provider C",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -107,7 +107,7 @@ const profiles: MarketProfile[] = [
       { label: "Large enterprise AI adoption", value: "~40% (aligned with EU large enterprise rates)" },
       { label: "Manufacturing AI adoption", value: "Growing significantly in automotive and industrial sectors" }
     ],
-    memberInsights: "Germany's industrial base creates concentrated demand for AI in manufacturing, automotive, and engineering contexts. Mittelstand companies require practical implementation pathways tailored to their scale. TÜV Rheinland's strong compliance and certification focus aligns with EU AI Act preparation demand.",
+    marketInsights: "Germany's industrial base creates concentrated demand for AI in manufacturing, automotive, and engineering contexts. Mittelstand companies require practical implementation pathways tailored to their scale. Strong compliance and certification focus aligns with EU AI Act preparation demand.",
     strengths: [
       "Europe's largest economy with substantial AI market — Germany's position as Europe's largest economy creates significant volume opportunity. The AI market includes 463 AI startups, with Berlin and Munich emerging as key innovation centers.[65]",
       "Strong industrial AI demand in manufacturing and automotive — Germany's industrial base creates concentrated demand for applied AI in production optimization, quality control, and Industry 4.0 applications. Manufacturing AI adoption is particularly strong among enterprises with established digital transformation programs.",
@@ -131,7 +131,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Switzerland",
-    member: "Digicomp Academy",
+    provider: "Provider D",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -139,7 +139,7 @@ const profiles: MarketProfile[] = [
       { label: "Digital readiness", value: "Among top-ranked globally for innovation and digital infrastructure" },
       { label: "Working-age AI adoption", value: "Approximately 30-35% (estimated based on Microsoft AI Diffusion data)" }
     ],
-    memberInsights: "Switzerland's financial services and pharmaceutical sectors drive demand for specialized AI applications with strict compliance requirements. Clients prioritize security, data privacy, and regulatory alignment. Premium pricing is accepted for quality training.",
+    marketInsights: "Switzerland's financial services and pharmaceutical sectors drive demand for specialized AI applications with strict compliance requirements. Organizations prioritize security, data privacy, and regulatory alignment. Premium pricing is accepted for quality training.",
     strengths: [
       "Among highest generative AI usage in Europe — Switzerland's 47% individual generative AI usage rate is among the highest in Europe, exceeded only by Norway (56%), indicating exceptional digital literacy and AI readiness.[3]",
       "Premium market positioning enabling quality-focused training — High willingness to pay for quality training enables sustainable pricing models. Swiss enterprises invest significantly in workforce development and accept premium rates for specialized, high-value training.",
@@ -163,7 +163,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "United Kingdom",
-    member: "QA",
+    provider: "Provider E",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -172,7 +172,7 @@ const profiles: MarketProfile[] = [
       { label: "Individual AI usage", value: "31% have used tools like ChatGPT/Gemini[77]" },
       { label: "AI investment", value: "$4.5 billion private investment (third globally after US and China)[6]" }
     ],
-    memberInsights: "UK's financial services concentration and tech sector growth create sophisticated demand for enterprise AI training. Post-Brexit regulatory divergence creates UK-specific compliance training needs. Strong focus on AI safety and responsible deployment.",
+    marketInsights: "UK's financial services concentration and tech sector growth create sophisticated demand for enterprise AI training. Post-Brexit regulatory divergence creates UK-specific compliance needs. Strong focus on AI safety and responsible deployment.",
     strengths: [
       "Third-largest global AI private investment — UK attracted $4.5 billion in private AI investment in 2024, positioning it as the third-largest AI investment destination globally after the US ($109 billion) and China ($9.3 billion).[6]",
       "Strong near-term adoption pipeline — 14% of UK firms plan to adopt AI within 3 months (June 2025), the highest share since tracking began in September 2023, indicating sustained growth momentum.[77]",
@@ -196,7 +196,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Portugal",
-    member: "Rumos",
+    provider: "Provider F",
     tier: 3,
     tierLabel: "Emerging",
     stats: [
@@ -204,7 +204,7 @@ const profiles: MarketProfile[] = [
       { label: "Year-over-year growth", value: "+0.8 percentage points (lowest growth in EU in 2024)[68]" },
       { label: "GenAI individual usage", value: "~30% (near EU average)" }
     ],
-    memberInsights: "Portugal's growing tech hub status (particularly Lisbon) creates demand for AI workforce development. Strong tourism and services sectors show increasing AI interest. Language advantage for Portuguese-speaking markets.",
+    marketInsights: "Portugal's growing tech hub status (particularly Lisbon) creates demand for AI workforce development. Strong tourism and services sectors show increasing AI interest. Language advantage for Portuguese-speaking markets.",
     strengths: [
       "Emerging tech ecosystem with Lisbon as European hub — Lisbon's emergence as a European tech hub attracts AI-focused companies and talent. Web Summit's location in Lisbon has elevated Portugal's tech profile and created networking opportunities.",
       "EU positioning with Atlantic-facing advantages — Portugal's position as an Atlantic-facing EU member creates bridge opportunity for Portuguese-speaking markets (Brazil, Angola, Mozambique), enabling regional expansion strategies.",
@@ -228,7 +228,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Romania",
-    member: "Bittnet",
+    provider: "Provider G",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -236,7 +236,7 @@ const profiles: MarketProfile[] = [
       { label: "GenAI individual usage", value: "17.8% (lowest in EU)[3]" },
       { label: "Year-over-year growth", value: "+2.1 percentage points (modest growth from 3.1% base)" }
     ],
-    memberInsights: "Romania's strong IT outsourcing sector creates technical workforce familiar with software development but requiring AI-specific upskilling. Growing domestic enterprise interest complements existing services export model.",
+    marketInsights: "Romania's strong IT outsourcing sector creates technical workforce familiar with software development but requiring AI-specific upskilling. Growing domestic enterprise interest complements existing services export model.",
     strengths: [
       "Strong technical talent base and IT services sector — Established software development workforce provides strong foundation for AI skills development. Romania is known for cost-effective, high-quality IT services delivery with English-proficient developers.",
       "Cost competitiveness enabling training investment — Favorable economics enable training investment at scale. Lower operational costs create opportunity for affordable AI training programs targeting SMEs and emerging enterprises.",
@@ -260,7 +260,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Croatia",
-    member: "Algebra",
+    provider: "Provider H",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -268,7 +268,7 @@ const profiles: MarketProfile[] = [
       { label: "Enterprise AI adoption", value: "~12-15% (estimated, middle tier in EU)" },
       { label: "GenAI individual usage", value: "~30% (near EU average)" }
     ],
-    memberInsights: "Croatia shows growing interest in AI workforce development, particularly in tourism technology and emerging tech startup ecosystem. EU membership enables access to structural funds for training investments.",
+    marketInsights: "Croatia shows growing interest in AI workforce development, particularly in tourism technology and emerging tech startup ecosystem. EU membership enables access to structural funds for investments.",
     strengths: [
       "Moderate AI adoption positioning in Adriatic region — Croatia's 21.8% working-age AI adoption places it in the middle tier of global AI diffusion, ahead of many Central and Eastern European peers and indicating reasonable digital readiness.[71]",
       "EU funding access for digital transformation — EU structural funds available for digital skills and AI training programs, providing financial support for enterprise and public sector AI workforce development initiatives.",
@@ -292,7 +292,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Slovenia",
-    member: "Kompas Xnet",
+    provider: "Provider I",
     tier: 4,
     tierLabel: "Nascent",
     stats: [
@@ -300,7 +300,7 @@ const profiles: MarketProfile[] = [
       { label: "Enterprise AI adoption", value: "Among EU intermediate adopters (~15-20%)" },
       { label: "AI purpose adoption", value: "Recognized for adopting AI technologies for multiple purposes[72]" }
     ],
-    memberInsights: "Slovenia's small but highly educated workforce shows readiness for AI adoption. Strong manufacturing base and EU membership create structural demand for skills development.",
+    marketInsights: "Slovenia's small but highly educated workforce shows readiness for AI adoption. Strong manufacturing base and EU membership create structural demand for skills development.",
     strengths: [
       "Higher AI adoption than regional peers — Slovenia's 24.6% working-age AI adoption exceeds Croatia (21.8%) and Serbia (19.7%), indicating stronger digital foundation among Adriatic neighbors.[71]",
       "Recognized for broad AI purpose adoption — Eurostat cluster analysis identifies Slovenia alongside Belgium, Denmark, Netherlands, and Sweden as countries adopting AI technologies for multiple purposes rather than single use cases.[72]",
@@ -324,7 +324,7 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "North Macedonia",
-    member: "Semos Education",
+    provider: "Provider J",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -332,7 +332,7 @@ const profiles: MarketProfile[] = [
       { label: "Working-age AI adoption", value: "Estimated 15-20% based on regional patterns" },
       { label: "National AI strategy", value: "Under development with EU accession focus" }
     ],
-    memberInsights: "North Macedonia's emerging tech sector shows interest in AI capabilities as part of broader economic modernization efforts. Limited current adoption creates greenfield opportunity for foundational training.[404]",
+    marketInsights: "North Macedonia's emerging tech sector shows interest in AI capabilities as part of broader economic modernization efforts. Limited current adoption creates greenfield market opportunity.[404]",
     strengths: [
       "Greenfield market opportunity — Early-stage market offers first-mover advantage for quality training providers establishing presence and brand recognition.",
       "EU accession trajectory driving standards alignment — Alignment with EU standards creates regulatory training demand as North Macedonia prepares for eventual EU membership and compliance requirements.",
@@ -355,7 +355,7 @@ const profiles: MarketProfile[] = [
   {
     region: "Asia-Pacific",
     country: "Singapore",
-    member: "Trainocate",
+    provider: "Provider K",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -365,7 +365,7 @@ const profiles: MarketProfile[] = [
       { label: "Digital economy", value: "18.6% of GDP (S$128.1 billion)[11]" },
       { label: "Worker AI usage", value: "75% regularly use AI tools[18]" }
     ],
-    memberInsights: "Singapore's position as ASEAN's AI hub creates demand for enterprise-grade implementation training. Government's National AI Strategy 2.0 and substantial investment ($27B commitment) drive urgency for workforce upskilling at scale.[405][406][407]",
+    marketInsights: "Singapore's position as ASEAN's AI hub creates demand for enterprise-grade implementation training. Government's National AI Strategy 2.0 and substantial investment ($27B commitment) drive urgency for workforce upskilling at scale.[405][406][407]",
     strengths: [
       "Second-highest global AI adoption rate — 60.9% of Singapore's working-age population uses AI tools, second only to UAE (64%) globally, demonstrating exceptional digital readiness and enterprise AI integration.[48]",
       "Explosive SME AI adoption growth — SME AI adoption tripled in one year from 4.2% to 14.5%, while non-SME adoption jumped from 44% to 62.5%, showing unprecedented acceleration across business sizes.[11]",
@@ -388,7 +388,7 @@ const profiles: MarketProfile[] = [
   {
     region: "Asia-Pacific",
     country: "Australia",
-    member: "Lumify Work",
+    provider: "Provider L",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -398,7 +398,7 @@ const profiles: MarketProfile[] = [
       { label: "GenAI individual usage", value: "49% (up from 38% in 2023)[28]" },
       { label: "AI market value", value: "AUD 7.25 billion (2025)[28]" }
     ],
-    memberInsights: "Australian businesses show growing AI adoption with particular emphasis on productivity applications. RBA research indicates technology investment acceleration, though trust remains a barrier.[408][409][410][411][412]",
+    marketInsights: "Australian businesses show growing AI adoption with particular emphasis on productivity applications. RBA research indicates technology investment acceleration, though trust remains a barrier.[408][409][410][411][412]",
     strengths: [
       "Among fastest-growing enterprise AI markets globally — Australia joins Brazil, Netherlands, and France in exceeding 140% year-over-year growth in enterprise AI customers, indicating exceptional adoption momentum.[26]",
       "High individual generative AI usage — Google/Ipsos 2025 survey shows 49% of Australians employed generative AI in the last year, up from 38% in 2023, with 74% of AI users integrating tools into work.[28]",
@@ -421,7 +421,7 @@ const profiles: MarketProfile[] = [
   {
     region: "Americas",
     country: "Mexico",
-    member: "CompuEducación",
+    provider: "Provider M",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -430,7 +430,7 @@ const profiles: MarketProfile[] = [
       { label: "GenAI excitement", value: "72% somewhat excited about AI possibilities[59]" },
       { label: "ILIA ranking", value: "Among 'adopters' category in Latin America" }
     ],
-    memberInsights: "Mexico's manufacturing nearshoring boom creates AI training demand in automotive and electronics production. Member reports growing corporate interest but limited local AI training infrastructure.",
+    marketInsights: "Mexico's manufacturing nearshoring boom creates AI training demand in automotive and electronics production. Growing corporate interest but limited local AI infrastructure.",
     strengths: [
       "Nearshoring momentum driving technology investment — US-Mexico supply chain integration accelerates technology modernization investments as companies relocate or expand manufacturing operations, creating AI training demand.[52]",
       "Large workforce scale for volume opportunity — Substantial labor market creates significant volume opportunity for foundational AI literacy programs and industrial AI applications training.",
@@ -453,7 +453,7 @@ const profiles: MarketProfile[] = [
   {
     region: "Americas",
     country: "Brazil",
-    member: "GREEN Tecnologia",
+    provider: "Provider N",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -463,7 +463,7 @@ const profiles: MarketProfile[] = [
       { label: "GenAI excitement", value: "65% somewhat excited about AI possibilities[59]" },
       { label: "Microsoft investment", value: "$2.7 billion committed through 2027[52]" }
     ],
-    memberInsights: "Brazil's large economy and tech sector growth create significant AI training opportunity. Agricultural technology and financial services lead adoption, though infrastructure gaps persist.",
+    marketInsights: "Brazil's large economy and tech sector growth create significant AI opportunity. Agricultural technology and financial services lead adoption, though infrastructure gaps persist.",
     strengths: [
       "Latin America's AI powerhouse with pioneer status — Chile, Brazil, and Uruguay have consolidated as pioneers scoring more than 60 points on the Latin America AI Index, positioning Brazil as regional leader.[56]",
       "Among fastest-growing enterprise AI markets globally — Brazil joins Australia, Netherlands, and France in exceeding 140% year-over-year growth in enterprise AI customers, indicating exceptional momentum.[26]",
@@ -486,7 +486,7 @@ const profiles: MarketProfile[] = [
   {
     region: "Africa",
     country: "South Africa",
-    member: "CTU Training Solutions",
+    provider: "Provider O",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -495,7 +495,7 @@ const profiles: MarketProfile[] = [
       { label: "AI readiness", value: "77% of businesses prepared to adopt AI immediately[44]" },
       { label: "AI market", value: "Over 600 AI companies (most in Africa)[45]" }
     ],
-    memberInsights: "South Africa leads African AI adoption with growing enterprise interest across financial services, mining, and telecommunications. Training demand spans from executive awareness to technical implementation.[413][414][415]",
+    marketInsights: "South Africa leads African AI adoption with growing enterprise interest across financial services, mining, and telecommunications. Demand spans from executive awareness to technical implementation.[413][414][415]",
     strengths: [
       "Continental AI leadership with 600+ AI companies — South Africa hosts over 600 AI companies, the most in Africa, followed by Nigeria (400+) and Egypt (200+), demonstrating established ecosystem.[45]",
       "Among world's fastest generative AI adopters — OECD-Cisco research shows 45.4% of South African adults use generative AI tools, positioning the country among global leaders in AI adoption.[49]",
@@ -517,7 +517,7 @@ const profiles: MarketProfile[] = [
   }
 ];
 
-// Using training providers brand colors for consistency with main report
+// Using brand colors for consistency with main report
 const getTierColor = (tier: number) => {
   switch (tier) {
     case 1:
@@ -568,13 +568,13 @@ const MarketProfiles = () => {
             className="mb-12"
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              training providers Member Market Profiles
+              Regional Market Profiles
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-6">
-              Comprehensive AI Market Analysis by Country
+              Comprehensive AI Adoption Analysis by Country
             </p>
             <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mb-8">
-              These profiles provide 5 strengths, 5 weaknesses, and comparative context for each training provider market.
+              These profiles provide strengths, weaknesses, and comparative context for each market.
             </p>
 
             {/* Tier Distribution Table */}
@@ -649,7 +649,7 @@ const MarketProfiles = () => {
                               </div>
                               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <Building2 className="w-4 h-4" />
-                                <span>{profile.member}</span>
+                                <span>{profile.provider}</span>
                                 {profile.subRegion && (
                                   <>
                                     <span className="text-border">•</span>
@@ -681,14 +681,14 @@ const MarketProfiles = () => {
                             </div>
                           </div>
 
-                          {/* Member Insights */}
+                          {/* Market Insights */}
                           <div>
                             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3 flex items-center gap-2">
                               <Users className="w-4 h-4 text-steel" />
-                              Member Insights
+                              Market Insights
                             </h4>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              <MarketProfileCitation text={profile.memberInsights} />
+                              <MarketProfileCitation text={profile.marketInsights} />
                             </p>
                           </div>
 

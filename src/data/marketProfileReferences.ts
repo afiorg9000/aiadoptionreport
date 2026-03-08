@@ -389,5 +389,23 @@ export const marketProfileReferences: MarketProfileReference[] = [
     source: "Mastercard",
     description: "Harnessing the transformative power of AI in Africa (August 2025)",
     url: "https://www.mastercard.com/news/media/ue4fmcc5/mastercard-ai-in-africa-2025.pdf"
+  },
+  {
+    id: 416,
+    source: "Alex Imas (Substack)",
+    description: "What is the impact of AI on productivity? Reconciling the micro and the macro evidence (March 2026)",
+    url: "https://aleximas.substack.com/p/what-is-the-impact-of-ai-on-productivity"
+  },
+  {
+    id: 417,
+    source: "Wang et al. (CMU/Stanford)",
+    description: "How Well Does Agent Development Reflect Real-World Work? arXiv:2603.01203 (March 2026)",
+    url: "https://arxiv.org/abs/2603.01203"
+  },
+  {
+    id: 418,
+    source: "AI Agents for Human Work",
+    description: "Benchmarking Agents Against Real-World Work - mapping 43 benchmarks to 1,016 occupations (2026)",
+    url: "https://zorazrw.github.io/ai4work/"
   }
 ];
