@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="inline-flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-slate-400 border-t border-slate-700 pt-8">
             <div>
               <span className="text-slate-500">Published:</span>{" "}
-              <span className="text-slate-300">March 2026</span>
+              <span className="text-slate-300">2025</span>
             </div>
             <div>
               <span className="text-slate-500">Coverage:</span>{" "}

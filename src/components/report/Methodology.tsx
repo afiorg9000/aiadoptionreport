@@ -48,7 +48,7 @@ const Methodology = () => {
             <h2 className={`${typography.sectionTitle} mb-4`}>Methodology</h2>
             
             <p className={`${typography.body} mb-8`}>
-              This report synthesizes findings from 425+ research sources published between 2023 and 2026. 
+              This report synthesizes findings from 425+ research sources published between 2023 and 2025. 
               Data was collected through systematic review of industry surveys, government statistics, 
               academic research, and market analysis reports. Where sources reported conflicting figures, 
               we prioritized recent data, larger sample sizes, and methodologically rigorous studies.

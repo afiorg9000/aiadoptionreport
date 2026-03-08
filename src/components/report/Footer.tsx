@@ -45,11 +45,11 @@ const Footer = () => {
             <div className="space-y-3 font-body text-sm">
               <div>
                 <span className="text-white/40">Report Date:</span>
-                <span className="ml-2 text-white/80">March 2026</span>
+                <span className="ml-2 text-white/80">March 2025</span>
               </div>
               <div>
                 <span className="text-white/40">Research Period:</span>
-                <span className="ml-2 text-white/80">2024 – 2026</span>
+                <span className="ml-2 text-white/80">2024 – 2025</span>
               </div>
               <div>
                 <span className="text-white/40">Coverage:</span>
@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="h-px bg-white/5 my-12" />
 
         <p className="font-body text-sm text-white/40 text-center">
-          © 2026 AI Adoption Report
+          © 2025 AI Adoption Report
         </p>
       </div>
     </footer>

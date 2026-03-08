@@ -148,7 +148,7 @@ const FutureOutlook = () => {
                   <tr className="bg-muted border-b">
                     <th className="text-left py-3 px-4 font-semibold">Benchmark</th>
                     <th className="text-left py-3 px-4 font-semibold">2024 Baseline</th>
-                    <th className="text-left py-3 px-4 font-semibold">March 2026</th>
+                    <th className="text-left py-3 px-4 font-semibold">2025</th>
                     <th className="text-left py-3 px-4 font-semibold">Change</th>
                   </tr>
                 </thead>

@@ -667,7 +667,7 @@ const MarketProfiles = () => {
                           <div>
                             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3 flex items-center gap-2">
                               <TrendingUp className="w-4 h-4 text-steel" />
-                              Current Statistics (January 2026)
+                              Current Statistics (January 2025)
                             </h4>
                             <div className="grid gap-2">
                               {profile.stats.map((stat, i) => (

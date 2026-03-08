@@ -3,7 +3,7 @@ import { typography, spacing } from "./styles";
 
 const productivityStudies = [
   {
-    study: "NBER Executive Survey (2026)",
+    study: "NBER Executive Survey (2025)",
     sample: "6,000 executives",
     finding: "90% of firms report zero measurable productivity or employment impact despite $2.5 trillion global AI spending",
     citation: "NBER",
@@ -33,7 +33,7 @@ const productivityStudies = [
     citation: "METR",
   },
   {
-    study: "CEO Survey (BuildMVPFast 2026)",
+    study: "CEO Survey (BuildMVPFast 2025)",
     sample: "Enterprise CEOs",
     finding: "95% of companies report zero measurable productivity ROI; 95% of AI pilots never escape the lab",
     citation: "BuildMVPFast",
@@ -42,7 +42,7 @@ const productivityStudies = [
 
 const macroEvidenceSources = [
   {
-    source: "BLS Productivity Data (2025-2026)",
+    source: "BLS Productivity Data (2025-2025)",
     finding: "US productivity growth: 2.7% in 2025 vs 1.4% decade average — early signs of acceleration",
     interpretation: "Suggestive but not conclusive; confounded by other economic factors",
   },
@@ -52,7 +52,7 @@ const macroEvidenceSources = [
     interpretation: "Adoption metrics improving but not yet reflected in aggregate output statistics",
   },
   {
-    source: "UK Office for National Statistics (2026)",
+    source: "UK Office for National Statistics (2025)",
     finding: "Most businesses report no measurable productivity impact from AI adoption",
     interpretation: "Consistent with deployment-value gap pattern observed across markets",
   },
@@ -308,7 +308,7 @@ const AdoptionPhases = () => {
                 <thead>
                   <tr className="bg-muted border-b">
                     <th className="text-left py-3 px-4 font-semibold w-1/4">Dimension</th>
-                    <th className="text-left py-3 px-4 font-semibold">AI (2024-2026)</th>
+                    <th className="text-left py-3 px-4 font-semibold">AI (2024-2025)</th>
                     <th className="text-left py-3 px-4 font-semibold">Metaverse/VR</th>
                   </tr>
                 </thead>

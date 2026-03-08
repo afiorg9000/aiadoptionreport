@@ -45,7 +45,7 @@ const Conclusion = () => {
           <div className="border rounded-lg p-6 mt-8 bg-card">
             <h3 className="font-semibold text-foreground mb-3">Key Takeaways</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• The adoption-value gap is the defining challenge of enterprise AI in 2026</li>
+              <li>• The adoption-value gap is the defining challenge of enterprise AI in 2025</li>
               <li>• Current productivity plateaus are phase-specific, not technology-specific</li>
               <li>• Skills requirements evolve as adoption matures; training is not a one-time investment</li>
               <li>• Organizations should prioritize adaptive capabilities over tool optimization</li>
