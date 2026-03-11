@@ -1,6 +1,20 @@
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import { useState } from "react";
+import { exportToPdf } from "@/utils/exportPdf";
 
 const Header = () => {
+  const [isExporting, setIsExporting] = useState(false);
+
+  const handleExport = async () => {
+    setIsExporting(true);
+    try {
+      await exportToPdf();
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
     <>
       <a
@@ -56,6 +70,15 @@ const Header = () => {
               >
                 References
               </a>
+              <button
+                onClick={handleExport}
+                disabled={isExporting}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Export to PDF"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden sm:inline">{isExporting ? "Exporting..." : "PDF"}</span>
+              </button>
             </motion.nav>
           </div>
         </div>
