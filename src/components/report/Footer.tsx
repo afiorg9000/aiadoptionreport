@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Brain } from "lucide-react";
+import llpaLogo from "@/assets/llpa-logo-white.svg";
 
 const Footer = () => {
   return (
@@ -14,9 +14,8 @@ const Footer = () => {
         >
           {/* Logo & Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Brain className="h-6 w-6 text-blue-400" />
-              <span className="text-white font-semibold">AI Adoption Report</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={llpaLogo} alt="LLPA" className="h-8" />
             </div>
             <p className="font-body text-sm text-white/60 leading-relaxed">
               Analysis of global enterprise AI adoption patterns, barriers, and future outlook. 
@@ -45,7 +44,7 @@ const Footer = () => {
             <div className="space-y-3 font-body text-sm">
               <div>
                 <span className="text-white/40">Report Date:</span>
-                <span className="ml-2 text-white/80">March 2025</span>
+                <span className="ml-2 text-white/80">March 2026</span>
               </div>
               <div>
                 <span className="text-white/40">Research Period:</span>
@@ -62,7 +61,7 @@ const Footer = () => {
         <div className="h-px bg-white/5 my-12" />
 
         <p className="font-body text-sm text-white/40 text-center">
-          © 2025 AI Adoption Report
+          © 2026 Enterprise AI Adoption Report
         </p>
       </div>
     </footer>

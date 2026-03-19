@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { useState } from "react";
 import { exportToPdf } from "@/utils/exportPdf";
+import llpaLogo from "@/assets/llpa-logo-white.svg";
 
 const Header = () => {
   const [isExporting, setIsExporting] = useState(false);
@@ -32,11 +33,11 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2"
             >
-              <span className="font-body text-sm font-medium text-white/90">
-                Enterprise AI Adoption
-              </span>
+              <img src={llpaLogo} alt="LLPA" className="h-7" />
               <span className="text-slate-500 text-sm hidden sm:inline">|</span>
-              <span className="text-slate-400 text-sm hidden sm:inline">Research Report</span>
+              <span className="font-body text-sm font-medium text-white/90 hidden sm:inline">
+                Enterprise AI Adoption Report 2025
+              </span>
             </motion.div>
 
             <motion.nav

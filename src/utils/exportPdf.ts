@@ -6,7 +6,7 @@ export const exportToPdf = async () => {
 
   const opt = {
     margin: [10, 10, 10, 10],
-    filename: "Enterprise-AI-Adoption-2025.pdf",
+    filename: "Enterprise-AI-Adoption-Report-2025.pdf",
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: {
       scale: 2,
