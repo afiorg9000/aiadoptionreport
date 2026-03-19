@@ -12,57 +12,48 @@ import Conclusion from "@/components/report/Conclusion";
 import References from "@/components/report/References";
 import Footer from "@/components/report/Footer";
 import SidebarNav from "@/components/report/SidebarNav";
+import { PrintProvider, usePrint } from "@/contexts/PrintContext";
 
-const Index = () => {
+const ReportContent = () => {
+  const { contentRef } = usePrint();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-16">
-        {/* Cover */}
-        <Hero />
-        
-        {/* Content sections with sidebar */}
-        <div className="xl:flex">
-          <div className="min-w-0 flex-1">
-            {/* Executive Summary */}
-            <ExecutiveSummary />
+        <div ref={contentRef} className="print-content">
+          <Hero />
+          
+          <div className="xl:flex">
+            <div className="min-w-0 flex-1">
+              <ExecutiveSummary />
+              <Methodology />
+              <TableOfContents />
+              <GlobalAILandscape />
+              <BarriersToAdoption />
+              <IndustryAdoption />
+              <AdoptionPhases />
+              <FutureOutlook />
+              <Conclusion />
+              <References />
+            </div>
 
-            {/* Methodology */}
-            <Methodology />
-
-            {/* Table of Contents */}
-            <TableOfContents />
-
-            {/* Section 1: Global AI Adoption Landscape */}
-            <GlobalAILandscape />
-
-            {/* Section 2: Barriers to Adoption */}
-            <BarriersToAdoption />
-
-            {/* Section 3: Industry Adoption */}
-            <IndustryAdoption />
-
-            {/* Section 4: Productivity Impact Analysis */}
-            <AdoptionPhases />
-
-            {/* Section 5: Future Outlook */}
-            <FutureOutlook />
-
-            {/* Conclusion */}
-            <Conclusion />
-
-            {/* References */}
-            <References />
+            <aside className="hidden xl:block w-52 shrink-0 print:hidden">
+              <SidebarNav />
+            </aside>
           </div>
-
-          {/* Right sidebar navigation */}
-          <aside className="hidden xl:block w-52 shrink-0">
-            <SidebarNav />
-          </aside>
         </div>
       </main>
       <Footer />
     </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <PrintProvider>
+      <ReportContent />
+    </PrintProvider>
   );
 };
 
