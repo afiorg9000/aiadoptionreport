@@ -3,7 +3,7 @@ import llpaLogo from "@/assets/llpa-logo-white.svg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[70vh] flex items-center bg-slate-900">
+    <section className="relative min-h-[70vh] flex items-center bg-slate-900 -mb-px">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,9 +1,9 @@
 import { createContext, useContext, useRef, ReactNode } from "react";
-import { useReactToPrint } from "react-to-print";
 
 interface PrintContextType {
   handlePrint: () => void;
   contentRef: React.RefObject<HTMLDivElement>;
+  isExporting: boolean;
 }
 
 const PrintContext = createContext<PrintContextType | null>(null);
@@ -16,39 +16,22 @@ export const usePrint = () => {
   return context;
 };
 
+const PDF_URL = "/Enterprise-AI-Adoption-Report-2025.pdf";
+
 export const PrintProvider = ({ children }: { children: ReactNode }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({
-    contentRef,
-    documentTitle: "Enterprise-AI-Adoption-Report-2025",
-    pageStyle: `
-      @page {
-        size: A4;
-        margin: 10mm;
-      }
-      @media print {
-        html, body {
-          height: auto !important;
-          max-height: none !important;
-          overflow: visible !important;
-          background: white !important;
-        }
-        * {
-          overflow: visible !important;
-          max-height: none !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-        .fixed, .absolute, .sticky {
-          position: static !important;
-        }
-      }
-    `,
-  });
+  const handlePrint = () => {
+    const link = document.createElement("a");
+    link.href = PDF_URL;
+    link.download = "Enterprise-AI-Adoption-Report-2025.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    <PrintContext.Provider value={{ handlePrint, contentRef }}>
+    <PrintContext.Provider value={{ handlePrint, contentRef, isExporting: false }}>
       {children}
     </PrintContext.Provider>
   );

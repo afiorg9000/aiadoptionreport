@@ -173,12 +173,73 @@
   .accent-yellow { border-color: hsl(var(--llpa-yellow)); }
 }
 
+/* =============================================
+   PDF EXPORT STYLES
+   Applied when html2pdf.js is capturing the DOM
+   ============================================= */
+.exporting-pdf * {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  overflow: visible !important;
+}
+
+.exporting-pdf .fixed,
+.exporting-pdf .sticky {
+  position: static !important;
+}
+
+.exporting-pdf header,
+.exporting-pdf .print\:hidden,
+.exporting-pdf aside {
+  display: none !important;
+}
+
+/* Force single-column layout */
+.exporting-pdf .xl\:flex {
+  display: block !important;
+}
+
+/* Hero: reduce height for PDF page */
+.exporting-pdf section[class*="min-h-[70vh]"] {
+  min-height: auto !important;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* Ensure charts render at fixed size */
+.exporting-pdf .recharts-responsive-container {
+  width: 100% !important;
+  min-height: 300px !important;
+}
+
+/* Page break hints */
+.exporting-pdf section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.exporting-pdf section + section {
+  page-break-before: auto;
+}
+
+/* =============================================
+   BROWSER PRINT STYLES
+   ============================================= */
 @media print {
+  @page {
+    size: A4;
+    margin: 10mm 8mm;
+  }
+
   html, body {
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
     background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   * {
@@ -186,13 +247,59 @@
     max-height: none !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 
+  /* Hide nav elements */
   .fixed, .sticky {
     position: static !important;
   }
 
-  header, .print\\:hidden {
+  header, .print\\:hidden, aside {
     display: none !important;
+  }
+
+  /* Force single column */
+  .xl\\:flex {
+    display: block !important;
+  }
+
+  /* Remove top padding that was for the fixed header */
+  main.pt-16 {
+    padding-top: 0 !important;
+  }
+
+  /* Hero: fit on first page */
+  section[class*="min-h-"] {
+    min-height: auto !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Charts */
+  .recharts-responsive-container {
+    width: 100% !important;
+    min-height: 280px !important;
+  }
+
+  /* Prevent cards/tables from splitting across pages */
+  .rounded-xl,
+  table,
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Each major section can break before */
+  section + section {
+    page-break-before: auto;
+  }
+
+  /* Footer: simple print version */
+  footer {
+    page-break-before: always;
   }
 }

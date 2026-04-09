@@ -106,7 +106,7 @@ const organizationalRequirements = [
 
 const FutureOutlook = () => {
   return (
-    <section id="future-outlook" className={`${spacing.section} bg-muted/30`}>
+    <section id="future-outlook" className={`${spacing.section} bg-background`}>
       <div className="container">
         <div className="max-w-4xl mx-auto">
           

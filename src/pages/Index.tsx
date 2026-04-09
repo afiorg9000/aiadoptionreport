@@ -22,7 +22,9 @@ const ReportContent = () => {
       <Header />
       <main className="pt-16">
         <div ref={contentRef} className="print-content">
-          <Hero />
+          <div className="bg-slate-900 -mt-16 pt-16">
+            <Hero />
+          </div>
           
           <div className="xl:flex">
             <div className="min-w-0 flex-1">

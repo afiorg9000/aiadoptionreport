@@ -117,7 +117,7 @@ const TocItemComponent = ({ item, depth = 0 }: { item: TocItem; depth?: number }
 
 const TableOfContents = () => {
   return (
-    <section id="table-of-contents" className="py-20 bg-card border-y border-border">
+    <section id="table-of-contents" className="py-20 bg-background">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -135,7 +135,7 @@ const postPurchaseRecommendations = [{
   items: ["Industry associations and consulting firms are developing standardized AI implementation methodologies", "These frameworks enable consistent quality and reduce development costs for enterprises", "Organizations should evaluate and adopt proven frameworks as they become available"]
 }];
 const MarketDemand = () => {
-  return <section id="section-2" className={`${spacing.section} bg-card`}>
+  return <section id="section-2" className={`${spacing.section} bg-background`}>
       <div className="container">
         {/* Section Header */}
         <SectionHeader sectionNumber={2} label="Section 2" title="Market Demand & Client Needs" id="section-2-header" />

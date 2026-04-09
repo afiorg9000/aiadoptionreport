@@ -3,7 +3,7 @@ import { typography, spacing } from "./styles";
 
 const Conclusion = () => {
   return (
-    <section id="conclusion" className={`${spacing.section} bg-muted/30`}>
+    <section id="conclusion" className={`${spacing.section} bg-background`}>
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -169,7 +169,7 @@ const multiModelCourse = {
 
 const PortfolioAnalysis = () => {
   return (
-    <section id="section-4" className="py-24 bg-card">
+    <section id="section-4" className="py-24 bg-background">
       <div className="container">
         {/* Section Header */}
         <SectionHeader

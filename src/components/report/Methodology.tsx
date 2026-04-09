@@ -36,7 +36,7 @@ const dataSources = [
 
 const Methodology = () => {
   return (
-    <section id="methodology" className={`${spacing.section} bg-muted/30`}>
+    <section id="methodology" className={`${spacing.section} bg-background`}>
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <motion.div

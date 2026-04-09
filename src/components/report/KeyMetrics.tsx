@@ -50,7 +50,7 @@ const metrics = [
 
 const KeyMetrics = () => {
   return (
-    <section className={`${spacing.section} bg-muted/30`}>
+    <section className={`${spacing.section} bg-background`}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

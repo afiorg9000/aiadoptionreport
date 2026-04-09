@@ -122,7 +122,7 @@ const aiVsMetaverse = [
 
 const AdoptionPhases = () => {
   return (
-    <section id="productivity-analysis" className={`${spacing.section} bg-muted/30`}>
+    <section id="productivity-analysis" className={`${spacing.section} bg-background`}>
       <div className="container">
         <div className="max-w-4xl mx-auto">
           

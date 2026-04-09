@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
 import { usePrint } from "@/contexts/PrintContext";
 
 const Header = () => {
-  const { handlePrint } = usePrint();
+  const { handlePrint, isExporting } = usePrint();
 
   return (
     <>
@@ -63,11 +63,12 @@ const Header = () => {
               </a>
               <button
                 onClick={() => handlePrint()}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-md transition-colors print:hidden"
+                disabled={isExporting}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium rounded-md transition-colors print:hidden"
                 aria-label="Save as PDF"
               >
-                <Download className="w-4 h-4" />
-                <span className="hidden sm:inline">Save PDF</span>
+                {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+                <span className="hidden sm:inline">{isExporting ? "Exporting..." : "Save PDF"}</span>
               </button>
             </motion.nav>
           </div>
