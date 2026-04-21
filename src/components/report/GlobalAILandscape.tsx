@@ -149,6 +149,12 @@ const sizeClassEvidence = [{
   gap: "30pp",
   citations: []
 }, {
+  market: "Denmark",
+  large: "74.5% (250+ employees)",
+  sme: "37.5% (10-49 employees)",
+  gap: "37pp",
+  citations: [375]
+}, {
   market: "Finland",
   large: "70%",
   sme: "~15-20% (estimated)",

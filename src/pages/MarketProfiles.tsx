@@ -12,7 +12,6 @@ interface MarketProfile {
   region: string;
   subRegion?: string;
   country: string;
-  provider: string;
   tier: number;
   tierLabel: string;
   stats: {
@@ -33,7 +32,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Nordic",
     country: "Denmark",
-    provider: "Provider A",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -66,7 +64,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Netherlands",
-    provider: "Provider B",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -99,7 +96,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Germany",
-    provider: "Provider C",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -132,7 +128,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Switzerland",
-    provider: "Provider D",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -164,7 +159,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "United Kingdom",
-    provider: "Provider E",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -197,7 +191,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Western",
     country: "Portugal",
-    provider: "Provider F",
     tier: 3,
     tierLabel: "Emerging",
     stats: [
@@ -229,7 +222,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Romania",
-    provider: "Provider G",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -261,7 +253,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Croatia",
-    provider: "Provider H",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -293,7 +284,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "Slovenia",
-    provider: "Provider I",
     tier: 4,
     tierLabel: "Nascent",
     stats: [
@@ -325,7 +315,6 @@ const profiles: MarketProfile[] = [
     region: "Europe",
     subRegion: "Central & Eastern",
     country: "North Macedonia",
-    provider: "Provider J",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -356,7 +345,6 @@ const profiles: MarketProfile[] = [
   {
     region: "Asia-Pacific",
     country: "Singapore",
-    provider: "Provider K",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -389,7 +377,6 @@ const profiles: MarketProfile[] = [
   {
     region: "Asia-Pacific",
     country: "Australia",
-    provider: "Provider L",
     tier: 1,
     tierLabel: "Leader",
     stats: [
@@ -422,7 +409,6 @@ const profiles: MarketProfile[] = [
   {
     region: "Americas",
     country: "Mexico",
-    provider: "Provider M",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -454,7 +440,6 @@ const profiles: MarketProfile[] = [
   {
     region: "Americas",
     country: "Brazil",
-    provider: "Provider N",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -487,7 +472,6 @@ const profiles: MarketProfile[] = [
   {
     region: "Africa",
     country: "South Africa",
-    provider: "Provider O",
     tier: 2,
     tierLabel: "Advanced",
     stats: [
@@ -649,16 +633,12 @@ const MarketProfiles = () => {
                                   Tier {profile.tier}: {profile.tierLabel}
                                 </span>
                               </div>
-                              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <Building2 className="w-4 h-4" />
-                                <span>{profile.provider}</span>
-                                {profile.subRegion && (
-                                  <>
-                                    <span className="text-border">•</span>
-                                    <span>{profile.subRegion}</span>
-                                  </>
-                                )}
-                              </div>
+                              {profile.subRegion && (
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                  <Building2 className="w-4 h-4" />
+                                  <span>{profile.subRegion}</span>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>

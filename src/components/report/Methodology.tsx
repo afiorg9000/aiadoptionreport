@@ -64,7 +64,7 @@ const Methodology = () => {
             <div className="mb-8 p-4 bg-llpa-blue/5 border border-llpa-blue/20 rounded-lg">
               <h4 className={`${typography.blockTitle} mb-2`}>LLPA Member Survey 2025</h4>
               <p className={`${typography.bodySmall} text-muted-foreground`}>
-                Alongside published research, LLPA conducted structured interviews with 22 member training providers across more than 20 markets during August–September 2025 to capture frontline observations on enterprise AI adoption patterns. Individual participants and their organizations are reported anonymously to preserve the candor of client-facing observations. Contributions are aggregated by region (Nordic, Western Europe, Central Europe, Eastern Europe, Southern Europe, Asia-Pacific, Latin America, and Africa). Interview participant names and questions are held confidentially by LLPA and are not published.
+                Alongside published research, LLPA conducted structured interviews with 22 member training providers spanning the LLPA membership during August–September 2025 to capture frontline observations on enterprise AI adoption patterns. The interview cohort covered more than 20 country markets in scope; 15 of those markets are profiled in detail on the Market Profiles page. Individual participants and their organizations are reported anonymously to preserve the candor of client-facing observations. Contributions are aggregated by region (Nordic, Western Europe, Central Europe, Eastern Europe, Southern Europe, Asia-Pacific, Latin America, and Africa). Interview participant names and questions are held confidentially by LLPA and are not published.
               </p>
             </div>
 

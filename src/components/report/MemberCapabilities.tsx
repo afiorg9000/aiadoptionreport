@@ -81,13 +81,20 @@ const toolPriorityMedium = [
   },
 ];
 
-const advancedProviders = [
-  { name: "Provider A", country: "Eastern Europe", capabilities: "Video-script generation; multilingual SEO/content agents; course-recommendation chatbot; sales automation", outcomes: "Lead generation improvement, tripled engagement on content strategies" },
-  { name: "Provider B", country: "Central Europe", capabilities: "Student-portal chatbot (production ~1 year); LMS mentor bot with context-aware RAG", outcomes: "Automated administrative/academic queries; personalized content access" },
-  { name: "Provider C", country: "Northern Europe", capabilities: "AI tutor & microlearning platform; AI flashcards/quizzes; webinar support tooling", outcomes: "Comprehensive AI learning ecosystem" },
-  { name: "Provider D", country: "Western Europe", capabilities: "Marketing automation, adoption workshops", outcomes: "40% time savings; successful post-purchase adoption programs" },
-  { name: "Provider E", country: "Asia-Pacific", capabilities: "Content-creation initiative", outcomes: "~40% time-to-delivery reduction" },
-  { name: "Provider F", country: "Western Europe", capabilities: "AI Learning Buddy as a co-trainer for software training", outcomes: "Integrated AI assistance in training delivery" },
+// Anonymized capability categories observed across the 13 members in this
+// tier. Per-organization attribution removed (no member names and no
+// pseudonymous letter labels) so the rendering cannot be reverse-mapped
+// to the LLPA membership roster. Source: LLPA Member Survey 2025,
+// aggregated.
+const capabilityCategories = [
+  { capability: "Video-script generation, multilingual SEO/content agents, sales automation", outcomes: "Lead generation improvements; multiplied engagement on content strategies" },
+  { capability: "Student-portal and LMS chatbots (production), with context-aware RAG mentor bots", outcomes: "Automated administrative and academic queries; personalized content access" },
+  { capability: "AI tutor and microlearning platforms; AI-generated flashcards/quizzes; webinar support tooling", outcomes: "End-to-end AI learning ecosystems for member-delivered training" },
+  { capability: "Marketing automation and post-purchase adoption workshops", outcomes: "Significant delivery-time savings; successful Copilot adoption recovery programs" },
+  { capability: "Internal content-creation initiatives", outcomes: "Roughly 40% time-to-delivery reduction" },
+  { capability: "AI \"learning buddy\" co-trainers for software training", outcomes: "Integrated AI assistance during instructor-led delivery" },
+  { capability: "Internal chatbot implementations and assessment generation", outcomes: "Operational improvements in client communication and curriculum production" },
+  { capability: "Creative AI suites and project-automation pilots", outcomes: "Internal productivity uplift in marketing and operations" },
 ];
 
 const MemberCapabilities = () => {
@@ -219,48 +226,20 @@ const MemberCapabilities = () => {
                 These organizations represent the industry's advanced capability tier:
               </p>
 
+              <p className="font-body text-xs text-muted-foreground mb-3 italic">
+                Capability patterns aggregated from 13 LLPA members in this tier; per-organization attribution intentionally withheld for confidentiality.
+              </p>
               <div className="space-y-3">
-                {advancedProviders.map((provider, i) => (
+                {capabilityCategories.map((c, i) => (
                   <div key={i} className="bg-background rounded-xl p-4 border border-border">
-                    <p className="font-body text-sm font-semibold text-foreground mb-1">{provider.name}</p>
-                    <p className="font-body text-xs text-muted-foreground mb-1">
-                      {provider.capabilities}
+                    <p className="font-body text-sm text-foreground mb-1">
+                      {c.capability}
                     </p>
                     <p className="font-body text-xs text-muted-foreground">
-                      {provider.outcomes}
+                      <span className="font-medium">Reported outcomes:</span> {c.outcomes}
                     </p>
                   </div>
                 ))}
-                
-                {/* Additional providers (anonymized; same convention as Provider A–F above) */}
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider G</p>
-                  <p className="font-body text-xs text-muted-foreground">Internal chatbot implementation</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider H</p>
-                  <p className="font-body text-xs text-muted-foreground">Creative AI suite, project automation</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider I</p>
-                  <p className="font-body text-xs text-muted-foreground">Website chatbot development</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider J</p>
-                  <p className="font-body text-xs text-muted-foreground">AI transcript Q&A agent</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider K</p>
-                  <p className="font-body text-xs text-muted-foreground">Content & assessment creation</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider L</p>
-                  <p className="font-body text-xs text-muted-foreground">Internal AI assistant (pilot)</p>
-                </div>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider M</p>
-                  <p className="font-body text-xs text-muted-foreground">Marketing & process automation</p>
-                </div>
               </div>
 
               <div className="mt-4 p-4 bg-info/10 rounded-xl border border-info/30">

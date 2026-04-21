@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Download, Loader2 } from "lucide-react";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
-import { usePrint } from "@/contexts/PrintContext";
+// PrintContext intentionally not used while the Save PDF button is disabled
+// below. Re-introduce the import + usage when the PDF generation pipeline is
+// verified end-to-end and the button is re-enabled.
 
 const Header = () => {
-  const { handlePrint, isExporting } = usePrint();
 
   return (
     <>
@@ -61,15 +61,12 @@ const Header = () => {
               >
                 References
               </a>
-              <button
-                onClick={() => handlePrint()}
-                disabled={isExporting}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium rounded-md transition-colors print:hidden"
-                aria-label="Save as PDF"
-              >
-                {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
-                <span className="hidden sm:inline">{isExporting ? "Exporting..." : "Save PDF"}</span>
-              </button>
+              {/* Save PDF button hidden for now: the in-browser print flow
+                  produced unreadable output. Real download path is the
+                  prebuilt public/Enterprise-AI-Adoption-Report-2025.pdf which
+                  is served by Netlify at /Enterprise-AI-Adoption-Report-2025.pdf;
+                  readers can hit it directly. Re-enable this UI once the PDF
+                  generation pipeline is verified end-to-end. */}
             </motion.nav>
           </div>
         </div>
