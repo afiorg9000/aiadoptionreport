@@ -184,6 +184,12 @@ const sizeClassEvidence = [{
   sme: "14.5% (SME)",
   gap: "48pp",
   citations: [15]
+}, {
+  market: "Romania",
+  large: "20.75% (250+ employees)",
+  sme: "4.13% (10-49 employees)",
+  gap: "17pp",
+  citations: [375]
 }];
 const skillsGapEvidenceTier1 = [{
   content: "Denmark leads Tier 1 with 42.03% adoption, yet 62% of organizations still cite lack of AI skills as a major barrier to further progress.",
