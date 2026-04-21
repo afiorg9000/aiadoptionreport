@@ -29,6 +29,11 @@ import puppeteer from "puppeteer";
 import HTMLtoDOCX from "@turbodocx/html-to-docx";
 import { readFile, writeFile } from "node:fs/promises";
 import JSZip from "jszip";
+import {
+  preparePage,
+  captureMarketProfilesHTML,
+  spliceMarketProfiles,
+} from "./lib/site-snapshot.mjs";
 
 const args = process.argv.slice(2);
 const HTML_ONLY = args.includes("--html-only");
@@ -39,58 +44,6 @@ const OUTPUT =
   (HTML_ONLY
     ? "report-preview.html"
     : "public/Enterprise-AI-Adoption-Report-2025-layout.docx");
-
-const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-
-// ----- Page-context helpers (re-injected into each evaluate) ------------
-
-async function waitFonts(page) {
-  await page.evaluate(async () => {
-    if (document.fonts?.ready) await document.fonts.ready;
-  });
-}
-
-async function scrollEndToEnd(page) {
-  await page.evaluate(async () => {
-    const step = window.innerHeight * 0.8;
-    const total = document.documentElement.scrollHeight;
-    for (let y = 0; y < total; y += step) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 120));
-    }
-    window.scrollTo(0, 0);
-  });
-  await wait(800);
-}
-
-async function expandAllCollapsibles(page) {
-  for (let pass = 0; pass < 3; pass++) {
-    const clicked = await page.evaluate(() => {
-      let n = 0;
-      for (const btn of document.querySelectorAll("button")) {
-        const t = (btn.textContent || "").trim().toLowerCase();
-        if (/^(show all|show more|expand|view all|read more)/.test(t)) {
-          btn.click();
-          n++;
-        }
-      }
-      for (const el of document.querySelectorAll('[aria-expanded="false"]')) {
-        el.click?.();
-        n++;
-      }
-      return n;
-    });
-    if (!clicked) break;
-    await wait(400);
-  }
-  await wait(400);
-}
-
-async function preparePage(page) {
-  await waitFonts(page);
-  await scrollEndToEnd(page);
-  await expandAllCollapsibles(page);
-}
 
 async function inlineComputedStyles(page) {
   await page.evaluate(() => {
@@ -271,46 +224,6 @@ async function extractCleanedHTML(page) {
   });
 }
 
-async function spliceMarketProfiles(page, marketProfilesHtml) {
-  await page.evaluate((html) => {
-    // Find the CTA that links out to /market-profiles. The card around it
-    // is the gradient-styled "Explore Individual Market Profiles" block.
-    const cta = document.querySelector('a[href="/market-profiles"]');
-    if (!cta) {
-      console.warn("Market Profiles CTA link not found — appending at end.");
-      const inline = document.createElement("section");
-      inline.id = "market-profiles-inline";
-      inline.innerHTML = html;
-      document.querySelector("main")?.appendChild(inline);
-      return;
-    }
-    // Walk up to find the styled card container.
-    let card = cta;
-    for (let i = 0; i < 6 && card.parentElement; i++) {
-      const cls = card.getAttribute("class") || "";
-      if (/rounded-xl|rounded-2xl|bg-gradient/.test(cls)) break;
-      card = card.parentElement;
-    }
-    const wrapper = document.createElement("section");
-    wrapper.id = "market-profiles-inline";
-    wrapper.setAttribute(
-      "style",
-      "margin-top: 32px; page-break-before: always;",
-    );
-    const heading = document.createElement("h2");
-    heading.textContent = "Market Profiles";
-    heading.setAttribute(
-      "style",
-      "text-align: center; font-size: 28px; color: #1e40af; margin: 32px 0 16px;",
-    );
-    wrapper.appendChild(heading);
-    const body = document.createElement("div");
-    body.innerHTML = html;
-    wrapper.appendChild(body);
-    card.replaceWith(wrapper);
-  }, marketProfilesHtml);
-}
-
 // ----- Main ---------------------------------------------------------------
 
 async function main() {
@@ -323,24 +236,10 @@ async function main() {
   const page = await browser.newPage();
   await page.setViewport({ width: 1400, height: 2000, deviceScaleFactor: 1 });
 
-  // ----- Step 1: capture /market-profiles inner HTML -----
   console.log("Capturing /market-profiles…");
-  await page.goto(URL + "/market-profiles", {
-    waitUntil: "networkidle0",
-    timeout: 60000,
-  });
-  await preparePage(page);
-  await inlineComputedStyles(page);
-  const marketProfilesHtml = await page.evaluate(() => {
-    const main = document.querySelector("main");
-    if (!main) return "";
-    // Strip the page-level header/nav before snapshotting innerHTML.
-    for (const el of main.querySelectorAll("header, nav")) el.remove();
-    return main.innerHTML;
-  });
+  const marketProfilesHtml = await captureMarketProfilesHTML(page, URL);
   console.log(`  captured ${marketProfilesHtml.length} chars`);
 
-  // ----- Step 2: navigate to / and splice market profiles in -----
   console.log("Capturing main report and splicing in market profiles…");
   await page.goto(URL, { waitUntil: "networkidle0", timeout: 60000 });
   await preparePage(page);

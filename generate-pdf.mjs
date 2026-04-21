@@ -1,32 +1,34 @@
 /**
  * Generate the public PDF from the running site.
  *
- * Fixes vs the original pipeline that produced a broken PDF
- * (blurred ToC, fallback fonts, missing/half-rendered sections):
+ * Pipeline (now structurally aligned with generate-docx.mjs so the two
+ * downloads stay in sync):
  *
- *   1. Wait for `document.fonts.ready` so brand/body fonts are loaded
- *      before the snapshot.
- *   2. Use `emulateMediaType("print")` so any `@media print` rules in
- *      the stylesheet apply.
- *   3. Auto-scroll the entire page top to bottom in small steps so
- *      every framer-motion `whileInView` block triggers and reaches
- *      its final state. Then scroll back to the top.
- *   4. Force any element framer-motion left at `opacity: 0` /
- *      `transform: translate*` to its final settled state via inline
- *      style (overrides framer-motion's own inline styles).
- *   5. Set the viewport to the same printable width Puppeteer will use
- *      for an A4 page (~794px @ 96 DPI) so there's no scale-down blur.
- *   6. Use Puppeteer's bundled Chromium by default; only fall back to
- *      a system Chrome via env var so the script is portable.
- *   7. Wait for Recharts ResponsiveContainer to settle (chart SVGs
- *      mount asynchronously after their container measures).
+ *   1. Visit /market-profiles, prep, capture <main> innerHTML.
+ *   2. Visit /, prep, splice the market-profiles HTML in place of the
+ *      "View Market Profiles" CTA card.
+ *   3. Apply PDF-specific style overrides (hide chrome, flatten the
+ *      sticky/fixed layout, expand container max-widths, tighten
+ *      section paddings for paginated print).
+ *   4. Print via Puppeteer in print emulation at 2x scale for crisp
+ *      text and SVG.
  *
  * Usage:
- *   node generate-pdf.mjs http://localhost:4173 \
- *     public/Enterprise-AI-Adoption-Report-2025.pdf
+ *   node generate-pdf.mjs [PREVIEW_URL] [OUTPUT_PATH]
+ *
+ * Defaults:
+ *   PREVIEW_URL  = http://localhost:4173
+ *   OUTPUT_PATH  = public/Enterprise-AI-Adoption-Report-2025.pdf
+ *
+ * Prereq: `npm run build && npx vite preview --port 4173` running.
  */
 
 import puppeteer from "puppeteer";
+import {
+  preparePage,
+  captureMarketProfilesHTML,
+  spliceMarketProfiles,
+} from "./lib/site-snapshot.mjs";
 
 const URL = process.argv[2] || "http://localhost:4173";
 const OUTPUT =
@@ -34,8 +36,8 @@ const OUTPUT =
 
 // A4 portrait at 96 DPI ≈ 794 × 1123 px. Render at 2x for crisp text and
 // SVG, then let Puppeteer's `scale: 0.5` shrink it down for the PDF.
-const RENDER_WIDTH = 1588; // 2x A4 width
-const RENDER_HEIGHT = 2246; // 2x A4 height
+const RENDER_WIDTH = 1588;
+const RENDER_HEIGHT = 2246;
 const PDF_SCALE = 0.5;
 
 const PDF_STYLES = `
@@ -55,8 +57,7 @@ const PDF_STYLES = `
     position: static !important;
   }
 
-  /* Belt-and-braces vs framer-motion entrance animations. The JS pass
-     below also forces final state, but this catches anything we miss. */
+  /* Belt-and-braces vs framer-motion entrance animations. */
   *,
   *::before,
   *::after {
@@ -130,33 +131,15 @@ const PDF_STYLES = `
   .grid.xl\\:grid-cols-5 {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+
+  /* Spliced market-profiles section: page break before for clean pagination. */
+  #market-profiles-inline {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
 `;
 
-async function autoScroll(page) {
-  // Walk the document in 600px increments so framer-motion's
-  // whileInView observers all trigger. Pause briefly between steps
-  // so charts and lazy components have a frame to render.
-  await page.evaluate(async () => {
-    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-    const step = 600;
-    for (
-      let y = 0;
-      y < document.documentElement.scrollHeight;
-      y += step
-    ) {
-      window.scrollTo(0, y);
-      await sleep(120);
-    }
-    window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(400);
-    window.scrollTo(0, 0);
-    await sleep(120);
-  });
-}
-
 async function settleAnimations(page) {
-  // Force every element framer-motion left in mid-animation to its
-  // final visible state. We override inline styles framer-motion sets.
   await page.evaluate(() => {
     document.querySelectorAll("*").forEach((el) => {
       const cs = window.getComputedStyle(el);
@@ -185,21 +168,23 @@ async function generatePdf() {
       height: RENDER_HEIGHT,
       deviceScaleFactor: 2,
     });
-
-    // Use print media so any @media print rules apply.
     await page.emulateMediaType("print");
+
+    console.log("Capturing /market-profiles…");
+    const marketProfilesHtml = await captureMarketProfilesHTML(page, URL);
+    console.log(`  captured ${marketProfilesHtml.length} chars`);
 
     console.log(`Navigating to ${URL}…`);
     await page.goto(URL, { waitUntil: "networkidle0", timeout: 90000 });
 
-    // Wait until brand and body fonts are actually loaded.
     await page.evaluate(async () => {
       if (document.fonts && document.fonts.ready) {
         await document.fonts.ready;
       }
     });
 
-    // Inject PDF-specific style overrides.
+    // Inject PDF-specific style overrides BEFORE preparePage so the
+    // print layout is already applied during scroll/expand.
     await page.evaluate((styles) => {
       const el = document.createElement("style");
       el.dataset.pdfOverrides = "true";
@@ -207,11 +192,14 @@ async function generatePdf() {
       document.head.appendChild(el);
     }, PDF_STYLES);
 
-    // Trigger every framer-motion whileInView block, then settle.
-    await autoScroll(page);
+    await preparePage(page);
+    await spliceMarketProfiles(page, marketProfilesHtml);
+
+    // After the splice, scroll once more so any framer-motion blocks
+    // inside the newly-injected market-profiles content trigger.
+    await preparePage(page);
     await settleAnimations(page);
 
-    // Give Recharts SVGs and any final paint a beat to commit.
     await new Promise((r) => setTimeout(r, 1500));
 
     console.log(`Rendering PDF → ${OUTPUT}`);
