@@ -1,23 +1,28 @@
 /**
  * Generate the editable Word DOCX directly from the live website.
  *
- * Why this exists:
- *   The previous pipeline went `site → PDF (Puppeteer) → DOCX (pdf2docx)`,
- *   which produced a Word file full of invisible "layout tables" that
- *   pdf2docx uses to pin content to page coordinates. Editing in those
- *   cells felt like fighting the document. This pipeline goes straight
- *   `site → rendered HTML → DOCX (@turbodocx/html-to-docx)`, preserving
- *   heading hierarchy, real tables, and normal prose flow.
+ * Pipeline:
+ *   1. Visit /market-profiles, scroll, expand all collapsibles, bake
+ *      computed styles into inline `style=""` attrs, capture main HTML.
+ *   2. Visit /, do the same prep, then splice the market-profiles HTML
+ *      into the location of the "View Market Profiles" CTA card so the
+ *      final document reads as a single linear narrative.
+ *   3. (HTML-only mode) inline external Tailwind CSS + base64-embed
+ *      images so the file is fully self-contained for previewing.
+ *   4. Strip chrome (header/nav/dialogs), unwrap interactive buttons
+ *      while keeping their text, and serialize.
+ *   5. Convert to DOCX via @turbodocx/html-to-docx, then post-process
+ *      the zip XML to scrub residual pure-black shading.
  *
  * Usage:
- *   node generate-docx.mjs [PREVIEW_URL] [OUTPUT_PATH]
+ *   node generate-docx.mjs [PREVIEW_URL] [OUTPUT_PATH] [--html-only]
  *
  * Defaults:
  *   PREVIEW_URL  = http://localhost:4173
  *   OUTPUT_PATH  = public/Enterprise-AI-Adoption-Report-2025-layout.docx
+ *                  (or report-preview.html if --html-only)
  *
- * Prereq: `npm run build && npx vite preview --port 4173` running in
- * another shell, or pass a different URL that serves the built site.
+ * Prereq: `npm run build && npx vite preview --port 4173` running.
  */
 
 import puppeteer from "puppeteer";
@@ -25,31 +30,27 @@ import HTMLtoDOCX from "@turbodocx/html-to-docx";
 import { readFile, writeFile } from "node:fs/promises";
 import JSZip from "jszip";
 
-const URL = process.argv[2] || "http://localhost:4173";
+const args = process.argv.slice(2);
+const HTML_ONLY = args.includes("--html-only");
+const positional = args.filter((a) => !a.startsWith("--"));
+const URL = positional[0] || "http://localhost:4173";
 const OUTPUT =
-  process.argv[3] ||
-  "public/Enterprise-AI-Adoption-Report-2025-layout.docx";
+  positional[1] ||
+  (HTML_ONLY
+    ? "report-preview.html"
+    : "public/Enterprise-AI-Adoption-Report-2025-layout.docx");
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function main() {
-  console.log("Launching Chromium…");
-  const browser = await puppeteer.launch({
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-    headless: true,
-  });
+// ----- Page-context helpers (re-injected into each evaluate) ------------
 
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1400, height: 2000, deviceScaleFactor: 1 });
-
-  console.log(`Navigating to ${URL}…`);
-  await page.goto(URL, { waitUntil: "networkidle0", timeout: 60000 });
-
+async function waitFonts(page) {
   await page.evaluate(async () => {
     if (document.fonts?.ready) await document.fonts.ready;
   });
+}
 
-  // Scroll end-to-end so framer-motion `whileInView` elements mount.
+async function scrollEndToEnd(page) {
   await page.evaluate(async () => {
     const step = window.innerHeight * 0.8;
     const total = document.documentElement.scrollHeight;
@@ -59,28 +60,40 @@ async function main() {
     }
     window.scrollTo(0, 0);
   });
-  await wait(1200);
+  await wait(800);
+}
 
-  console.log("Extracting rendered HTML + flattening computed styles…");
-  const html = await page.evaluate(() => {
-    // 1) Walk the LIVE DOM and bake getComputedStyle() values into
-    //    inline styles BEFORE we clone. html-to-docx can only see
-    //    inline `style=""` attributes — it does not resolve class
-    //    selectors against an external stylesheet. So we extract the
-    //    key visual properties for each element and write them in.
-    //
-    //    Properties we keep:
-    //      color, background-color    (Tailwind colors, card fills)
-    //      font-weight, font-style    (bold / italic / medium)
-    //      font-size                  (preserved at computed px; Word
-    //                                  will round to the nearest pt)
-    //      text-align, text-decoration
-    //      padding, margin, border    (spacing, accent bars)
-    //      border-radius              (pill / card corners — Word will
-    //                                  ignore but it doesn't hurt)
-    //
-    //    We SKIP display / position / flex properties — html-to-docx
-    //    doesn't honor them and they just confuse the converter.
+async function expandAllCollapsibles(page) {
+  for (let pass = 0; pass < 3; pass++) {
+    const clicked = await page.evaluate(() => {
+      let n = 0;
+      for (const btn of document.querySelectorAll("button")) {
+        const t = (btn.textContent || "").trim().toLowerCase();
+        if (/^(show all|show more|expand|view all|read more)/.test(t)) {
+          btn.click();
+          n++;
+        }
+      }
+      for (const el of document.querySelectorAll('[aria-expanded="false"]')) {
+        el.click?.();
+        n++;
+      }
+      return n;
+    });
+    if (!clicked) break;
+    await wait(400);
+  }
+  await wait(400);
+}
+
+async function preparePage(page) {
+  await waitFonts(page);
+  await scrollEndToEnd(page);
+  await expandAllCollapsibles(page);
+}
+
+async function inlineComputedStyles(page) {
+  await page.evaluate(() => {
     const INTERESTING = [
       "color",
       "background-color",
@@ -94,7 +107,12 @@ async function main() {
       "padding-right",
       "padding-bottom",
       "padding-left",
-      "margin",
+      // Intentionally NOT inlining `margin` shorthand: getComputedStyle
+      // resolves `mx-auto` to specific pixel margins based on the
+      // Puppeteer viewport width (e.g., `margin: 0px 220px`). Baking
+      // those in locks content into a narrow column when the file is
+      // viewed at any other width. Vertical-only margins are safe
+      // because they don't depend on parent width.
       "margin-top",
       "margin-bottom",
       "border",
@@ -107,59 +125,35 @@ async function main() {
       "border-width",
       "border-radius",
     ];
-
-    const GRADIENT_FALLBACKS = {
-      // Map common Tailwind gradients to a representative solid color.
-      "linear-gradient": "#1e40af", // blue-800 — our primary accent
-    };
-
     function flatten(value) {
       if (!value) return value;
-      // Gradient backgrounds don't render in Word — collapse to solid.
-      if (/gradient\(/i.test(value)) {
-        return GRADIENT_FALLBACKS["linear-gradient"];
-      }
+      if (/gradient\(/i.test(value)) return "#1e40af"; // brand blue fallback
       return value;
     }
-
-    function inlineComputedStyles(el) {
+    function inline(el) {
       const cs = window.getComputedStyle(el);
       const existing = el.getAttribute("style") || "";
-      // Don't overwrite existing inline style overrides from framer-motion
-      // that we DO want (the ones we'll strip below are opacity/transform).
-      const out = [];
-      // Extract element's own text color so we can sanity-check
-      // background + foreground contrast below.
       const fgRGB = (() => {
         const m = cs.getPropertyValue("color").match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-        return m ? [+m[1], +m[2], +m[3]] : [15, 23, 42]; // slate-900 fallback
+        return m ? [+m[1], +m[2], +m[3]] : [15, 23, 42];
       })();
-
+      const out = [];
       for (const prop of INTERESTING) {
         let v = cs.getPropertyValue(prop);
         if (!v) continue;
-        // Ignore transparent backgrounds, inherit placeholders.
         if (prop === "background-color") {
           if (v === "rgba(0, 0, 0, 0)" || v === "transparent") continue;
-          // Skip backgrounds that would make text unreadable on white
-          // paper: either the bg is very dark (the site's dark hero /
-          // footer sections), OR the bg is very close in luminance to
-          // the foreground text color (unreadable either way in Word).
           const m = v.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
           if (m) {
             const [r, g, b] = [+m[1], +m[2], +m[3]];
             const bgLum = 0.299 * r + 0.587 * g + 0.114 * b;
             const fgLum = 0.299 * fgRGB[0] + 0.587 * fgRGB[1] + 0.114 * fgRGB[2];
-            // Skip dark backgrounds (< ~40% luminance). Lets through
-            // pastel card fills, callout tints, tier-color badges.
             if (bgLum < 100) continue;
-            // Skip if bg/fg contrast is too low (< 40 lum delta).
             if (Math.abs(bgLum - fgLum) < 40) continue;
           }
         }
         if (v === "none" && !prop.startsWith("border")) continue;
         if (v === "auto") continue;
-        // Ignore default/neutral values that bloat the HTML.
         if (prop === "font-weight" && (v === "400" || v === "normal")) continue;
         if (prop === "font-style" && v === "normal") continue;
         if (prop === "text-decoration" && /\bnone\b/.test(v)) continue;
@@ -167,7 +161,6 @@ async function main() {
         if (prop.startsWith("padding") && v === "0px") continue;
         if (prop.startsWith("margin") && v === "0px") continue;
         if (prop === "border-radius" && v === "0px") continue;
-
         v = flatten(v);
         out.push(`${prop}: ${v}`);
       }
@@ -176,29 +169,76 @@ async function main() {
         el.setAttribute("style", prefix + out.join("; ") + ";");
       }
     }
-
-    // Walk everything in the main content area and inline styles.
-    // We scope to <main> / body to skip off-screen React portals.
     const root = document.querySelector("main") || document.body;
-    const selector = "h1, h2, h3, h4, h5, h6, p, li, td, th, span, strong, em, a, sup, div, section, article";
-    const nodes = root.querySelectorAll(selector);
-    for (const el of nodes) {
-      try {
-        inlineComputedStyles(el);
-      } catch {}
+    const sel = "h1, h2, h3, h4, h5, h6, p, li, td, th, span, strong, em, a, sup, div, section, article";
+    for (const el of root.querySelectorAll(sel)) {
+      try { inline(el); } catch {}
     }
+  });
+}
 
-    // 2) Clone AFTER styles are baked in.
+async function inlineCSSAndImages(page, origin) {
+  await page.evaluate(async (origin) => {
+    const links = [...document.querySelectorAll('link[rel="stylesheet"]')];
+    for (const link of links) {
+      try {
+        const abs = new URL(link.getAttribute("href"), origin).toString();
+        const text = await fetch(abs).then((r) => r.text());
+        const style = document.createElement("style");
+        style.setAttribute("data-inlined-from", abs);
+        style.textContent = text;
+        link.replaceWith(style);
+      } catch (e) {
+        console.warn("Could not inline CSS:", e);
+      }
+    }
+    for (const img of document.querySelectorAll("img[src]")) {
+      const src = img.getAttribute("src");
+      if (!src || !src.startsWith("/")) continue;
+      try {
+        const abs = new URL(src, origin).toString();
+        const resp = await fetch(abs);
+        const blob = await resp.blob();
+        const ab = await blob.arrayBuffer();
+        const u8 = new Uint8Array(ab);
+        let bin = "";
+        for (let i = 0; i < u8.length; i++) bin += String.fromCharCode(u8[i]);
+        const b64 = btoa(bin);
+        img.setAttribute("src", `data:${blob.type};base64,${b64}`);
+      } catch (e) {
+        console.warn("Could not inline image:", src, e);
+      }
+    }
+  }, origin);
+}
+
+async function extractCleanedHTML(page) {
+  return await page.evaluate(() => {
     const doc = document.cloneNode(true);
-
-    // 3) Strip navigation/chrome.
     const kill = doc.querySelectorAll(
-      "header, nav, .sr-only, [data-radix-popper-content-wrapper], [role='dialog'], script, noscript, button",
+      "header, nav, .sr-only, [data-radix-popper-content-wrapper], [role='dialog'], script, noscript",
     );
     for (const el of kill) el.remove();
-
-    // 4) Strip transform/opacity leftovers from framer-motion so nothing
-    //    renders invisible. Keep everything else.
+    // TOC buttons get the React click handler stripped during unwrap.
+    // Convert them to real anchor links so the rendered HTML and DOCX
+    // can navigate to the target section. Each TOC button is tagged
+    // with data-toc-target=<section-id> in TableOfContents.tsx.
+    for (const btn of doc.querySelectorAll("button[data-toc-target]")) {
+      const target = btn.getAttribute("data-toc-target");
+      const a = doc.createElement("a");
+      a.setAttribute("href", "#" + target);
+      a.setAttribute("style", btn.getAttribute("style") || "");
+      while (btn.firstChild) a.appendChild(btn.firstChild);
+      btn.replaceWith(a);
+    }
+    // All other buttons collapse to a span (children survive, ARIA noise
+    // is dropped). Done after the TOC pass so we don't double-process.
+    for (const btn of doc.querySelectorAll("button")) {
+      const span = doc.createElement("span");
+      span.setAttribute("style", btn.getAttribute("style") || "");
+      while (btn.firstChild) span.appendChild(btn.firstChild);
+      btn.replaceWith(span);
+    }
     for (const el of doc.querySelectorAll("[style]")) {
       const s = el.getAttribute("style") || "";
       const cleaned = s
@@ -208,9 +248,6 @@ async function main() {
       if (cleaned.trim()) el.setAttribute("style", cleaned);
       else el.removeAttribute("style");
     }
-
-    // 5) Minimal typography fallback so even text that didn't get an
-    //    inline style has sensible defaults in Word.
     const style = doc.createElement("style");
     style.textContent = `
       body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #0f172a; }
@@ -230,31 +267,119 @@ async function main() {
       blockquote { margin: 8pt 18pt; padding: 6pt 10pt; border-left: 3px solid #1e40af; color: #334155; }
     `;
     doc.querySelector("head")?.appendChild(style);
-
     return "<!DOCTYPE html>" + doc.documentElement.outerHTML;
   });
+}
+
+async function spliceMarketProfiles(page, marketProfilesHtml) {
+  await page.evaluate((html) => {
+    // Find the CTA that links out to /market-profiles. The card around it
+    // is the gradient-styled "Explore Individual Market Profiles" block.
+    const cta = document.querySelector('a[href="/market-profiles"]');
+    if (!cta) {
+      console.warn("Market Profiles CTA link not found — appending at end.");
+      const inline = document.createElement("section");
+      inline.id = "market-profiles-inline";
+      inline.innerHTML = html;
+      document.querySelector("main")?.appendChild(inline);
+      return;
+    }
+    // Walk up to find the styled card container.
+    let card = cta;
+    for (let i = 0; i < 6 && card.parentElement; i++) {
+      const cls = card.getAttribute("class") || "";
+      if (/rounded-xl|rounded-2xl|bg-gradient/.test(cls)) break;
+      card = card.parentElement;
+    }
+    const wrapper = document.createElement("section");
+    wrapper.id = "market-profiles-inline";
+    wrapper.setAttribute(
+      "style",
+      "margin-top: 32px; page-break-before: always;",
+    );
+    const heading = document.createElement("h2");
+    heading.textContent = "Market Profiles";
+    heading.setAttribute(
+      "style",
+      "text-align: center; font-size: 28px; color: #1e40af; margin: 32px 0 16px;",
+    );
+    wrapper.appendChild(heading);
+    const body = document.createElement("div");
+    body.innerHTML = html;
+    wrapper.appendChild(body);
+    card.replaceWith(wrapper);
+  }, marketProfilesHtml);
+}
+
+// ----- Main ---------------------------------------------------------------
+
+async function main() {
+  console.log("Launching Chromium…");
+  const browser = await puppeteer.launch({
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+    headless: true,
+  });
+
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1400, height: 2000, deviceScaleFactor: 1 });
+
+  // ----- Step 1: capture /market-profiles inner HTML -----
+  console.log("Capturing /market-profiles…");
+  await page.goto(URL + "/market-profiles", {
+    waitUntil: "networkidle0",
+    timeout: 60000,
+  });
+  await preparePage(page);
+  await inlineComputedStyles(page);
+  const marketProfilesHtml = await page.evaluate(() => {
+    const main = document.querySelector("main");
+    if (!main) return "";
+    // Strip the page-level header/nav before snapshotting innerHTML.
+    for (const el of main.querySelectorAll("header, nav")) el.remove();
+    return main.innerHTML;
+  });
+  console.log(`  captured ${marketProfilesHtml.length} chars`);
+
+  // ----- Step 2: navigate to / and splice market profiles in -----
+  console.log("Capturing main report and splicing in market profiles…");
+  await page.goto(URL, { waitUntil: "networkidle0", timeout: 60000 });
+  await preparePage(page);
+  await spliceMarketProfiles(page, marketProfilesHtml);
+  await inlineComputedStyles(page);
+
+  // For the HTML-only preview, inline the Tailwind bundle + embed images
+  // so the file renders correctly when opened from disk.
+  if (HTML_ONLY) {
+    console.log("Inlining external CSS + embedding images…");
+    await inlineCSSAndImages(page, URL);
+  }
+
+  console.log("Extracting cleaned HTML…");
+  const html = await extractCleanedHTML(page);
 
   await browser.close();
+
+  if (HTML_ONLY) {
+    console.log(`Writing intermediate HTML → ${OUTPUT}`);
+    await writeFile(OUTPUT, html);
+    console.log(`Open with: open "${OUTPUT}"`);
+    return;
+  }
 
   console.log(`Rendering DOCX → ${OUTPUT}`);
   const buffer = await HTMLtoDOCX(html, null, {
     orientation: "portrait",
     margins: { top: 1134, right: 1134, bottom: 1134, left: 1134 },
     font: "Calibri",
-    fontSize: 22, // half-points → 11pt
+    fontSize: 22,
     title: "Enterprise AI Adoption Report 2025",
     creator: "LLPA",
     pageNumber: true,
     footer: true,
   });
-
   await writeFile(OUTPUT, buffer);
 
-  // Post-process: DOCX is a zip of XML; strip any paragraph shading
-  // with fill="000000" (pure black), plus any run background fill that
-  // matches. Defensive scrub for cases where the computed-style filter
-  // missed a dark background — black boxes on white paper would make
-  // the Word copy unreadable.
+  // Post-process: scrub residual pure-black paragraph shading.
   console.log("Post-processing: stripping residual black shading…");
   const zipBuf = await readFile(OUTPUT);
   const zip = await JSZip.loadAsync(zipBuf);

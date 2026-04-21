@@ -91,6 +91,7 @@ const TocItemComponent = ({ item, depth = 0 }: { item: TocItem; depth?: number }
     <div className={depth > 0 ? "ml-4" : ""}>
       <button
         onClick={handleClick}
+        data-toc-target={item.id}
         className={`
           flex items-start gap-2 text-left w-full group transition-colors
           ${isMainSection ? "font-semibold text-foreground hover:text-llpa-orange py-2" : ""}
