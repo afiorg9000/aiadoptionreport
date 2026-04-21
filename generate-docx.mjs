@@ -1,34 +1,39 @@
 /**
- * Generate the editable Word DOCX directly from the live website.
+ * Generate the editable Word file (.doc) directly from the live website.
+ *
+ * Why .doc and not .docx:
+ *   The previous attempt used @turbodocx/html-to-docx to produce a true
+ *   .docx file. That library's CSS support is shallow — it ignored most
+ *   of the inlined styling we worked hard to bake into the HTML, so the
+ *   output looked nothing like the website.
+ *
+ *   Microsoft Word natively opens HTML files when given a .doc/.docm
+ *   extension, and Word's HTML parser preserves inlined CSS, real
+ *   tables, hyperlinks, and base64 images with very high fidelity.
+ *   The user can `File → Save As → Word Document (.docx)` once it's
+ *   open in Word to get a proper OOXML file.
  *
  * Pipeline:
- *   1. Visit /market-profiles, scroll, expand all collapsibles, bake
- *      computed styles into inline `style=""` attrs, capture main HTML.
- *   2. Visit /, do the same prep, then splice the market-profiles HTML
- *      into the location of the "View Market Profiles" CTA card so the
- *      final document reads as a single linear narrative.
- *   3. (HTML-only mode) inline external Tailwind CSS + base64-embed
- *      images so the file is fully self-contained for previewing.
- *   4. Strip chrome (header/nav/dialogs), unwrap interactive buttons
- *      while keeping their text, and serialize.
- *   5. Convert to DOCX via @turbodocx/html-to-docx, then post-process
- *      the zip XML to scrub residual pure-black shading.
+ *   1. Visit /market-profiles, prep, capture <main> innerHTML.
+ *   2. Visit /, prep, splice market profiles in place of the CTA.
+ *   3. Bake getComputedStyle() values into inline `style=""` attrs.
+ *   4. Inline the Tailwind stylesheet bundle and base64-encode all
+ *      relative images so the file is fully self-contained.
+ *   5. Strip true chrome (header/nav/dialogs); convert TOC buttons to
+ *      anchor links; unwrap remaining buttons to spans.
+ *   6. Write `.doc` (or `.html` in --html-only mode).
  *
  * Usage:
  *   node generate-docx.mjs [PREVIEW_URL] [OUTPUT_PATH] [--html-only]
  *
  * Defaults:
  *   PREVIEW_URL  = http://localhost:4173
- *   OUTPUT_PATH  = public/Enterprise-AI-Adoption-Report-2025-layout.docx
+ *   OUTPUT_PATH  = public/Enterprise-AI-Adoption-Report-2025.doc
  *                  (or report-preview.html if --html-only)
- *
- * Prereq: `npm run build && npx vite preview --port 4173` running.
  */
 
 import puppeteer from "puppeteer";
-import HTMLtoDOCX from "@turbodocx/html-to-docx";
-import { readFile, writeFile } from "node:fs/promises";
-import JSZip from "jszip";
+import { writeFile } from "node:fs/promises";
 import {
   preparePage,
   captureMarketProfilesHTML,
@@ -43,7 +48,7 @@ const OUTPUT =
   positional[1] ||
   (HTML_ONLY
     ? "report-preview.html"
-    : "public/Enterprise-AI-Adoption-Report-2025-layout.docx");
+    : "public/Enterprise-AI-Adoption-Report-2025.doc");
 
 async function inlineComputedStyles(page) {
   await page.evaluate(() => {
@@ -60,12 +65,10 @@ async function inlineComputedStyles(page) {
       "padding-right",
       "padding-bottom",
       "padding-left",
-      // Intentionally NOT inlining `margin` shorthand: getComputedStyle
+      // `margin` shorthand intentionally omitted: getComputedStyle
       // resolves `mx-auto` to specific pixel margins based on the
-      // Puppeteer viewport width (e.g., `margin: 0px 220px`). Baking
-      // those in locks content into a narrow column when the file is
-      // viewed at any other width. Vertical-only margins are safe
-      // because they don't depend on parent width.
+      // Puppeteer viewport width (e.g., margin: 0px 220px), which would
+      // lock content into a narrow column at any viewing width.
       "margin-top",
       "margin-bottom",
       "border",
@@ -80,7 +83,7 @@ async function inlineComputedStyles(page) {
     ];
     function flatten(value) {
       if (!value) return value;
-      if (/gradient\(/i.test(value)) return "#1e40af"; // brand blue fallback
+      if (/gradient\(/i.test(value)) return "#1e40af";
       return value;
     }
     function inline(el) {
@@ -172,10 +175,7 @@ async function extractCleanedHTML(page) {
       "header, nav, .sr-only, [data-radix-popper-content-wrapper], [role='dialog'], script, noscript",
     );
     for (const el of kill) el.remove();
-    // TOC buttons get the React click handler stripped during unwrap.
-    // Convert them to real anchor links so the rendered HTML and DOCX
-    // can navigate to the target section. Each TOC button is tagged
-    // with data-toc-target=<section-id> in TableOfContents.tsx.
+    // TOC buttons → anchor links so the rendered file can navigate.
     for (const btn of doc.querySelectorAll("button[data-toc-target]")) {
       const target = btn.getAttribute("data-toc-target");
       const a = doc.createElement("a");
@@ -184,8 +184,7 @@ async function extractCleanedHTML(page) {
       while (btn.firstChild) a.appendChild(btn.firstChild);
       btn.replaceWith(a);
     }
-    // All other buttons collapse to a span (children survive, ARIA noise
-    // is dropped). Done after the TOC pass so we don't double-process.
+    // All other buttons collapse to spans.
     for (const btn of doc.querySelectorAll("button")) {
       const span = doc.createElement("span");
       span.setAttribute("style", btn.getAttribute("style") || "");
@@ -201,6 +200,9 @@ async function extractCleanedHTML(page) {
       if (cleaned.trim()) el.setAttribute("style", cleaned);
       else el.removeAttribute("style");
     }
+    // Word-friendly print fallbacks. Word's HTML import respects <style>
+    // blocks so this gives sensible defaults for any element that didn't
+    // get an inline style.
     const style = doc.createElement("style");
     style.textContent = `
       body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #0f172a; }
@@ -224,15 +226,12 @@ async function extractCleanedHTML(page) {
   });
 }
 
-// ----- Main ---------------------------------------------------------------
-
 async function main() {
   console.log("Launching Chromium…");
   const browser = await puppeteer.launch({
     executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
     headless: true,
   });
-
   const page = await browser.newPage();
   await page.setViewport({ width: 1400, height: 2000, deviceScaleFactor: 1 });
 
@@ -246,55 +245,23 @@ async function main() {
   await spliceMarketProfiles(page, marketProfilesHtml);
   await inlineComputedStyles(page);
 
-  // For the HTML-only preview, inline the Tailwind bundle + embed images
-  // so the file renders correctly when opened from disk.
-  if (HTML_ONLY) {
-    console.log("Inlining external CSS + embedding images…");
-    await inlineCSSAndImages(page, URL);
-  }
+  console.log("Inlining external CSS + embedding images…");
+  await inlineCSSAndImages(page, URL);
 
   console.log("Extracting cleaned HTML…");
   const html = await extractCleanedHTML(page);
 
   await browser.close();
 
-  if (HTML_ONLY) {
-    console.log(`Writing intermediate HTML → ${OUTPUT}`);
-    await writeFile(OUTPUT, html);
-    console.log(`Open with: open "${OUTPUT}"`);
-    return;
-  }
-
-  console.log(`Rendering DOCX → ${OUTPUT}`);
-  const buffer = await HTMLtoDOCX(html, null, {
-    orientation: "portrait",
-    margins: { top: 1134, right: 1134, bottom: 1134, left: 1134 },
-    font: "Calibri",
-    fontSize: 22,
-    title: "Enterprise AI Adoption Report 2025",
-    creator: "LLPA",
-    pageNumber: true,
-    footer: true,
-  });
-  await writeFile(OUTPUT, buffer);
-
-  // Post-process: scrub residual pure-black paragraph shading.
-  console.log("Post-processing: stripping residual black shading…");
-  const zipBuf = await readFile(OUTPUT);
-  const zip = await JSZip.loadAsync(zipBuf);
-  const docXml = await zip.file("word/document.xml").async("string");
-  const cleaned = docXml.replace(
-    /<w:shd[^/]*w:fill="0{6,8}"[^/]*\/>/gi,
-    "",
-  );
-  zip.file("word/document.xml", cleaned);
-  const out = await zip.generateAsync({
-    type: "nodebuffer",
-    compression: "DEFLATE",
-  });
-  await writeFile(OUTPUT, out);
-
+  console.log(`Writing → ${OUTPUT}`);
+  await writeFile(OUTPUT, html);
   console.log(`Saved ${OUTPUT}`);
+  if (!HTML_ONLY) {
+    console.log(
+      "Open in Word: double-click the .doc — Word renders the inlined HTML.\n" +
+        "  File → Save As → Word Document (.docx) inside Word for a true OOXML file.",
+    );
+  }
 }
 
 main().catch((err) => {
