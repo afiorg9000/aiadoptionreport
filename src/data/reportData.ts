@@ -436,6 +436,7 @@ export const references: Reference[] = [
   { id: 425, source: "Alex Imas (Substack)", description: "What is the impact of AI on productivity? Reconciling the micro and the macro evidence (March 2026)", url: "https://aleximas.substack.com/p/what-is-the-impact-of-ai-on-productivity" },
   { id: 426, source: "Wang et al. (CMU/Stanford)", description: "How Well Does Agent Development Reflect Real-World Work? arXiv:2603.01203 (March 2026)", url: "https://arxiv.org/abs/2603.01203" },
   { id: 427, source: "AI Agents for Human Work", description: "Benchmarking Agents Against Real-World Work - mapping 43 benchmarks to 1,016 occupations (2026)", url: "https://zorazrw.github.io/ai4work/" },
+  { id: 517, source: "Eurostat", description: "32.7% of EU people used generative AI tools in 2025 (December 2025 release)", url: "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251216-3" },
 ];
 
 /**

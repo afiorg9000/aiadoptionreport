@@ -276,6 +276,9 @@ const strategicPlanningQuotes = [{
 }, {
   quote: "Confusion of all the possibilities",
   citation: 113
+}, {
+  quote: "Few clients ask for specialized or advanced courses; demand concentrated on general awareness, foundational courses and prompt engineering (Romania)",
+  citation: 150
 }];
 const assessmentTools = ["Organizational readiness diagnostic", "Use case discovery framework", "Vendor evaluation and bullshit detector", "Quick-win identification tool", "Decision frameworks", "Competitive benchmarks", "Team capability assessment"];
 const GlobalAILandscape = () => {
@@ -631,10 +634,10 @@ const GlobalAILandscape = () => {
                   Eurostat enterprise AI usage: <strong className="text-foreground">5.21%</strong> of Romanian enterprises (2025 data)—lowest in the EU versus the EU average of ~20%; Denmark leads at 42.03% for contrast.<CitationLink id={375} />
                 </li>
                 <li>
-                  Individual use of generative AI tools among citizens was <strong className="text-foreground">17.8%</strong> in 2025—the lowest in the EU, signalling room for literacy and enablement programs.<CitationLink id={3} />
+                  Individual use of generative AI tools among citizens was <strong className="text-foreground">17.8%</strong> in 2025—the lowest in the EU, signalling room for literacy and enablement programs.<CitationLink id={517} />
                 </li>
                 <li>
-                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates.<CitationLink id={1} />
+                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates.<CitationLink id={375} />
                 </li>
               </ul>
               <p className="text-sm text-muted-foreground mt-4">
@@ -725,6 +728,10 @@ const GlobalAILandscape = () => {
                       <li className="flex gap-2">
                         <span className="text-llpa-blue mt-1.5">•</span>
                         <span>Mexico, despite reaching 38% adoption, faces a talent bottleneck with 56% citing workforce shortages.<CitationLink id={391} /></span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-llpa-blue mt-1.5">•</span>
+                        <span>Romania — the EU's lowest-adoption market at 5.2% — shows the same skills-gap pattern from a low base: members report low digital literacy and a conservative client mindset, with demand concentrated on awareness and foundational topics rather than advanced AI skills.<CitationLink id={375} /><CitationLink id={150} /></span>
                       </li>
                     </ul>
                   </div>
