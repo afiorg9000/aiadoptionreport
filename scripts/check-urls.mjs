@@ -46,21 +46,26 @@ function extractRefs(file) {
 }
 
 async function check(url) {
-  const ua = "Mozilla/5.0 (compat; ai-report-link-check/1.0)";
+  // Use a realistic browser User-Agent + Accept headers. Many sites
+  // (Cloudflare-fronted, Eurostat, Microsoft TechCommunity, etc.) return 404
+  // or 403 to script-y headers but 200 to browsers — those are false negatives.
+  const ua =
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
+    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+  const headers = {
+    "User-Agent": ua,
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+  };
   for (const method of ["HEAD", "GET"]) {
     try {
       const c = new AbortController();
       const t = setTimeout(() => c.abort(), 15000);
-      const r = await fetch(url, {
-        method,
-        redirect: "follow",
-        signal: c.signal,
-        headers: { "User-Agent": ua, Accept: "*/*" },
-      });
+      const r = await fetch(url, { method, redirect: "follow", signal: c.signal, headers });
       clearTimeout(t);
       if (method === "GET" && r.body) try { await r.body.cancel(); } catch {}
-      // Some servers reject HEAD; fall back to GET on 405/403/501.
-      if (method === "HEAD" && [403, 405, 501].includes(r.status)) continue;
+      // HEAD often rejected by Cloudflare-fronted sites; fall back to GET.
+      if (method === "HEAD" && [400, 403, 404, 405, 501].includes(r.status)) continue;
       return { status: r.status, redirected: r.url !== url, finalUrl: r.url };
     } catch (e) {
       if (method === "HEAD") continue;
