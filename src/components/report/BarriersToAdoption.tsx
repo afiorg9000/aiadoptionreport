@@ -52,8 +52,8 @@ const changeManagementEvidence = [
   {
     category: "Leadership vision gap",
     items: [
-      { text: 'The biggest barrier to scaling AI isn\'t employees—who are ready—but leaders, who are not steering fast enough; only 1% of companies describe their AI rollouts as "mature"', citation: 396 },
-      { text: "60% of business leaders say their organization's leadership lacks a plan or vision to implement AI", citation: 397 },
+      { text: 'Only 5% of companies qualify as "future-built" for AI, systematically generating substantial value; 35% are scaling and beginning to generate value; the remaining 60% have yet to cross from experimentation to measurable impact (BCG Build for the Future 2025, n=1,250)', citation: 396 },
+      { text: "Despite 80% of CEOs expressing optimism about AI ROI, only 1% describe their AI rollouts as 'mature,' and 60% admit they have intentionally slowed implementation due to concerns over errors (BCG AI Radar 2026, n=2,400 executives including 640 CEOs)", citation: 519 },
     ],
   },
   {
@@ -66,13 +66,13 @@ const changeManagementEvidence = [
   {
     category: "Security and trust concerns",
     items: [
-      { text: "72% of organizational leaders admit they lack skills for implementing AI responsibly; up to 70% of change initiatives fail due to employee pushback or inadequate management support", citation: 399 },
+      { text: "Only 5% of companies are 'future-built' for AI, with the remaining 95% lacking the organizational capabilities — including governance and responsible AI skills — to realize substantial value (BCG Build for the Future 2025); approximately 70% of organizational change initiatives fail, with employee resistance and unsupportive management behavior as the top failure modes (McKinsey)", citation: 520 },
     ],
   },
   {
     category: "Change management is underinvested",
     items: [
-      { text: "74% of companies struggle to achieve and scale value from AI; roughly 70% of challenges in AI projects stem from people and process issues, not technical ones", citation: 400 },
+      { text: "BCG's 10-20-70 rule for AI transformations: only ~10% of impact comes from algorithms and ~20% from technology and data; the remaining 70% comes from people, process, and adoption — which is where most programs under-invest", citation: 400 },
       { text: "Only about one-third of companies in late 2024 were prioritizing change management and training as part of their AI rollouts", citation: 400 },
     ],
   },

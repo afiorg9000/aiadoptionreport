@@ -198,7 +198,7 @@ const skillsGapEvidenceTier1 = [{
   content: "The Netherlands reports ~25% adoption (above EU average), but a striking 74.6% of businesses identify \"lack of experience\" as their primary obstacle.",
   citations: [42]
 }, {
-  content: "Switzerland, with 32% workforce adoption, reveals a training disconnect: only 13% of employees feel adequately prepared through existing programs.",
+  content: "Switzerland, with 32% workforce adoption, reveals a training disconnect: a minority of employees feel adequately prepared to use AI in their work.",
   citations: [380]
 }];
 const skillsGapEvidenceTier2 = [{
@@ -732,7 +732,7 @@ const GlobalAILandscape = () => {
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-green mt-1.5">•</span>
-                        <span>Switzerland, with 32% workforce adoption, reveals a training disconnect where only 13% of employees feel adequately prepared.<CitationLink id={380} /></span>
+                        <span>Switzerland, with 32% workforce adoption, reveals a training disconnect where a minority of employees feel adequately prepared to use AI in their work.<CitationLink id={380} /></span>
                       </li>
                     </ul>
                   </div>
@@ -965,7 +965,7 @@ const GlobalAILandscape = () => {
                   </li>
                   <li className="text-muted-foreground flex items-start gap-2">
                     <span className="text-llpa-blue mt-1">•</span>
-                    <span>82% of leaders say this is a pivotal year to rethink strategy, yet 67% of leaders report familiarity with AI agents compared to only 40% of employees — highlighting execution gap<CitationLink id={394} /></span>
+                    <span>82% of leaders say this is a pivotal year to rethink strategy, yet 67% of leaders report familiarity with AI agents compared to only 40% of employees — highlighting the execution gap<CitationLink id={394} /></span>
                   </li>
                   <li className="text-muted-foreground flex items-start gap-2">
                     <span className="text-llpa-yellow mt-1">•</span>

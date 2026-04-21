@@ -397,11 +397,11 @@ const PortfolioAnalysis = () => {
                     </li>
                     <li className="font-body text-sm text-muted-foreground flex items-start gap-2">
                       <span className="text-gold">•</span>
-                      <span><strong>Avoiding vendor lock-in:</strong> 67% of CTOs cite diversification<CitationLink id={302} /></span>
+                      <span><strong>Multi-model reality:</strong> 60% of enterprises use multiple AI models and 37% use 5 or more in production — driven by performance optimization and avoiding vendor lock-in<CitationLink id={302} /></span>
                     </li>
                     <li className="font-body text-sm text-muted-foreground flex items-start gap-2">
                       <span className="text-gold">•</span>
-                      <span><strong>Regulatory compliance:</strong> 43% cite data residency requirements<CitationLink id={303} /></span>
+                      <span><strong>Data sovereignty &amp; geopatriation:</strong> Gartner inquiries about cloud sovereignty rose 305% in H1 2025; 50% of non-US CIOs anticipate changes to vendor engagement based on region — twice the rate of US CIOs<CitationLink id={303} /></span>
                     </li>
                   </ul>
                 </div>
@@ -557,7 +557,7 @@ const PortfolioAnalysis = () => {
                 <p className="font-body text-sm text-muted-foreground mb-4">
                   <strong>Current State:</strong> training providers has ~8 basic ChatGPT courses but lacks advanced API and enterprise deployment training.
                   <br />
-                  <strong>Market Gap:</strong> 71% of enterprises use ChatGPT but IBM survey found 76% lack formal training on enterprise features<CitationLink id={319} />
+                  <strong>Market Gap:</strong> 71% of enterprises use ChatGPT, yet Microsoft/LinkedIn Work Trend Index 2024 finds only 39% of AI users globally have received AI training from their company — and only 25% of companies plan to offer it<CitationLink id={319} />
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                   {openaiCourses.map((course, i) => (

@@ -186,7 +186,7 @@ const StrategicRecommendations = () => {
                   <div className="border border-border p-4 rounded-xl">
                     <h6 className="font-medium text-foreground mb-2">training providers Change Readiness Diagnostic</h6>
                     <p className="text-sm text-muted-foreground">
-                      Framework to identify organizational resistance patterns. Research shows 70% of AI initiatives fail due to employee pushback or inadequate management support<CitationLink id={399} />, and 74% of companies struggle to scale AI value with roughly 70% of challenges stemming from people and process issues<CitationLink id={400} />.
+                      Framework to identify organizational resistance patterns. McKinsey finds approximately 70% of organizational transformations fail, with employee resistance and unsupportive management behavior as the top failure modes<CitationLink id={399} />; BCG's 10-20-70 rule attributes ~70% of AI-transformation impact to people, process, and adoption — the commonly under-invested areas<CitationLink id={400} />.
                     </p>
                   </div>
                   <div className="border border-border p-4 rounded-xl">
@@ -541,7 +541,7 @@ const StrategicRecommendations = () => {
                       <h6 className="font-medium text-foreground">LLMOps for Production</h6>
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
-                      85% of AI projects fail to move to production, with "lack of MLOps capabilities" cited in 73% of failures<CitationLink id={263} />.
+                      Gartner forecasts at least 30% of GenAI projects will be abandoned after the proof-of-concept phase by end of 2025 — driven by poor data quality, inadequate risk controls, escalating costs, or unclear business value<CitationLink id={263} />.
                     </p>
                     <p className="text-xs text-muted-foreground">
                       <span className="font-medium">Course content:</span> CI/CD for LLM applications, model versioning, monitoring (latency, cost, quality), cost optimization techniques (caching reduces costs 40-60%<CitationLink id={268} />, prompt compression 25-35% token reduction<CitationLink id={269} />, model routing saves 85%<CitationLink id={270} />).
@@ -554,7 +554,7 @@ const StrategicRecommendations = () => {
                       <h6 className="font-medium text-foreground">Fine-Tuning & Model Customization</h6>
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
-                      67% of enterprises are fine-tuning or planning to within 12 months<CitationLink id={253} />.
+                      Nearly 60% of AI leaders report interest in increasing open-source usage — or switching — when fine-tuned open-source models match closed-source performance<CitationLink id={253} />.
                     </p>
                     <p className="text-xs text-muted-foreground">
                       <span className="font-medium">Course content:</span> Decision frameworks (when to fine-tune vs. prompt engineering vs. RAG), data preparation, training approaches (LoRA, QLoRA), evaluation, deployment.
@@ -617,7 +617,7 @@ const StrategicRecommendations = () => {
                       Anthropic Claude Track
                     </h6>
                     <p className="text-sm text-muted-foreground">
-                      Model family overview, prompt engineering for Claude (achieves 34% better reasoning vs. GPT-4 on analysis tasks<CitationLink id={316} />), API deep-dive, enterprise features, migration strategies.
+                      Model family overview, prompt engineering for Claude, API deep-dive, enterprise features, migration strategies. Worth grounding curriculum in broader benchmark dynamics: Stanford HAI AI Index 2025 shows the performance gap between the top model and the 10th-ranked shrank from 11.9% to 5.4% in a single year, with the top two models separated by only 0.7%<CitationLink id={316} />.
                     </p>
                   </div>
                   <div className="border border-border p-4 rounded-xl">
@@ -678,7 +678,7 @@ const StrategicRecommendations = () => {
                       <Badge className="bg-llpa-orange/15 text-llpa-orange border-llpa-orange/30 text-xs">Highest Priority</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
-                      AI spending $52.3B (2024) → $89.7B (2027)<CitationLink id={339} />; 84% cite lack of AI talent as barrier<CitationLink id={345} />.
+                      AI spending $52.3B (2024) → $89.7B (2027)<CitationLink id={339} />; Deloitte finds lack of technical talent and skills is the single biggest barrier to GenAI adoption, with only 22% of organizations feeling highly or very highly prepared to address talent-related issues<CitationLink id={345} />.
                     </p>
                     <p className="text-sm text-muted-foreground">
                       <span className="font-medium">Courses:</span> AI for Banking & Lending, AI for Insurance, AI for Asset Management, AI Governance for Financial Services.

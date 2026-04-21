@@ -221,7 +221,7 @@ These profiles expand on abbreviated entries in the original document, providing
    Financial services, healthcare, and insurance move cautiously despite high awareness—compliance requirements and risk-averse cultures require extensive validation before deployment.[50]
 
 5. **Training readiness gap**  
-   Only 13% of employees feel well-prepared for AI through specific training—significant gap between tool access and capability.[380]
+   A Swiss workforce survey found a significant training disconnect: a minority of employees feel adequately prepared to use AI in their work.[380]
 
 **Comparative Context**
 
@@ -809,7 +809,7 @@ These profiles expand on abbreviated entries in the original document, providing
 - Public sector AI deployment: **23+ AI tools** across healthcare, public safety, conservation[28]
 - AI market size: Projected **$1.2B** in 2025, growing to $3.27B by 2031 (35.13% CAGR)[29]
 - Skills gap: **60%+** of companies identify skills gap as key barrier to business transformation[390]
-- Government initiative: Microsoft AI skilling initiative targeting **1 million South Africans** by 2026[390]
+- Government initiative: Microsoft AI skilling initiative targeting **1 million South Africans** by 2026[518]
 - Internet penetration: **74.7%** (2024)[28]
 
 **Member Insights:** CloudTeam developed Arudis AI tutor and microlearning platform; AI flashcards/quizzes; webinar support tooling. CTU Training Solutions reports high inquiry volume and ChatGPT training popularity but low conversion from free webinars to paid training. ThinkSmart reports leadership reluctance and security concerns as client barriers.
@@ -823,7 +823,7 @@ These profiles expand on abbreviated entries in the original document, providing
    CloudTeam developed Arudis AI platform including AI tutor, microlearning, flashcards/quizzes, and webinar support tooling—demonstrating curriculum development capability.
 
 3. **Significant government and private investment**  
-   Microsoft R5.4B ($300M+) investment in South Africa including AI infrastructure and skilling; 1M training target by 2026 creates public-private partnership opportunity.[390]
+   Microsoft R5.4B ($300M+) investment in South Africa including AI infrastructure and skilling; 1M training target by 2026 creates public-private partnership opportunity.[518]
 
 4. **Strong regulatory framework**  
    Protection of Personal Information Act (POPIA) and Cybercrimes Act provide data protection foundation; National AI Policy Framework finalized in 2024.[28]
@@ -953,7 +953,12 @@ These profiles expand on abbreviated entries in the original document, providing
 [389] OpenAI Enterprise Growth Report (2025). ChatGPT Enterprise customer growth by region.
 
 [390] World Economic Forum (2025). "Future of Jobs Report 2025."
+https://www.weforum.org/publications/the-future-of-jobs-report-2025/
 
 [391] Bain & Company Mexico (2024). "AI Adoption in Mexican Enterprises."
+(flagged for verification — cannot locate matching Bain publication; see commit history for this file)
+
+[518] Microsoft South Africa (January 2025). "Microsoft launches AI Skilling Initiative to train 1 million South Africans by 2026."
+https://news.microsoft.com/source/emea/features/microsoft-south-africa-launches-ai-skilling-initiative-to-train-1-million-people-by-2026/
 
 [392] Brazil AI Market Report (2024). Enterprise AI adoption and ROI metrics.
