@@ -633,17 +633,20 @@ const GlobalAILandscape = () => {
               </h4>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 Cross-market patterns above apply to Romania as a <strong className="text-foreground">Tier 2 (Advanced)</strong> market in our framework: strong IT services and technical talent, but{" "}
-                <strong className="text-foreground">enterprise AI adoption remains among the lowest in the EU</strong>, with significant headroom for implementation and skills programs.
+                <strong className="text-foreground">enterprise AI adoption is the lowest in the EU and concentrated in large enterprises</strong>. The headline gap looks small because the floor is so low; the size-class divide is actually more pronounced than the EU average.
               </p>
               <ul className={`space-y-2 ${typography.bodySmall} text-muted-foreground list-disc pl-5`}>
                 <li>
                   Eurostat enterprise AI usage: <strong className="text-foreground">5.21%</strong> of Romanian enterprises (2025 data)—lowest in the EU versus the EU average of ~20%; Denmark leads at 42.03% for contrast.<CitationLink id={375} />
                 </li>
                 <li>
+                  Size-class breakdown: <strong className="text-foreground">large enterprises 20.75%</strong> vs <strong className="text-foreground">small (10–49) 4.13%</strong> — a <strong className="text-foreground">5.0x ratio</strong>, the most concentrated divide in the Pattern 1 table above (EU average is 3.7x). The 17pp absolute gap understates the structural distance between large and small Romanian firms.<CitationLink id={375} />
+                </li>
+                <li>
                   Individual use of generative AI tools among citizens was <strong className="text-foreground">17.8%</strong> in 2025—the lowest in the EU, signalling room for literacy and enablement programs.<CitationLink id={517} />
                 </li>
                 <li>
-                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates.<CitationLink id={375} />
+                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates among small and mid-market firms.<CitationLink id={375} />
                 </li>
               </ul>
               <p className="text-sm text-muted-foreground mt-4">
@@ -684,8 +687,11 @@ const GlobalAILandscape = () => {
               </EvidenceBlock>
 
               <FindingBlock>
-                <p>
+                <p className="mb-3">
                   The size-class gap has widened as large enterprises accelerated adoption faster than SMEs. In several markets, large enterprise adoption exceeds 60% while small business adoption remains below 20%.
+                </p>
+                <p className="text-sm text-muted-foreground border-l-2 border-llpa-yellow/50 pl-3">
+                  <strong>Reading the table — absolute gap vs. ratio:</strong> the "Gap" column is a percentage-point difference, which mechanically shrinks in low-adoption markets. <strong className="text-foreground">Romania's 17pp gap is the smallest in the table, but its <em>large-to-small ratio</em> (5.0x) is the highest</strong> — large Romanian enterprises adopt AI at five times the rate of small ones, more concentrated than the EU average (3.7x), Singapore (4.3x) or the Nordic markets (~4x). The divide is not less severe in Romania; it is hidden by the low floor (small-enterprise adoption of just 4.13%). Read the two columns together when comparing low-base markets to the rest.
                 </p>
               </FindingBlock>
 
