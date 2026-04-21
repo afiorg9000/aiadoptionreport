@@ -23,17 +23,10 @@ const downloads = [
     icon: FileType2,
   },
   {
-    label: "Word (layout)",
+    label: "Word",
     note: "Editable DOCX that preserves page layout and tables",
     href: "/Enterprise-AI-Adoption-Report-2025-layout.docx",
     filename: "Enterprise-AI-Adoption-Report-2025-layout.docx",
-    icon: FileText,
-  },
-  {
-    label: "Word (text)",
-    note: "Plain reflowable DOCX — best for heavy rewrites",
-    href: "/Enterprise-AI-Adoption-Report-2025-text.docx",
-    filename: "Enterprise-AI-Adoption-Report-2025-text.docx",
     icon: FileText,
   },
 ] as const;
