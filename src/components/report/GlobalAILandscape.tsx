@@ -264,26 +264,36 @@ const regulatedIndustryEvidence = [{
   finding: "39% cite \"difficulty identifying use cases\" — conservative approach to deployment",
   citations: [12]
 }];
+// Quotes are paraphrased from the LLPA Member Survey 2025 (anonymized, aggregated by region).
+// `attribution` is shown before the quote so the reader sees the source clearly without
+// identifying individual members.
 const strategicPlanningQuotes = [{
-  quote: "Clients unclear on what they want to achieve with AI; uncertainty about ROI and implementation",
+  attribution: "An LLPA member in the Asia-Pacific region reports",
+  quote: "clients are unclear on what they want to achieve with AI; uncertainty about ROI and implementation persists across the customer base.",
   citation: 140
 }, {
-  quote: "They don't know but they're trying",
+  attribution: "An LLPA member in Eastern Europe described client posture as",
+  quote: "they don't know but they're trying.",
   citation: 141
 }, {
-  quote: "Poorly defined business objectives, poor data quality, lack of collaboration between teams",
+  attribution: "An LLPA member in Latin America cites",
+  quote: "poorly defined business objectives, poor data quality, and lack of collaboration between teams.",
   citation: 142
 }, {
-  quote: "Clients often unsure what they want ('do some AI')",
+  attribution: "An LLPA member in Central Europe described clients as",
+  quote: "often unsure what they want — 'do some AI'.",
   citation: 143
 }, {
-  quote: "Lack of clear methodology for mapping AI opportunities within organizations",
+  attribution: "An LLPA member in Eastern Europe identifies",
+  quote: "a lack of clear methodology for mapping AI opportunities within organizations.",
   citation: 144
 }, {
-  quote: "Confusion of all the possibilities",
+  attribution: "An LLPA member in the Nordic region reports",
+  quote: "confusion of all the possibilities.",
   citation: 113
 }, {
-  quote: "Few clients ask for specialized or advanced courses; demand concentrated on general awareness, foundational courses and prompt engineering (Romania)",
+  attribution: "An LLPA member in Eastern Europe (Romania) reports",
+  quote: "few clients ask for specialized or advanced courses; demand is concentrated on general awareness, foundational courses and prompt engineering.",
   citation: 150
 }];
 const assessmentTools = ["Organizational readiness diagnostic", "Use case discovery framework", "Vendor evaluation and bullshit detector", "Quick-win identification tool", "Decision frameworks", "Competitive benchmarks", "Team capability assessment"];
@@ -935,7 +945,11 @@ const GlobalAILandscape = () => {
                   const colors = ['text-llpa-green', 'text-llpa-blue', 'text-llpa-yellow', 'text-llpa-orange'];
                   return <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
                         <span className={`${colors[index % 4]} mt-1`}>•</span>
-                        <span className="italic">"{item.quote}"<CitationLink id={item.citation} /></span>
+                        <span>
+                          <span className="text-foreground">{item.attribution}</span>{" "}
+                          <span className="italic">"{item.quote}"</span>
+                          <CitationLink id={item.citation} />
+                        </span>
                       </li>;
                 })}
                 </ul>

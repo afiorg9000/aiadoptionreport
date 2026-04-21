@@ -28,6 +28,12 @@ const dataSources = [
     count: "60+",
   },
   {
+    category: "LLPA Member Survey 2025",
+    description: "Anonymized primary research from structured interviews with LLPA member training providers, aggregated by region (see paragraph above)",
+    examples: "Nordic, Western/Central/Eastern/Southern Europe, Asia-Pacific, Latin America, Africa",
+    count: "51",
+  },
+  {
     category: "Forecasting Aggregations",
     description: "Aggregated predictions on AI capability timelines",
     examples: "Metaculus, AI Impacts Survey, Cotra Bio Anchors",
@@ -48,12 +54,19 @@ const Methodology = () => {
           >
             <h2 className={`${typography.sectionTitle} mb-4`}>Methodology</h2>
             
-            <p className={`${typography.body} mb-8`}>
+            <p className={`${typography.body} mb-6`}>
               This report synthesizes findings from {sourceCount} research sources published between 2023 and 2025. 
               Data was collected through systematic review of industry surveys, government statistics, 
               academic research, and market analysis reports. Where sources reported conflicting figures, 
               we prioritized recent data, larger sample sizes, and methodologically rigorous studies.
             </p>
+
+            <div className="mb-8 p-4 bg-llpa-blue/5 border border-llpa-blue/20 rounded-lg">
+              <h4 className={`${typography.blockTitle} mb-2`}>LLPA Member Survey 2025</h4>
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                Alongside published research, LLPA conducted structured interviews with member training providers across more than 20 markets during August–September 2025 to capture frontline observations about enterprise AI adoption patterns. Member contributions are reported anonymously and aggregated by region (Nordic, Western Europe, Central Europe, Eastern Europe, Southern Europe, Asia-Pacific, Latin America, and Africa) to preserve confidentiality. Interview participants represent established enterprise AI and digital-skills training providers across the LLPA membership; individual members and the underlying interview transcripts are not published.
+              </p>
+            </div>
 
             <h3 className={`${typography.subsectionTitle} mb-4`}>Data Sources</h3>
             
