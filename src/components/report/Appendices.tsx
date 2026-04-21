@@ -1,33 +1,11 @@
 import { motion } from "framer-motion";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Users, BarChart3, Mail, FlaskConical } from "lucide-react";
 import { iconWrapperStyles } from "./styles";
 
-const interviewParticipants = [
-  { organization: "Teknologisk Institut", country: "Denmark", date: "July 15, 2025" },
-  { organization: "Computrain", country: "Netherlands", date: "July 18, 2025" },
-  { organization: "Digicomp", country: "Switzerland", date: "July 22, 2025" },
-  { organization: "TÜV Rheinland", country: "Germany", date: "July 25, 2025" },
-  { organization: "Eduhouse", country: "Finland", date: "July 29, 2025" },
-  { organization: "Glasspaper", country: "UK", date: "August 1, 2025" },
-  { organization: "Cornerstone", country: "UK/Sweden", date: "August 5, 2025" },
-  { organization: "Rumos", country: "Portugal", date: "August 8, 2025" },
-  { organization: "Kompas Xnet", country: "Slovenia", date: "August 12, 2025" },
-  { organization: "Algebra", country: "Croatia", date: "August 15, 2025" },
-  { organization: "Bittnet", country: "Romania", date: "August 19, 2025" },
-  { organization: "ETC", country: "Austria", date: "August 22, 2025" },
-  { organization: "Trainocate", country: "Singapore", date: "August 26, 2025" },
-  { organization: "Lumify Work", country: "Australia", date: "August 29, 2025" },
-  { organization: "CTU Training Solutions", country: "South Africa", date: "September 2, 2025" },
-  { organization: "CloudTeam", country: "South Africa/Poland", date: "September 5, 2025" },
-  { organization: "Semos Education", country: "North Macedonia", date: "September 9, 2025" },
-  { organization: "GREEN Tecnologia", country: "Brazil", date: "September 12, 2025" },
-  { organization: "CompuEducación", country: "Mexico", date: "September 16, 2025" },
-  { organization: "ThinkSmart", country: "Bahrain/South Africa", date: "September 19, 2025" },
-  { organization: "Gopas", country: "Slovakia", date: "September 23, 2025" },
-  { organization: "BilgeAdam IT Services", country: "Turkey", date: "September 26, 2025" },
-];
+// Participant identities are held confidentially by LLPA. The acknowledgment
+// rendered to readers is anonymous and aggregated by region; the per-organization
+// list previously here has been redacted.
 
 const interviewQuestions = [
   {
@@ -239,28 +217,13 @@ const Appendices = () => {
                 </ul>
               </div>
 
-              {/* Participating Members Table */}
+              {/* Anonymous Acknowledgment */}
               <div>
-                <h4 className="font-display text-lg font-semibold text-foreground mb-4">Participating Members</h4>
-                <div className="border border-border rounded-xl overflow-hidden">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-muted/50">
-                        <TableHead className="font-display font-semibold">Member Organization</TableHead>
-                        <TableHead className="font-display font-semibold">Country</TableHead>
-                        <TableHead className="font-display font-semibold">Interview Date</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {interviewParticipants.map((participant, index) => (
-                        <TableRow key={participant.organization} className={index % 2 === 0 ? "bg-card" : "bg-muted/20"}>
-                          <TableCell className="font-body font-medium">{participant.organization}</TableCell>
-                          <TableCell className="font-body text-muted-foreground">{participant.country}</TableCell>
-                          <TableCell className="font-body text-muted-foreground">{participant.date}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
+                <h4 className="font-display text-lg font-semibold text-foreground mb-4">Acknowledgment</h4>
+                <div className="bg-llpa-blue/5 border border-llpa-blue/20 rounded-xl p-5">
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                    This research draws on structured interviews with <strong className="text-foreground">22 LLPA member training providers</strong> across more than 20 markets conducted during <strong className="text-foreground">August–September 2025</strong>. Individual participants remain anonymous to preserve the candor of client-facing observations. Interview contributions are reported in aggregate or with regional attribution only; participant names and the underlying interview transcripts are held confidentially by LLPA and are not published.
+                  </p>
                 </div>
               </div>
             </CardContent>
