@@ -1,39 +1,40 @@
 /**
- * Generate the editable Word file (.doc) directly from the live website.
- *
- * Why .doc and not .docx:
- *   The previous attempt used @turbodocx/html-to-docx to produce a true
- *   .docx file. That library's CSS support is shallow — it ignored most
- *   of the inlined styling we worked hard to bake into the HTML, so the
- *   output looked nothing like the website.
- *
- *   Microsoft Word natively opens HTML files when given a .doc/.docm
- *   extension, and Word's HTML parser preserves inlined CSS, real
- *   tables, hyperlinks, and base64 images with very high fidelity.
- *   The user can `File → Save As → Word Document (.docx)` once it's
- *   open in Word to get a proper OOXML file.
+ * Generate the editable Word .docx directly from the live website
+ * via pandoc.
  *
  * Pipeline:
  *   1. Visit /market-profiles, prep, capture <main> innerHTML.
  *   2. Visit /, prep, splice market profiles in place of the CTA.
  *   3. Bake getComputedStyle() values into inline `style=""` attrs.
- *   4. Inline the Tailwind stylesheet bundle and base64-encode all
- *      relative images so the file is fully self-contained.
- *   5. Strip true chrome (header/nav/dialogs); convert TOC buttons to
- *      anchor links; unwrap remaining buttons to spans.
- *   6. Write `.doc` (or `.html` in --html-only mode).
+ *   4. Inline the Tailwind stylesheet bundle and base64-encode images.
+ *   5. Strip chrome; convert TOC buttons to anchors; unwrap remaining
+ *      buttons to spans; serialize to a single self-contained HTML.
+ *   6. Pipe HTML to pandoc → real .docx with native Word styles
+ *      (heading hierarchy, hyperlinks, tables).
+ *
+ * Why pandoc:
+ *   Pandoc's docx writer is structural — it maps semantic HTML to
+ *   Word's native styles (Heading 1, Body Text, etc.) rather than
+ *   trying to reproduce the website's CSS pixel-for-pixel. The output
+ *   is a clean, standards-compliant Word document that's easy to edit
+ *   and re-style. Visual brand colors are not preserved (that's a
+ *   docx writer limitation), but heading structure, hyperlinks,
+ *   tables, and images all carry over cleanly.
  *
  * Usage:
  *   node generate-docx.mjs [PREVIEW_URL] [OUTPUT_PATH] [--html-only]
  *
- * Defaults:
- *   PREVIEW_URL  = http://localhost:4173
- *   OUTPUT_PATH  = public/Enterprise-AI-Adoption-Report-2025.doc
- *                  (or report-preview.html if --html-only)
+ * Prereqs:
+ *   - Vite preview server running at PREVIEW_URL.
+ *   - pandoc installed: `npm run docs:install-pandoc` (one-shot).
  */
 
 import puppeteer from "puppeteer";
-import { writeFile } from "node:fs/promises";
+import { writeFile, unlink } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { homedir } from "node:os";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import {
   preparePage,
   captureMarketProfilesHTML,
@@ -48,7 +49,24 @@ const OUTPUT =
   positional[1] ||
   (HTML_ONLY
     ? "report-preview.html"
-    : "public/Enterprise-AI-Adoption-Report-2025.doc");
+    : "public/Enterprise-AI-Adoption-Report-2025.docx");
+
+function findPandoc() {
+  if (process.env.PANDOC_PATH && existsSync(process.env.PANDOC_PATH)) {
+    return process.env.PANDOC_PATH;
+  }
+  const candidates = [
+    join(homedir(), ".local/bin/pandoc"),
+    "/usr/local/bin/pandoc",
+    "/opt/homebrew/bin/pandoc",
+    "/usr/bin/pandoc",
+  ];
+  for (const p of candidates) if (existsSync(p)) return p;
+  // Fall back to PATH lookup.
+  const which = spawnSync("which", ["pandoc"]);
+  if (which.status === 0) return which.stdout.toString().trim();
+  return null;
+}
 
 async function inlineComputedStyles(page) {
   await page.evaluate(() => {
@@ -253,15 +271,57 @@ async function main() {
 
   await browser.close();
 
-  console.log(`Writing → ${OUTPUT}`);
-  await writeFile(OUTPUT, html);
-  console.log(`Saved ${OUTPUT}`);
-  if (!HTML_ONLY) {
-    console.log(
-      "Open in Word: double-click the .doc — Word renders the inlined HTML.\n" +
-        "  File → Save As → Word Document (.docx) inside Word for a true OOXML file.",
-    );
+  if (HTML_ONLY) {
+    console.log(`Writing → ${OUTPUT}`);
+    await writeFile(OUTPUT, html);
+    return;
   }
+
+  // Otherwise: write HTML to a temp file and let pandoc convert to .docx.
+  const pandoc = findPandoc();
+  if (!pandoc) {
+    console.error(
+      "ERROR: pandoc not found. Install it via:\n" +
+        "  bash scripts/install-pandoc.sh\n" +
+        "or set PANDOC_PATH=/path/to/pandoc",
+    );
+    process.exit(1);
+  }
+  console.log(`Found pandoc at ${pandoc}`);
+
+  const tmpHtml = OUTPUT + ".tmp.html";
+  await writeFile(tmpHtml, html);
+  console.log(`Running pandoc HTML → DOCX → ${OUTPUT}`);
+  const r = spawnSync(
+    pandoc,
+    [
+      "-f",
+      "html",
+      "-t",
+      "docx",
+      "-s",
+      "--metadata=title:Enterprise AI Adoption Report 2025",
+      "--metadata=author:LLPA",
+      "-o",
+      OUTPUT,
+      tmpHtml,
+    ],
+    { stdio: ["ignore", "inherit", "pipe"] },
+  );
+  // Pandoc warns on every SVG it can't rasterize — those are decorative
+  // lucide icons, not content; suppress the warning spam.
+  const stderr = r.stderr?.toString() || "";
+  const meaningful = stderr
+    .split("\n")
+    .filter((l) => l && !/Could not convert image .+\.svg/.test(l))
+    .join("\n");
+  if (meaningful.trim()) console.error(meaningful);
+  if (r.status !== 0) {
+    console.error(`pandoc exited ${r.status}`);
+    process.exit(1);
+  }
+  await unlink(tmpHtml);
+  console.log(`Saved ${OUTPUT}`);
 }
 
 main().catch((err) => {

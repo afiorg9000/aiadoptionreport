@@ -24,9 +24,9 @@ const downloads = [
   },
   {
     label: "Word",
-    note: "Opens in Word with full styling — Save As .docx for editing",
-    href: "/Enterprise-AI-Adoption-Report-2025.doc",
-    filename: "Enterprise-AI-Adoption-Report-2025.doc",
+    note: "Editable .docx with native Word styles, hyperlinks, and tables",
+    href: "/Enterprise-AI-Adoption-Report-2025.docx",
+    filename: "Enterprise-AI-Adoption-Report-2025.docx",
     icon: FileText,
   },
 ] as const;
