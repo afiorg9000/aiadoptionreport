@@ -212,8 +212,8 @@ const skillsGapEvidenceTier3 = [{
   content: "South Africa remains in early-stage adoption, where over 60% of organizations identify the skills gap as their key barrier to AI implementation.",
   citations: [390]
 }, {
-  content: "Mexico has reached 38% adoption but faces a talent bottleneck: 56% cite workforce shortages as their main barrier to growth.",
-  citations: [391]
+  content: "Mexico has reached 95% enterprise AI adoption, but organizational culture and operational complexity — not software availability — are cited as the primary obstacles to scaling; a specialized-talent deficit reinforces the same constraint.",
+  citations: [521, 522]
 }];
 // Numbering aligns directionally with Section 1.1 Market Maturity Tiers:
 // Level 1 = most advanced organization; Level 4 = least advanced. (Still distinct
@@ -749,7 +749,7 @@ const GlobalAILandscape = () => {
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-blue mt-1.5">•</span>
-                        <span>Mexico, despite reaching 38% adoption, faces a talent bottleneck with 56% citing workforce shortages.<CitationLink id={391} /></span>
+                        <span>Mexico has reached 95% enterprise AI adoption, but organizational culture and operational complexity — not software availability — are cited as the primary obstacles to scaling, and 100% of Mexican CEOs identify AI investment as the principal lever for profitability and growth.<CitationLink id={521} /><CitationLink id={522} /></span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-blue mt-1.5">•</span>

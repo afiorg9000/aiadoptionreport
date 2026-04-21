@@ -361,7 +361,7 @@ export const references: Reference[] = [
   { id: 380, source: "AXA Switzerland / Sotomo", description: "Swiss SME AI Survey 2024 — training disconnect: a minority of employees feel adequately prepared to use AI in their work (same survey as id 379)", url: "https://www.axa.ch/en/about-axa/media/press-releases/sme-ai-survey-2024.html" },
   { id: 384, source: "Edstellar / AWS", description: "Portugal Skills in Demand Report — 71% of businesses cite difficulty hiring staff with digital skills", url: "https://www.edstellar.com/blog/skills-in-demand-in-portugal" },
   { id: 390, source: "World Economic Forum", description: "Future of Jobs Report 2025 — skills gap identified as the key barrier to business transformation for a majority of employers", url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/" },
-  { id: 391, source: "Mexico AI Survey", description: "56% cite talent shortage as main barrier" },
+  // ID 391 retired — unverifiable composite source. Mexico claims now split across ids 521 (Bain Mexico) and 522 (EY-Parthenon CEO Outlook 2026 Mexico).
   { id: 393, source: "McKinsey State of AI", description: "88% using AI, only 6% high performers" },
   { id: 394, source: "Microsoft", description: "Work Trend Index 2025 — 82% of leaders say this is a pivotal year to rethink strategy; 67% of leaders are familiar or extremely familiar with AI agents vs just 40% of employees", url: "https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born" },
   { id: 395, source: "World Economic Forum", description: "63% identify skills gaps as primary barrier" },
@@ -440,6 +440,8 @@ export const references: Reference[] = [
   { id: 518, source: "Microsoft South Africa", description: "Microsoft launches AI Skilling Initiative to train 1 million South Africans by 2026 (January 2025)", url: "https://news.microsoft.com/source/emea/features/microsoft-south-africa-launches-ai-skilling-initiative-to-train-1-million-people-by-2026/" },
   { id: 519, source: "BCG", description: "AI Radar 2026 (n=2,400 executives, 640 CEOs) — despite 80% of CEOs expressing optimism about AI ROI, only 1% describe rollouts as 'mature' and 60% admit they have intentionally slowed implementation due to error concerns", url: "https://www.bcg.com/publications/2026/as-ai-investments-surge-ceos-take-the-lead" },
   { id: 520, source: "BCG", description: "Build for the Future 2025 — 95% of companies lack the organizational capabilities (governance, responsible AI, data, skills) needed to realize substantial value from AI; only 5% are 'future-built'", url: "https://media-publications.bcg.com/The-Widening-AI-Value-Gap-Sept-2025.pdf" },
+  { id: 521, source: "Bain & Company", description: "AI en México: del entusiasmo a la escala real (March 2026) — 95% of Mexican enterprises already use AI; the challenge has shifted from adoption to scaling and capturing tangible value", url: "https://www.bain.com/es-mx/insights/ai-en-mexico-del-entusiasmo-a-la-escala-real/" },
+  { id: 522, source: "EY-Parthenon", description: "CEO Outlook 2026 — Mexico edition: 100% of Mexican CEOs cite AI investment as the primary lever for profitability and growth; 22% report AI results exceeding expectations; 64% plan to maintain or increase AI-specialized talent hiring; 92% anticipate revenue increase from AI. Primary obstacles to scaling AI: operational complexity and organizational culture — not software availability.", url: "https://www.ey.com/es_mx/ceo/consolidacion-ia-estrategia-ceo-mexico-2026" },
 ];
 
 /**

@@ -688,21 +688,20 @@ These profiles expand on abbreviated entries in the original document, providing
 ### Mexico — CompuEducación
 **Market Maturity: Tier 2 (Advanced)**
 
-**Current Statistics (December 2025):**
-- Enterprise AI adoption: **38%** (up from 29% in 2024)—over **2 million companies** now using some form of AI[391]
-- Growth: **495,000 companies** incorporated AI in the last year alone (3+ companies per minute)[391]
-- Advanced implementation: Only **3%** of companies have reached advanced stage; 72% limit AI to basic, isolated uses[391]
-- Productivity paradox: 88% report productivity improvements, but only 30% see significant business benefits[391]
-- Talent barrier: **56%** of companies cite lack of talent as main barrier (Bain & Company)[391]
-- Reskilling need: Executives believe **40%** of workforce needs AI reskilling[387]
-- Shadow AI: **67%** of workers use non-corporate AI assistants; only 35% have official corporate access[391]
+**Current Statistics (January–March 2026):**
+- Enterprise AI adoption: **95%** of Mexican enterprises already use AI; the challenge has shifted from adoption to scaling and capturing tangible value[521]
+- CEO priority: **100%** of Mexican CEOs identify AI investment as the principal lever for profitability and growth in 2026[522]
+- Early value capture: **22%** of Mexican CEOs report AI results exceeding expectations; **92%** anticipate revenue increase from AI investments[522]
+- Talent outlook: **64%** plan to maintain or increase AI-specialized talent hiring in 2026[522]
+- Macroeconomic context: **66%** of Mexican CEOs anticipate rising operating costs in 2026, increasing pressure to realize AI returns[522]
+- Primary scaling obstacles: operational complexity and organizational culture — not software availability[522]
 
 **Member Insights:** CompuEducación reports poorly defined business objectives, poor data quality, lack of collaboration between teams, and talent shortage as primary client challenges.[110][142]
 
 **Strengths**
 
-1. **Large market size with rapid adoption acceleration**  
-   130M population; 38% adoption rate represents 2M+ companies using AI, with 495,000 new adopters in 2024 alone—strong volume opportunity.[391]
+1. **Near-universal adoption floor**  
+   130M population with **95%** enterprise AI adoption (Bain 2026) — the market has crossed the adoption threshold, shifting demand toward scaling, integration and value-capture training rather than awareness.[521]
 
 2. **Growing tech sector with nearshoring momentum**  
    Mexico's position as US nearshoring destination driving tech investment and AI adoption in manufacturing and services sectors.
@@ -710,34 +709,31 @@ These profiles expand on abbreviated entries in the original document, providing
 3. **High optimism toward AI**  
    70% of Latin Americans believe AI beneficial vs. 59% global average—positive sentiment foundation for training adoption.
 
-4. **Strong productivity recognition**  
-   88% report productivity improvements from AI, demonstrating awareness of benefits even if business results lag.[391]
+4. **Early tangible returns and revenue confidence**  
+   EY-Parthenon finds **22%** of Mexican CEOs report AI results exceeding expectations and **92%** anticipate revenue increase from AI investments — creating receptiveness to training investment even amid broader macro pressures.[522]
 
 5. **Broad training addressable market**  
-   56% cite talent shortage as main barrier; executives believe 40% of workforce needs reskilling—significant training demand signal.[391][387]
+   **64%** of Mexican CEOs plan to maintain or increase AI-specialized hiring in 2026 (EY-Parthenon); combined with stated talent and capability deficits, this signals durable training demand.[522]
 
 **Weaknesses**
 
-1. **Massive adoption-depth gap**  
-   38% using AI but only 3% at advanced stage; 72% limit AI to basic, isolated uses—surface adoption without transformation.[391]
+1. **Adoption-to-scale gap**  
+   Bain reports that although 95% of Mexican enterprises use AI, most have not yet scaled it to capture tangible value — adoption has outpaced integration, workflow redesign and P&L-linked metrics.[521]
 
-2. **Severe talent shortage**  
-   56% cite lack of talent as primary barrier, creating both constraint and opportunity for training providers.[391]
+2. **Cultural and operational scaling barriers**  
+   EY-Parthenon identifies organizational culture and operational complexity — not software availability — as the primary obstacles Mexican leaders cite when trying to scale AI. Specialized-talent deficit reinforces the same constraint.[522]
 
-3. **Shadow AI prevalence**  
-   67% of workers use non-corporate AI assistants; only 35% have official corporate access—governance and security challenges.[391]
+3. **Cost pressure squeezing AI investment windows**  
+   **66%** of Mexican CEOs anticipate rising operating costs in 2026, raising the bar for AI investments to demonstrate near-term ROI and shortening patience for long-horizon programs.[522]
 
 4. **Data quality and collaboration gaps**  
    Poorly defined business objectives, poor data quality, lack of cross-functional collaboration as primary implementation barriers.[110][142]
 
-5. **Digital maturity constraint**  
-   Digital maturity only 41.7% (well below 70% optimal threshold), limiting AI implementation effectiveness.[391]
-
 **Comparative Context**
 
-*In Americas:* Mexico's 38% adoption rate competitive with Brazil (40%), with similar adoption-depth challenges. Largest Spanish-speaking AI market by company count.
+*In Americas:* Mexico has reached near-universal enterprise AI adoption (95%, Bain 2026) — among the highest reported in Latin America. The challenge has shifted from adoption to scaling and value capture, similar to Brazil's position as another fast-moving regional market.[521]
 
-*Globally:* Mexico positioned as emerging AI market with scale advantages. Nearshoring momentum and US proximity create unique training opportunities, though digital maturity gaps require foundational capability building.
+*Globally:* Mexico is positioned as a scale-advantaged Latin American AI market. Nearshoring momentum and US proximity create unique training opportunities, though the EY-Parthenon CEO cohort identifies organizational culture and operational complexity — not technology availability — as the primary obstacles to converting adoption into durable business value.[522]
 
 ---
 
@@ -955,8 +951,13 @@ These profiles expand on abbreviated entries in the original document, providing
 [390] World Economic Forum (2025). "Future of Jobs Report 2025."
 https://www.weforum.org/publications/the-future-of-jobs-report-2025/
 
-[391] Bain & Company Mexico (2024). "AI Adoption in Mexican Enterprises."
-(flagged for verification — cannot locate matching Bain publication; see commit history for this file)
+[521] Bain & Company México (March 2026). "AI en México: del entusiasmo a la escala real."
+https://www.bain.com/es-mx/insights/ai-en-mexico-del-entusiasmo-a-la-escala-real/
+
+[522] EY-Parthenon (January 2026). "CEO Outlook 2026 — Mexico: La consolidación de la inteligencia artificial como imperativo estratégico."
+https://www.ey.com/es_mx/ceo/consolidacion-ia-estrategia-ceo-mexico-2026
+
+(Citation 391 retired — the original 'Mexico AI Survey' source was composite and unverifiable. Mexico-specific claims now cite Bain 2026 and EY-Parthenon 2026 directly.)
 
 [518] Microsoft South Africa (January 2025). "Microsoft launches AI Skilling Initiative to train 1 million South Africans by 2026."
 https://news.microsoft.com/source/emea/features/microsoft-south-africa-launches-ai-skilling-initiative-to-train-1-million-people-by-2026/
