@@ -10,10 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// Each download is shipped as a static file in `public/` so this is a plain
-// anchor-based flow — no client-side conversion, no Puppeteer-in-browser.
-// Regenerate via: `npm run build && node generate-pdf.mjs` followed by the
-// pdf2docx conversion documented in the README.
+// Only PDF + Word are offered here. Files live in `public/`.
+// PDF: replace `Enterprise-AI-Adoption-Report-2025.pdf` when you have a new export.
+// DOCX: `npm run docs:docx-from-preview` (needs `report-preview.html` from `docs:preview-html`).
 const downloads = [
   {
     label: "PDF",
@@ -23,8 +22,8 @@ const downloads = [
     icon: FileType2,
   },
   {
-    label: "Word",
-    note: "Editable .docx with native Word styles, hyperlinks, and tables",
+    label: "Word (.docx)",
+    note: "Editable report — open in Microsoft Word or Google Docs",
     href: "/Enterprise-AI-Adoption-Report-2025.docx",
     filename: "Enterprise-AI-Adoption-Report-2025.docx",
     icon: FileText,
@@ -147,6 +146,7 @@ const Header = () => {
                           href={d.href}
                           download={d.filename}
                           className="flex items-start gap-3"
+                          aria-label={`Download ${d.label}: ${d.note}`}
                         >
                           <span
                             className="

@@ -23,6 +23,9 @@
  *
  * Usage:
  *   node generate-docx.mjs [PREVIEW_URL] [OUTPUT_PATH] [--html-only]
+ *   node generate-docx.mjs --from-html report-preview.html [OUTPUT_PATH]
+ *     (skips Puppeteer; converts existing self-contained HTML from a prior
+ *      --html-only capture)
  *
  * Prereqs:
  *   - Vite preview server running at PREVIEW_URL.
@@ -30,7 +33,7 @@
  */
 
 import puppeteer from "puppeteer";
-import { writeFile, unlink } from "node:fs/promises";
+import { readFile, writeFile, unlink } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { homedir } from "node:os";
 import { existsSync } from "node:fs";
@@ -40,16 +43,44 @@ import {
   captureMarketProfilesHTML,
   spliceMarketProfiles,
 } from "./lib/site-snapshot.mjs";
+import { normalizeHtmlForDocx } from "./lib/docx-html-normalize.mjs";
 
-const args = process.argv.slice(2);
-const HTML_ONLY = args.includes("--html-only");
-const positional = args.filter((a) => !a.startsWith("--"));
-const URL = positional[0] || "http://localhost:4173";
-const OUTPUT =
-  positional[1] ||
-  (HTML_ONLY
-    ? "report-preview.html"
-    : "public/Enterprise-AI-Adoption-Report-2025.docx");
+const DEFAULT_DOCX = "public/Enterprise-AI-Adoption-Report-2025.docx";
+
+let argv = process.argv.slice(2);
+let FROM_HTML = null;
+const fh = argv.indexOf("--from-html");
+if (fh !== -1) {
+  FROM_HTML = argv[fh + 1];
+  if (!FROM_HTML || FROM_HTML.startsWith("--")) {
+    console.error("Usage: node generate-docx.mjs --from-html <file.html> [output.docx]");
+    process.exit(1);
+  }
+  argv.splice(fh, 2);
+}
+
+const HTML_ONLY = argv.includes("--html-only");
+const positional = argv.filter((a) => !a.startsWith("--"));
+
+let URL;
+let OUTPUT;
+if (FROM_HTML) {
+  if (HTML_ONLY) {
+    console.error("--from-html cannot be combined with --html-only");
+    process.exit(1);
+  }
+  if (!existsSync(FROM_HTML)) {
+    console.error(`File not found: ${FROM_HTML}`);
+    process.exit(1);
+  }
+  URL = null;
+  OUTPUT = positional[0] || DEFAULT_DOCX;
+} else {
+  URL = positional[0] || "http://localhost:4173";
+  OUTPUT =
+    positional[1] ||
+    (HTML_ONLY ? "report-preview.html" : DEFAULT_DOCX);
+}
 
 function findPandoc() {
   if (process.env.PANDOC_PATH && existsSync(process.env.PANDOC_PATH)) {
@@ -81,6 +112,94 @@ function findSoffice() {
   const which = spawnSync("which", ["soffice"]);
   if (which.status === 0) return which.stdout.toString().trim();
   return null;
+}
+
+/**
+ * Convert an HTML string (already self-contained) to .docx via LibreOffice or pandoc.
+ */
+async function writeHtmlStringToDocx(html, outputPath) {
+  html = normalizeHtmlForDocx(html);
+  const soffice = findSoffice();
+  const pandoc = findPandoc();
+  const tmpHtml = outputPath + ".tmp.html";
+  await writeFile(tmpHtml, html);
+
+  if (soffice) {
+    console.log(`Using LibreOffice headless: ${soffice}`);
+    const outDir = outputPath.includes("/")
+      ? outputPath.slice(0, outputPath.lastIndexOf("/")) || "."
+      : ".";
+    const r = spawnSync(
+      soffice,
+      [
+        "--headless",
+        "--infilter=HTML (StarWriter)",
+        "--convert-to",
+        "docx:MS Word 2007 XML",
+        "--outdir",
+        outDir,
+        tmpHtml,
+      ],
+      { stdio: ["ignore", "inherit", "pipe"] },
+    );
+    if (r.status !== 0) {
+      console.error(r.stderr?.toString() || "(no stderr)");
+      console.error(`soffice exited ${r.status}`);
+      process.exit(1);
+    }
+    const baseNoExt = tmpHtml.slice(0, tmpHtml.lastIndexOf("."));
+    const lastSlash = baseNoExt.lastIndexOf("/");
+    const stem = lastSlash >= 0 ? baseNoExt.slice(lastSlash + 1) : baseNoExt;
+    const written = `${outDir}/${stem}.docx`;
+    if (existsSync(written) && written !== outputPath) {
+      const { rename } = await import("node:fs/promises");
+      await rename(written, outputPath);
+    }
+    await unlink(tmpHtml);
+    console.log(`Saved ${outputPath}`);
+    return;
+  }
+
+  if (pandoc) {
+    console.log(`Using pandoc: ${pandoc}`);
+    const r = spawnSync(
+      pandoc,
+      [
+        "-f",
+        "html",
+        "-t",
+        "docx",
+        "-s",
+        "--metadata=title:Enterprise AI Adoption Report 2025",
+        "--metadata=author:LLPA",
+        "-o",
+        outputPath,
+        tmpHtml,
+      ],
+      { stdio: ["ignore", "inherit", "pipe"] },
+    );
+    const stderr = r.stderr?.toString() || "";
+    const meaningful = stderr
+      .split("\n")
+      .filter((l) => l && !/Could not convert image .+\.svg/.test(l))
+      .join("\n");
+    if (meaningful.trim()) console.error(meaningful);
+    if (r.status !== 0) {
+      console.error(`pandoc exited ${r.status}`);
+      process.exit(1);
+    }
+    await unlink(tmpHtml);
+    console.log(`Saved ${outputPath}`);
+    return;
+  }
+
+  await unlink(tmpHtml).catch(() => {});
+  console.error(
+    "ERROR: no DOCX converter found. Install one:\n" +
+      "  npm run docs:install-libreoffice   (best fidelity, ~700 MB)\n" +
+      "  npm run docs:install-pandoc        (lightweight fallback)",
+  );
+  process.exit(1);
 }
 
 async function inlineComputedStyles(page) {
@@ -260,6 +379,13 @@ async function extractCleanedHTML(page) {
 }
 
 async function main() {
+  if (FROM_HTML) {
+    console.log(`Converting HTML file → DOCX: ${FROM_HTML}`);
+    const html = await readFile(FROM_HTML, "utf8");
+    await writeHtmlStringToDocx(html, OUTPUT);
+    return;
+  }
+
   console.log("Launching Chromium…");
   const browser = await puppeteer.launch({
     executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
@@ -288,7 +414,7 @@ async function main() {
 
   if (HTML_ONLY) {
     console.log(`Writing → ${OUTPUT}`);
-    await writeFile(OUTPUT, html);
+    await writeFile(OUTPUT, normalizeHtmlForDocx(html));
     return;
   }
 
@@ -296,88 +422,7 @@ async function main() {
   // - LibreOffice gives the best visual fidelity (real CSS support,
   //   brand colors and shading preserved).
   // - Pandoc is the lightweight fallback (clean structure, no colors).
-  const soffice = findSoffice();
-  const pandoc = findPandoc();
-
-  const tmpHtml = OUTPUT + ".tmp.html";
-  await writeFile(tmpHtml, html);
-
-  if (soffice) {
-    console.log(`Using LibreOffice headless: ${soffice}`);
-    const outDir = OUTPUT.includes("/")
-      ? OUTPUT.slice(0, OUTPUT.lastIndexOf("/")) || "."
-      : ".";
-    const r = spawnSync(
-      soffice,
-      [
-        "--headless",
-        "--infilter=HTML (StarWriter)",
-        "--convert-to",
-        "docx:MS Word 2007 XML",
-        "--outdir",
-        outDir,
-        tmpHtml,
-      ],
-      { stdio: ["ignore", "inherit", "pipe"] },
-    );
-    if (r.status !== 0) {
-      console.error(r.stderr?.toString() || "(no stderr)");
-      console.error(`soffice exited ${r.status}`);
-      process.exit(1);
-    }
-    // soffice writes <basename>.docx; rename to the requested OUTPUT path.
-    const baseNoExt = tmpHtml.slice(0, tmpHtml.lastIndexOf("."));
-    const lastSlash = baseNoExt.lastIndexOf("/");
-    const stem = lastSlash >= 0 ? baseNoExt.slice(lastSlash + 1) : baseNoExt;
-    const written = `${outDir}/${stem}.docx`;
-    if (existsSync(written) && written !== OUTPUT) {
-      const { rename } = await import("node:fs/promises");
-      await rename(written, OUTPUT);
-    }
-    await unlink(tmpHtml);
-    console.log(`Saved ${OUTPUT}`);
-    return;
-  }
-
-  if (pandoc) {
-    console.log(`Using pandoc: ${pandoc}`);
-    const r = spawnSync(
-      pandoc,
-      [
-        "-f",
-        "html",
-        "-t",
-        "docx",
-        "-s",
-        "--metadata=title:Enterprise AI Adoption Report 2025",
-        "--metadata=author:LLPA",
-        "-o",
-        OUTPUT,
-        tmpHtml,
-      ],
-      { stdio: ["ignore", "inherit", "pipe"] },
-    );
-    const stderr = r.stderr?.toString() || "";
-    const meaningful = stderr
-      .split("\n")
-      .filter((l) => l && !/Could not convert image .+\.svg/.test(l))
-      .join("\n");
-    if (meaningful.trim()) console.error(meaningful);
-    if (r.status !== 0) {
-      console.error(`pandoc exited ${r.status}`);
-      process.exit(1);
-    }
-    await unlink(tmpHtml);
-    console.log(`Saved ${OUTPUT}`);
-    return;
-  }
-
-  console.error(
-    "ERROR: no DOCX converter found. Install one:\n" +
-      "  npm run docs:install-libreoffice   (best fidelity, ~700 MB)\n" +
-      "  npm run docs:install-pandoc        (lightweight fallback)",
-  );
-  process.exit(1);
+  await writeHtmlStringToDocx(html, OUTPUT);
 }
 
 main().catch((err) => {

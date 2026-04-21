@@ -37,11 +37,12 @@ const References = () => {
             <a
               href="/source-library.json"
               className="text-llpa-blue font-medium hover:underline"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Download full bibliographic index (JSON)
+              Open full bibliographic index (JSON)
             </a>{" "}
-            for digital libraries, events, or tooling. Public URLs are included where available; full-text PDFs from publishers are not redistributed.
+            in a new tab for digital libraries, events, or tooling. Public URLs are included where available; full-text PDFs from publishers are not redistributed.
           </p>
         </motion.div>
 

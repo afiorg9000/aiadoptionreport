@@ -13,6 +13,8 @@
     "test:watch": "vitest",
     "docs:pdf": "node generate-pdf.mjs http://127.0.0.1:4173 public/Enterprise-AI-Adoption-Report-2025.pdf",
     "docs:docx": "node generate-docx.mjs http://127.0.0.1:4173 public/Enterprise-AI-Adoption-Report-2025.docx",
+    "docs:preview-html": "node generate-docx.mjs http://127.0.0.1:4173 report-preview.html --html-only",
+    "docs:docx-from-preview": "node generate-docx.mjs --from-html report-preview.html",
     "docs:all": "npm run docs:pdf && npm run docs:docx",
     "docs:install-pandoc": "bash scripts/install-pandoc.sh",
     "docs:install-libreoffice": "bash scripts/install-libreoffice.sh"
