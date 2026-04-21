@@ -1,3 +1,7 @@
+# Dependencies — installed locally / by Netlify on every deploy.
+# Do not check in. (28k+ files; was previously tracked in error.)
+node_modules/
+
 # Generated on `vite` / `vite build` (see vite.config.ts)
 public/source-library.json
 
@@ -11,3 +15,8 @@ aiadoptionreport/
 .DS_Store
 .vscode/
 .idea/
+
+# Logs and local env
+*.log
+.env
+.env.local
