@@ -14,7 +14,8 @@
     "docs:pdf": "node generate-pdf.mjs http://127.0.0.1:4173 public/Enterprise-AI-Adoption-Report-2025.pdf",
     "docs:docx": "node generate-docx.mjs http://127.0.0.1:4173 public/Enterprise-AI-Adoption-Report-2025.docx",
     "docs:all": "npm run docs:pdf && npm run docs:docx",
-    "docs:install-pandoc": "bash scripts/install-pandoc.sh"
+    "docs:install-pandoc": "bash scripts/install-pandoc.sh",
+    "docs:install-libreoffice": "bash scripts/install-libreoffice.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

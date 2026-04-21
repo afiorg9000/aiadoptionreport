@@ -62,8 +62,23 @@ function findPandoc() {
     "/usr/bin/pandoc",
   ];
   for (const p of candidates) if (existsSync(p)) return p;
-  // Fall back to PATH lookup.
   const which = spawnSync("which", ["pandoc"]);
+  if (which.status === 0) return which.stdout.toString().trim();
+  return null;
+}
+
+function findSoffice() {
+  if (process.env.SOFFICE_PATH && existsSync(process.env.SOFFICE_PATH)) {
+    return process.env.SOFFICE_PATH;
+  }
+  const candidates = [
+    join(homedir(), "Applications/LibreOffice.app/Contents/MacOS/soffice"),
+    "/Applications/LibreOffice.app/Contents/MacOS/soffice",
+    "/usr/local/bin/soffice",
+    "/opt/homebrew/bin/soffice",
+  ];
+  for (const p of candidates) if (existsSync(p)) return p;
+  const which = spawnSync("which", ["soffice"]);
   if (which.status === 0) return which.stdout.toString().trim();
   return null;
 }
@@ -277,51 +292,92 @@ async function main() {
     return;
   }
 
-  // Otherwise: write HTML to a temp file and let pandoc convert to .docx.
+  // Pick a converter. Preference order: LibreOffice > pandoc.
+  // - LibreOffice gives the best visual fidelity (real CSS support,
+  //   brand colors and shading preserved).
+  // - Pandoc is the lightweight fallback (clean structure, no colors).
+  const soffice = findSoffice();
   const pandoc = findPandoc();
-  if (!pandoc) {
-    console.error(
-      "ERROR: pandoc not found. Install it via:\n" +
-        "  bash scripts/install-pandoc.sh\n" +
-        "or set PANDOC_PATH=/path/to/pandoc",
-    );
-    process.exit(1);
-  }
-  console.log(`Found pandoc at ${pandoc}`);
 
   const tmpHtml = OUTPUT + ".tmp.html";
   await writeFile(tmpHtml, html);
-  console.log(`Running pandoc HTML → DOCX → ${OUTPUT}`);
-  const r = spawnSync(
-    pandoc,
-    [
-      "-f",
-      "html",
-      "-t",
-      "docx",
-      "-s",
-      "--metadata=title:Enterprise AI Adoption Report 2025",
-      "--metadata=author:LLPA",
-      "-o",
-      OUTPUT,
-      tmpHtml,
-    ],
-    { stdio: ["ignore", "inherit", "pipe"] },
-  );
-  // Pandoc warns on every SVG it can't rasterize — those are decorative
-  // lucide icons, not content; suppress the warning spam.
-  const stderr = r.stderr?.toString() || "";
-  const meaningful = stderr
-    .split("\n")
-    .filter((l) => l && !/Could not convert image .+\.svg/.test(l))
-    .join("\n");
-  if (meaningful.trim()) console.error(meaningful);
-  if (r.status !== 0) {
-    console.error(`pandoc exited ${r.status}`);
-    process.exit(1);
+
+  if (soffice) {
+    console.log(`Using LibreOffice headless: ${soffice}`);
+    const outDir = OUTPUT.includes("/")
+      ? OUTPUT.slice(0, OUTPUT.lastIndexOf("/")) || "."
+      : ".";
+    const r = spawnSync(
+      soffice,
+      [
+        "--headless",
+        "--infilter=HTML (StarWriter)",
+        "--convert-to",
+        "docx:MS Word 2007 XML",
+        "--outdir",
+        outDir,
+        tmpHtml,
+      ],
+      { stdio: ["ignore", "inherit", "pipe"] },
+    );
+    if (r.status !== 0) {
+      console.error(r.stderr?.toString() || "(no stderr)");
+      console.error(`soffice exited ${r.status}`);
+      process.exit(1);
+    }
+    // soffice writes <basename>.docx; rename to the requested OUTPUT path.
+    const baseNoExt = tmpHtml.slice(0, tmpHtml.lastIndexOf("."));
+    const lastSlash = baseNoExt.lastIndexOf("/");
+    const stem = lastSlash >= 0 ? baseNoExt.slice(lastSlash + 1) : baseNoExt;
+    const written = `${outDir}/${stem}.docx`;
+    if (existsSync(written) && written !== OUTPUT) {
+      const { rename } = await import("node:fs/promises");
+      await rename(written, OUTPUT);
+    }
+    await unlink(tmpHtml);
+    console.log(`Saved ${OUTPUT}`);
+    return;
   }
-  await unlink(tmpHtml);
-  console.log(`Saved ${OUTPUT}`);
+
+  if (pandoc) {
+    console.log(`Using pandoc: ${pandoc}`);
+    const r = spawnSync(
+      pandoc,
+      [
+        "-f",
+        "html",
+        "-t",
+        "docx",
+        "-s",
+        "--metadata=title:Enterprise AI Adoption Report 2025",
+        "--metadata=author:LLPA",
+        "-o",
+        OUTPUT,
+        tmpHtml,
+      ],
+      { stdio: ["ignore", "inherit", "pipe"] },
+    );
+    const stderr = r.stderr?.toString() || "";
+    const meaningful = stderr
+      .split("\n")
+      .filter((l) => l && !/Could not convert image .+\.svg/.test(l))
+      .join("\n");
+    if (meaningful.trim()) console.error(meaningful);
+    if (r.status !== 0) {
+      console.error(`pandoc exited ${r.status}`);
+      process.exit(1);
+    }
+    await unlink(tmpHtml);
+    console.log(`Saved ${OUTPUT}`);
+    return;
+  }
+
+  console.error(
+    "ERROR: no DOCX converter found. Install one:\n" +
+      "  npm run docs:install-libreoffice   (best fidelity, ~700 MB)\n" +
+      "  npm run docs:install-pandoc        (lightweight fallback)",
+  );
+  process.exit(1);
 }
 
 main().catch((err) => {
