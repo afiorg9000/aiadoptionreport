@@ -220,8 +220,8 @@ These profiles expand on abbreviated entries in the original document, providing
 4. **Slow regulated industry adoption**  
    Financial services, healthcare, and insurance move cautiously despite high awareness—compliance requirements and risk-averse cultures require extensive validation before deployment.[50]
 
-5. **Training readiness gap**  
-   A Swiss workforce survey found a significant training disconnect: a minority of employees feel adequately prepared to use AI in their work.[380]
+5. **SME integration concentrated by size and function**  
+   The AXA / Sotomo survey of 300 Swiss SMEs finds 55% have started integrating AI — 22% fully integrated, 33% experimenting — but integration skews heavily by firm size (52% of firms with 50+ employees view AI positively vs just 27% of firms with 5–9 employees) and by function (48% use AI for translations, 40% for drafting emails/letters, only 15% for targeted advertising or customer service). Adoption has advanced faster than cross-organizational capability.[380]
 
 **Comparative Context**
 

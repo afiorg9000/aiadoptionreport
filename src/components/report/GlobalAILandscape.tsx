@@ -198,7 +198,7 @@ const skillsGapEvidenceTier1 = [{
   content: "The Netherlands reports ~25% adoption (above EU average), but a striking 74.6% of businesses identify \"lack of experience\" as their primary obstacle.",
   citations: [42]
 }, {
-  content: "Switzerland, with 32% workforce adoption, reveals a training disconnect: a minority of employees feel adequately prepared to use AI in their work.",
+  content: "Switzerland shows the same pattern among SMEs: the AXA / Sotomo survey of 300 Swiss SMEs finds 55% have started integrating AI (22% fully, 33% experimenting), yet integration concentrates in specific use cases and skews heavily by firm size — 52% of firms with 50+ employees view AI positively vs just 27% of firms with 5–9 employees — signalling that adoption has outpaced organizational capability.",
   citations: [380]
 }];
 const skillsGapEvidenceTier2 = [{
@@ -732,7 +732,7 @@ const GlobalAILandscape = () => {
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-green mt-1.5">•</span>
-                        <span>Switzerland, with 32% workforce adoption, reveals a training disconnect where a minority of employees feel adequately prepared to use AI in their work.<CitationLink id={380} /></span>
+                        <span>Switzerland shows the same pattern among SMEs: the AXA/Sotomo survey of 300 Swiss SMEs finds 55% have started integrating AI (22% fully, 33% experimenting), but integration skews heavily by firm size — 52% of firms with 50+ employees view AI positively vs just 27% of firms with 5–9 employees — signalling adoption has outpaced organizational capability.<CitationLink id={380} /></span>
                       </li>
                     </ul>
                   </div>
