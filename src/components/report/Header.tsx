@@ -1,11 +1,44 @@
 import { motion } from "framer-motion";
+import { Download, FileText, FileType2 } from "lucide-react";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
-// PrintContext intentionally not used while the Save PDF button is disabled
-// below. Re-introduce the import + usage when the PDF generation pipeline is
-// verified end-to-end and the button is re-enabled.
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+// Each download is shipped as a static file in `public/` so this is a plain
+// anchor-based flow — no client-side conversion, no Puppeteer-in-browser.
+// Regenerate via: `npm run build && node generate-pdf.mjs` followed by the
+// pdf2docx conversion documented in the README.
+const downloads = [
+  {
+    label: "PDF",
+    note: "Read-only, print-ready layout",
+    href: "/Enterprise-AI-Adoption-Report-2025.pdf",
+    filename: "Enterprise-AI-Adoption-Report-2025.pdf",
+    icon: FileType2,
+  },
+  {
+    label: "Word (layout)",
+    note: "Editable DOCX that preserves page layout and tables",
+    href: "/Enterprise-AI-Adoption-Report-2025-layout.docx",
+    filename: "Enterprise-AI-Adoption-Report-2025-layout.docx",
+    icon: FileText,
+  },
+  {
+    label: "Word (text)",
+    note: "Plain reflowable DOCX — best for heavy rewrites",
+    href: "/Enterprise-AI-Adoption-Report-2025-text.docx",
+    filename: "Enterprise-AI-Adoption-Report-2025-text.docx",
+    icon: FileText,
+  },
+] as const;
 
 const Header = () => {
-
   return (
     <>
       <a
@@ -37,36 +70,69 @@ const Header = () => {
               className="flex items-center gap-4"
               aria-label="Main navigation"
             >
-              <a 
-                href="#executive-summary" 
+              <a
+                href="#executive-summary"
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors"
               >
                 Summary
               </a>
-              <a 
-                href="#methodology" 
+              <a
+                href="#methodology"
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden md:block"
               >
                 Methodology
               </a>
-              <a 
-                href="#section-1" 
+              <a
+                href="#section-1"
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden lg:block"
               >
                 Findings
               </a>
-              <a 
-                href="#references" 
+              <a
+                href="#references"
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden md:block"
               >
                 References
               </a>
-              {/* Save PDF button hidden for now: the in-browser print flow
-                  produced unreadable output. Real download path is the
-                  prebuilt public/Enterprise-AI-Adoption-Report-2025.pdf which
-                  is served by Netlify at /Enterprise-AI-Adoption-Report-2025.pdf;
-                  readers can hit it directly. Re-enable this UI once the PDF
-                  generation pipeline is verified end-to-end. */}
+
+              <DropdownMenu>
+                <DropdownMenuTrigger className="inline-flex items-center gap-1.5 font-body text-sm font-medium text-white bg-llpa-blue hover:bg-llpa-blue/90 px-3 py-1.5 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40">
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                  <span>Download</span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-72">
+                  <DropdownMenuLabel className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Report formats
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {downloads.map((d) => {
+                    const Icon = d.icon;
+                    return (
+                      <DropdownMenuItem
+                        key={d.filename}
+                        asChild
+                        className="cursor-pointer py-2"
+                      >
+                        <a
+                          href={d.href}
+                          download={d.filename}
+                          className="flex items-start gap-2"
+                        >
+                          <Icon className="h-4 w-4 mt-0.5 shrink-0 text-llpa-blue" aria-hidden="true" />
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-sm font-medium">
+                              {d.label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground">
+                              {d.note}
+                            </span>
+                          </span>
+                        </a>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </motion.nav>
           </div>
         </div>
