@@ -232,33 +232,33 @@ const MemberCapabilities = () => {
                   </div>
                 ))}
                 
-                {/* Additional providers */}
+                {/* Additional providers (anonymized; same convention as Provider A–F above) */}
                 <div className="bg-background rounded-xl p-4 border border-border">
                   <p className="font-body text-sm font-semibold text-foreground mb-1">Provider G</p>
                   <p className="font-body text-xs text-muted-foreground">Internal chatbot implementation</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Semos Education</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider H</p>
                   <p className="font-body text-xs text-muted-foreground">Creative AI suite, project automation</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">CTU</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider I</p>
                   <p className="font-body text-xs text-muted-foreground">Website chatbot development</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">GREEN Tecnologia</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider J</p>
                   <p className="font-body text-xs text-muted-foreground">AI transcript Q&A agent</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Trainocate</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider K</p>
                   <p className="font-body text-xs text-muted-foreground">Content & assessment creation</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">Digicomp</p>
-                  <p className="font-body text-xs text-muted-foreground">Ethra Mind AI assistant (pilot)</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider L</p>
+                  <p className="font-body text-xs text-muted-foreground">Internal AI assistant (pilot)</p>
                 </div>
                 <div className="bg-background rounded-xl p-4 border border-border">
-                  <p className="font-body text-sm font-semibold text-foreground mb-1">ETC</p>
+                  <p className="font-body text-sm font-semibold text-foreground mb-1">Provider M</p>
                   <p className="font-body text-xs text-muted-foreground">Marketing & process automation</p>
                 </div>
               </div>

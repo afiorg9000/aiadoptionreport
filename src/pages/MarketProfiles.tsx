@@ -114,7 +114,7 @@ const profiles: MarketProfile[] = [
       "Strong industrial AI demand in manufacturing and automotive — Germany's industrial base creates concentrated demand for applied AI in production optimization, quality control, and Industry 4.0 applications. Manufacturing AI adoption is particularly strong among enterprises with established digital transformation programs.",
       "EU AI Act compliance driving training demand — As a major EU economy, German companies are actively preparing for EU AI Act compliance, creating sustained demand for governance, risk management, and regulatory alignment training.",
       "Strong growth trajectory despite moderate baseline — German companies using AI increased from 11.6% in 2023 to 19.8% in 2024, representing significant acceleration. According to ifo Business Survey, 27% of companies used AI with an additional 17.5% planning to adopt.[65]",
-      "Certification and standards leadership — TÜV Rheinland's expertise in certification and standards creates natural alignment with AI assurance, governance, and compliance training—a growing market as organizations seek trusted AI deployment frameworks."
+      "Certification and standards leadership — Established German certification and standards expertise creates natural alignment with AI assurance, governance, and compliance training—a growing market as organizations seek trusted AI deployment frameworks."
     ],
     weaknesses: [
       "Below-average individual AI adoption — At 32%, Germany's individual generative AI usage falls below the EU average of 33%, indicating that consumer AI literacy may lag behind enterprise adoption, creating potential workforce readiness gaps.[69]",

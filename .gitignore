@@ -20,3 +20,7 @@ aiadoptionreport/
 *.log
 .env
 .env.local
+
+# Raw member interview data — held confidentially by LLPA, not for repo distribution.
+# Local copy preserved on disk; just untracked from git.
+Interview Responses-Grid view (*).csv
