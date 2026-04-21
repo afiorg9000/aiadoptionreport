@@ -13,6 +13,7 @@ import DataTableStandard from "./DataTableStandard";
 import SizeClassChart from "./SizeClassChart";
 import BulletList from "./BulletList";
 import { typography, spacing, containers, iconSizes, iconWrapperBase, tierColors, cardStyles } from "./styles";
+import { sourceCount } from "@/data/reportData";
 const tierFramework = [{
   tier: 1,
   name: "Leaders",
@@ -208,34 +209,37 @@ const skillsGapEvidenceTier3 = [{
   content: "Mexico has reached 38% adoption but faces a talent bottleneck: 56% cite workforce shortages as their main barrier to growth.",
   citations: [391]
 }];
-const tieredPathways = [{
-  tier: 1,
-  name: "Foundational AI Literacy",
-  target: "Organizations where <20% of employees have used AI tools; leadership exploring AI but no systematic deployment",
-  objectives: ["Understanding what generative AI can and cannot do", "Basic prompt engineering for productivity tools (ChatGPT, Copilot)", "Recognizing appropriate vs. inappropriate AI use cases", "Data privacy and security fundamentals", "Identifying low-risk experimentation opportunities"],
-  icon: BookOpen,
-  color: "border-llpa-green"
+// Numbering aligns directionally with Section 1.1 Market Maturity Tiers:
+// Level 1 = most advanced organization; Level 4 = least advanced. (Still distinct
+// from Market Maturity Tiers, which describe whole markets — see clarifier below.)
+const learningPathwayLevels = [{
+  level: 1,
+  name: "Strategic AI Transformation",
+  target: "Organizations where AI is embedded across most business functions; multiple production AI systems generating measurable business value; dedicated AI/ML teams",
+  objectives: ["AI strategy development and roadmapping at enterprise scale", "Building and scaling internal AI platforms", "Advanced agentic AI architectures and autonomous systems", "AI product development and monetization", "Organizational design for AI-augmented workforces", "Emerging capabilities (multimodal AI, reasoning models, AI agents)", "Responsible AI leadership and ethics frameworks", "Competitive positioning through AI differentiation"],
+  icon: Brain,
+  color: "border-llpa-orange"
 }, {
-  tier: 2,
-  name: "Implementation Skills",
-  target: "Organizations with successful pilots seeking to expand; 20-50% of workforce using AI tools; dedicated AI initiatives underway",
-  objectives: ["Use case identification and prioritization frameworks", "Workflow redesign to incorporate AI tools effectively", "Change management for AI adoption", "Measuring and demonstrating ROI", "Vendor evaluation and selection", "Building internal centers of excellence"],
-  icon: Rocket,
-  color: "border-llpa-blue"
-}, {
-  tier: 3,
+  level: 2,
   name: "Production & Governance Expertise",
   target: "Organizations with enterprise-wide AI deployment; multiple AI systems in production; regulatory compliance requirements",
   objectives: ["Production RAG architecture and optimization", "LLMOps and model lifecycle management", "AI governance frameworks and policy development", "EU AI Act compliance and risk classification", "Bias detection and fairness auditing", "Multi-model orchestration and cost optimization", "Building and managing AI agents"],
   icon: Shield,
   color: "border-llpa-yellow"
 }, {
-  tier: 4,
-  name: "Strategic AI Transformation",
-  target: "Organizations where AI is embedded across most business functions; multiple production AI systems generating measurable business value; dedicated AI/ML teams",
-  objectives: ["AI strategy development and roadmapping at enterprise scale", "Building and scaling internal AI platforms", "Advanced agentic AI architectures and autonomous systems", "AI product development and monetization", "Organizational design for AI-augmented workforces", "Emerging capabilities (multimodal AI, reasoning models, AI agents)", "Responsible AI leadership and ethics frameworks", "Competitive positioning through AI differentiation"],
-  icon: Brain,
-  color: "border-llpa-orange"
+  level: 3,
+  name: "Implementation Skills",
+  target: "Organizations with successful pilots seeking to expand; 20-50% of workforce using AI tools; dedicated AI initiatives underway",
+  objectives: ["Use case identification and prioritization frameworks", "Workflow redesign to incorporate AI tools effectively", "Change management for AI adoption", "Measuring and demonstrating ROI", "Vendor evaluation and selection", "Building internal centers of excellence"],
+  icon: Rocket,
+  color: "border-llpa-blue"
+}, {
+  level: 4,
+  name: "Foundational AI Literacy",
+  target: "Organizations where <20% of employees have used AI tools; leadership exploring AI but no systematic deployment",
+  objectives: ["Understanding what generative AI can and cannot do", "Basic prompt engineering for productivity tools (ChatGPT, Copilot)", "Recognizing appropriate vs. inappropriate AI use cases", "Data privacy and security fundamentals", "Identifying low-risk experimentation opportunities"],
+  icon: BookOpen,
+  color: "border-llpa-green"
 }];
 const regulatedIndustryEvidence = [{
   market: "Switzerland",
@@ -609,7 +613,7 @@ const GlobalAILandscape = () => {
 
             {/* Methodology & Objective */}
             <div className={spacing.blockMargin}>
-              <MethodologyBlock methodology="Analysis of enterprise AI adoption data across global markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis and market research synthesis from 425+ sources." objective="Identify recurring adoption dynamics that transcend individual markets to understand enterprise AI maturity patterns and value realization challenges." />
+              <MethodologyBlock methodology={`Analysis of enterprise AI adoption data across global markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis and market research synthesis from ${sourceCount} sources.`} objective="Identify recurring adoption dynamics that transcend individual markets to understand enterprise AI maturity patterns and value realization challenges." />
             </div>
 
             {/* Romania regional spotlight (event / regional messaging) */}
@@ -742,39 +746,27 @@ const GlobalAILandscape = () => {
                 </p>
               </InterpretationBlock>
 
-              <RecommendationBlock title="Strategic Recommendations: Tiered Learning Pathways">
+              <RecommendationBlock title="Strategic Recommendations: Learning Pathway Levels">
                 <p className="mb-4">
-                  <strong>Develop tiered learning pathways</strong> that progress with organizational maturity — foundational literacy for early adopters, implementation skills for scaling organizations, governance expertise for mature deployments.
+                  <strong>Develop leveled learning pathways</strong> spanning the full organizational-maturity spectrum — from strategic transformation work for AI-native enterprises down to foundational literacy for early adopters.
                 </p>
-                <p className="mb-2 text-muted-foreground italic">
-                  Here's how learning pathways could be structured:
-                </p>
-                <p className="mb-6 text-xs text-muted-foreground border-l-2 border-llpa-blue/40 pl-3">
-                  <strong>Note:</strong> These <strong>pathway levels</strong> (1–4) describe stages of <em>organizational learning</em>. They are{" "}
-                  <strong>not the same</strong> as <strong>market maturity tiers</strong> in Section 1.1 (where Tier 1 markets are the most AI-mature economies).
+                <p className="mb-6 text-sm text-muted-foreground border-l-2 border-llpa-blue/40 pl-3">
+                  <strong>Note:</strong> the level numbering aligns with Section 1.1's Market Maturity Tiers — Level 1 is for the most advanced organizations, Level 4 for those just starting. The two systems are still independent: tiers describe whole markets; levels describe individual organizations' learning needs.
                 </p>
 
                 <div className="space-y-3">
-                  {tieredPathways.map((pathway, index) => {
-                  const getTierStyles = (tier: number) => {
-                    switch (tier) {
+                  {learningPathwayLevels.map((pathway, index) => {
+                  const getLevelStyles = (level: number) => {
+                    switch (level) {
                       case 1:
                         return {
-                          bg: 'bg-llpa-green/10',
-                          borderColor: 'border-l-llpa-green',
-                          iconBg: 'bg-llpa-green/20',
-                          iconColor: 'text-llpa-green',
-                          textColor: 'text-llpa-green'
+                          bg: 'bg-llpa-orange/10',
+                          borderColor: 'border-l-llpa-orange',
+                          iconBg: 'bg-llpa-orange/20',
+                          iconColor: 'text-llpa-orange',
+                          textColor: 'text-llpa-orange'
                         };
                       case 2:
-                        return {
-                          bg: 'bg-llpa-blue/10',
-                          borderColor: 'border-l-llpa-blue',
-                          iconBg: 'bg-llpa-blue/20',
-                          iconColor: 'text-llpa-blue',
-                          textColor: 'text-llpa-blue'
-                        };
-                      case 3:
                         return {
                           bg: 'bg-llpa-yellow/10',
                           borderColor: 'border-l-llpa-yellow',
@@ -782,13 +774,21 @@ const GlobalAILandscape = () => {
                           iconColor: 'text-llpa-yellow',
                           textColor: 'text-llpa-yellow'
                         };
+                      case 3:
+                        return {
+                          bg: 'bg-llpa-blue/10',
+                          borderColor: 'border-l-llpa-blue',
+                          iconBg: 'bg-llpa-blue/20',
+                          iconColor: 'text-llpa-blue',
+                          textColor: 'text-llpa-blue'
+                        };
                       case 4:
                         return {
-                          bg: 'bg-llpa-orange/10',
-                          borderColor: 'border-l-llpa-orange',
-                          iconBg: 'bg-llpa-orange/20',
-                          iconColor: 'text-llpa-orange',
-                          textColor: 'text-llpa-orange'
+                          bg: 'bg-llpa-green/10',
+                          borderColor: 'border-l-llpa-green',
+                          iconBg: 'bg-llpa-green/20',
+                          iconColor: 'text-llpa-green',
+                          textColor: 'text-llpa-green'
                         };
                       default:
                         return {
@@ -800,8 +800,8 @@ const GlobalAILandscape = () => {
                         };
                     }
                   };
-                  const styles = getTierStyles(pathway.tier);
-                  return <motion.div key={pathway.tier} initial={{
+                  const styles = getLevelStyles(pathway.level);
+                  return <motion.div key={pathway.level} initial={{
                     opacity: 0,
                     y: 20
                   }} whileInView={{
@@ -818,7 +818,7 @@ const GlobalAILandscape = () => {
                             <pathway.icon className={`w-3 h-3 ${styles.iconColor}`} />
                           </div>
                           <span className={`text-xs font-semibold uppercase tracking-wider ${styles.textColor}`}>
-                            Pathway level {pathway.tier}
+                            Level {pathway.level}
                           </span>
                           <h6 className="text-base font-semibold text-foreground">
                             {pathway.name}
@@ -846,7 +846,7 @@ const GlobalAILandscape = () => {
 
                 <p className="mt-6 text-muted-foreground leading-relaxed flex items-start gap-3">
                   <IconWrapper icon={Lightbulb} color="llpa-yellow" size="sm" className="mt-0.5" />
-                  <span><strong>Key Insight:</strong> Organizations don't need every pathway level at once—they need the right <em>learning pathway level</em> for their current organizational maturity (distinct from market tiers in Section 1.1). An organization stuck in pilot phase doesn't benefit from advanced LLMOps training; they need implementation skills to break out of pilots. Conversely, organizations with production systems don't need more awareness training—they need governance expertise.</span>
+                  <span><strong>Key Insight:</strong> Organizations don't need every level at once—they need the right learning pathway level for their current organizational maturity (independent of the Market Maturity Tiers in Section 1.1). An organization stuck in pilot phase doesn't benefit from advanced LLMOps training; they need implementation skills to break out of pilots. Conversely, organizations with production systems don't need more awareness training—they need governance expertise.</span>
                 </p>
               </RecommendationBlock>
             </PatternCard>

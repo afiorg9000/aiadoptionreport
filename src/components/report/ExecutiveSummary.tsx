@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, AlertTriangle, Users, Target, Layers, Building, BookOpen } from "lucide-react";
 import IconWrapper from "./IconWrapper";
 import { typography, spacing, containers, iconSizes, iconWrapperBase, getRotatingColor } from "./styles";
+import { sourceCount } from "@/data/reportData";
 
 const metrics = [
   {
@@ -175,7 +176,7 @@ const ExecutiveSummary = () => {
               </p>
 
               <p className={typography.body}>
-                This report synthesizes 425+ market research sources to analyze global AI adoption 
+                This report synthesizes {sourceCount} market research sources to analyze global AI adoption 
                 patterns, identify key barriers, and understand the factors that differentiate 
                 organizations achieving value from those stuck in experimentation.
               </p>
@@ -227,7 +228,7 @@ const ExecutiveSummary = () => {
           >
             <h3 className={`${typography.subsectionTitle} mb-2`}>Key Metrics Summary</h3>
             <p className={`${typography.bodySmall} mb-6`}>
-              Data synthesized from 425+ market research sources including industry surveys, analyst reports, and government statistics.
+              Data synthesized from {sourceCount} market research sources including industry surveys, analyst reports, and government statistics.
             </p>
 
             <div className={`overflow-x-auto ${spacing.indent}`}>

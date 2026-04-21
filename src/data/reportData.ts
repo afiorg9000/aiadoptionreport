@@ -438,10 +438,16 @@ export const references: Reference[] = [
   { id: 427, source: "AI Agents for Human Work", description: "Benchmarking Agents Against Real-World Work - mapping 43 benchmarks to 1,016 occupations (2026)", url: "https://zorazrw.github.io/ai4work/" },
 ];
 
+/**
+ * Single source of truth for the citation count surfaced in user-facing copy.
+ * Import this anywhere instead of hardcoding "428" so the number can never drift.
+ */
+export const sourceCount = references.length;
+
 export const executiveSummary = {
   strategicContext: `The global AI training market is undergoing rapid transformation. Enterprise AI adoption has reached 88% globally, yet only 6% of organizations qualify as "high performers" capturing significant value. This disconnect between adoption and value realization represents the greatest challenge and opportunity for training providers.
 
-This report synthesizes insights from training provider surveys across 20+ countries and validation against 425+ external market research sources to identify strategic opportunities for 2025-2027.`,
+This report synthesizes insights from training provider surveys across 20+ countries and validation against ${sourceCount} external market research sources to identify strategic opportunities for 2025-2027.`,
   keyQuote: "Organizations don't need more awareness training—they need implementation expertise, strategic guidance, and adoption support.",
 };
 

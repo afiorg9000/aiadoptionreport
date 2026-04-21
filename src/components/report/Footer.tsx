@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
+import { sourceCount } from "@/data/reportData";
 
 const Footer = () => {
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
             </div>
             <p className="font-body text-sm text-white/60 leading-relaxed">
               Analysis of global enterprise AI adoption patterns, barriers, and future outlook. 
-              Synthesizing 425+ research sources.
+              Synthesizing {sourceCount} research sources.
             </p>
           </div>
 

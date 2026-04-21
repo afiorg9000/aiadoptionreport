@@ -1,2 +1,13 @@
 # Generated on `vite` / `vite build` (see vite.config.ts)
 public/source-library.json
+
+# Vite build output — Netlify rebuilds on every deploy; do not check in.
+dist/
+
+# Stray nested clone (created during agent setup; keep out of repo)
+aiadoptionreport/
+
+# Editor / OS noise
+.DS_Store
+.vscode/
+.idea/
