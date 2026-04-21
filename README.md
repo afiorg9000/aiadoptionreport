@@ -35,9 +35,20 @@ npm install
 # Start development server
 npm run dev
 
-# Build for production
+# Build for production (also writes public/source-library.json via Vite)
 npm run build
 ```
+
+### Deploy notes (Netlify)
+
+- `public/_redirects` sends all routes to `index.html` so deep links such as `/market-profiles` work.
+- The **Market Profiles** page must be wrapped in `PrintProvider` (see `src/pages/MarketProfiles.tsx`) because the shared header uses print/export context.
+
+### Editable report & source pack
+
+- **PDF:** `public/Enterprise-AI-Adoption-Report-2025.pdf` — primary print-ready artifact.
+- **Word (editable):** generate a `.docx` from that PDF locally if needed (e.g. `pdf2docx` in Python, or Word “Save As”). Avoid committing large binaries unless your release process requires it.
+- **Bibliographic index:** `npm run export:source-library` writes `public/source-library.json` (all numbered references with public URLs where available). This is suitable for an “AI Kit” or digital library; it does **not** include bulk downloads of paywalled publisher PDFs.
 
 ## Research Methodology
 

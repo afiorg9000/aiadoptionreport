@@ -30,8 +30,18 @@ const References = () => {
           <h2 className="font-display text-2xl font-semibold text-foreground mb-2">
             References
           </h2>
-          <p className="font-body text-sm text-muted-foreground">
+          <p className="font-body text-sm text-muted-foreground mb-3">
             {sortedRefs.length} external market research sources validated against training provider surveys
+          </p>
+          <p className="font-body text-sm text-muted-foreground">
+            <a
+              href="/source-library.json"
+              className="text-llpa-blue font-medium hover:underline"
+              download
+            >
+              Download full bibliographic index (JSON)
+            </a>{" "}
+            for digital libraries, events, or tooling. Public URLs are included where available; full-text PDFs from publishers are not redistributed.
           </p>
         </motion.div>
 

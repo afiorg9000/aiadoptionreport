@@ -1,0 +1,10 @@
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# React Router: serve index.html for all routes so /market-profiles and direct loads work
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

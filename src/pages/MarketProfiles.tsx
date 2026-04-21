@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Globe, Building2, TrendingUp, AlertTriangle, Users, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
+import { PrintProvider } from "@/contexts/PrintContext";
 import Header from "@/components/report/Header";
 import Footer from "@/components/report/Footer";
 import MarketProfileCitation from "@/components/report/MarketProfileCitation";
@@ -550,6 +551,7 @@ const MarketProfiles = () => {
   ];
 
   return (
+    <PrintProvider>
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24 pb-16">
@@ -766,6 +768,7 @@ const MarketProfiles = () => {
       </main>
       <Footer />
     </div>
+    </PrintProvider>
   );
 };
 

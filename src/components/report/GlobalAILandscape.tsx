@@ -451,8 +451,8 @@ const GlobalAILandscape = () => {
               </div>
             </div>
 
-            {/* Methodology */}
-            <div id="methodology" className="mb-6">
+            {/* Methodology (sub-block under §1.1 — distinct id avoids duplicate #methodology with main Methodology section) */}
+            <div id="section-1-1-maturity-methodology" className="mb-6">
               <h4 className={`${typography.smallTitle} ${spacing.paragraphMargin} flex items-center gap-3`}>
                 <IconWrapper icon={FlaskConical} color="llpa-green" size="sm" />
                 Methodology
@@ -612,6 +612,36 @@ const GlobalAILandscape = () => {
               <MethodologyBlock methodology="Analysis of enterprise AI adoption data across global markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis and market research synthesis from 425+ sources." objective="Identify recurring adoption dynamics that transcend individual markets to understand enterprise AI maturity patterns and value realization challenges." />
             </div>
 
+            {/* Romania regional spotlight (event / regional messaging) */}
+            <div className={`${spacing.blockMargin} p-6 rounded-xl border border-llpa-blue/25 bg-llpa-blue/5`}>
+              <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+                <Glob className="w-5 h-5 text-llpa-blue shrink-0" aria-hidden />
+                Romania in cross-market context
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Cross-market patterns above apply to Romania as a <strong className="text-foreground">Tier 2 (Advanced)</strong> market in our framework: strong IT services and technical talent, but{" "}
+                <strong className="text-foreground">enterprise AI adoption remains among the lowest in the EU</strong>, with significant headroom for implementation and skills programs.
+              </p>
+              <ul className={`space-y-2 ${typography.bodySmall} text-muted-foreground list-disc pl-5`}>
+                <li>
+                  Eurostat enterprise AI usage: <strong className="text-foreground">5.21%</strong> of Romanian enterprises (2025 data)—lowest in the EU versus the EU average of ~20%; Denmark leads at 42.03% for contrast.<CitationLink id={375} />
+                </li>
+                <li>
+                  Individual use of generative AI tools among citizens was <strong className="text-foreground">17.8%</strong> in 2025—the lowest in the EU, signalling room for literacy and enablement programs.<CitationLink id={3} />
+                </li>
+                <li>
+                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates.<CitationLink id={1} />
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground mt-4">
+                For event collateral and country-specific talking points, see the full{" "}
+                <Link to="/market-profiles" className="text-llpa-blue font-medium hover:underline">
+                  Romania market profile
+                </Link>
+                .
+              </p>
+            </div>
+
             {/* Pattern 1: Size-Class Divide */}
             <PatternCard id="pattern-1" patternNumber={1} icon={Building2} color="llpa-green" title="The Size-Class Divide Persists Despite Overall Growth" description="Across all markets with available data, AI adoption shows pronounced size-class disparity that has not narrowed despite overall market acceleration.">
               <EvidenceBlock title="Evidence (December 2025)" note="Note: Gap measured in percentage points (pp).">
@@ -716,8 +746,12 @@ const GlobalAILandscape = () => {
                 <p className="mb-4">
                   <strong>Develop tiered learning pathways</strong> that progress with organizational maturity — foundational literacy for early adopters, implementation skills for scaling organizations, governance expertise for mature deployments.
                 </p>
-                <p className="mb-6 text-muted-foreground italic">
-                  Here's how tiered pathways could be structured:
+                <p className="mb-2 text-muted-foreground italic">
+                  Here's how learning pathways could be structured:
+                </p>
+                <p className="mb-6 text-xs text-muted-foreground border-l-2 border-llpa-blue/40 pl-3">
+                  <strong>Note:</strong> These <strong>pathway levels</strong> (1–4) describe stages of <em>organizational learning</em>. They are{" "}
+                  <strong>not the same</strong> as <strong>market maturity tiers</strong> in Section 1.1 (where Tier 1 markets are the most AI-mature economies).
                 </p>
 
                 <div className="space-y-3">
@@ -784,7 +818,7 @@ const GlobalAILandscape = () => {
                             <pathway.icon className={`w-3 h-3 ${styles.iconColor}`} />
                           </div>
                           <span className={`text-xs font-semibold uppercase tracking-wider ${styles.textColor}`}>
-                            Tier {pathway.tier}
+                            Pathway level {pathway.tier}
                           </span>
                           <h6 className="text-base font-semibold text-foreground">
                             {pathway.name}
@@ -812,7 +846,7 @@ const GlobalAILandscape = () => {
 
                 <p className="mt-6 text-muted-foreground leading-relaxed flex items-start gap-3">
                   <IconWrapper icon={Lightbulb} color="llpa-yellow" size="sm" className="mt-0.5" />
-                  <span><strong>Key Insight:</strong> Organizations don't need all tiers simultaneously—they need the right tier for their current maturity. An organization stuck in pilot phase doesn't benefit from advanced LLMOps training; they need implementation skills to break out of pilots. Conversely, organizations with production systems don't need more awareness training—they need governance expertise.</span>
+                  <span><strong>Key Insight:</strong> Organizations don't need every pathway level at once—they need the right <em>learning pathway level</em> for their current organizational maturity (distinct from market tiers in Section 1.1). An organization stuck in pilot phase doesn't benefit from advanced LLMOps training; they need implementation skills to break out of pilots. Conversely, organizations with production systems don't need more awareness training—they need governance expertise.</span>
                 </p>
               </RecommendationBlock>
             </PatternCard>

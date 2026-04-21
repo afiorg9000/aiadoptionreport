@@ -464,23 +464,23 @@ const StrategicRecommendations = () => {
                     </thead>
                     <tbody>
                       <tr className="border-b border-border bg-muted/30">
-                        <td className="py-3 pr-4 font-medium text-foreground">Tier 4 (Emerging)</td>
-                        <td className="py-3 px-4 text-foreground">AI awareness</td>
-                        <td className="py-3 pl-4 text-muted-foreground">Basic readiness assessment, ROI justification support, use case identification</td>
+                        <td className="py-3 pr-4 font-medium text-foreground">Tier 4 (Nascent)</td>
+                        <td className="py-3 px-4 text-foreground">AI awareness &amp; digital foundations</td>
+                        <td className="py-3 pl-4 text-muted-foreground">Basic readiness assessment, executive education, ROI justification support, use case identification</td>
                       </tr>
                       <tr className="border-b border-border bg-orange-500/10">
-                        <td className="py-3 pr-4 font-medium text-foreground">Tier 3 (Developing)</td>
-                        <td className="py-3 px-4 text-foreground">Tool adoption</td>
+                        <td className="py-3 pr-4 font-medium text-foreground">Tier 3 (Emerging)</td>
+                        <td className="py-3 px-4 text-foreground">Foundational literacy &amp; tool adoption</td>
                         <td className="py-3 pl-4 text-muted-foreground">Readiness assessment, adoption planning, 30-day support, quick-win identification</td>
                       </tr>
                       <tr className="border-b border-border bg-yellow-500/10">
-                        <td className="py-3 pr-4 font-medium text-foreground">Tier 2 (Scaling)</td>
-                        <td className="py-3 px-4 text-foreground">Implementation</td>
+                        <td className="py-3 pr-4 font-medium text-foreground">Tier 2 (Advanced)</td>
+                        <td className="py-3 px-4 text-foreground">Pilot-to-production &amp; scaling</td>
                         <td className="py-3 pl-4 text-muted-foreground">Full assessment suite, 90-day adoption support, change management, workflow redesign</td>
                       </tr>
                       <tr className="border-b border-border bg-green-500/10">
-                        <td className="py-3 pr-4 font-medium text-foreground">Tier 1 (Advanced)</td>
-                        <td className="py-3 px-4 text-foreground">Transformation</td>
+                        <td className="py-3 pr-4 font-medium text-foreground">Tier 1 (Leaders)</td>
+                        <td className="py-3 px-4 text-foreground">Advanced implementation &amp; transformation</td>
                         <td className="py-3 pl-4 text-muted-foreground">Strategic advisory, multi-use case roadmap, ongoing partnership, advanced implementation consulting</td>
                       </tr>
                     </tbody>
