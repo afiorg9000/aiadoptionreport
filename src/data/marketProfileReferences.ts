@@ -15,8 +15,8 @@ export const marketProfileReferences: MarketProfileReference[] = [
   {
     id: 2,
     source: "Invest in Denmark",
-    description: "Denmark Tops Europe in AI Adoption (2025)",
-    url: "https://investindk.com/insights/denmark-tops-europe-in-ai-adoption"
+    description: "Denmark Tops Europe in AI Adoption — a testbed for tomorrow's AI breakthroughs (2025)",
+    url: "https://investindk.com/insights/denmark-tops-europe-in-ai-adoption-a-testbed-for-tomorrows-ai-breakthroughs"
   },
   {
     id: 3,
@@ -332,9 +332,9 @@ export const marketProfileReferences: MarketProfileReference[] = [
   },
   {
     id: 406,
-    source: "IMDA/PRNewswire",
-    description: "Singapore's Digital Economy at 18.6% of GDP (October 2025)",
-    url: "https://www.prnewswire.com/apac/news-releases/singapores-digital-economy-at-18-6-of-gdp-302575606.html"
+    source: "IMDA Singapore",
+    description: "Singapore's Digital Economy at 18.6% of GDP, up from 14.9% in 2019 — fuelled by digitalisation and AI adoption (canonical IMDA press release, 6 October 2025)",
+    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/singapore-digital-economy"
   },
   {
     id: 407,

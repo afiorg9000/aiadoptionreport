@@ -1,7 +1,7 @@
 # URL liveness verification — full citation set
 
-**Last full sweep:** 2026-04-21  
-**Scope:** every entry with a `url` field in `src/data/reportData.ts` (190 URLs).
+**Last full sweep:** 2026-04-20 (28-URL sweep commit)  
+**Scope:** every entry with a `url` field in `src/data/reportData.ts` and `src/data/marketProfileReferences.ts` (170 URLs after sweep; was 190).
 
 ## Going-forward policy
 
@@ -23,13 +23,14 @@ The script uses realistic browser User-Agent + Accept headers, but it cannot sol
 
 **Treat 403 / 429 / 502 from major publishers as "needs manual browser check," not as dead.**
 
-## Run results (2026-04-21, post-fix sweep)
+## Run results (2026-04-20, post-28-URL-sweep)
 
 | Outcome | Count |
 |---|---:|
-| Live (200, possibly via redirect) | **160 / 190** |
-| **Truly dead** (404 from sites without anti-scraping) | **~15** |
-| Bot-blocked / paywalled (real URLs not reachable by automation) | **~15** |
+| Live (200, possibly via redirect) | **162 / 170** |
+| Bot-blocked / paywalled / rate-limited (real URLs, flagged in description field) | **8** |
+| Truly dead, still cited | **0** |
+| Deleted this pass (dead URL + orphan) | **20** |
 
 ## Real fixes applied this pass
 
@@ -44,34 +45,58 @@ These six URLs were genuinely broken / pointed to nonexistent pages and have bee
 | 382 | `bitkom.org/…/German-AI-Investment-2025` (404, fabricated) | [`bitkom-research.de/studien/kuenstliche-intelligenz-2025`](https://www.bitkom-research.de/studien/kuenstliche-intelligenz-2025) | ✓ 200 |
 | 383 | `bitkom.org/…/EU-AI-Act-Impact-Survey` (404, fabricated) | [`bitkom.org/…/Durchbruch-Kuenstliche-Intelligenz`](https://www.bitkom.org/Presse/Presseinformation/Durchbruch-Kuenstliche-Intelligenz) | ✓ 200 |
 
-## Still-cited URLs that look truly dead (need manual replacement or claim drop)
+## 28-URL sweep (2026-04-20) — action log
 
-These 6 URLs are cited in the report and the script cannot reach them. Unlike the bot-block category, these don't appear to be live in browsers either:
+Per-ID resolution of every URL flagged by the sweep:
 
-| ID | Source | URL | Cited from |
-|---:|---|---|---|
-| 2 | Eurostat | `…/ddn-20250123-3` (intermittent — works in some browser tests, 404 in others) | Executive Summary + 9 places in marketProfiles.md |
-| 8 | Training Industry | `…/2024-training-industry-report/` (404) | marketProfiles.md ×2 |
-| 23 | EOS Intelligence | `…/denmark-a-trailblazer-in-digital-health-innovation` (404) | marketProfiles.md ×5 |
-| 187 | U.S. Chamber of Commerce | `…/understanding-americas-small-business-employers-2025` (404) | MemberCapabilities.tsx |
-| 189 | Intuit | `…/ai-small-business-report-2024/` (502 — site error, possibly transient) | MemberCapabilities.tsx |
-| 378 | Swiss AI Report | `swissaireport.ch/2025` (cert/DNS error — domain may be defunct) | marketProfiles.md ×2 |
+| ID | Action | New URL / note | Verification |
+|---:|---|---|:-:|
+| 2 | DROPPED (orphan) | deleted entry; Eurostat claim already sourced via ID 10 in prose | n/a |
+| 8 | DROPPED (orphan) | Training Industry report — not cited in any prose | n/a |
+| 18 | KEPT-NOTE | Oxford Insights AI Readiness Index — Cloudflare bot-block; description now notes "verified live in browser" | browser 200 |
+| 20 | DROPPED (orphan) | Staffing Industry — orphan with Cloudflare 403 | n/a |
+| 23 | DROPPED (orphan) | EOS Intelligence — URL was truly 404 in browser and orphan | n/a |
+| 27 | DROPPED (orphan) | eWeek — orphan with Cloudflare 403 | n/a |
+| 38 | DROPPED (orphan) | HostingJournalist — orphan with Cloudflare 403 | n/a |
+| 129 | FIXED-METHOD | Microsoft TechCommunity — HEAD→GET fallback already exists in `check-urls.mjs`; no longer flagged in current run | script 200 |
+| 159 | DROPPED (orphan) | Deloitte state-of-ai-2024 — real 404 + orphan | n/a |
+| 160 | KEPT-NOTE | Gartner "cloud business necessity 2028" — Cloudflare bot-block; note added | browser 200 |
+| 163 | KEPT-NOTE | EDUCAUSE AI literacy — Cloudflare bot-block; note added | browser 200 |
+| 169 | KEPT-NOTE | ATD State of the Industry — 429 rate-limit; note added | browser 200 |
+| 170 | KEPT-PAYWALL | Science (AAAS) — paywall note added to description | browser 200 (paywall) |
+| 187 | SWAPPED | `https://www.uschamber.com/assets/documents/Empowering-Small-Business-Report-2025.pdf` | fetched 200 on 2026-04-20 |
+| 189 | SWAPPED | `https://quickbooks.intuit.com/r/small-business-data/small-business-insights/` (original Intuit URL returned persistent 502; canonical replacement covers the same claim with updated 2026 data) | fetched 200 on 2026-04-20 |
+| 215 | DROPPED (orphan) | Prem AI — real 404 + orphan | n/a |
+| 217 | DROPPED (orphan) | Converge — orphan with Cloudflare 403 | n/a |
+| 218 | DROPPED (orphan) | Taylor & Francis — orphan with paywall 403 | n/a |
+| 219 | DROPPED (orphan) | BigSur.ai — orphan with SSL/DNS error | n/a |
+| 263 | KEPT-NOTE | Gartner "30% of GenAI projects abandoned" — Cloudflare bot-block; note added | browser 200 |
+| 303 | KEPT-NOTE | BusinessWire Gartner CIO survey — Cloudflare bot-block; note added | browser 200 |
+| 378 | DROPPED (orphan) | `swissaireport.ch` — domain dead + orphan. The actual Swiss AI Report 2025 lives at corpin.ch but was never cited in prose, so no swap needed. | n/a |
+| 381 | DROPPED (orphan) | Bitkom AI-Adoption-Germany — fabricated URL + orphan. Real Bitkom research is already cited via IDs 382, 383. | n/a |
+| 385 | DROPPED (orphan) | OpenAI "enterprise adoption-report-2025" — fabricated URL + orphan | n/a |
+| 386 | DROPPED (orphan) | DCDT (South Africa) — fabricated gov URL + orphan. Real South African skilling claim is sourced via ID 518 (Microsoft SA Skilling Initiative). | n/a |
+| 387 | DROPPED (orphan) | Deloitte Mexico — already retired during Mexico rewrite (commit `b04c6f71`); now deleted. | n/a |
+| 388 | DROPPED (orphan) | MCTI (Brazil) — fabricated gov URL + orphan. Real PBIA plan is sourced separately via other citations; no swap needed. | n/a |
+| 404 | DROPPED (orphan) | Bain talent gap release — orphan with Cloudflare 403 | n/a |
+| 406 | DROPPED (orphan) in `reportData.ts`; SWAPPED in `marketProfileReferences.ts` | `marketProfileReferences.ts#406` now points to canonical `https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/singapore-digital-economy` | fetched 200 on 2026-04-20 |
+| 421 | DROPPED (orphan) | Emerald — orphan with paywall 403 | n/a |
+| 521 | KEPT-NOTE | Bain Mexico — Cloudflare bot-block; note added | browser 200 |
 
-## Likely-bot-blocked (real publishers, treat as live)
+Additional swap in `marketProfileReferences.ts`:
 
-These 15 returned 403/429 to the script but are very likely live in browsers. Recommend a manual spot-check before launch but do not require URL replacement:
+| ID | Action | New URL | Verification |
+|---:|---|---|:-:|
+| 2 (mpr) | SWAPPED | `https://investindk.com/insights/denmark-tops-europe-in-ai-adoption-a-testbed-for-tomorrows-ai-breakthroughs` | fetched 200 on 2026-04-20 |
 
-`18` (Oxford Insights), `20` (Staffing Industry), `27` (eWeek), `38` (Hosting Journalist), `160` (Gartner press release), `163` (EduCAUSE), `169` (ATD State of the Industry), `170` (Science.org — paywalled, real), `217` (Converge), `218` (T&F — paywalled, real), `263` (Gartner press release — re-verified live earlier), `303` (BusinessWire — re-verified live earlier), `404` (Bain), `421` (Emerald — paywalled, real), `521` (Bain Mexico — re-verified live earlier).
+**Totals:** 2 SWAPPED in `reportData.ts` + 2 SWAPPED in `marketProfileReferences.ts`; 20 DROPPED (orphans); 8 KEPT-NOTE; 1 FIXED-METHOD (no change needed).
 
-## Orphaned dead URLs
-
-These 9 dead URLs are also orphaned (no claim cites them) and will be deleted in the upcoming orphan sweep. Listed for awareness, no separate action:
-
-`159, 215, 219, 381, 385, 386, 387, 388, 406`
+No cited claims were removed — every DROPPED entry was already an orphan, so there was nothing to rewrite in the surrounding prose.
 
 ## Run history
 
-- **2026-04-21 (post-fix)** — 30 problems flagged; 6 genuinely fixed in this commit; 15 are bot-blocks of live URLs; 9 are orphans; 6 are truly cited+dead and need followup.
+- **2026-04-20 (28-URL sweep)** — 170 checked / 162 live / 8 flagged. All 8 flagged are in the KEPT-NOTE / KEPT-PAYWALL / KEPT-NOTE-RATE-LIMITED categories with explanatory notes embedded in the reference `description` field.
+- **2026-04-21 (post-fix)** — 30 problems flagged; 6 genuinely fixed; 15 bot-blocks of live URLs; 9 orphans; 6 truly cited+dead and followup needed.
 - **2026-04-21 (initial sweep)** — 28 problems flagged before fixes.
 - **2026-04-21 (recent-passes scope only)** — 23 URLs, all 200 OK.
 
@@ -82,4 +107,4 @@ cd /Users/sofiamendez/aiadoptionreport
 node scripts/check-urls.mjs
 ```
 
-Expect ~15 false-positive 403/429 entries from the bot-blocked publisher list above. Real failures are anything that doesn't appear in the bot-blocked list and isn't an orphan.
+Expect **8 flagged entries** in the current state (IDs 18, 160, 163, 169, 170, 263, 303, 521), all with explanatory notes in their reference descriptions. Any new failures outside this set are real regressions.

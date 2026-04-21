@@ -26,14 +26,41 @@ If an orphan below is actually used via some other pattern, remove it from this 
 
 ## Counts
 
-- Total citation entries in `reportData.ts`: **433**
+- Total citation entries in `reportData.ts`: **413** (was 433; 20 dead-URL orphans removed in the 2026-04-20 URL sweep).
 - Cited somewhere in `src/`: **299**
-- **Orphans: 221**
+- **Orphans remaining: 201** (was 221; 20 orphans with dead URLs were deleted outright because they had no claim to preserve.)
 
 ## Explicit flags
 
-- **ID 387** (Deloitte Mexico / IMCO, "AI Workforce Readiness Survey: Mexico 2025") — URL returned 404 during the Mexico citation rewrite (commit `b04c6f71`). The one claim that cited it was dropped. Entry is now orphaned; **explicitly tracked for this sweep.**
+- **ID 387** (Deloitte Mexico / IMCO) — URL 404; deleted in the 2026-04-20 URL sweep. Mexico claim had already been dropped in commit `b04c6f71`.
 - **ID 391** — retired as a comment marker (not a ref entry) during commit `b04c6f71`. Not an orphan and excluded from the sweep; the marker stays.
+
+## Dead-URL orphans deleted 2026-04-20 (URL sweep commit)
+
+These 20 entries were orphaned **and** had dead/unreachable URLs. Removed outright — no prose cites them, so nothing needs rewriting.
+
+| ID | Source | Reason for deletion |
+|---:|---|---|
+| 2 | Eurostat | 404 (redirect to dead page); orphan |
+| 8 | Training Industry | 404 (moved to trainingmag.com); orphan |
+| 20 | Staffing Industry | 403 Cloudflare; orphan (not worth keeping with a note) |
+| 23 | EOS Intelligence | real 404; orphan |
+| 27 | eWeek | 403 Cloudflare; orphan |
+| 38 | HostingJournalist | 403 Cloudflare; orphan |
+| 159 | Deloitte | real 404 (state-of-ai page removed); orphan |
+| 215 | Prem AI | real 404; orphan |
+| 217 | Converge Technology | 403 Cloudflare; orphan |
+| 218 | Taylor & Francis | paywall 403; orphan |
+| 219 | BigSur.ai | TypeError (SSL/DNS); orphan |
+| 378 | swissaireport.ch | TypeError (domain dead; real report lives at corpin.ch but was never linked in prose); orphan |
+| 381 | Bitkom | real 404 (fabricated URL; real Bitkom AI research exists but was never cited in prose); orphan |
+| 385 | OpenAI | real 404 (fabricated "adoption-report-2025" URL); orphan |
+| 386 | DCDT (South Africa) | real 404 (fabricated gov URL); orphan |
+| 387 | Deloitte Mexico | real 404 (already retired in Mexico rewrite); orphan |
+| 388 | MCTI (Brazil) | real 404 (fabricated gov URL); orphan |
+| 404 | Bain & Company | 403 Cloudflare; orphan |
+| 406 | IMDA/PRNewswire | real 404 (PRNewswire slug changed); orphan in `reportData.ts`. The canonical IMDA URL is preserved under a different ID in `marketProfileReferences.ts` |
+| 421 | Emerald Insight | paywall 403; orphan |
 
 ## Orphan table
 
