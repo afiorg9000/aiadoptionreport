@@ -14,6 +14,7 @@ import SizeClassChart from "./SizeClassChart";
 import BulletList from "./BulletList";
 import { typography, spacing, containers, iconSizes, iconWrapperBase, tierColors, cardStyles } from "./styles";
 import { sourceCount } from "@/data/reportData";
+import { tierDistributionSummary } from "@/data/marketTierClassification";
 const tierFramework = [{
   tier: 1,
   name: "Leaders",
@@ -43,23 +44,11 @@ const tierFramework = [{
   borderColor: "border-llpa-orange",
   icon: Leaf
 }];
-const tierDistribution = [{
-  tier: 1,
-  name: "Leaders",
-  markets: ["Denmark", "Singapore", "Netherlands", "Switzerland", "Australia"]
-}, {
-  tier: 2,
-  name: "Advanced",
-  markets: ["Germany", "UK", "Mexico", "Brazil", "Croatia", "Romania", "South Africa", "North Macedonia"]
-}, {
-  tier: 3,
-  name: "Emerging",
-  markets: ["Portugal"]
-}, {
-  tier: 4,
-  name: "Nascent",
-  markets: ["Slovenia"]
-}];
+const tierDistribution = tierDistributionSummary.map((t) => ({
+  tier: t.tier,
+  name: t.name === "Leader" ? "Leaders" : t.name,
+  markets: t.markets,
+}));
 const adoptionCharacteristicsByTier = [{
   tier: 1,
   primary: "Production AI deployments, advanced use cases (RAG, agents), established governance",
@@ -648,7 +637,7 @@ const GlobalAILandscape = () => {
                 Romania in cross-market context
               </h4>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                Cross-market patterns above apply to Romania as a <strong className="text-foreground">Tier 2 (Advanced)</strong> market in our framework: strong IT services and technical talent, but{" "}
+                Cross-market patterns above apply to Romania as a <strong className="text-foreground">Tier 4 (Nascent)</strong> market in our framework: strong IT services and technical talent, but{" "}
                 <strong className="text-foreground">enterprise AI adoption is the lowest in the EU and concentrated in large enterprises</strong>. The headline gap looks small because the floor is so low; the size-class divide is actually more pronounced than the EU average.
               </p>
               <ul className={`space-y-2 ${typography.bodySmall} text-muted-foreground list-disc pl-5`}>
