@@ -185,11 +185,17 @@ const MarketProfiles = () => {
                                   <div className="flex flex-wrap items-center gap-3 mb-2">
                                     <h3 className="text-xl font-bold text-foreground">
                                       {profile.country}
+                                      {profile.subtitle && (
+                                        <span className="block text-sm font-normal text-muted-foreground mt-1">
+                                          {profile.subtitle}
+                                        </span>
+                                      )}
                                     </h3>
                                     <span
                                       className={`px-3 py-1 text-xs font-medium rounded-full border ${getTierColor(profile.tier)}`}
                                     >
                                       Tier {profile.tier}: {profile.tierLabel}
+                                      {profile.estimated ? " [estimated]" : ""}
                                     </span>
                                     {profile.dataQuality && (
                                       <span className="px-2 py-0.5 text-xs rounded bg-muted text-muted-foreground border border-border">

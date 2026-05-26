@@ -190,7 +190,7 @@ const skillsGapEvidenceTier1 = [{
   content: "Denmark leads Tier 1 with 42.03% adoption, yet 62% of organizations still cite lack of AI skills as a major barrier to further progress.",
   citations: [375, 26]
 }, {
-  content: "The Netherlands reports ~25% adoption (above EU average), but a striking 74.6% of businesses identify \"lack of experience\" as their primary obstacle.",
+  content: "The Netherlands reports 33.2% adoption (top-5 EU), but a striking 74.6% of businesses identify \"lack of experience\" as their primary obstacle.",
   citations: [42]
 }, {
   content: "Switzerland shows the same pattern among SMEs: the AXA / Sotomo survey of 300 Swiss SMEs finds 55% have started integrating AI (22% fully, 33% experimenting), yet integration concentrates in specific use cases and skews heavily by firm size — 52% of firms with 50+ employees view AI positively vs just 27% of firms with 5–9 employees — signalling that adoption has outpaced organizational capability.",
@@ -723,7 +723,7 @@ const GlobalAILandscape = () => {
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-green mt-1.5">•</span>
-                        <span>The Netherlands sees ~25% adoption (above EU average) but a striking 74.6% identify "lack of experience" as their primary obstacle.<CitationLink id={42} /></span>
+                        <span>The Netherlands sees 33.2% adoption (top-5 EU) but a striking 74.6% identify "lack of experience" as their primary obstacle.<CitationLink id={42} /></span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-llpa-green mt-1.5">•</span>
@@ -746,10 +746,6 @@ const GlobalAILandscape = () => {
                         <span className="text-llpa-blue mt-1.5">•</span>
                         <span>Mexico has reached 95% enterprise AI adoption, but organizational culture and operational complexity — not software availability — are cited as the primary obstacles to scaling, and 100% of Mexican CEOs identify AI investment as the principal lever for profitability and growth.<CitationLink id={521} /><CitationLink id={522} /></span>
                       </li>
-                      <li className="flex gap-2">
-                        <span className="text-llpa-blue mt-1.5">•</span>
-                        <span>Romania — the EU's lowest-adoption market at 5.2% — shows the same skills-gap pattern from a low base: members report low digital literacy and a conservative client mindset, with demand concentrated on awareness and foundational topics rather than advanced AI skills.<CitationLink id={375} /><CitationLink id={150} /></span>
-                      </li>
                     </ul>
                   </div>
                   <div>
@@ -761,12 +757,21 @@ const GlobalAILandscape = () => {
                       </li>
                     </ul>
                   </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground mb-2">In Tier 4:</p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex gap-2">
+                        <span className="text-llpa-orange mt-1.5">•</span>
+                        <span>Romania — the EU's lowest-adoption market at 5.2% — shows the same skills-gap pattern from a low base: members report low digital literacy and a conservative client mindset, with demand concentrated on awareness and foundational topics rather than advanced AI skills.<CitationLink id={375} /><CitationLink id={150} /></span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </EvidenceBlock>
 
               <InterpretationBlock>
                 <p>
-                  The evidence demonstrates that skills gaps persist regardless of market maturity level — high-adoption markets (Denmark at 42.03%, Netherlands at ~25%) report skill shortages at comparable severity to early-stage markets (South Africa, Portugal). This pattern suggests the skills gap is <strong>structural rather than a temporary lag</strong> that resolves with increased adoption. As organizations progress through adoption stages, they encounter new skill requirements rather than "catching up."
+                  The evidence demonstrates that skills gaps persist regardless of market maturity level — high-adoption markets (Denmark at 42.03%, Netherlands at 33.2%) report skill shortages at comparable severity to early-stage markets (South Africa, Portugal). This pattern suggests the skills gap is <strong>structural rather than a temporary lag</strong> that resolves with increased adoption. As organizations progress through adoption stages, they encounter new skill requirements rather than "catching up."
                 </p>
               </InterpretationBlock>
 

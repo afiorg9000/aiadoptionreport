@@ -16,16 +16,16 @@ These profiles provide enterprise AI adoption statistics, strengths, weaknesses,
 
 ---
 
-## Tier distribution (expanded set, ~60 markets)
+## Tier distribution (expanded set, ~67 markets)
 
 | Tier | Approx. Count | Representative Markets |
 |---|---|---|
-| **Tier 1 (Leaders)** | ~9 | Denmark, Finland, Sweden, Belgium, Netherlands, Luxembourg, Singapore, Switzerland, Norway |
-| **Tier 2 (Advanced)** | ~22 | Germany, UK, France, Spain, Ireland, Austria, Italy, Australia, New Zealand, UAE, Saudi Arabia, Qatar, South Korea, Japan, Taiwan, China, India, Israel, Brazil, Chile, Mexico, South Africa |
-| **Tier 3 (Emerging)** | ~15 | Czechia, Slovakia, Hungary, Poland, Portugal, Slovenia, Croatia, Cyprus, Greece, Iceland, Malaysia, Thailand, Vietnam, Indonesia, Hong Kong (readiness gap), Argentina, Colombia, Uruguay, Morocco, Turkey |
-| **Tier 4 (Nascent)** | ~14 | Bulgaria, Romania, Serbia, Albania, Bosnia & Herzegovina, Kosovo, Montenegro, North Macedonia, Bahrain, Oman, Kuwait, Philippines, Sri Lanka, Dominican Republic, Puerto Rico |
+| **Tier 1 (Leaders)** | ~12 | Denmark, Finland, Sweden, Norway, Belgium, Netherlands, Luxembourg, Switzerland, Singapore, Australia, New Zealand, UAE |
+| **Tier 2 (Advanced)** | ~21 | Germany, UK, France, Spain, Ireland, Austria, Italy, Saudi Arabia, Qatar, South Korea, Japan, Taiwan, China, India, Israel, United States, Canada, Brazil, Uruguay, Mexico, South Africa |
+| **Tier 3 (Emerging)** | ~16 | Czechia, Slovakia, Hungary, Portugal, Slovenia, Croatia, Iceland, Hong Kong (adoption-readiness paradox), Malaysia, Thailand, Vietnam, Indonesia, Argentina, Colombia, Morocco, Turkey |
+| **Tier 4 (Nascent)** | ~18 | Poland, Bulgaria, Romania, Serbia, Albania, Bosnia & Herzegovina, Kosovo, Montenegro, North Macedonia, Greece, Cyprus, Bahrain, Oman, Kuwait, Philippines, Sri Lanka, Dominican Republic, Puerto Rico |
 
-Note: Tier counts do not sum exactly because a few markets straddle boundaries depending on whether you measure enterprise adoption, population usage, or composite maturity (Hong Kong is the clearest example — high population usage, low enterprise readiness).
+Note: Chile is cited throughout LatAm analysis as an ILIA Pioneer (top-3 LatAm) but a dedicated country profile is not yet included in this edition. Tier boundary notes: Poland (8.36% EU-lowest among larger economies) and Greece/Cyprus (bottom-tier EU digital indicators) are classified Tier 4 despite appearing in some regional estimates at Tier 3; Hong Kong presents the clearest straddle case — near-universal enterprise adoption (~90%) but lowest AI readiness of 30 global markets (Cisco 2025).
 
 ---
 
@@ -1358,6 +1358,40 @@ India shows extraordinary enterprise AI adoption (87% per Kore.ai) and worker en
 
 ---
 
+## Hong Kong — Tier 3 (Emerging) — adoption-readiness paradox
+**LLPA partner: LLPA Central** · *Data quality: HIGH*
+
+### Current statistics (2025 reference year)
+- HKPC AI Readiness in Workplace Survey 2025 (n=~800 companies, Sep 2025): AI adoption **approaches 90%**
+- Cisco AI Readiness Index 2025: only **2%** of Hong Kong organisations fully prepared for AI — **lowest among 30 markets surveyed globally**
+- HKSAR Government Policy Address designated AI as a pillar industry for Hong Kong's future
+- HKPC "AI for All" initiative launched 2025; ~250 digital solutions integrated via "Digital DIY" platform
+- Talent shortage cited as #1 enterprise challenge
+
+### Market insights
+Hong Kong presents the most striking adoption-readiness paradox of any market in this report: ~90% of enterprises have adopted AI in some form, yet only 2% are fully ready to deploy it at scale (Cisco) — the worst readiness score among 30 surveyed global markets. The market is essentially the global benchmark for "we have AI, we don't know what to do with it" — exactly the Pattern 4 strategic-clarity gap documented in Section 1.2 of the parent report. Demand is shifting from awareness to governance, scaling, and talent development.
+
+### Strengths
+- Near-universal enterprise AI adoption (~90%) — high reach for foundational and Level 2 implementation content.
+- Government designation of AI as pillar industry creates sustained demand.
+- HKPC's "AI for All" initiative anchors enterprise-training channel.
+- Major financial services and trading concentration creates premium training niches.
+- Strong English/Cantonese/Mandarin trilingual content reusability across Greater China.
+- Strategic gateway between Mainland China AI ecosystem and Western platforms.
+
+### Weaknesses
+- **Lowest AI readiness among 30 global markets (Cisco) despite ~90% adoption** — the global poster-child for surface-level deployment.
+- Talent shortage explicitly cited as #1 enterprise challenge by HKPC.
+- Mainland China data-sovereignty complexity affects cross-border deployments.
+- Economic uncertainty affects training investment cycles.
+- Heavy reliance on off-the-shelf tools rather than custom deployment.
+
+### Comparative context
+- **In Asia-Pacific:** Highest adoption rate, lowest readiness — defines the regional paradox.
+- **Globally:** The clearest demonstration of the adoption-vs-value gap that the parent report's thesis is built around. For client conversations, Hong Kong is the headline case study for the 88%/6% gap.
+
+---
+
 ## Indonesia — Tier 3 (Emerging)
 **LLPA partner: LLPA Central** · *Data quality: MEDIUM*
 
@@ -2150,7 +2184,7 @@ Morocco is rapidly positioning as Africa's premier North African AI hub. "AI Mad
 | **Western Europe** | Netherlands, Belgium, Luxembourg, Switzerland | UK, France, Ireland, Germany, Spain, Italy, Austria | Portugal | — |
 | **Central/Eastern Europe** | — | — | Czechia, Slovakia, Hungary, Slovenia, Croatia | Poland, Bulgaria, Romania, Cyprus, Greece |
 | **Balkans (non-EU)** | — | — | Turkey | Serbia, Albania, Bosnia, Kosovo, Montenegro, North Macedonia |
-| **Asia-Pacific** | Singapore, Australia, New Zealand | Japan, South Korea, Taiwan, China, India | Malaysia, Thailand, Vietnam, Indonesia | Philippines, Sri Lanka |
+| **Asia-Pacific** | Singapore, Australia, New Zealand | Japan, South Korea, Taiwan, China, India | Hong Kong, Malaysia, Thailand, Vietnam, Indonesia | Philippines, Sri Lanka |
 | **Middle East** | UAE | Saudi Arabia, Qatar, Israel | — | Bahrain, Kuwait, Oman |
 | **North America** | — | US, Canada, Mexico | — | Dominican Republic, Puerto Rico |
 | **South America** | — | Brazil, Uruguay | Argentina, Colombia | — |

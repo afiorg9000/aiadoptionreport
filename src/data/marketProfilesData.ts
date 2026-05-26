@@ -9,6 +9,7 @@ export interface MarketProfile {
   partner?: string | null;
   dataQuality?: string | null;
   estimated?: boolean;
+  subtitle?: string;
   stats: { label: string; value: string }[];
   marketInsights: string;
   strengths: string[];
@@ -23,6 +24,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Nordic",
+    "estimated": false,
     "partner": "Teknologisk Institut",
     "dataQuality": "HIGH",
     "stats": [
@@ -69,6 +71,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Nordic",
+    "estimated": false,
     "partner": "Sovelto Eduhouse",
     "dataQuality": "HIGH",
     "stats": [
@@ -114,6 +117,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Nordic",
+    "estimated": false,
     "partner": "Cornerstone",
     "dataQuality": "HIGH",
     "stats": [
@@ -159,6 +163,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Nordic",
+    "estimated": false,
     "partner": "Glasspaper",
     "dataQuality": "HIGH",
     "stats": [
@@ -200,6 +205,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Nordic",
+    "estimated": true,
     "partner": "Promennt",
     "dataQuality": "LOW",
     "stats": [
@@ -242,6 +248,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Computrain",
     "dataQuality": "HIGH",
     "stats": [
@@ -284,6 +291,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Computrain",
     "dataQuality": "HIGH",
     "stats": [
@@ -329,6 +337,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": null,
     "dataQuality": "HIGH",
     "stats": [
@@ -370,6 +379,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "TÜV Rheinland",
     "dataQuality": "HIGH",
     "stats": [
@@ -416,6 +426,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Enterprise Training Center",
     "dataQuality": "HIGH",
     "stats": [
@@ -465,6 +476,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Digicomp Academy",
     "dataQuality": "HIGH",
     "stats": [
@@ -511,6 +523,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "HIGH",
     "stats": [
@@ -556,6 +569,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Nexus Human",
     "dataQuality": "HIGH",
     "stats": [
@@ -602,6 +616,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "QA",
     "dataQuality": "HIGH",
     "stats": [
@@ -653,6 +668,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Netmind",
     "dataQuality": "HIGH",
     "stats": [
@@ -698,6 +714,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Pipeline",
     "dataQuality": "HIGH",
     "stats": [
@@ -739,6 +756,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Western",
+    "estimated": false,
     "partner": "Rumos",
     "dataQuality": "HIGH",
     "stats": [
@@ -781,6 +799,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Gopas",
     "dataQuality": "HIGH",
     "stats": [
@@ -826,6 +845,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Gopas",
     "dataQuality": "HIGH",
     "stats": [
@@ -867,6 +887,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Bittnet",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -909,6 +930,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "CloudTeam",
     "dataQuality": "HIGH",
     "stats": [
@@ -954,6 +976,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "Kompas Xnet",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -995,6 +1018,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Algebra Bernays University",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1041,6 +1065,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "ITCE",
     "dataQuality": "HIGH",
     "stats": [
@@ -1086,6 +1111,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Bittnet",
     "dataQuality": "HIGH",
     "stats": [
@@ -1144,6 +1170,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Semos Education",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1187,6 +1214,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "Semos Education",
     "dataQuality": "LOW",
     "stats": [
@@ -1233,6 +1261,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "Lanaco Education Center",
     "dataQuality": "LOW",
     "stats": [
@@ -1279,6 +1308,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "Semos Education",
     "dataQuality": "LOW",
     "stats": [
@@ -1323,6 +1353,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "Semos Education",
     "dataQuality": "LOW",
     "stats": [
@@ -1368,6 +1399,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Semos Education",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1414,6 +1446,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": "Infolab",
     "dataQuality": "HIGH",
     "stats": [
@@ -1459,6 +1492,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": true,
     "partner": "BilgeAdam IT Services",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1504,6 +1538,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Europe",
     "subRegion": "Central & Eastern",
+    "estimated": false,
     "partner": null,
     "dataQuality": "HIGH",
     "stats": [
@@ -1541,6 +1576,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 1,
     "tierLabel": "Leader",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "HIGH",
     "stats": [
@@ -1594,6 +1630,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 1,
     "tierLabel": "Leader",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "Lumify Work",
     "dataQuality": "HIGH",
     "stats": [
@@ -1647,6 +1684,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 1,
     "tierLabel": "Leader",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "Lumify Work",
     "dataQuality": "HIGH",
     "stats": [
@@ -1696,6 +1734,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 2,
     "tierLabel": "Advanced",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "HIGH",
     "stats": [
@@ -1741,6 +1780,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 2,
     "tierLabel": "Advanced",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "HIGH",
     "stats": [
@@ -1789,6 +1829,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 2,
     "tierLabel": "Advanced",
     "region": "Asia-Pacific",
+    "estimated": true,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1829,6 +1870,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 2,
     "tierLabel": "Advanced",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1878,6 +1920,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 2,
     "tierLabel": "Advanced",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1924,10 +1967,63 @@ export const marketProfiles: MarketProfile[] = [
     }
   },
   {
+    "country": "Hong Kong",
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "region": "Asia-Pacific",
+    "estimated": false,
+    "subtitle": "adoption-readiness paradox",
+    "partner": "LLPA Central",
+    "dataQuality": "HIGH",
+    "stats": [
+      {
+        "label": "HKPC AI Readiness in Workplace Survey 2025 (n=~800 companies, Sep 2025)",
+        "value": "AI adoption approaches 90%"
+      },
+      {
+        "label": "Cisco AI Readiness Index 2025",
+        "value": "only 2% of Hong Kong organisations fully prepared for AI — lowest among 30 markets surveyed globally"
+      },
+      {
+        "label": "HKSAR Government Policy Address designated AI as a pillar industry for Hong Kong's future",
+        "value": ""
+      },
+      {
+        "label": "HKPC \"AI for All\" initiative launched 2025; ~250 digital solutions integrated via \"Digital DIY\" platform",
+        "value": ""
+      },
+      {
+        "label": "Talent shortage cited as #1 enterprise challenge",
+        "value": ""
+      }
+    ],
+    "marketInsights": "Hong Kong presents the most striking adoption-readiness paradox of any market in this report: ~90% of enterprises have adopted AI in some form, yet only 2% are fully ready to deploy it at scale (Cisco) — the worst readiness score among 30 surveyed global markets. The market is essentially the global benchmark for \"we have AI, we don't know what to do with it\" — exactly the Pattern 4 strategic-clarity gap documented in Section 1.2 of the parent report. Demand is shifting from awareness to governance, scaling, and talent development.",
+    "strengths": [
+      "Near-universal enterprise AI adoption (~90%) — high reach for foundational and Level 2 implementation content.",
+      "Government designation of AI as pillar industry creates sustained demand.",
+      "HKPC's \"AI for All\" initiative anchors enterprise-training channel.",
+      "Major financial services and trading concentration creates premium training niches.",
+      "Strong English/Cantonese/Mandarin trilingual content reusability across Greater China.",
+      "Strategic gateway between Mainland China AI ecosystem and Western platforms."
+    ],
+    "weaknesses": [
+      "Lowest AI readiness among 30 global markets (Cisco) despite ~90% adoption — the global poster-child for surface-level deployment.",
+      "Talent shortage explicitly cited as #1 enterprise challenge by HKPC.",
+      "Mainland China data-sovereignty complexity affects cross-border deployments.",
+      "Economic uncertainty affects training investment cycles.",
+      "Heavy reliance on off-the-shelf tools rather than custom deployment."
+    ],
+    "comparativeContext": {
+      "inRegion": "Highest adoption rate, lowest readiness — defines the regional paradox.",
+      "globally": "The clearest demonstration of the adoption-vs-value gap that the parent report's thesis is built around. For client conversations, Hong Kong is the headline case study for the 88%/6% gap."
+    }
+  },
+  {
     "country": "Indonesia",
     "tier": 3,
     "tierLabel": "Emerging",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -1972,6 +2068,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 3,
     "tierLabel": "Emerging",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2012,6 +2109,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 3,
     "tierLabel": "Emerging",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2052,6 +2150,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 3,
     "tierLabel": "Emerging",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2100,6 +2199,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 4,
     "tierLabel": "Nascent",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2140,6 +2240,7 @@ export const marketProfiles: MarketProfile[] = [
     "tier": 4,
     "tierLabel": "Nascent",
     "region": "Asia-Pacific",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "LOW",
     "stats": [
@@ -2186,6 +2287,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Leader",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "ThinkSmart",
     "dataQuality": "HIGH",
     "stats": [
@@ -2240,6 +2342,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "ThinkSmart",
     "dataQuality": "HIGH",
     "stats": [
@@ -2295,6 +2398,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "ThinkSmart",
     "dataQuality": "HIGH",
     "stats": [
@@ -2340,6 +2444,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": true,
     "partner": "ThinkSmart",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2385,6 +2490,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": true,
     "partner": "ThinkSmart",
     "dataQuality": "LOW",
     "stats": [
@@ -2425,6 +2531,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": true,
     "partner": "ThinkSmart",
     "dataQuality": "LOW",
     "stats": [
@@ -2470,6 +2577,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Middle East",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "Unitraining",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2515,6 +2623,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "North America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "LLPA Central",
     "dataQuality": "HIGH",
     "stats": [
@@ -2568,6 +2677,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "North America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": null,
     "dataQuality": "HIGH",
     "stats": [
@@ -2622,6 +2732,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "North America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "CompuEducation",
     "dataQuality": "HIGH",
     "stats": [
@@ -2677,6 +2788,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "North America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": true,
     "partner": "Interactive Technology Group",
     "dataQuality": "LOW",
     "stats": [
@@ -2727,6 +2839,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Nascent",
     "region": "North America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": true,
     "partner": "Interactive Technology Group",
     "dataQuality": "LOW",
     "stats": [
@@ -2772,6 +2885,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "South America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "Green",
     "dataQuality": "HIGH",
     "stats": [
@@ -2831,6 +2945,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "South America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "IT College",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2878,6 +2993,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "South America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "Intelligent Training",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2923,6 +3039,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "South America",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "IT College",
     "dataQuality": "MEDIUM",
     "stats": [
@@ -2969,6 +3086,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Advanced",
     "region": "Africa",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "CTU Training Solutions",
     "dataQuality": "HIGH",
     "stats": [
@@ -3020,6 +3138,7 @@ export const marketProfiles: MarketProfile[] = [
     "tierLabel": "Emerging",
     "region": "Africa",
     "subRegion": "CENTRAL & EASTERN",
+    "estimated": false,
     "partner": "ThinkSmart",
     "dataQuality": "MEDIUM",
     "stats": [
