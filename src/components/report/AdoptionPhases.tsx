@@ -59,21 +59,6 @@ const AdoptionPhases = () => {
                 speedup.)
               </p>
             </div>
-
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-              <p className="text-sm text-amber-900">
-                <strong>Pattern across all of these:</strong> gains are real but highly
-                context-dependent. They concentrate in less-experienced workers and well-scoped
-                tasks, can reverse on complex or judgment-heavy work, and often speed up drafting
-                while creating new verification work downstream. The largest developer surveys
-                capture both halves at once — GitHub&apos;s Octoverse reports ~92% of developers now
-                using or experimenting with AI tools<CitationLink id={111} />, yet Stack
-                Overflow&apos;s survey of 49,000+ developers found favorability{" "}
-                <em>falling</em> — from over 70% in 2023–24 to about 60% in
-                2025<CitationLink id={110} />.{" "}
-                <strong>Adoption and confidence are moving in opposite directions.</strong>
-              </p>
-            </div>
           </motion.div>
 
           {/* 3.2 Aggregate Evidence */}
@@ -127,9 +112,7 @@ const AdoptionPhases = () => {
                   bottleneck sits somewhere else — Amdahl&apos;s law applied to an org chart. But the
                   optimistic reading fits the same evidence equally well — the gains may be real
                   but early, still below the resolution of an annual survey, waiting on the
-                  process redesign described below.{" "}
-                  <strong>Whether the macro number is low because the value is small or merely
-                  because it&apos;s late is the part the data won&apos;t yet settle.</strong>
+                  process redesign described below.
                 </p>
               </div>
             </div>
