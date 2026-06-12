@@ -117,9 +117,9 @@ const TableOfContents = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-12"
+          className="flex flex-col items-center text-center mb-12"
         >
-          <FileText className="w-6 h-6 text-llpa-orange" />
+          <FileText className="w-6 h-6 text-llpa-orange mb-3" />
           <h2 className="font-display text-3xl font-semibold text-foreground">
             Table of Contents
           </h2>
@@ -130,21 +130,11 @@ const TableOfContents = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-2 max-w-6xl"
+          className="max-w-2xl mx-auto w-full space-y-1"
         >
-          {/* Left Column */}
-          <div className="space-y-1">
-            {tocData.slice(0, 5).map((item) => (
-              <TocItemComponent key={item.id} item={item} />
-            ))}
-          </div>
-          
-          {/* Right Column */}
-          <div className="space-y-1">
-            {tocData.slice(5).map((item) => (
-              <TocItemComponent key={item.id} item={item} />
-            ))}
-          </div>
+          {tocData.map((item) => (
+            <TocItemComponent key={item.id} item={item} />
+          ))}
         </motion.div>
       </div>
     </section>
