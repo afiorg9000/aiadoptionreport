@@ -115,7 +115,7 @@ const weightedIndex = [{
   factor: "Enterprise AI Usage",
   weight: "50%",
   source: "Eurostat (EU), national statistical offices",
-  citations: [375, 10, 11, 12, 13, 14],
+  citations: [4, 10, 11, 12, 13, 14],
   rationale: "Direct measure of firm-level adoption"
 }, {
   factor: "Private AI Investment",
@@ -141,7 +141,7 @@ const sizeClassEvidence = [{
   large: "74.5% (250+ employees)",
   sme: "37.5% (10-49 employees)",
   gap: "37pp",
-  citations: [375]
+  citations: [4]
 }, {
   market: "Finland",
   large: "70%",
@@ -183,11 +183,11 @@ const sizeClassEvidence = [{
   large: "20.75% (250+ employees)",
   sme: "4.13% (10-49 employees)",
   gap: "17pp",
-  citations: [375]
+  citations: [4]
 }];
 const skillsGapEvidenceTier1 = [{
   content: "Denmark leads Tier 1 with 42.03% adoption, yet 62% of organizations still cite lack of AI skills as a major barrier to further progress.",
-  citations: [375, 26]
+  citations: [4, 26]
 }, {
   content: "The Netherlands reports 33.2% adoption (top-5 EU), but a striking 74.6% of businesses identify \"lack of experience\" as their primary obstacle.",
   citations: [42]
@@ -335,7 +335,7 @@ const GlobalAILandscape = () => {
             <div id="strategic-context-1" className={spacing.blockMargin}>
               <div className={`space-y-4 ${typography.body}`}>
                 <p>
-                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={375} /> This section sets out how 66 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
+                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={4} /> This section sets out how 66 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
                 </p>
               </div>
             </div>

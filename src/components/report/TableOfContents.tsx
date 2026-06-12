@@ -13,7 +13,6 @@ const tocData: TocItem[] = [
     title: "Executive Summary",
     items: [
       { id: "critical-findings", title: "Five Findings" },
-      { id: "reconciling-numbers", title: "Reconciling the Numbers" },
     ],
   },
   {
@@ -44,19 +43,16 @@ const tocData: TocItem[] = [
       { id: "productivity-evidence", title: "3.1 Task-Level Gains" },
       { id: "macro-evidence", title: "3.2 Aggregate Evidence" },
       { id: "micro-macro-gap", title: "3.3 Solow Paradox" },
+      { id: "capability-displacement-gap", title: "3.4 Capability & Displacement" },
     ],
   },
   {
     id: "future-outlook",
     title: "Section 4: What Value-Realizers Do",
     items: [
-      { id: "value-minority-practices", title: "4. Five Practices" },
-      { id: "agentic-frontier", title: "4.1 The Agentic Frontier" },
+      { id: "value-minority-practices", title: "4.1 Five Practices" },
+      { id: "implementation-gap", title: "4.2 Implementation Gap" },
     ],
-  },
-  {
-    id: "recommendations",
-    title: "Section 5: Recommendations",
   },
   {
     id: "conclusion",
@@ -65,6 +61,10 @@ const tocData: TocItem[] = [
   {
     id: "references",
     title: "References",
+  },
+  {
+    id: "methodology",
+    title: "Methodology",
   },
 ];
 

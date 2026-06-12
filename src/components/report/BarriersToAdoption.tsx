@@ -131,18 +131,8 @@ const BarriersToAdoption = () => {
                   In BCG&apos;s <em>Build for the Future 2025</em> study (n=1,250), only{" "}
                   <strong>5%</strong> of companies qualify as &ldquo;future-built&rdquo; and generating
                   substantial value, <strong>35%</strong> are scaling, and <strong>60%</strong>{" "}
-                  have seen little-to-no measurable benefit despite investment.<CitationLink id={9} />{" "}
+                  have seen little-to-no measurable benefit despite investment.<CitationLink id={33} />{" "}
                   <em className="text-xs text-muted-foreground/60">(Tier B — BCG)</em>
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-llpa-blue mt-0.5">•</span>
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  BCG&apos;s &ldquo;10-20-70&rdquo; heuristic holds that AI value is roughly{" "}
-                  <strong>10% algorithms, 20% technology and data, and 70% people, process, and
-                  adoption</strong> — i.e., most of the difficulty lies where programs tend to
-                  under-invest.<CitationLink id={10} />{" "}
-                  <em className="text-xs text-muted-foreground/60">(Tier B — BCG; presented as a framework, not a measured constant)</em>
                 </span>
               </li>
               <li className="flex gap-3">
@@ -162,12 +152,10 @@ const BarriersToAdoption = () => {
               <li className="flex gap-3">
                 <span className="text-llpa-blue mt-0.5">•</span>
                 <span className="text-sm text-muted-foreground leading-relaxed">
-                  The change-management gap is concrete, not just cultural: AWS&apos;s{" "}
-                  <em>Generative AI Adoption Index</em> (3,739 IT decision-makers) found that
-                  while nearly half of organizations were moving GenAI into production, only{" "}
-                  <strong>14% had a change-management strategy in place</strong> to support
-                  it<CitationLink id={78} />. That mismatch — deployment racing ahead of the work
-                  of adoption — is the mechanism behind much of the value gap.{" "}
+                  Deployment often races ahead of adoption infrastructure — a mismatch the AWS{" "}
+                  <em>Generative AI Adoption Index</em> quantifies in §4.2 (nearly half of
+                  organizations moving gen AI into production,{" "}
+                  <strong>14% with a change-management strategy</strong> in place).{" "}
                   <em className="text-xs text-muted-foreground/60">(Tier B — AWS Generative AI Adoption Index 2025)</em>
                 </span>
               </li>

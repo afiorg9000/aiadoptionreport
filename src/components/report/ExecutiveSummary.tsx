@@ -27,9 +27,7 @@ const ExecutiveSummary = () => {
             </p>
 
             <p className={`${typography.body} mb-8`}>
-              The evidence below supports five findings. The recommendations that follow are ours,
-              as an interested party in the training business, and sit in a separate section so
-              they can be weighed on their own.
+              The evidence below supports five findings, organized in the sections that follow.
             </p>
           </motion.div>
 

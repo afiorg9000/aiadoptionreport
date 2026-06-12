@@ -17,49 +17,42 @@ const Conclusion = () => {
 
           <div className="space-y-5">
             <p className={typography.body}>
-              The evidence in this report converges on one pattern in which AI adoption is broad
-              and widening, while measurable financial return remains concentrated in a small
-              minority of firms — roughly 5–6% across three independent
-              studies<CitationLink id={33} /><CitationLink id={26} /><CitationLink id={2} />.
+              This report began with a question that looked simpler than it is: how widely is
+              enterprise AI being adopted, and what is it returning? The answer, drawn from
+              government statistics, consulting surveys, controlled experiments, and labor-market
+              data, is that{" "}
+              <strong>use has spread far faster than value</strong> — a pattern consistent across
+              countries, sectors, and firm sizes, even when the headline adoption numbers disagree
+              on the details.
             </p>
 
             <p className={typography.body}>
-              The five findings trace that gap. Adoption is broad but measured value is narrow,
-              with 89–95% of firms in the best-sourced surveys reporting no measurable
-              return<CitationLink id={1} /><CitationLink id={2} />. The most common obstacle is
-              not understanding the technology but deciding where to point it — a strategic-clarity
-              gap rather than a knowledge gap. Post-purchase abandonment is common, with licenses
-              bought and left idle. Skills shortages appear structural rather than transitional,
-              holding steady even as workforces grow more capable. And the multi-vendor environment
-              adds cost and complexity that climbs faster than the number of systems in use.
+              The gap is not mainly a technology gap. Models are improving quickly; the harder
+              problems are organizational — where to point the tool, how to sustain adoption after
+              purchase, and whether the firm can absorb the fixed cost of change. Section 4
+              documents what separates the minority that captures return: they resource
+              organizational change deliberately, not just tool access (see §4.1–4.2).
             </p>
 
             <p className={typography.body}>
-              Underneath these sits a deeper puzzle the report could document but not resolve:
-              controlled studies find real, double-digit task-level gains, while firm-level data
-              finds almost no aggregate return. Whether that gap is early-but-closing or a durable
-              ceiling is not something the current evidence settles. The Solow precedent —
-              productivity gains from computing that appeared only once firms redesigned work around
-              the technology<CitationLink id={48} /> — suggests the resolution depends on process
-              redesign rather than better tools, but that remains a hypothesis the data raises
-              rather than confirms.
+              Section 3 adds a second tension beneath the first: controlled studies find real
+              task-level gains, while firm-level surveys find almost no aggregate return — and
+              both are well-evidenced. Early labor-market effects are already visible at the entry
+              level<CitationLink id={120} />, even as economywide displacement remains hard to
+              detect<CitationLink id={122} /><CitationLink id={123} />. Whether the adoption–value
+              gap closes as firms redesign around the tool — the Solow precedent for computing
+              suggests it may<CitationLink id={48} /> — or proves durable is still unsettled. The
+              competitive direction is clearer: the leader–laggard gap is widening<CitationLink id={33} />.
             </p>
 
             <p className={typography.body}>
-              What distinguishes the value-realizing minority is consistent across studies: they
-              redesign workflows rather than layering AI onto existing ones, aim at transformation
-              over efficiency, concentrate rather than scatter investment, put senior ownership
-              behind it, and scale across functions rather than stalling in
-              pilots<CitationLink id={26} /><CitationLink id={33} />. The same divide is now
-              reforming around AI agents<CitationLink id={62} /><CitationLink id={63} />.
-            </p>
-
-            <p className={typography.body}>
-              The defining figure is that{" "}
-              <strong>over 90% of firms intend to keep investing in AI even if it does not pay off
-              next year</strong><CitationLink id={21} />. The plainest thing the evidence asks of
-              any organization is to invest in proportion to where it actually stands — and to be
-              honest about when the right move is to wait.
+              Low adoption in some sectors and among the smallest firms often reflects a genuine
+              mismatch with what these systems do today, not merely lag — and &ldquo;not yet&rdquo;
+              remains a legitimate answer. The plainest thing the evidence asks of any organization
+              is proportion: invest at the level of where it actually stands, fund the change work
+              at the same time as the tools, and be honest about when waiting is the right move.
+              The report&apos;s job was to map that terrain, not to pretend the map is simpler than
+              the territory.
             </p>
           </div>
 

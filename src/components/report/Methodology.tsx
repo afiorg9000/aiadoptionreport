@@ -64,11 +64,11 @@ const Methodology = () => {
 
                 <p className={`${typography.body}`}>
                   We disclose this because it is the single most important thing a reader needs to
-                  weigh the recommendations. We have tried to control for it in three ways: (1) the
+                  weigh our inferences. We have tried to control for it in three ways: (1) the
                   evidence sections below are written and sourced independently of any
-                  recommendation, and reach conclusions before any course of action is proposed;
-                  (2) recommendations are confined to a clearly labeled section at the end and are
-                  presented as <em>our</em> view as an interested party, not as neutral findings;
+                  training-industry inference, and reach conclusions before any course of action is
+                  proposed; (2) where the text draws a training-industry inference, it is presented
+                  as <em>our</em> view as an interested party, not as neutral findings;
                   and (3) headline claims rest on government statistics and peer-reviewed research,
                   with commercial, self-selected, and our own internal-survey data clearly marked as
                   lower-confidence. Readers should still apply their own scrutiny. Where a figure

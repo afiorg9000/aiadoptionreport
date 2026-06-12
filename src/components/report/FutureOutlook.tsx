@@ -20,13 +20,11 @@ const FutureOutlook = () => {
               What the value-realizing minority does differently
             </h2>
             <p className={`${typography.body} mt-4`}>
-              Sections 1–3 establish a consistent finding: a small minority of organizations —
-              roughly 5–6% across three independent studies — captures most of the measurable
-              value, while the majority invests without a return. The natural question is what
-              separates them. The two most rigorous segmentations of this minority, from McKinsey
-              and BCG, were conducted independently on different samples, yet they converge on
-              the same short list of practices. That convergence is the useful part: it suggests
-              the difference is structural and repeatable.
+              Sections 1–3 establish the adoption–value gap. The natural question is what
+              separates the minority that captures return from the majority that does not.
+              McKinsey and BCG segment that minority independently on different samples, yet
+              converge on the same short list of practices — suggesting the difference is
+              structural and repeatable.
             </p>
           </motion.div>
 
@@ -38,6 +36,7 @@ const FutureOutlook = () => {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="mb-10 space-y-5"
           >
+            <h3 className={`${typography.subsectionTitle} mb-2`}>4.1 Five practices</h3>
             <div className="border-l-4 border-llpa-green bg-card rounded-r-xl p-5 shadow-sm">
               <p className="text-sm font-semibold text-foreground mb-2">
                 They redesign workflows rather than layering AI onto existing ones.
@@ -45,13 +44,9 @@ const FutureOutlook = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 This is the single strongest correlate of value in McKinsey&apos;s data — high
                 performers are far more likely to rework an end-to-end process around AI rather
-                than bolt a tool onto an unchanged workflow<CitationLink id={26} />. It is the
-                same lesson the Solow analogy in §3.3 predicts and the same logic behind BCG&apos;s
-                &ldquo;10-20-70&rdquo; framing, in which roughly 70% of the difficulty and the payoff sits
-                in people, process, and adoption rather than the technology<CitationLink id={10} />.
-                BCG&apos;s data puts a number on it: about 70% of the value future-built companies
-                capture comes from reshaping core-business processes, not from peripheral
-                experiments<CitationLink id={33} />.
+                than bolt a tool onto an unchanged workflow<CitationLink id={26} />. The Solow
+                analogy in §3.3 points the same direction; §4.2 develops why the organizational
+                layer dominates the payoff.
               </p>
             </div>
 
@@ -94,9 +89,9 @@ const FutureOutlook = () => {
                 studies. Future-built companies are markedly more likely to appoint a chief AI
                 officer and a chief data officer and to establish co-ownership between business
                 units and IT, so that accountability for outcomes is explicit rather than
-                diffuse<CitationLink id={33} />. The pattern echoes the change-management
-                finding in §2.2: AI value depends on someone owning the organizational change,
-                not just the procurement.
+                diffuse<CitationLink id={33} />. The pattern echoes the implementation gap in
+                §4.2: AI value depends on someone owning the organizational change, not just the
+                procurement.
               </p>
             </div>
 
@@ -108,9 +103,8 @@ const FutureOutlook = () => {
                 The majority of organizations remain stuck in experimentation — McKinsey finds
                 nearly two-thirds have not begun scaling AI across the
                 enterprise<CitationLink id={26} />. High performers are the exception: a large
-                majority are actively scaling, and they are several times more likely to be
-                deploying AI agents across multiple functions rather than testing them in
-                one<CitationLink id={26} /><CitationLink id={21} />.
+                majority are actively scaling across functions rather than stalling in
+                pilots<CitationLink id={26} />.
               </p>
             </div>
           </motion.div>
@@ -133,9 +127,9 @@ const FutureOutlook = () => {
             </div>
           </motion.div>
 
-          {/* 4.1 The agentic frontier */}
+          {/* 4.2 The implementation gap */}
           <motion.div
-            id="agentic-frontier"
+            id="implementation-gap"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -143,32 +137,65 @@ const FutureOutlook = () => {
             className="mb-10"
           >
             <h3 className={`${typography.subsectionTitle} mb-4`}>
-              4.1 The agentic frontier — and why it repeats the pattern
+              4.2 The implementation gap: value-realizers buy the change, not just the tool
             </h3>
 
             <div className="space-y-4">
               <p className={`${typography.bodySmall} text-muted-foreground`}>
-                The newest version of this divide is forming around AI{" "}
-                <em>agents</em> — systems that carry out multi-step tasks rather than answering
-                single prompts. Adoption is moving fast on paper: McKinsey finds 62% of
-                organizations at least experimenting with agents and 23% scaling them in at
-                least one function<CitationLink id={26} />, and Gartner forecasts that 40% of
-                enterprise applications will embed task-specific agents by the end of 2026, up
-                from under 5% in 2025<CitationLink id={63} />. BCG estimates agents already
-                account for roughly 17% of AI value in 2025, rising toward 29% by
-                2028<CitationLink id={33} />.
+                The five practices above share a common thread: each is a form of organizational
+                change that has to be resourced, and the value-realizing minority is far more likely
+                to resource it deliberately — often by buying it in. The clearest single measure of
+                the gap is from AWS&apos;s Generative AI Adoption Index (3,739 IT decision-makers):
+                nearly half of organizations were moving generative AI into production, yet only{" "}
+                <strong>14% had a change-management strategy</strong> in place to support
+                it<CitationLink id={78} />.{" "}
+                <strong>Deployment is running well ahead of the work that makes deployment pay.</strong>
               </p>
 
               <p className={`${typography.bodySmall} text-muted-foreground`}>
-                But the gap reappears one level up. S&P Global finds only about 31% of
-                enterprises have an agent genuinely in production, with the familiar spread —
-                banking and insurance near 47%, healthcare and government nearer
-                18%<CitationLink id={62} /> — and Gartner predicts more than 40% of agentic-AI
-                projects will be cancelled by 2027, citing the same causes as the earlier
-                abandonment wave: unclear value, cost, and inadequate
-                controls<CitationLink id={63} />. If anything, agents raise the stakes, because
-                handing a multi-step process to an autonomous system magnifies both the payoff
-                of a redesigned workflow and the cost of an unredesigned one.
+                Why that work dominates is structural, not incidental. BCG&apos;s
+                &ldquo;10-20-70&rdquo; framing holds that{" "}
+                <strong>AI value is roughly 10% algorithms, 20% technology and data, and 70% people,
+                process, and adoption</strong><CitationLink id={10} /> — meaning
+                the bulk of both the difficulty and the payoff sits in exactly the organizational
+                layer that procurement tends to under-fund. The behavioral data bears this out:
+                McKinsey finds{" "}
+                <strong>the single strongest correlate of value is redesigning an end-to-end process
+                around AI rather than layering a tool onto an unchanged workflow</strong>, and BCG
+                attributes about{" "}
+                <strong>70% of the value its &ldquo;future-built&rdquo; companies capture to reshaping
+                core-business processes</strong> rather than peripheral
+                experiments<CitationLink id={26} /><CitationLink id={33} />.
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                The same McKinsey survey shows what resourcing this looks like in practice, and that
+                larger firms do markedly more of it. Respondents at larger organizations are{" "}
+                <strong>more than twice as likely</strong> as their small-company peers to report
+                having established clearly defined road maps to drive gen AI adoption — phased
+                rollouts across teams and business units — and to have stood up a dedicated team,
+                such as a transformation office, to drive it. They are also ahead on creating{" "}
+                <strong>role-based capability training</strong> so that employees at each level know
+                how to use gen AI appropriately<CitationLink id={132} />. These are not features of
+                the model; they are{" "}
+                <strong>deliberate investments in adoption</strong>, and they map directly onto the
+                fixed-cost logic of the size-class divide in §1.2 —{" "}
+                <strong>large firms can absorb the overhead of change, small firms struggle to.</strong>
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                On the return side, the buyer&apos;s-eye evidence is encouraging but should be read
+                with care. Deloitte&apos;s <em>State of Generative AI in the Enterprise</em> (Q4 2024)
+                found that among organizations&apos; most advanced initiatives,{" "}
+                <strong>74% report meeting or exceeding their ROI expectations</strong> and{" "}
+                <strong>20% report returns above 30%</strong><CitationLink id={131} /> — but Deloitte
+                is explicit that this value is hard-won, with most organizations needing a year or
+                more to work through governance, talent, trust, and data challenges. That figure
+                describes{" "}
+                <strong>the most advanced initiatives, not the average firm</strong>, which is the
+                crucial caveat: it is consistent with, not a contradiction of, the finding that{" "}
+                <strong>89–95% of firms overall still see no measurable
+                return</strong><CitationLink id={1} /><CitationLink id={2} />.
               </p>
             </div>
           </motion.div>

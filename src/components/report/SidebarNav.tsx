@@ -14,7 +14,6 @@ const navData: NavItem[] = [
     title: "Executive Summary",
     items: [
       { id: "critical-findings", title: "Five Findings" },
-      { id: "reconciling-numbers", title: "Reconciling Numbers" },
     ],
   },
   {
@@ -45,19 +44,20 @@ const navData: NavItem[] = [
       { id: "productivity-evidence", title: "3.1 Task-Level" },
       { id: "macro-evidence", title: "3.2 Aggregate" },
       { id: "micro-macro-gap", title: "3.3 Solow Paradox" },
+      { id: "capability-displacement-gap", title: "3.4 Capability & Displacement" },
     ],
   },
   {
     id: "future-outlook",
     title: "4. Value-Realizing Minority",
     items: [
-      { id: "value-minority-practices", title: "4. Five Practices" },
-      { id: "agentic-frontier", title: "4.1 Agentic Frontier" },
+      { id: "value-minority-practices", title: "4.1 Five Practices" },
+      { id: "implementation-gap", title: "4.2 Implementation Gap" },
     ],
   },
-  { id: "recommendations", title: "5. Recommendations" },
   { id: "conclusion", title: "Conclusion" },
   { id: "references", title: "References" },
+  { id: "methodology", title: "Methodology" },
 ];
 
 // Flatten all IDs for scroll tracking

@@ -155,6 +155,96 @@ const AdoptionPhases = () => {
             </div>
           </motion.div>
 
+          {/* 3.4 Capability, displacement, and competitive gap */}
+          <motion.div
+            id="capability-displacement-gap"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="mb-12"
+          >
+            <h3 className={`${typography.subsectionTitle} mb-4`}>
+              3.4 Capability, displacement, and the widening competitive gap
+            </h3>
+            <div className="space-y-4">
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                <strong>The capability trajectory.</strong> The value gap documented above is not
+                explained by a capability plateau. Stanford&apos;s 2026 AI Index records frontier
+                models gaining about 30 percentage points in a single year on Humanity&apos;s Last Exam
+                — a benchmark built to be hard for AI — with evaluations meant to last years
+                saturating in months; on agentic tasks, WebArena success rose from 15% (2023) to
+                roughly 74% (early 2026) and Cybench from 15% (2024) to
+                93%<CitationLink id={117} />. Yet capability is not deployment: frontier models
+                still fail roughly one in three production attempts<CitationLink id={118} />, and
+                reviewers document a ~37-point gap between lab benchmark scores and real-world
+                performance<CitationLink id={119} />.
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                <strong>The displacement has already started — at the entry level.</strong> The
+                clearest evidence to date is Stanford&apos;s Canaries in the Coal Mine study
+                (Brynjolfsson, Chandar &amp; Chen, 2025), built on ADP payroll records covering
+                millions of workers<CitationLink id={120} />. Since generative AI&apos;s widespread
+                adoption, early-career workers aged 22–25 in the most AI-exposed occupations have
+                seen a <strong>13% relative decline in employment</strong> — and for young software
+                developers the drop runs near <strong>20% since late 2022</strong> — holding even
+                after controlling for firm-level shocks. The cuts concentrate in roles where AI
+                automates rather than augments, and the labor market is adjusting through headcount,
+                not wages: pay held steady while jobs disappeared. Experienced workers in the same
+                occupations were largely spared; the loss fell on the people just entering.
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                This entry-level-first shape lines up with the pyramid replacement idea from{" "}
+                <em>The Intelligence Curse</em> (Drago &amp; Laine, 2025) — an interpretive argument,
+                not an empirical study<CitationLink id={125} /> — which reads AI adoption as moving
+                up the corporate pyramid rather than across it: the most routine, entry-level tasks
+                tend to give way first, with more senior, judgment-heavy work following more slowly.
+                The Canaries data is the measured first step; the thesis mainly supplies a direction
+                of travel for it. The authors don&apos;t attach a timeline, so it&apos;s useful here as a
+                way to read the trend and a pointer to where the next signal would show up — not as
+                a forecast of any particular endpoint. The modest, supported takeaway is simply that
+                change starts with the most automatable work, which is exactly where the early
+                evidence has surfaced.
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                <strong>What firms are projected to forgo by waiting.</strong> The competitive cost
+                of standing still is itself a projection, but a credible one. BCG&apos;s{" "}
+                <em>Widening AI Value Gap</em> (n=1,250) finds the leader–laggard performance gap
+                widening: future-built firms already show roughly 1.7× the revenue growth, 1.6× the
+                EBIT margin, and 3.6× the three-year total shareholder return of laggards, and in
+                AI-enabled areas BCG projects gains of about 14% for leaders by 2028 against under 7%
+                for laggards<CitationLink id={33} />. The mechanism is compounding — leaders
+                reinvest AI returns into further capability while laggards&apos; thin returns starve the
+                next round of investment. The Intelligence Curse essay frames the same dynamic as a
+                competitive ratchet: once a rival automates a function, matching it stops feeling
+                optional, and the pressure to keep pace builds<CitationLink id={125} />. As an
+                argument it reaches further than the evidence does — so, again, a frame rather than
+                a finding — but its near-term, testable claim is just the BCG pattern above: the
+                gap between movers and waiters tends to widen rather than close. The §4 caveat still
+                applies: leaders also start with capital, data, and talent the median firm lacks, so
+                the gap is correlated with, not purely caused by, moving early. The direction,
+                however, is not in dispute.
+              </p>
+
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                <strong>Two honest qualifiers.</strong> Aggregate displacement is not yet visible
+                — economywide employment and openings in exposed occupations have not broadly
+                fallen<CitationLink id={122} /><CitationLink id={123} /> — so the effect today is
+                concentrated, not general. And the Canaries authors&apos; February 2026 update finds
+                the decline statistically robust only from 2024 and frame it as correlation and an
+                early warning, not proven economywide causation<CitationLink id={120} />. But
+                &ldquo;early warning&rdquo; is the case for acting now, not against it: the first
+                measurable losses are landing precisely where the capability-exposure data predicted
+                they would. The organizations and workers who close the capability-to-usage gap while
+                it is still a choice — rather than a scramble — are the ones not reacting later from
+                behind.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
