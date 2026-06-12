@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
-
-const PDF_HREF = "/Enterprise-AI-Adoption-Report-2025.pdf";
-const PDF_FILENAME = "Enterprise-AI-Adoption-Report-2025.pdf";
 
 const Header = () => {
   return (
@@ -62,27 +58,6 @@ const Header = () => {
                 References
               </a>
 
-              <a
-                href={PDF_HREF}
-                download={PDF_FILENAME}
-                aria-label="Download PDF: read-only, print-ready layout"
-                className="
-                  group inline-flex items-center gap-2 px-5 py-2
-                  font-body text-sm font-medium text-white
-                  bg-llpa-blue hover:bg-llpa-blue/90
-                  rounded-lg shadow-sm hover:shadow-md
-                  transition-all duration-200
-                  focus-visible:outline-none focus-visible:ring-2
-                  focus-visible:ring-white/50 focus-visible:ring-offset-2
-                  focus-visible:ring-offset-slate-900
-                "
-              >
-                <Download
-                  className="h-4 w-4 transition-transform group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-                <span className="whitespace-nowrap">Download PDF</span>
-              </a>
             </motion.nav>
           </div>
         </div>

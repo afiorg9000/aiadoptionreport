@@ -5,7 +5,6 @@ import Methodology from "@/components/report/Methodology";
 import TableOfContents from "@/components/report/TableOfContents";
 import GlobalAILandscape from "@/components/report/GlobalAILandscape";
 import BarriersToAdoption from "@/components/report/BarriersToAdoption";
-import IndustryAdoption from "@/components/report/IndustryAdoption";
 import AdoptionPhases from "@/components/report/AdoptionPhases";
 import FutureOutlook from "@/components/report/FutureOutlook";
 import Conclusion from "@/components/report/Conclusion";
@@ -29,15 +28,14 @@ const ReportContent = () => {
           <div className="xl:flex">
             <div className="min-w-0 flex-1">
               <ExecutiveSummary />
-              <Methodology />
               <TableOfContents />
               <GlobalAILandscape />
               <BarriersToAdoption />
-              <IndustryAdoption />
               <AdoptionPhases />
               <FutureOutlook />
               <Conclusion />
               <References />
+              <Methodology />
             </div>
 
             <aside className="hidden xl:block w-52 shrink-0 print:hidden">

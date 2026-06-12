@@ -1,116 +1,13 @@
 import { motion } from "framer-motion";
 import { typography, spacing } from "./styles";
-
-const capabilityProgress = [
-  {
-    benchmark: "GPQA Diamond (PhD-level reasoning)",
-    baseline2024: "~65%",
-    current2026: "87.3% (Claude 5)",
-    change: "+22 points",
-    significance: "Surpassed what researchers expected wouldn't happen for 2-3 years",
-  },
-  {
-    benchmark: "SWE-bench Verified (real GitHub issues)",
-    baseline2024: "~45%",
-    current2026: "80.8% (Claude Opus 4.5)",
-    change: "+35 points",
-    significance: "Production-grade software engineering capability",
-  },
-  {
-    benchmark: "HumanEval (code generation)",
-    baseline2024: "~85%",
-    current2026: "98.1% (GPT-5.3-Codex)",
-    change: "+13 points",
-    significance: "Near-ceiling on standard coding benchmarks",
-  },
-  {
-    benchmark: "Inference cost (per million tokens)",
-    baseline2024: "$60",
-    current2026: "$0.21",
-    change: "280x reduction",
-    significance: "Enables enterprise-scale deployment at viable economics",
-  },
-];
-
-const capabilityPhases = [
-  {
-    phase: "Phase 1 (2022-2025)",
-    category: "Individual Assistants",
-    description: "Human-in-the-loop tools that augment individual tasks (ChatGPT, Copilot, drafting assistants)",
-    status: "Productivity ceiling emerging; 95% of firms report no measurable ROI",
-    isCurrentCeiling: true,
-  },
-  {
-    phase: "Phase 2 (2025-2027)",
-    category: "Task Agents",
-    description: "Autonomous multi-step task completion with human oversight (research synthesis, code refactoring)",
-    status: "Production deployments beginning; reliability constraints being addressed",
-    isCurrentCeiling: false,
-  },
-  {
-    phase: "Phase 3 (2027+)",
-    category: "Workflow Agents",
-    description: "End-to-end process automation with minimal intervention (full feature development, complex analysis)",
-    status: "Early pilots; governance and safety frameworks under development",
-    isCurrentCeiling: false,
-  },
-];
-
-const forecastComparison = [
-  {
-    source: "Metaculus Mean",
-    forecast2020: "2070 (50 years)",
-    forecast2024: "2030 (6 years)",
-    change: "-40 years",
-  },
-  {
-    source: "AI Researcher Survey (HLMI)",
-    forecast2022: "2059",
-    forecast2023: "2046",
-    change: "-13 years",
-  },
-  {
-    source: "Industry Leaders",
-    forecast2022: "10-20 years",
-    forecast2025: "2-5 years",
-    change: "-10+ years",
-  },
-];
-
-const organizationalRequirements = [
-  {
-    area: "Governance",
-    requirements: [
-      "Decision boundary frameworks for autonomous systems",
-      "Audit trail and accountability structures",
-      "Escalation protocols for agent failures",
-    ],
-  },
-  {
-    area: "Skills",
-    requirements: [
-      "Transition from AI usage to AI supervision",
-      "Evaluation and quality assurance capabilities",
-      "Orchestration and integration competencies",
-    ],
-  },
-  {
-    area: "Infrastructure",
-    requirements: [
-      "Observability for AI system behavior",
-      "Safety guardrails and containment mechanisms",
-      "Testing and validation frameworks",
-    ],
-  },
-];
+import CitationLink from "./CitationLink";
 
 const FutureOutlook = () => {
   return (
     <section id="future-outlook" className={`${spacing.section} bg-background`}>
       <div className="container">
         <div className="max-w-4xl mx-auto">
-          
-          {/* Section Header */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,64 +15,106 @@ const FutureOutlook = () => {
             transition={{ duration: 0.6 }}
             className="mb-10"
           >
-            <p className={`${typography.sectionLabel} text-muted-foreground`}>Section 5</p>
-            <h2 className={typography.sectionTitle}>Future Outlook</h2>
+            <p className={`${typography.sectionLabel} text-muted-foreground`}>Section 4</p>
+            <h2 className={typography.sectionTitle}>
+              What the value-realizing minority does differently
+            </h2>
             <p className={`${typography.body} mt-4`}>
-              The productivity gap documented in Section 4 reflects a phase transition, not a technology 
-              ceiling. This section presents evidence on capability trajectories, AGI timelines, and 
-              organizational preparation requirements.
+              Sections 1–3 establish a consistent finding: a small minority of organizations —
+              roughly 5–6% across three independent studies — captures most of the measurable
+              value, while the majority invests without a return. The natural question is what
+              separates them. The two most rigorous segmentations of this minority, from McKinsey
+              and BCG, were conducted independently on different samples, yet they converge on
+              the same short list of practices. That convergence is the useful part: it suggests
+              the difference is structural and repeatable.
             </p>
           </motion.div>
 
-          {/* 5.1 Capability Progress */}
           <motion.div
+            id="value-minority-practices"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="mb-10"
+            className="mb-10 space-y-5"
           >
-            <h3 className={`${typography.subsectionTitle} mb-4`}>5.1 Evidence of Continued Capability Progress</h3>
-            <p className={`${typography.bodySmall} text-muted-foreground mb-6`}>
-              Unlike previous technology hype cycles, AI capabilities continue improving on fundamental 
-              performance metrics. This distinguishes current adoption challenges from evidence of 
-              technology limits.
-            </p>
-            
-            <div className="border rounded-lg overflow-hidden mb-6">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-muted border-b">
-                    <th className="text-left py-3 px-4 font-semibold">Benchmark</th>
-                    <th className="text-left py-3 px-4 font-semibold">2024 Baseline</th>
-                    <th className="text-left py-3 px-4 font-semibold">2025</th>
-                    <th className="text-left py-3 px-4 font-semibold">Change</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {capabilityProgress.map((row, i) => (
-                    <tr key={i} className="border-b last:border-b-0">
-                      <td className="py-3 px-4 font-medium">{row.benchmark}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{row.baseline2024}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{row.current2026}</td>
-                      <td className="py-3 px-4 font-medium text-emerald-700">{row.change}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="border-l-4 border-llpa-green bg-card rounded-r-xl p-5 shadow-sm">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                They redesign workflows rather than layering AI onto existing ones.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                This is the single strongest correlate of value in McKinsey&apos;s data — high
+                performers are far more likely to rework an end-to-end process around AI rather
+                than bolt a tool onto an unchanged workflow<CitationLink id={26} />. It is the
+                same lesson the Solow analogy in §3.3 predicts and the same logic behind BCG&apos;s
+                &ldquo;10-20-70&rdquo; framing, in which roughly 70% of the difficulty and the payoff sits
+                in people, process, and adoption rather than the technology<CitationLink id={10} />.
+                BCG&apos;s data puts a number on it: about 70% of the value future-built companies
+                capture comes from reshaping core-business processes, not from peripheral
+                experiments<CitationLink id={33} />.
+              </p>
             </div>
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm text-blue-900">
-                <strong>Key Observation:</strong> These improvements are driven by inference-time 
-                computation and architectural refinements, not simply parameter scaling. Progress is 
-                constrained by research breakthroughs rather than resource limitations — a fundamentally 
-                different constraint than previous hype cycles.
+
+            <div className="border-l-4 border-llpa-blue bg-card rounded-r-xl p-5 shadow-sm">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                They aim at transformation, not just efficiency.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Most organizations adopt AI to cut costs; the value-realizers also set growth
+                and innovation as explicit objectives. McKinsey finds high performers roughly{" "}
+                <strong className="text-foreground">3.6x more likely</strong> to be using AI to
+                drive transformative change over the next three years<CitationLink id={26} />,
+                and BCG&apos;s future-built companies are defined partly by pursuing a multiyear,
+                CEO-sponsored ambition rather than a portfolio of disconnected
+                pilots<CitationLink id={33} />.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-llpa-yellow bg-card rounded-r-xl p-5 shadow-sm">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                They concentrate investment instead of spreading it thin.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                More than a third of McKinsey&apos;s high performers devote over{" "}
+                <strong className="text-foreground">20% of their digital budget</strong> to AI —
+                making them several times more likely than the rest to make a concentrated bet
+                rather than fund many small ones<CitationLink id={26} />. This sits in
+                deliberate tension with the abandonment pattern in §2.4: the failures over-buy
+                breadth (licenses across the org) while the value-realizers over-invest depth
+                (one transformed function).
+              </p>
+            </div>
+
+            <div className="border-l-4 border-llpa-orange bg-card rounded-r-xl p-5 shadow-sm">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                They put senior leadership and clear ownership behind it.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Executive sponsorship is among the strongest predictors of success in both
+                studies. Future-built companies are markedly more likely to appoint a chief AI
+                officer and a chief data officer and to establish co-ownership between business
+                units and IT, so that accountability for outcomes is explicit rather than
+                diffuse<CitationLink id={33} />. The pattern echoes the change-management
+                finding in §2.2: AI value depends on someone owning the organizational change,
+                not just the procurement.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-muted-foreground/30 bg-card rounded-r-xl p-5 shadow-sm">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                They scale across functions rather than stalling in pilots.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The majority of organizations remain stuck in experimentation — McKinsey finds
+                nearly two-thirds have not begun scaling AI across the
+                enterprise<CitationLink id={26} />. High performers are the exception: a large
+                majority are actively scaling, and they are several times more likely to be
+                deploying AI agents across multiple functions rather than testing them in
+                one<CitationLink id={26} /><CitationLink id={21} />.
               </p>
             </div>
           </motion.div>
 
-          {/* 5.2 AGI Timeline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -183,172 +122,57 @@ const FutureOutlook = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-10"
           >
-            <h3 className={`${typography.subsectionTitle} mb-4`}>5.2 AGI Timeline Forecasts</h3>
-            <p className={`${typography.bodySmall} text-muted-foreground mb-6`}>
-              Expert forecasts have compressed dramatically. The consistent direction of revision 
-              (earlier, not later) suggests systematic underestimation of capability progress.
-            </p>
-            
-            <div className="border rounded-lg overflow-hidden mb-6">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-muted border-b">
-                    <th className="text-left py-3 px-4 font-semibold">Source</th>
-                    <th className="text-left py-3 px-4 font-semibold">Earlier Forecast</th>
-                    <th className="text-left py-3 px-4 font-semibold">Recent Forecast</th>
-                    <th className="text-left py-3 px-4 font-semibold">Revision</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {forecastComparison.map((row, i) => (
-                    <tr key={i} className="border-b last:border-b-0">
-                      <td className="py-3 px-4 font-medium">{row.source}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{row.forecast2020 || row.forecast2022}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{row.forecast2024 || row.forecast2023 || row.forecast2025}</td>
-                      <td className="py-3 px-4 font-medium text-rose-700">{row.change}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            
-            <div className="bg-rose-50 border border-rose-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-rose-900">
-                <strong>Aggregated Estimate:</strong> Greater than 80% probability of AGI by 2031. 
-                AGI defined as systems capable of performing most economically valuable work at or 
-                above human level. Current productivity challenges will appear modest in retrospect 
-                if these forecasts prove accurate.
+            <div className="bg-card border rounded-lg p-4">
+              <p className="text-sm text-muted-foreground">
+                None of this is a recipe that guarantees the result — the value-realizers also
+                tend to have capital, data infrastructure, and talent that the median firm lacks,
+                and these practices are correlated with success, not proven to cause it. But the
+                convergence of two independent studies on the same five behaviors is the closest
+                thing the current evidence offers to a map of what &ldquo;doing it well&rdquo; looks like.
               </p>
             </div>
-
-            <p className={typography.body}>
-              <strong>Critical distinction:</strong> What we are seeing now regarding AI hype "dying down" 
-              relates to deployment challenges and organizational adaptation — not architectural breakthroughs 
-              or capability ceilings. This technology is a few research advances away from capabilities that 
-              will supersede human performance on most tasks regardless of current adoption status.
-            </p>
           </motion.div>
 
-          {/* Capability Evolution */}
+          {/* 4.1 The agentic frontier */}
           <motion.div
+            id="agentic-frontier"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mb-10"
           >
-            <h3 className={`${typography.subsectionTitle} mb-4`}>5.3 Adoption Phase Transitions</h3>
-            <p className={`${typography.bodySmall} text-muted-foreground mb-6`}>
-              Current productivity challenges are phase-specific. The ChatGPT era — individual assistants 
-              and copilots — has reached its ceiling. This does not indicate technology failure; it indicates 
-              transition to the next phase.
-            </p>
-            
+            <h3 className={`${typography.subsectionTitle} mb-4`}>
+              4.1 The agentic frontier — and why it repeats the pattern
+            </h3>
+
             <div className="space-y-4">
-              {capabilityPhases.map((phase) => (
-                <div 
-                  key={phase.phase} 
-                  className={`border rounded-lg p-4 ${phase.isCurrentCeiling ? 'border-amber-300 bg-amber-50' : ''}`}
-                >
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <div>
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                        {phase.phase}
-                      </span>
-                      <h4 className="font-semibold text-foreground">{phase.category}</h4>
-                    </div>
-                    {phase.isCurrentCeiling && (
-                      <span className="text-xs font-medium bg-amber-200 text-amber-800 px-2 py-1 rounded">
-                        Current Ceiling
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">{phase.description}</p>
-                  <p className={`text-sm ${phase.isCurrentCeiling ? 'text-amber-800 font-medium' : 'text-foreground'}`}>
-                    {phase.status}
-                  </p>
-                </div>
-              ))}
-            </div>
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                The newest version of this divide is forming around AI{" "}
+                <em>agents</em> — systems that carry out multi-step tasks rather than answering
+                single prompts. Adoption is moving fast on paper: McKinsey finds 62% of
+                organizations at least experimenting with agents and 23% scaling them in at
+                least one function<CitationLink id={26} />, and Gartner forecasts that 40% of
+                enterprise applications will embed task-specific agents by the end of 2026, up
+                from under 5% in 2025<CitationLink id={63} />. BCG estimates agents already
+                account for roughly 17% of AI value in 2025, rising toward 29% by
+                2028<CitationLink id={33} />.
+              </p>
 
-            <div className="bg-slate-900 text-white rounded-lg p-4 mt-6">
-              <p className="text-sm text-white/90">
-                <strong>The same plateau will appear with AI agents.</strong> Organizations will deploy them, 
-                hit a ceiling on what current systems can reliably do, and interpret that as confirmation 
-                the hype is dying. The pattern will repeat until organizations learn to anticipate phase 
-                transitions rather than interpreting them as technology failure.
+              <p className={`${typography.bodySmall} text-muted-foreground`}>
+                But the gap reappears one level up. S&P Global finds only about 31% of
+                enterprises have an agent genuinely in production, with the familiar spread —
+                banking and insurance near 47%, healthcare and government nearer
+                18%<CitationLink id={62} /> — and Gartner predicts more than 40% of agentic-AI
+                projects will be cancelled by 2027, citing the same causes as the earlier
+                abandonment wave: unclear value, cost, and inadequate
+                controls<CitationLink id={63} />. If anything, agents raise the stakes, because
+                handing a multi-step process to an autonomous system magnifies both the payoff
+                of a redesigned workflow and the cost of an unredesigned one.
               </p>
             </div>
           </motion.div>
 
-          {/* Organizational Requirements */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mb-10"
-          >
-            <h3 className={`${typography.subsectionTitle} mb-2`}>5.4 Organizational Preparation</h3>
-            <p className={`${typography.bodySmall} text-muted-foreground mb-6`}>
-              Transition to agentic AI will require organizational capabilities that differ from 
-              those developed for current-generation tools.
-            </p>
-
-            <div className="border rounded-lg overflow-hidden">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-muted border-b">
-                    <th className="text-left py-3 px-4 font-semibold w-28">Area</th>
-                    <th className="text-left py-3 px-4 font-semibold">Requirements</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {organizationalRequirements.map((area) => (
-                    <tr key={area.area} className="border-b last:border-b-0">
-                      <td className="py-3 px-4 font-medium align-top">{area.area}</td>
-                      <td className="py-3 px-4">
-                        <ul className="space-y-1">
-                          {area.requirements.map((req, i) => (
-                            <li key={i} className="text-muted-foreground">• {req}</li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-
-          {/* Implications */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <h3 className={`${typography.subsectionTitle} mb-4`}>5.5 Strategic Implications</h3>
-            
-            <div className="bg-slate-900 text-white rounded-lg p-6">
-              <p className="text-white/90 mb-4">
-                <strong>The evidence supports a specific interpretation:</strong> Current AI adoption 
-                challenges reflect early-phase deployment friction, not fundamental technology limitations. 
-                Organizations interpreting productivity plateaus as confirmation that "the hype is dying" 
-                are likely making the same error as those who dismissed computing's potential in the 1980s.
-              </p>
-              <p className="text-white/80 mb-4">
-                Unlike the metaverse or VR, AI capabilities continue improving on fundamental metrics. 
-                Benchmark scores are rising. Inference costs are falling. Expert timeline forecasts 
-                continue compressing. The question is not whether AI will transform work, but how quickly.
-              </p>
-              <p className="text-white/90 font-medium">
-                Organizations should prioritize adaptive capabilities — governance frameworks, evaluation 
-                skills, flexible infrastructure — over optimizing for current-generation tools. The 
-                timeline forecasts suggest limited runway for gradual adaptation.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

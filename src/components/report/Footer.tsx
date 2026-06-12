@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
-import { sourceCount } from "@/data/reportData";
 
 const Footer = () => {
   return (
@@ -19,8 +18,7 @@ const Footer = () => {
               <img src={llpaLogo} alt="LLPA" className="h-8" />
             </div>
             <p className="font-body text-sm text-white/60 leading-relaxed">
-              Analysis of global enterprise AI adoption patterns, barriers, and future outlook. 
-              Synthesizing {sourceCount} research sources.
+              LLPA (Leading Learning Partners Association) is a consortium of leading IT training centres — each a top IT training company in its country — delivering multi-vendor training solutions worldwide, in any language.
             </p>
           </div>
 

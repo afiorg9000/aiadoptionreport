@@ -30,19 +30,8 @@ const References = () => {
           <h2 className="font-display text-2xl font-semibold text-foreground mb-2">
             References
           </h2>
-          <p className="font-body text-sm text-muted-foreground mb-3">
-            {sortedRefs.length} external market research sources validated against training provider surveys
-          </p>
           <p className="font-body text-sm text-muted-foreground">
-            <a
-              href="/source-library.json"
-              className="text-llpa-blue font-medium hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open full bibliographic index (JSON)
-            </a>{" "}
-            in a new tab for digital libraries, events, or tooling. Public URLs are included where available; full-text PDFs from publishers are not redistributed.
+            Public URLs are included where available; full-text PDFs from publishers are not redistributed.
           </p>
         </motion.div>
 
@@ -139,7 +128,7 @@ const References = () => {
                 </>
               ) : (
                 <>
-                  Show All {sortedRefs.length} References <ChevronDown className="h-4 w-4" />
+                  Show All References <ChevronDown className="h-4 w-4" />
                 </>
               )}
             </button>

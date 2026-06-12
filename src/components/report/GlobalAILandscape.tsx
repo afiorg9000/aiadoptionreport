@@ -13,33 +13,32 @@ import DataTableStandard from "./DataTableStandard";
 import SizeClassChart from "./SizeClassChart";
 import BulletList from "./BulletList";
 import { typography, spacing, containers, iconSizes, iconWrapperBase, tierColors, cardStyles } from "./styles";
-import { sourceCount } from "@/data/reportData";
 import { tierDistributionSummary } from "@/data/marketTierClassification";
 const tierFramework = [{
   tier: 1,
   name: "Leaders",
-  profile: "High enterprise adoption (40%+), mature AI governance, significant public/private investment, advanced implementation across industries",
+  profile: "High enterprise adoption (40%+), mature governance, significant investment, advanced implementation",
   color: "bg-llpa-green text-white",
   borderColor: "border-llpa-green",
   icon: TrendingUp
 }, {
   tier: 2,
   name: "Advanced",
-  profile: "Growing adoption (25-40%), active enterprise experimentation, emerging governance frameworks, strong government AI initiatives",
+  profile: "Growing adoption (25–40%), active experimentation, emerging governance, strong government initiatives",
   color: "bg-llpa-blue text-white",
   borderColor: "border-llpa-blue",
   icon: Sparkles
 }, {
   tier: 3,
   name: "Emerging",
-  profile: "Moderate adoption (15-25%), awareness-level engagement, limited but growing AI initiatives, early governance development",
+  profile: "Moderate adoption (15–25%), awareness-level engagement, early governance development",
   color: "bg-llpa-yellow text-foreground",
   borderColor: "border-llpa-yellow",
   icon: Globe
 }, {
   tier: 4,
   name: "Nascent",
-  profile: "Early adoption (<15%), foundational awareness stage, minimal AI initiatives, governance frameworks not yet developed",
+  profile: "Early adoption (<15%), foundational awareness, minimal initiatives, governance not yet developed",
   color: "bg-llpa-orange text-white",
   borderColor: "border-llpa-orange",
   icon: Leaf
@@ -133,9 +132,9 @@ const weightedIndex = [{
 }];
 const sizeClassEvidence = [{
   market: "EU Average",
-  large: "41% (250+ employees)",
-  sme: "11% (10-49 employees)",
-  gap: "30pp",
+  large: "55% (250+ employees)",
+  sme: "17% (10-49 employees)",
+  gap: "38pp (~3.2x)",
   citations: []
 }, {
   market: "Denmark",
@@ -311,7 +310,7 @@ const GlobalAILandscape = () => {
             Section 1
           </p>
           <h2 className={typography.sectionTitle}>
-            Global AI Adoption Landscape
+            Global AI Landscape
           </h2>
         </motion.div>
 
@@ -329,16 +328,15 @@ const GlobalAILandscape = () => {
           duration: 0.6
         }} className="mb-12">
             <h3 className={`${typography.subsectionTitle} mb-6`}>
-              1.1 Maturity Tier Framework & Methodology
+              1.1 Maturity tier framework
             </h3>
 
             {/* Strategic Context */}
             <div id="strategic-context-1" className={spacing.blockMargin}>
               <div className={`space-y-4 ${typography.body}`}>
                 <p>
-                  Enterprise AI adoption is accelerating rapidly across global markets. The latest Eurostat data (December 2025) shows EU enterprise AI adoption reached 20.0% — a 6.5% increase from 13.5% in January 2025 and nearly triple the 7.7% recorded in 2021.<CitationLink id={375} /> This growth is unevenly distributed: Nordic markets lead with 35-42% adoption, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={375} />
+                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={375} /> This section sets out how 66 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
                 </p>
-                <p>This acceleration highlights the critical gap between AI adoption and AI value realization.  The following maturity tier framework helps understand which markets are ready for advanced AI implementations and which are still building foundational capabilities.</p>
               </div>
             </div>
 
@@ -348,7 +346,7 @@ const GlobalAILandscape = () => {
                 Maturity Tier Framework
               </h4>
               <p className={`${typography.body} ${spacing.paragraphMargin}`}>
-                Markets are classified into four tiers using a four-factor assessment framework. This framework was recalibrated in December 2025 to reflect market evolution and incorporates qualitative factors beyond raw adoption statistics.
+                Markets are classified into four tiers. Thresholds are based primarily on enterprise adoption, with investment, ecosystem, and policy factors informing borderline cases.
               </p>
               
               <div className={spacing.indent}>
@@ -377,10 +375,14 @@ const GlobalAILandscape = () => {
                 </table>
               </div>
 
-              <p className={`${typography.note} ${containers.note}`}>
-                <strong>Note:</strong> Only markets with sufficient validated data across all four assessment factors are included in the tier classification.
-              </p>
               </div>
+
+              <p className={`${typography.body} mb-3`}>
+                <strong>Four-factor assessment.</strong> Tier placement draws on: enterprise adoption (Eurostat, national statistics, OECD); investment intensity (Stanford HAI AI Index, CB Insights); ecosystem maturity (talent, research output, startup density); and policy environment (national strategies, readiness indices). Where firm-level statistics exist, enterprise adoption is weighted most heavily (a 50/30/20 split across adoption / investment / government readiness).
+              </p>
+              <p className={`${typography.body} mb-0`}>
+                <strong>Data caveat.</strong> EU figures anchor on Eurostat (December 2025, reference year 2025) and are verified. Non-EU and estimated markets draw on mixed sources (Microsoft AI Diffusion, OECD, BCG, national offices) on differing definitions; the profiles mark each market&apos;s verification status.
+              </p>
             </div>
 
             {/* Tier Classification Summary */}
@@ -388,10 +390,6 @@ const GlobalAILandscape = () => {
               <h4 className={`${typography.smallTitle} mb-2`}>
                 Global Markets: Tier Classification Summary
               </h4>
-              <p className={`${typography.bodySmall} ${spacing.paragraphMargin}`}>
-                The following tier distributions are based on available market data across enterprise AI adoption, investment intensity, ecosystem maturity, and policy environment.
-              </p>
-              
               <div className={`overflow-x-auto mb-4 ${spacing.indent}`}>
                 <table className="w-full text-sm">
                   <thead>
@@ -418,182 +416,19 @@ const GlobalAILandscape = () => {
               </div>
 
               <p className="text-xs text-muted-foreground">
-                Source: Eurostat December 2025, Stanford HAI AI Index 2025, Oxford Insights AI Readiness Index 2024, national statistical offices.
-              </p>
-            </div>
-
-            {/* Training Demand by Tier */}
-            <div id="training-demand-tier" className={spacing.blockMargin}>
-              <h4 className={`${typography.smallTitle} ${spacing.paragraphMargin}`}>
-                Training Demand by Tier
-              </h4>
-              
-              <div className={`overflow-x-auto mb-4 ${spacing.indent}`}>
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-foreground">
-                      <th className="text-left py-3 pr-4 font-semibold text-foreground w-20">Tier</th>
-                      <th className="text-left py-3 px-4 font-semibold text-foreground">Primary Training Demand</th>
-                      <th className="text-left py-3 px-4 font-semibold text-foreground">Secondary Training Demand</th>
-                      <th className="text-left py-3 pl-4 font-semibold text-foreground w-48">training providers Portfolio Fit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {trainingDemandByTier.map(row => <tr key={row.tier} className={`border-b border-border ${row.tier === 1 ? 'bg-llpa-green/10' : row.tier === 2 ? 'bg-llpa-blue/10' : row.tier === 3 ? 'bg-llpa-yellow/10' : 'bg-llpa-orange/10'}`}>
-                        <td className="py-3 pr-4 font-medium text-foreground">
-                          Tier {row.tier}
-                        </td>
-                        <td className="py-3 px-4 text-foreground">
-                          {row.primary}
-                        </td>
-                        <td className="py-3 px-4 text-muted-foreground">
-                          {row.secondary}
-                        </td>
-                        <td className="py-3 pl-4 text-muted-foreground">
-                          <span className="font-semibold">{row.portfolioFit.split(' ')[0]}</span> {row.portfolioFit.split(' ').slice(1).join(' ')}
-                        </td>
-                      </tr>)}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Strategic Implication */}
-              <div className="mt-4">
-                <h5 className={`${typography.blockTitle} mb-2 flex items-center gap-2`}>
-                  <IconWrapper icon={AlertTriangle} color="llpa-orange" size="sm" />
-                  Strategic Implication
-                </h5>
-                <p className={typography.bodySmall}>
-                  Organizations in Tier 3-4 markets focus on foundational AI capabilities. Tier 1-2 markets — where enterprises have significant AI budgets and are actively seeking implementation support — represent the highest-value opportunities but require more advanced capabilities to serve effectively.
-                </p>
-              </div>
-            </div>
-
-            {/* Methodology (sub-block under §1.1 — distinct id avoids duplicate #methodology with main Methodology section) */}
-            <div id="section-1-1-maturity-methodology" className="mb-6">
-              <h4 className={`${typography.smallTitle} ${spacing.paragraphMargin} flex items-center gap-3`}>
-                <IconWrapper icon={FlaskConical} color="llpa-green" size="sm" />
-                Methodology
-              </h4>
-              
-              <p className={`${typography.bodySmall} ${spacing.paragraphMargin}`}>
-                This methodology describes how the maturity tier framework was created. It establishes standardized criteria for classifying markets into tiers, enabling consistent comparison of market readiness and AI adoption maturity.
+                Source: Eurostat December 2025; Stanford HAI AI Index 2025; Oxford Insights AI Readiness Index 2024; national statistical offices; LLPA Member Survey 2025 (qualitative validation from 22 member training providers across 20+ markets — Tier C).
               </p>
 
-              {/* Four-Factor Assessment */}
-              <div className={spacing.paragraphMargin}>
-                <h5 className={`${typography.blockTitle} ${spacing.titleMargin}`}>Four-Factor Assessment</h5>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b-2 border-foreground">
-                        <th className="text-left py-3 pr-4 font-semibold text-foreground">Factor</th>
-                        <th className="text-left py-3 px-4 font-semibold text-foreground">What It Measures</th>
-                        <th className="text-left py-3 pl-4 font-semibold text-foreground">Data Source</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {fourFactorAssessment.map(row => <tr key={row.factor} className="border-b border-border">
-                          <td className="py-3 pr-4 font-medium text-foreground">{row.factor}</td>
-                          <td className="py-3 px-4 text-foreground">{row.measures}</td>
-                          <td className="py-3 pl-4 text-muted-foreground">{row.source}</td>
-                        </tr>)}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <p className="text-xs text-muted-foreground italic mt-3">
+                Per-country size-class splits are reported in the Regional Market Profiles where available; some derive from the Eurostat databrowser rather than published releases and are flagged accordingly.
+              </p>
 
-              {/* Weighted Composite Index */}
-              <div className={spacing.paragraphMargin}>
-                <h5 className={`${typography.blockTitle} ${spacing.titleMargin}`}>Weighted Composite Index</h5>
-                <p className={`${typography.bodySmall} ${spacing.titleMargin}`}>
-                  Enterprise AI maturity is assessed using a weighted composite index:
-                </p>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b-2 border-foreground">
-                        <th className="text-left py-3 pr-4 font-semibold text-foreground">Factor</th>
-                        <th className="text-left py-3 px-4 font-semibold text-foreground">Weight</th>
-                        <th className="text-left py-3 px-4 font-semibold text-foreground">Data Source</th>
-                        <th className="text-left py-3 pl-4 font-semibold text-foreground">Rationale</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {weightedIndex.map(row => <tr key={row.factor} className="border-b border-border">
-                          <td className="py-3 pr-4 font-medium text-foreground">{row.factor}</td>
-                          <td className="py-3 px-4 text-steel font-medium">{row.weight}</td>
-                          <td className="py-3 px-4 text-muted-foreground">
-                            {row.source}
-                            {row.citations.map(c => <CitationLink key={c} id={c} />)}
-                          </td>
-                          <td className="py-3 pl-4 text-muted-foreground">{row.rationale}</td>
-                        </tr>)}
-                    </tbody>
-                  </table>
-                </div>
-                <p className={`${typography.note} ${containers.note} mt-3`}>
-                  <strong>Note:</strong> Oxford Insights 2024 is the most recent published index (released December 20, 2024). The 2025 framework has been announced but the index has not yet been published.
-                </p>
-              </div>
-
-              {/* Qualitative Validation */}
-              <div className={spacing.paragraphMargin}>
-                <h5 className={`${typography.blockTitle} mb-2`}>Qualitative Validation</h5>
-                <p className={typography.bodySmall}>
-                  Industry surveys and enterprise interviews provide ground-level validation through reported AI adoption patterns, implementation challenges, and value realization metrics.
-                </p>
-              </div>
-
-              {/* Data Sources */}
-              <div className={spacing.paragraphMargin}>
-                <h5 className={`${typography.blockTitle} ${spacing.titleMargin}`}>Data Sources</h5>
-                <ul className={`space-y-2 ${typography.bodySmall}`}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-green mt-1">•</span>
-                    <span><strong>Firm usage:</strong> Eurostat enterprise AI survey (December 2025 release)<CitationLink id={375} />, UK Office for National Statistics<CitationLink id={12} />, US Census Bureau Business Trends and Outlook Survey<CitationLink id={13} />, Statistics Canada<CitationLink id={14} />, Singapore IMDA<CitationLink id={15} /><CitationLink id={16} /></span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-blue mt-1">•</span>
-                    <span><strong>Enterprise surveys:</strong> Industry research providing qualitative validation of enterprise AI adoption patterns, implementation sophistication, and market readiness</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-yellow mt-1">•</span>
-                    <span><strong>Investment:</strong> Stanford HAI AI Index 2025 country-level private investment data<CitationLink id={17} /></span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-orange mt-1">•</span>
-                    <span><strong>Readiness:</strong> Oxford Insights Government AI Readiness Index 2024<CitationLink id={18} /></span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Data Limitations */}
-              <div className={`${containers.note} ${spacing.compactPadding} ${spacing.paragraphMargin}`}>
-                <h5 className={`${typography.blockTitle} mb-2`}>Data Limitations</h5>
-                <ul className={`space-y-2 ${typography.bodySmall}`}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-blue mt-1">•</span>
-                    <span>Markets without official enterprise AI statistics are classified as "estimated" and scored using investment (60%) and readiness (40%) data only</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-yellow mt-1">•</span>
-                    <span>Survey data reflects enterprise self-reporting, which may overstate actual AI deployment maturity</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-llpa-orange mt-1">•</span>
-                    <span>Eurostat methodology covers enterprises with 10+ employees; micro-enterprises excluded</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Market Profiles Reference */}
               <div className="mt-6 p-6 bg-gradient-to-r from-llpa-blue/10 to-llpa-green/10 border border-llpa-blue/20 rounded-xl">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Explore Individual Market Profiles</h4>
+                    <h4 className="font-semibold text-foreground mb-1">Regional Market Profiles</h4>
                     <p className="text-sm text-muted-foreground">
-                      Detailed analysis of each market with statistics, insights, and comparative context.
+                      66 markets across Europe, Asia-Pacific, the Americas, the Middle East, and Africa — with enterprise adoption statistics, local training partner, and verification status for every figure.
                     </p>
                   </div>
                   <Link to="/market-profiles" className="inline-flex items-center gap-2 px-5 py-2.5 bg-llpa-blue text-white font-medium rounded-lg hover:bg-llpa-blue/90 transition-colors shadow-sm whitespace-nowrap">
@@ -605,6 +440,7 @@ const GlobalAILandscape = () => {
                 </div>
               </div>
             </div>
+
           </motion.div>
         </div>
 
@@ -622,400 +458,64 @@ const GlobalAILandscape = () => {
           duration: 0.6
         }} className="mb-12">
             <h3 className={`${typography.subsectionTitle} mb-6`}>
-              1.2 Cross-Market Adoption Patterns
+              1.2 Cross-market pattern: the size-class divide
             </h3>
 
-            {/* Methodology & Objective */}
-            <div className={spacing.blockMargin}>
-              <MethodologyBlock methodology={`Analysis of enterprise AI adoption data across global markets spanning Europe, Asia-Pacific, Americas, Middle East, and Africa. Patterns identified through statistical correlation analysis and market research synthesis from ${sourceCount} sources.`} objective="Identify recurring adoption dynamics that transcend individual markets to understand enterprise AI maturity patterns and value realization challenges." />
-            </div>
-
-            {/* Romania regional spotlight (event / regional messaging) */}
-            <div className={`${spacing.blockMargin} p-6 rounded-xl border border-llpa-blue/25 bg-llpa-blue/5`}>
-              <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-                <Globe className="w-5 h-5 text-llpa-blue shrink-0" aria-hidden />
-                Romania in cross-market context
-              </h4>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                Cross-market patterns above apply to Romania as a <strong className="text-foreground">Tier 4 (Nascent)</strong> market in our framework: strong IT services and technical talent, but{" "}
-                <strong className="text-foreground">enterprise AI adoption is the lowest in the EU and concentrated in large enterprises</strong>. The headline gap looks small because the floor is so low; the size-class divide is actually more pronounced than the EU average.
+            <div className={`space-y-4 ${typography.body} mb-8`}>
+              <p>
+                <strong>The most consistent cross-market pattern is a pronounced gap between large-enterprise and small-firm adoption that has not narrowed as overall adoption rose.</strong> Across the EU, large enterprises (250+ employees) adopt AI at <strong>55%</strong>, medium firms at <strong>30%</strong>, and small firms (10–49) at <strong>17%</strong> (Eurostat 2025, verified)<CitationLink id={4} /><CitationLink id={22} /> — roughly a <strong>3.2x gap</strong> between large and small. The OECD (Organisation for Economic Co-operation and Development, whose 38 member countries account for most of global GDP) finds the same divide on an independent dataset (large firms ~40%+ versus markedly lower SME adoption)<CitationLink id={23} />.
               </p>
-              <ul className={`space-y-2 ${typography.bodySmall} text-muted-foreground list-disc pl-5`}>
-                <li>
-                  Eurostat enterprise AI usage: <strong className="text-foreground">5.21%</strong> of Romanian enterprises (2025 data)—lowest in the EU versus the EU average of ~20%; Denmark leads at 42.03% for contrast.<CitationLink id={375} />
-                </li>
-                <li>
-                  Size-class breakdown: <strong className="text-foreground">large enterprises 20.75%</strong> vs <strong className="text-foreground">small (10–49) 4.13%</strong> — a <strong className="text-foreground">5.0x ratio</strong>, the most concentrated divide in the Pattern 1 table above (EU average is 3.7x). The 17pp absolute gap understates the structural distance between large and small Romanian firms.<CitationLink id={375} />
-                </li>
-                <li>
-                  Individual use of generative AI tools among citizens was <strong className="text-foreground">17.8%</strong> in 2025—the lowest in the EU, signalling room for literacy and enablement programs.<CitationLink id={517} />
-                </li>
-                <li>
-                  Romania sits with Poland (8.4%) and Bulgaria (8.5%) in the lower band of EU adoption; the IT outsourcing sector creates a bridge to scale delivery once enterprise demand accelerates among small and mid-market firms.<CitationLink id={375} />
-                </li>
-              </ul>
-              <p className="text-sm text-muted-foreground mt-4">
-                For event collateral and country-specific talking points, see the full{" "}
-                <Link to="/market-profiles" className="text-llpa-blue font-medium hover:underline">
-                  Romania market profile
-                </Link>
-                .
+              <p>
+                <strong>The reason is mostly fixed costs.</strong> The overhead of adopting a technology — evaluation, integration, data preparation, the staff hours to learn it — barely scales with company size, so a large firm with dedicated IT absorbs it easily while a small firm has to pull a generalist off running the business; the Federal Reserve Bank of Minneapolis notes that larger firms are simply better equipped to manage the learning curve and the upfront investment<CitationLink id={113} />, and the OECD finds <strong>the SME gap persists even after controlling for sector, firm age, and asset composition</strong> — a sign it is structural, not a quirk of which industries are small<CitationLink id={23} />. What makes it look durable rather than temporary is that <strong>the gap hasn&apos;t narrowed as overall adoption climbed</strong>: OECD analysis of 2023–2024 uptake finds diffusion has been driven more by leaders pulling ahead than by laggards catching up, with <strong>business-adoption gaps widening across the OECD area</strong><CitationLink id={114} />. The head start isn&apos;t being given back. The figure may also overstate the divide, since a lot of genuine small-business AI use hides inside consumer apps and features bolted onto software firms already run — the Federal Reserve Bank of San Francisco documents small firms using AI &ldquo;embedded in existing software&rdquo; they already license<CitationLink id={115} />, and JPMorganChase Institute finds AI reaches SMEs through passive integration in platform tools as much as deliberate adoption<CitationLink id={116} /> — exactly the use a survey about intentional &ldquo;AI adoption&rdquo; misses. <strong>So the measured gap is real; its true width is less certain.</strong>
+              </p>
+              <p>
+                <strong>A note on reading the gap:</strong> the <em>percentage-point</em> difference mechanically shrinks in low-adoption markets, which can make a divide look smaller than it is. Romania is the clearest case — its large-vs-small gap is the smallest in the EU in points (<strong>≈17pp</strong>) but the largest as a <em>ratio</em> (<strong>about 5.0x</strong>, vs the EU&apos;s ~3.2x), because its small-firm base is so low (~4%). <strong>The two measures should be read together; in low-base markets the ratio is the more honest indicator.</strong>
+              </p>
+              <p className={`${typography.body} mt-2`}>
+                The other cross-market patterns the draft framework grouped here — the universal skills gap, regulated-industry caution, and the strategic-clarity gap — are treated as barriers to value realization and are analyzed in Section 2.
               </p>
             </div>
 
-            {/* Pattern 1: Size-Class Divide */}
-            <PatternCard id="pattern-1" patternNumber={1} icon={Building2} color="llpa-green" title="The Size-Class Divide Persists Despite Overall Growth" description="Across all markets with available data, AI adoption shows pronounced size-class disparity that has not narrowed despite overall market acceleration.">
-              <EvidenceBlock title="Evidence (December 2025)" note="Note: Gap measured in percentage points (pp).">
-                <DataTableStandard columns={[{
-                key: "market",
-                header: "Market"
-              }, {
-                key: "large",
-                header: "Large Enterprise"
-              }, {
-                key: "gap",
-                header: "Gap"
-              }, {
-                key: "sme",
-                header: "SME/Small"
-              }]} data={sizeClassEvidence.map(row => ({
-                market: <>{row.market}{row.citations.map(c => <CitationLink key={c} id={c} />)}</>,
-                large: row.large,
-                gap: <span className="text-llpa-yellow font-medium">{row.gap}</span>,
-                sme: row.sme
-              }))} />
-                
-                <div className="mt-6">
-                  <h6 className="text-sm font-medium text-muted-foreground mb-3">Adoption Gap Visualization (sorted by gap magnitude)</h6>
-                  <SizeClassChart data={sizeClassEvidence} />
-                </div>
-              </EvidenceBlock>
+            </motion.div>
+        </div>
 
-              <FindingBlock>
-                <p className="mb-3">
-                  The size-class gap has widened as large enterprises accelerated adoption faster than SMEs. In several markets, large enterprise adoption exceeds 60% while small business adoption remains below 20%.
-                </p>
-                <p className="text-sm text-muted-foreground border-l-2 border-llpa-yellow/50 pl-3">
-                  <strong>Reading the table — absolute gap vs. ratio:</strong> the "Gap" column is a percentage-point difference, which mechanically shrinks in low-adoption markets. <strong className="text-foreground">Romania's 17pp gap is the smallest in the table, but its <em>large-to-small ratio</em> (5.0x) is the highest</strong> — large Romanian enterprises adopt AI at five times the rate of small ones, more concentrated than the EU average (3.7x), Singapore (4.3x) or the Nordic markets (~4x). The divide is not less severe in Romania; it is hidden by the low floor (small-enterprise adoption of just 4.13%). Read the two columns together when comparing low-base markets to the rest.
-                </p>
-              </FindingBlock>
+        {/* 1.3 The geography of adoption */}
+        <div id="section-1-3" className={`max-w-5xl mx-auto ${spacing.sectionMargin}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h3 className={`${typography.subsectionTitle} mb-6`}>
+              1.3 The geography of adoption
+            </h3>
 
-              <RecommendationBlock>
-                <p>
-                  See <a href="#demand-pattern-1" className="text-llpa-blue hover:underline font-medium">Demand Pattern 1 (Section 2)</a> for detailed recommendations addressing this divide.
-                </p>
-              </RecommendationBlock>
-            </PatternCard>
-
-            {/* Pattern 2: Skills Gap */}
-            <PatternCard id="pattern-2" patternNumber={2} icon={GraduationCap} color="llpa-blue" title="Skills Gap Remains Universal Despite Adoption Growth" description="Counterintuitively, the skills gap has not narrowed as adoption increased. Markets with 30-40% adoption report skills shortages as severe as markets with 10% adoption.">
-              <EvidenceBlock title="Evidence Across Tiers">
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  The skills gap persists across all market tiers.
-                </p>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-2">Among Tier 1 leaders:</p>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex gap-2">
-                        <span className="text-llpa-green mt-1.5">•</span>
-                        <span>Denmark reports 42.03% adoption yet 62% of organizations cite lack of AI skills as a major barrier.<CitationLink id={375} /><CitationLink id={26} /></span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-llpa-green mt-1.5">•</span>
-                        <span>The Netherlands sees 33.2% adoption (top-5 EU) but a striking 74.6% identify "lack of experience" as their primary obstacle.<CitationLink id={42} /></span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-llpa-green mt-1.5">•</span>
-                        <span>Switzerland shows the same pattern among SMEs: the AXA/Sotomo survey of 300 Swiss SMEs finds 55% have started integrating AI (22% fully, 33% experimenting), but integration skews heavily by firm size — 52% of firms with 50+ employees view AI positively vs just 27% of firms with 5–9 employees — signalling adoption has outpaced organizational capability.<CitationLink id={380} /></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-2">In Tier 2:</p>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex gap-2">
-                        <span className="text-llpa-blue mt-1.5">•</span>
-                        <span>Germany's 20-27% adoption is constrained by skills scarcity, with 33% of organizations citing limited AI talent as their top barrier.<CitationLink id={76} /></span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-llpa-blue mt-1.5">•</span>
-                        <span>South Africa remains early-stage with over 60% identifying the skills gap as their key barrier.<CitationLink id={390} /></span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-llpa-blue mt-1.5">•</span>
-                        <span>Mexico has reached 95% enterprise AI adoption, but organizational culture and operational complexity — not software availability — are cited as the primary obstacles to scaling, and 100% of Mexican CEOs identify AI investment as the principal lever for profitability and growth.<CitationLink id={521} /><CitationLink id={522} /></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-2">Tier 3 markets face similar challenges at earlier stages:</p>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex gap-2">
-                        <span className="text-llpa-yellow mt-1.5">•</span>
-                        <span>Portugal struggles to scale beyond 13-15% adoption with 71% reporting difficulty hiring digital skills.<CitationLink id={384} /></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-2">In Tier 4:</p>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex gap-2">
-                        <span className="text-llpa-orange mt-1.5">•</span>
-                        <span>Romania — the EU's lowest-adoption market at 5.2% — shows the same skills-gap pattern from a low base: members report low digital literacy and a conservative client mindset, with demand concentrated on awareness and foundational topics rather than advanced AI skills.<CitationLink id={375} /><CitationLink id={150} /></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </EvidenceBlock>
-
-              <InterpretationBlock>
-                <p>
-                  The evidence demonstrates that skills gaps persist regardless of market maturity level — high-adoption markets (Denmark at 42.03%, Netherlands at 33.2%) report skill shortages at comparable severity to early-stage markets (South Africa, Portugal). This pattern suggests the skills gap is <strong>structural rather than a temporary lag</strong> that resolves with increased adoption. As organizations progress through adoption stages, they encounter new skill requirements rather than "catching up."
-                </p>
-              </InterpretationBlock>
-
-              <RecommendationBlock title="Strategic Recommendations: Learning Pathway Levels">
-                <p className="mb-4">
-                  <strong>Develop leveled learning pathways</strong> spanning the full organizational-maturity spectrum — from strategic transformation work for AI-native enterprises down to foundational literacy for early adopters.
-                </p>
-                <p className="mb-6 text-sm text-muted-foreground border-l-2 border-llpa-blue/40 pl-3">
-                  <strong>Note:</strong> the level numbering aligns with Section 1.1's Market Maturity Tiers — Level 1 is for the most advanced organizations, Level 4 for those just starting. The two systems are still independent: tiers describe whole markets; levels describe individual organizations' learning needs.
-                </p>
-
-                <div className="space-y-3">
-                  {learningPathwayLevels.map((pathway, index) => {
-                  const getLevelStyles = (level: number) => {
-                    switch (level) {
-                      case 1:
-                        return {
-                          bg: 'bg-llpa-orange/10',
-                          borderColor: 'border-l-llpa-orange',
-                          iconBg: 'bg-llpa-orange/20',
-                          iconColor: 'text-llpa-orange',
-                          textColor: 'text-llpa-orange'
-                        };
-                      case 2:
-                        return {
-                          bg: 'bg-llpa-yellow/10',
-                          borderColor: 'border-l-llpa-yellow',
-                          iconBg: 'bg-llpa-yellow/20',
-                          iconColor: 'text-llpa-yellow',
-                          textColor: 'text-llpa-yellow'
-                        };
-                      case 3:
-                        return {
-                          bg: 'bg-llpa-blue/10',
-                          borderColor: 'border-l-llpa-blue',
-                          iconBg: 'bg-llpa-blue/20',
-                          iconColor: 'text-llpa-blue',
-                          textColor: 'text-llpa-blue'
-                        };
-                      case 4:
-                        return {
-                          bg: 'bg-llpa-green/10',
-                          borderColor: 'border-l-llpa-green',
-                          iconBg: 'bg-llpa-green/20',
-                          iconColor: 'text-llpa-green',
-                          textColor: 'text-llpa-green'
-                        };
-                      default:
-                        return {
-                          bg: 'bg-llpa-green/10',
-                          borderColor: 'border-l-llpa-green',
-                          iconBg: 'bg-llpa-green/20',
-                          iconColor: 'text-llpa-green',
-                          textColor: 'text-llpa-green'
-                        };
-                    }
-                  };
-                  const styles = getLevelStyles(pathway.level);
-                  return <motion.div key={pathway.level} initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: index * 0.1,
-                    duration: 0.5
-                  }} className={`rounded-xl p-4 border-l-4 ${styles.borderColor} ${styles.bg}`}>
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className={`w-6 h-6 rounded flex items-center justify-center ${styles.iconBg}`}>
-                            <pathway.icon className={`w-3 h-3 ${styles.iconColor}`} />
-                          </div>
-                          <span className={`text-xs font-semibold uppercase tracking-wider ${styles.textColor}`}>
-                            Level {pathway.level}
-                          </span>
-                          <h6 className="text-base font-semibold text-foreground">
-                            {pathway.name}
-                          </h6>
-                        </div>
-                        
-                        <p className="text-xs text-muted-foreground mb-2 italic">
-                          <strong>Target:</strong> {pathway.target}
-                        </p>
-                        
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-                            Learning Objectives:
-                          </p>
-                          <ul className="space-y-1">
-                            {pathway.objectives.map((obj, i) => <li key={i} className="text-xs text-muted-foreground flex gap-2">
-                                <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5 ${styles.iconBg.replace('/20', '')}`} />
-                                <span>{obj}</span>
-                              </li>)}
-                          </ul>
-                        </div>
-                      </motion.div>;
-                })}
-                </div>
-
-                <p className="mt-6 text-muted-foreground leading-relaxed flex items-start gap-3">
-                  <IconWrapper icon={Lightbulb} color="llpa-yellow" size="sm" className="mt-0.5" />
-                  <span><strong>Key Insight:</strong> Organizations don't need every level at once—they need the right learning pathway level for their current organizational maturity (independent of the Market Maturity Tiers in Section 1.1). An organization stuck in pilot phase doesn't benefit from advanced LLMOps training; they need implementation skills to break out of pilots. Conversely, organizations with production systems don't need more awareness training—they need governance expertise.</span>
-                </p>
-              </RecommendationBlock>
-            </PatternCard>
-
-            {/* Pattern 3: Regulated Industries */}
-            <PatternCard id="pattern-3" patternNumber={3} icon={Shield} color="llpa-orange" title="Regulated Industries Show Higher Training Investment" description="Regulated sectors (financial services, healthcare, insurance, pharmaceuticals, public sector) show distinct adoption patterns characterized by heightened caution.">
-              <EvidenceBlock>
-                <DataTableStandard columns={[{
-                key: "market",
-                header: "Market"
-              }, {
-                key: "finding",
-                header: "Finding"
-              }]} data={regulatedIndustryEvidence.map(row => ({
-                market: row.market,
-                finding: <>{row.finding}{row.citations.map(c => <CitationLink key={c} id={c} />)}</>
-              }))} />
-              </EvidenceBlock>
-
-              <FindingBlock>
-                <p>
-                  The evidence shows regulated industries exhibit heightened caution (security concerns, governance gaps, conservative deployment approaches) compared to unregulated sectors. Research from regulated-industry-heavy markets (Switzerland, Germany, Netherlands) reports cautious enterprise approaches, with organizations emphasizing security, quality, and proof-of-value. Security and compliance concerns create both friction and opportunity for AI adoption.
-                </p>
-              </FindingBlock>
-
-              <RecommendationBlock>
-                <ul className="space-y-4 list-none">
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-green mt-2" />
-                    <span>
-                      <strong>Build sector-specific governance modules</strong> addressing <a href="https://gdpr.eu/" target="_blank" rel="noopener noreferrer" className="text-llpa-blue hover:underline">GDPR</a>, <a href="https://artificialintelligenceact.eu/" target="_blank" rel="noopener noreferrer" className="text-llpa-blue hover:underline">AI Act</a>, <a href="https://www.finma.ch/en/" target="_blank" rel="noopener noreferrer" className="text-llpa-blue hover:underline">FINMA</a>, <a href="https://www.digital-operational-resilience-act.com/" target="_blank" rel="noopener noreferrer" className="text-llpa-blue hover:underline">DORA</a>, and industry-specific regulations—compliance requirements justify premium pricing. In practice, this means developing curriculum that goes beyond generic "AI ethics" content to address specific regulatory frameworks relevant to each sector: for financial services, this includes model risk management requirements, algorithmic trading disclosures, and DORA's ICT risk management mandates; for healthcare, <a href="https://www.hhs.gov/hipaa/index.html" target="_blank" rel="noopener noreferrer" className="text-llpa-blue hover:underline">HIPAA</a> considerations for AI-generated content and medical device regulations; for insurance, Solvency II implications and actuarial model governance.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-blue mt-2" />
-                    <span>
-                      <strong>Shadow AI risk is significant</strong>—the evidence shows governance gaps (only 49% with effective data governance in Netherlands); employees using personal AI tools without oversight creates compliance exposure. Shadow AI refers to employees using personal ChatGPT accounts, uploading company data to unsanctioned AI tools, or deploying AI solutions without IT approval. Organizations must establish acceptable use policies, deploy sanctioned tools, and ensure compliant AI usage.
-                    </span>
-                  </li>
-                </ul>
-              </RecommendationBlock>
-            </PatternCard>
-
-            {/* Pattern 4: Strategic Planning Gap */}
-            <div id="pattern-4" className={`${containers.card} mb-10`}>
-              <h4 className={`${typography.cardTitle} ${spacing.titleMargin} flex items-center ${spacing.contentGap}`}>
-                <IconWrapper icon={Target} color="llpa-green" size="md" />
-                Pattern 4: The Strategic Planning Gap Is Universal
-              </h4>
-
-              <p className={`${typography.bodySmall} ${spacing.paragraphMargin} font-bold`}>
-                64% of enterprises lack strategic clarity on AI goals — citing undefined objectives, confusion about use cases, and difficulty prioritizing initiatives.
+            <div className={`space-y-4 ${typography.body}`}>
+              <p>
+                Adoption is uneven across countries as well as across sizes and sectors, and the national picture reinforces two of this report&apos;s themes: the gap between where AI capital concentrates and where the technology actually reaches working life, and the recurrence of the adoption-versus-value pattern inside individual economies.
               </p>
 
-              <p className={`${typography.body} mb-6`}>
-                Across all tiers, organizations struggle not with "what is AI?" but with "how should we apply AI strategically?"
+              <p>
+                <strong>Within the EU, the leaders are northern.</strong> On Eurostat&apos;s 2025 enterprise measure, Denmark leads at 42.0%, followed by Finland (37.8%), Sweden (35.0%), Belgium (34.5%) and the Netherlands (33.2%) — all far above the EU average of 20.0%, while Romania (5.2%), Poland (8.4%) and Bulgaria (8.5%) trail<CitationLink id={4} /><CitationLink id={91} />. Notably, the EU&apos;s three largest economies and AI-funding centers — Germany, France, and the UK — sit in the middle of the adoption table, not the top: the places where AI capital and frontier firms concentrate are not the same as the places where enterprises are putting AI to work<CitationLink id={92} />. Capital and adoption are different leaderboards — and the capital one is extraordinarily concentrated. Stanford&apos;s AI Index put US private AI investment at roughly $109 billion in 2024, about 12 times China&apos;s and 24 times the UK&apos;s<CitationLink id={96} />, and the OECD&apos;s venture-capital data is starker still: the US absorbed about 75% (≈$194 billion) of global AI venture funding, against 6% (≈$15.8 billion) for the entire EU27<CitationLink id={97} />. The Federal Reserve notes that Europe invests on the order of 4% of what the US does<CitationLink id={98} />. None of that capital concentration shows up in the adoption table, where the EU&apos;s most AI-funded economies trail its smallest.
               </p>
 
-              {/* Enterprise Survey Evidence */}
-              <div className="mb-6">
-                <h5 className={`${typography.blockTitle} ${spacing.titleMargin} flex items-center ${spacing.contentGap}`}>
-                  <IconWrapper icon={MessageSquare} color="llpa-blue" size="sm" />
-                  Enterprise Survey Evidence
-                </h5>
-                <ul className="space-y-2">
-                  {strategicPlanningQuotes.map((item, index) => {
-                  const colors = ['text-llpa-green', 'text-llpa-blue', 'text-llpa-yellow', 'text-llpa-orange'];
-                  return <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <span className={`${colors[index % 4]} mt-1`}>•</span>
-                        <span>
-                          <span className="text-foreground">{item.attribution}</span>{" "}
-                          <span className="italic">"{item.quote}"</span>
-                          <CitationLink id={item.citation} />
-                        </span>
-                      </li>;
-                })}
-                </ul>
-              </div>
+              <p>
+                <strong>National surveys echo the global ones.</strong> Germany&apos;s digital association, Bitkom, runs an annual firm-level survey; it found AI use climbing steeply — to 36% in 2025, from 20% a year earlier<CitationLink id={90} /> — with the familiar friction underneath: about a third of firms found AI more expensive than expected, and roughly half cite legal uncertainty, lack of know-how, and a shortage of qualified staff<CitationLink id={90} />.
+              </p>
 
-              {/* External Validation */}
-              <div className="mb-6">
-                <h5 className={`${typography.blockTitle} ${spacing.titleMargin}`}>External Validation</h5>
-                <ul className="space-y-3">
-                  <li className="text-muted-foreground flex items-start gap-2">
-                    <span className="text-llpa-green mt-1">•</span>
-                    <span>88% of organizations using AI, but only 39% report any EBIT impact at enterprise level; nearly two-thirds still in experimentation/pilot phase; only 6% are "high performers" capturing significant value<CitationLink id={393} /></span>
-                  </li>
-                  <li className="text-muted-foreground flex items-start gap-2">
-                    <span className="text-llpa-blue mt-1">•</span>
-                    <span>82% of leaders say this is a pivotal year to rethink strategy, yet 67% of leaders report familiarity with AI agents compared to only 40% of employees — highlighting the execution gap<CitationLink id={394} /></span>
-                  </li>
-                  <li className="text-muted-foreground flex items-start gap-2">
-                    <span className="text-llpa-yellow mt-1">•</span>
-                    <span>63% of employers identify skills gaps as primary barrier to business transformation<CitationLink id={395} /></span>
-                  </li>
-                  <li className="text-muted-foreground flex items-start gap-2">
-                    <span className="text-llpa-orange mt-1">•</span>
-                    <span>60% of Copilot licenses unused within 90 days of deployment<CitationLink id={130} /></span>
-                  </li>
-                </ul>
-              </div>
+              <p>
+                <strong>Asia-Pacific holds both the frontier and the divide.</strong> Singapore ranks second globally on population-level use (60.9%, behind the UAE)<CitationLink id={94} />, and its government data shows AI reaching enterprises fast — SME adoption tripling to 14.5% in a year and large-enterprise adoption at 62.5%<CitationLink id={93} />. But the size-class gap from §1.2 is sharp here too (roughly 4x), and 84% of adopting firms rely on off-the-shelf tools<CitationLink id={93} /> — &ldquo;adoption&rdquo; at the leading edge still often means light, generic use.
+              </p>
 
-              {/* Strategic Recommendations */}
-              <div className="mt-6">
-                <h5 className={`${typography.smallTitle} ${spacing.paragraphMargin}`}>
-                  Strategic Recommendations
-                </h5>
-                
-                <div className="mb-6">
-                  <div className={`flex items-start ${spacing.contentGap} ${spacing.paragraphMargin}`}>
-                    <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-green mt-2" />
-                    <p className={typography.blockTitle}>
-                      Organizations need AI readiness and opportunity assessment frameworks:
-                    </p>
-                  </div>
-                  <ul className={`${spacing.indent} space-y-2 list-none`}>
-                    {assessmentTools.map((tool, index) => {
-                    const colors = ['bg-llpa-green/60', 'bg-llpa-blue/60', 'bg-llpa-yellow/60', 'bg-llpa-orange/60'];
-                    return <li key={tool} className="flex items-start gap-2">
-                          <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${colors[index % 4]} mt-1.5`} />
-                          <span className="text-sm text-muted-foreground">{tool}</span>
-                        </li>;
-                  })}
-                  </ul>
-                </div>
-
-                <ul className="space-y-3 list-none">
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-blue mt-2" />
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Strategic planning is the critical gap</strong> — organizations struggle with "how" and "where" to apply AI, not "what" AI is</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-2 h-2 rounded-full bg-llpa-yellow mt-2" />
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Create implementation consulting offerings</strong> as premium services layered on top of training — see <a href="#demand-pattern-1" className="text-llpa-blue hover:underline font-medium">Demand Pattern 1 (Section 2)</a> for detailed recommendations</p>
-                  </li>
-                </ul>
-              </div>
+              <p>
+                <strong>The global divide is real but should be read carefully.</strong> Population-level adoption averages roughly 24.7% across the Global North versus 14.1% across the Global South<CitationLink id={95} />, and the United States illustrates the capital-versus-use split most starkly of all: it leads the world in AI research and frontier-model development yet ranks only 24th in working-age-population usage at 28.3%<CitationLink id={94} />. As always in this report, the number depends on what is being measured — population use, enterprise deployment, and measurable value are three different things — so cross-country league tables are best read as directional rather than precise.
+              </p>
             </div>
           </motion.div>
         </div>
+
       </div>
     </section>;
 };

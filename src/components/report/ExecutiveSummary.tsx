@@ -1,162 +1,14 @@
 import { motion } from "framer-motion";
-import { TrendingUp, AlertTriangle, Users, Target, Layers, Building, BookOpen } from "lucide-react";
-import IconWrapper from "./IconWrapper";
-import { typography, spacing, containers, iconSizes, iconWrapperBase, getRotatingColor } from "./styles";
-import { sourceCount } from "@/data/reportData";
-
-const metrics = [
-  {
-    metric: "Global Enterprise AI Adoption",
-    value: 88,
-    label: "88%",
-    description: "of organizations using AI (up from 78% in 2024)",
-    citations: [1, 2],
-    color: "llpa-blue",
-  },
-  {
-    metric: "Large Enterprise Adoption",
-    value: 79,
-    label: "79%",
-    description: "of enterprises 1,000+ employees actively using AI",
-    citations: [1],
-    color: "llpa-green",
-  },
-  {
-    metric: "SMB Adoption Gap",
-    value: 35,
-    label: "35%",
-    description: "of small businesses actively using AI tools",
-    citations: [1],
-    color: "llpa-orange",
-  },
-  {
-    metric: "Strategic Planning Gap",
-    value: 64,
-    label: "64%",
-    description: "of enterprises lack strategic clarity on AI goals",
-    citations: [6],
-    color: "llpa-yellow",
-  },
-  {
-    metric: "Post-Purchase Failure",
-    value: 60,
-    label: "60%",
-    description: "of Copilot licenses unused within 90 days",
-    citations: [7],
-    color: "destructive",
-  },
-  {
-    metric: "Multi-Vendor Reality",
-    value: 68,
-    label: "68%",
-    description: "of enterprises use multiple AI vendors",
-    citations: [10],
-    color: "llpa-blue",
-  },
-  {
-    metric: "Value Realization Gap",
-    value: 39,
-    label: "39%",
-    description: "report any EBIT impact (only 6% are \"high performers\")",
-    citations: [3, 4],
-    color: "llpa-orange",
-  },
-  {
-    metric: "Skills Gap Persistence",
-    value: 45,
-    label: "45%",
-    description: "report knowledge/skills gaps as primary adoption barrier",
-    citations: [5],
-    color: "llpa-green",
-  },
-  {
-    metric: "GenAI Investment Growth",
-    value: 60,
-    label: "$60B+",
-    description: "projected enterprise GenAI spending by 2027",
-    citations: [2],
-    color: "llpa-yellow",
-  },
-];
-
-const criticalFindings = [
-  {
-    number: 1,
-    title: "The Value Gap Defines Enterprise AI in 2025",
-    content:
-      "88% of organizations use AI, but only 39% report any EBIT impact. Nearly two-thirds remain stuck in experimentation/pilot phase. The gap between adoption and value realization represents the defining challenge of enterprise AI today.",
-    icon: TrendingUp,
-    color: "llpa-orange",
-  },
-  {
-    number: 2,
-    title: "The Strategic Planning Gap Is Universal",
-    content:
-      "64% of enterprises lack strategic clarity on AI goals—citing undefined objectives, confusion about use cases, and difficulty prioritizing initiatives. Organizations struggle not with \"What is AI?\" but with \"How should we apply AI strategically?\"",
-    icon: Target,
-    color: "llpa-blue",
-  },
-  {
-    number: 3,
-    title: "Post-Purchase Adoption Failure Is Epidemic",
-    content:
-      "60% of Microsoft Copilot licenses go unused within 90 days. Organizations buy tools, employees try them briefly, encounter friction, and abandon them. Technology deployment without change management consistently fails to drive adoption.",
-    icon: AlertTriangle,
-    color: "llpa-yellow",
-  },
-  {
-    number: 4,
-    title: "The Skills Gap Is Structural, Not Temporary",
-    content:
-      "Counterintuitively, skills gaps have not narrowed as adoption increased. Markets with 40%+ adoption report skills shortages as severe as markets with 10% adoption. As organizations progress through adoption stages, they encounter new and more complex skill requirements.",
-    icon: Users,
-    color: "llpa-green",
-  },
-  {
-    number: 5,
-    title: "Multi-Vendor Reality Creates Complexity",
-    content:
-      "68% of enterprises use multiple AI vendors. 37% now use 5+ AI models. The multi-vendor reality creates integration complexity, governance challenges, and skills requirements across diverse platforms including Microsoft, OpenAI, Anthropic, Google, and open-source solutions.",
-    icon: Layers,
-    color: "destructive",
-  },
-];
-
-const strategicImperatives = [
-  {
-    number: 1,
-    title: "Strategic Clarity Before Technology Deployment",
-    description:
-      "Organizations achieving AI value consistently report having clear strategic objectives, defined success metrics, and executive alignment before technology selection—not after.",
-    icon: Building,
-    color: "llpa-orange",
-  },
-  {
-    number: 2,
-    title: "Change Management Is Non-Negotiable",
-    description:
-      "Technology deployment alone does not drive adoption. Successful organizations invest equally in change management, user enablement, and ongoing support alongside technology implementation.",
-    icon: Layers,
-    color: "llpa-green",
-  },
-  {
-    number: 3,
-    title: "Skills Development Must Match Adoption Maturity",
-    description:
-      "As organizations progress from experimentation to scaling, skill requirements evolve. Foundational awareness gives way to implementation expertise, governance capability, and advanced technical skills.",
-    icon: BookOpen,
-    color: "llpa-blue",
-  },
-];
+import { typography, spacing } from "./styles";
+import CitationLink from "./CitationLink";
 
 const ExecutiveSummary = () => {
   return (
     <section id="executive-summary" className={`${spacing.section} bg-background`}>
       <div className="container">
-        <div className="max-w-5xl mx-auto">
-          {/* Strategic Context */}
+        <div className="max-w-4xl mx-auto">
+
           <motion.div
-            id="strategic-context"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -164,26 +16,24 @@ const ExecutiveSummary = () => {
             className={spacing.sectionMargin}
           >
             <p className={`${typography.sectionLabel} text-llpa-blue`}>Executive Summary</p>
-            <h2 className={typography.sectionTitle}>Strategic Context</h2>
+            <h2 className={`${typography.sectionTitle} mb-6`}>Executive summary</h2>
 
-            <div className="space-y-4">
-              <p className={typography.body}>
-                Enterprise AI adoption has reached{" "}
-                <span className={typography.emphasis}>88% globally</span>, yet only{" "}
-                <span className={typography.emphasis}>6% of organizations</span> qualify as "high
-                performers" capturing significant value. This disconnect between adoption and impact
-                represents the defining challenge of enterprise AI in 2025.
-              </p>
+            <p className={`${typography.body} mb-4`}>
+              <strong>The defining pattern of enterprise AI today is a gap between adoption and value.</strong>{" "}
+              A large majority of organizations report <em>using</em> AI in some form, but only a
+              small minority can point to measurable financial impact. The disconnect is consistent
+              across geographies, industries, and survey instruments, even though the instruments
+              disagree sharply on the absolute numbers.
+            </p>
 
-              <p className={typography.body}>
-                This report synthesizes {sourceCount} market research sources to analyze global AI adoption 
-                patterns, identify key barriers, and understand the factors that differentiate 
-                organizations achieving value from those stuck in experimentation.
-              </p>
-            </div>
+            <p className={`${typography.body} mb-8`}>
+              The evidence below supports five findings. The recommendations that follow are ours,
+              as an interested party in the training business, and sit in a separate section so
+              they can be weighed on their own.
+            </p>
           </motion.div>
 
-          {/* Critical Findings */}
+          {/* Five Findings */}
           <motion.div
             id="critical-findings"
             initial={{ opacity: 0, y: 20 }}
@@ -192,104 +42,161 @@ const ExecutiveSummary = () => {
             transition={{ delay: 0.1, duration: 0.6 }}
             className={spacing.sectionMargin}
           >
-            <h3 className={`${typography.subsectionTitle} mb-6`}>Critical Findings</h3>
+            <ul className="space-y-6">
 
-            <ul className={`${spacing.listGap} ${spacing.indent} list-none`}>
-              {criticalFindings.map((finding, index) => {
-                const FindingIcon = finding.icon;
-                return (
-                  <motion.li
-                    key={finding.number}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className={`flex ${spacing.contentGap}`}
-                  >
-                    <IconWrapper icon={FindingIcon} color={finding.color} size="sm" className="mt-0.5" />
-                    <div>
-                      <h4 className={`${typography.blockTitle} mb-1`}>{finding.title}</h4>
-                      <p className={typography.bodySmall}>{finding.content}</p>
-                    </div>
-                  </motion.li>
-                );
-              })}
+              {/* Finding 1 */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0, duration: 0.5 }}
+                className="flex gap-4"
+              >
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-llpa-blue/10 text-llpa-blue text-sm font-bold flex items-center justify-center mt-0.5">
+                  1
+                </span>
+                <div>
+                  <p className={`${typography.body} font-semibold mb-1`}>
+                    Adoption is broad; measured value is narrow.
+                  </p>
+                  <p className={`${typography.bodySmall} text-muted-foreground mb-1`}>
+                    This is the finding the rest of the report orbits. Most organizations now
+                    report using AI in some form, but in the best-sourced surveys the large
+                    majority cannot show a return for it: in the NBER survey of roughly 6,000
+                    senior leaders, about 89% reported no measurable productivity impact over three
+                    years<CitationLink id={1} />, and MIT&apos;s review of around 300 deployments put
+                    the share seeing no return near 95%<CitationLink id={2} />. Use is real; value,
+                    mostly, is not — and the likeliest reason is that the use is shallow. Firms
+                    have bought access and run pilots, but the slow work of rebuilding a process
+                    around the tool, which is where the money actually is, has barely begun.
+                    Whether that gap is a lag that closes once the redesign happens or a ceiling
+                    that won&apos;t is still open since ChatGPT launched; what isn&apos;t in question is that
+                    the gap is large and has held across several model generations. Three
+                    independent studies converge on the size of the value-realizing minority —
+                    BCG&apos;s ~5% &ldquo;future-built,&rdquo; McKinsey&apos;s ~6% high performers, and MIT&apos;s ~5% with
+                    measurable return<CitationLink id={33} /><CitationLink id={26} /><CitationLink id={2} /> — and a
+                    separate KPMG index of Canadian organizations found 93% reporting
+                    enterprise-level adoption but only <strong>2%</strong> claiming a measurable
+                    return<CitationLink id={80} />, the same gap from yet another vantage point.
+                  </p>
+                  <p className="text-xs text-muted-foreground/50 italic mt-1">Tier A/B</p>
+                </div>
+              </motion.li>
+
+              {/* Finding 2 */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.08, duration: 0.5 }}
+                className="flex gap-4"
+              >
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-llpa-blue/10 text-llpa-blue text-sm font-bold flex items-center justify-center mt-0.5">
+                  2
+                </span>
+                <div>
+                  <p className={`${typography.body} font-semibold mb-1`}>
+                    The strategic-clarity gap is the most common obstacle.
+                  </p>
+                  <p className={`${typography.bodySmall} text-muted-foreground mb-1`}>
+                    Across surveys and in our members&apos; field notes, what stalls firms is not
+                    understanding what AI is but deciding where to point it. The tools arrive with
+                    too many plausible uses and no obvious best one for a given organization, so
+                    the hard part is matching a capability to a process where it actually pays —
+                    which takes knowledge of the business, not of the model. One caveat keeps this
+                    honest: &ldquo;we don&apos;t know where to apply it&rdquo; is sometimes a tactful way of
+                    saying &ldquo;it doesn&apos;t work well enough for the work we actually do,&rdquo; and the two
+                    complaints look identical on a survey form.
+                  </p>
+                  <p className="text-xs text-muted-foreground/50 italic mt-1">Tier B/C</p>
+                </div>
+              </motion.li>
+
+              {/* Finding 3 */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.16, duration: 0.5 }}
+                className="flex gap-4"
+              >
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-llpa-blue/10 text-llpa-blue text-sm font-bold flex items-center justify-center mt-0.5">
+                  3
+                </span>
+                <div>
+                  <p className={`${typography.body} font-semibold mb-1`}>
+                    Post-purchase abandonment is common.
+                  </p>
+                  <p className={`${typography.bodySmall} text-muted-foreground mb-1`}>
+                    Licenses get bought and then sit idle; tools dropped into a workflow without
+                    changing the workflow tend to fall out of use. The pull is simply that buying
+                    access is easy and changing how people work is hard, so absent a forcing
+                    function people drift back to the old way. Though not all of it is waste — a
+                    firm that tries a tool, finds it doesn&apos;t fit, and stops has made the right
+                    call, not a mistake — which is why the figure is a reason to look closer
+                    rather than a verdict on its own.
+                  </p>
+                  <p className="text-xs text-muted-foreground/50 italic mt-1">Tier C — see source note in Section 2.4</p>
+                </div>
+              </motion.li>
+
+              {/* Finding 4 */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.24, duration: 0.5 }}
+                className="flex gap-4"
+              >
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-llpa-blue/10 text-llpa-blue text-sm font-bold flex items-center justify-center mt-0.5">
+                  4
+                </span>
+                <div>
+                  <p className={`${typography.body} font-semibold mb-1`}>
+                    Skills gaps look structural, not temporary.
+                  </p>
+                  <p className={`${typography.bodySmall} text-muted-foreground mb-1`}>
+                    Markets at the top and bottom of the adoption range report shortages of
+                    roughly equal severity — which is what you would expect if the requirement
+                    keeps moving: awareness gives way to implementation, implementation to
+                    governance and evaluation, so a workforce can grow more capable and stay just
+                    as short. The simpler reading can&apos;t be ruled out, that the shortage is merely
+                    transitional everywhere at once and will ease as training supply catches up.
+                    We offer it as a pattern observed across markets, not a proven law.
+                  </p>
+                  <p className="text-xs text-muted-foreground/50 italic mt-1">Tier A/B</p>
+                </div>
+              </motion.li>
+
+              {/* Finding 5 */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.32, duration: 0.5 }}
+                className="flex gap-4"
+              >
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-llpa-blue/10 text-llpa-blue text-sm font-bold flex items-center justify-center mt-0.5">
+                  5
+                </span>
+                <div>
+                  <p className={`${typography.body} font-semibold mb-1`}>
+                    The multi-vendor environment adds real complexity.
+                  </p>
+                  <p className={`${typography.bodySmall} text-muted-foreground mb-1`}>
+                    Most enterprises now run several models and providers, and the cost of
+                    securing, evaluating, and staffing for them climbs faster than the count of
+                    systems. But the sprawl is as much hedge as burden — running more than one
+                    vendor is also how firms dodge lock-in and send each job to whichever model
+                    handles it best.
+                  </p>
+                  <p className="text-xs text-muted-foreground/50 italic mt-1">Tier B</p>
+                </div>
+              </motion.li>
+
             </ul>
           </motion.div>
 
-          {/* Key Metrics Summary Table */}
-          <motion.div
-            id="key-metrics-summary"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className={spacing.sectionMargin}
-          >
-            <h3 className={`${typography.subsectionTitle} mb-2`}>Key Metrics Summary</h3>
-            <p className={`${typography.bodySmall} mb-6`}>
-              Data synthesized from {sourceCount} market research sources including industry surveys, analyst reports, and government statistics.
-            </p>
-
-            <div className={`overflow-x-auto ${spacing.indent}`}>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b-2 border-foreground">
-                    <th className="text-left py-3 pr-4 font-semibold text-foreground">Metric</th>
-                    <th className="text-right py-3 px-4 font-semibold text-foreground w-24">
-                      Value
-                    </th>
-                    <th className="text-left py-3 pl-4 font-semibold text-foreground">Finding</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {metrics.map((row) => (
-                    <tr key={row.metric} className="border-b border-border">
-                      <td className="py-3 pr-4 font-medium text-foreground">{row.metric}</td>
-                      <td className="py-3 px-4 text-right">
-                        <span className="font-semibold text-foreground">{row.label}</span>
-                      </td>
-                      <td className="py-3 pl-4 text-muted-foreground">{row.description}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-
-          {/* Strategic Imperatives */}
-          <motion.div
-            id="strategic-imperatives"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <h3 className={`${typography.subsectionTitle} mb-6`}>
-              Strategic Imperatives for 2025-2027
-            </h3>
-
-            <div className={`${spacing.listGap} ${spacing.indent}`}>
-              {strategicImperatives.map((imperative, index) => (
-                <motion.div
-                  key={imperative.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + index * 0.1, duration: 0.4 }}
-                  className={`${containers.card}`}
-                >
-                  <div className="flex items-start gap-4">
-                    <IconWrapper icon={imperative.icon} color={imperative.color} size="lg" />
-                    <div className="flex-1">
-                      <h4 className={`${typography.blockTitle} mb-2`}>{imperative.title}</h4>
-                      <p className={typography.bodySmall}>{imperative.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

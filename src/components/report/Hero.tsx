@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
-import { sourceCount } from "@/data/reportData";
 
 const Hero = () => {
   return (
@@ -26,7 +25,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl text-slate-300 mb-12">
-            Global Patterns, Barriers, and Future Outlook
+            Global Patterns, Barriers, and Outlook
           </p>
 
           {/* Report metadata */}
@@ -38,10 +37,6 @@ const Hero = () => {
             <div>
               <span className="text-slate-500">Coverage:</span>{" "}
               <span className="text-slate-300">Global Enterprise</span>
-            </div>
-            <div>
-              <span className="text-slate-500">Sources:</span>{" "}
-              <span className="text-slate-300">{sourceCount} research publications</span>
             </div>
           </div>
         </motion.div>
