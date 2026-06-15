@@ -335,7 +335,14 @@ const GlobalAILandscape = () => {
             <div id="strategic-context-1" className={spacing.blockMargin}>
               <div className={`space-y-4 ${typography.body}`}>
                 <p>
-                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={4} /> This section sets out how 67 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
+                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={4} /> This section sets out how 67 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion{" "}
+                  <a
+                    href="#regional-market-profiles"
+                    className="font-semibold text-llpa-blue hover:text-llpa-blue/80 underline-offset-2 hover:underline"
+                  >
+                    Regional Market Profiles
+                  </a>{" "}
+                  document.
                 </p>
               </div>
             </div>
@@ -423,7 +430,7 @@ const GlobalAILandscape = () => {
                 Per-country size-class splits are reported in the Regional Market Profiles where available; some derive from the Eurostat databrowser rather than published releases and are flagged accordingly.
               </p>
 
-              <div className="mt-6 p-6 bg-gradient-to-r from-llpa-blue/10 to-llpa-green/10 border border-llpa-blue/20 rounded-xl">
+              <div id="regional-market-profiles" className="mt-6 p-6 bg-gradient-to-r from-llpa-blue/10 to-llpa-green/10 border border-llpa-blue/20 rounded-xl scroll-mt-28">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Regional Market Profiles</h4>
@@ -498,7 +505,7 @@ const GlobalAILandscape = () => {
               </p>
 
               <p>
-                <strong>Within the EU, the leaders are northern.</strong> On Eurostat&apos;s 2025 enterprise measure, Denmark leads at 42.0%, followed by Finland (37.8%), Sweden (35.0%), Belgium (34.5%) and the Netherlands (33.2%) — all far above the EU average of 20.0%, while Romania (5.2%), Poland (8.4%) and Bulgaria (8.5%) trail<CitationLink id={4} /><CitationLink id={91} />. Notably, the EU&apos;s three largest economies and AI-funding centers — Germany, France, and the UK — sit in the middle of the adoption table, not the top: the places where AI capital and frontier firms concentrate are not the same as the places where enterprises are putting AI to work<CitationLink id={92} />. Capital and adoption are different leaderboards — and the capital one is extraordinarily concentrated. Stanford&apos;s AI Index put US private AI investment at roughly $109 billion in 2024, about 12 times China&apos;s and 24 times the UK&apos;s<CitationLink id={96} />, and the OECD&apos;s venture-capital data is starker still: the US absorbed about 75% (≈$194 billion) of global AI venture funding, against 6% (≈$15.8 billion) for the entire EU27<CitationLink id={97} />. The Federal Reserve notes that Europe invests on the order of 4% of what the US does<CitationLink id={98} />. None of that capital concentration shows up in the adoption table, where the EU&apos;s most AI-funded economies trail its smallest.
+                <strong>Within the EU, the leaders are northern.</strong> On Eurostat&apos;s 2025 enterprise measure, Denmark leads at 42.0%, followed by Finland (37.8%), Sweden (35.0%), Belgium (34.5%) and the Netherlands (33.2%) — all far above the EU average of 20.0%, while Romania (5.2%), Poland (8.4%) and Bulgaria (8.5%) trail<CitationLink id={4} /><CitationLink id={91} />. Notably, Europe&apos;s largest economies and AI-funding centers do not lead on adoption. Germany and France both sit above the EU average but well short of the Nordic front-runners<CitationLink id={4} />, and the UK&apos;s official adoption rate (16–23%, depending on the survey) sits around or below the EU average<CitationLink id={25} /><CitationLink id={133} /> — though the UK figure comes from national surveys not directly comparable to Eurostat&apos;s. The places where AI capital and frontier firms concentrate, in other words, are not the places where enterprises are furthest along in putting AI to work<CitationLink id={92} />. Capital and adoption are different leaderboards — and the capital one is extraordinarily concentrated. Stanford&apos;s AI Index put US private AI investment at roughly $109 billion in 2024, about 12 times China&apos;s and 24 times the UK&apos;s<CitationLink id={96} />, and the OECD&apos;s venture-capital data is starker still: the US absorbed about 75% (≈$194 billion) of global AI venture funding, against 6% (≈$15.8 billion) for the entire EU27<CitationLink id={97} />. The Federal Reserve notes that Europe invests on the order of 4% of what the US does<CitationLink id={98} />. None of that capital concentration shows up in the adoption table, where the EU&apos;s most AI-funded economies trail its smallest.
               </p>
 
               <p>

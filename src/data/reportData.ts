@@ -145,6 +145,7 @@ export const references: Reference[] = [
   { id: 130, source: 'Market Data Forecast', description: 'AI Consulting Services Market (2025)', url: 'https://www.marketdataforecast.com/market-reports/ai-consulting-services-market' },
   { id: 131, source: 'Deloitte', description: 'State of Generative AI in the Enterprise: Q4 2024 ("Now decides next"). Among most-advanced initiatives, 74% meeting or exceeding ROI expectations; 20% reporting ROI above 30%. Describes advanced initiatives, not the average firm', url: 'https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-generative-ai-in-enterprise.html' },
   { id: 132, source: 'McKinsey', description: 'The state of AI: How organizations are rewiring to capture value (March 2025; fielded Jul 16–31 2024, n=1,491, 101 nations). Larger firms >2x as likely to have gen-AI adoption road maps, dedicated transformation teams, and role-based capability training', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value' },
+  { id: 133, source: 'Office for National Statistics (UK)', description: 'Business insights and impact on the UK economy, BICS Wave 141 (~23% AI use, autumn 2025)', url: 'https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/bulletins/businessinsightsandimpactontheukeconomy/2october2025' },
 ];
 
 /**
