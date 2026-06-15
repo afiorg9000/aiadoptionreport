@@ -299,110 +299,92 @@ export const marketTierEntries: MarketTierEntry[] = [
   {
     "country": "United Arab Emirates",
     "tier": 1,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Saudi Arabia",
     "tier": 2,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Qatar",
     "tier": 2,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Bahrain",
     "tier": 4,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Kuwait",
     "tier": 4,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Oman",
     "tier": 4,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "Israel",
     "tier": 2,
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Middle East"
   },
   {
     "country": "United States",
     "tier": 2,
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "North America"
   },
   {
     "country": "Canada",
     "tier": 2,
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "North America"
   },
   {
     "country": "Mexico",
     "tier": 2,
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "North America"
   },
   {
     "country": "Dominican Republic",
     "tier": 4,
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "North America"
   },
   {
     "country": "Puerto Rico",
     "tier": 4,
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "North America"
   },
   {
     "country": "Brazil",
     "tier": 2,
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "South America"
   },
   {
     "country": "Argentina",
     "tier": 3,
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "South America"
   },
   {
     "country": "Colombia",
     "tier": 3,
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "South America"
   },
   {
     "country": "Uruguay",
     "tier": 2,
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "South America"
   },
   {
     "country": "South Africa",
     "tier": 2,
-    "region": "Africa",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Africa"
   },
   {
     "country": "Morocco",
     "tier": 3,
-    "region": "Africa",
-    "subRegion": "CENTRAL & EASTERN"
+    "region": "Africa"
   }
 ];
 

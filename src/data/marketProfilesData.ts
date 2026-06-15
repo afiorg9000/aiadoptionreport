@@ -4,3058 +4,839 @@ export interface MarketProfile {
   region: string;
   subRegion?: string;
   country: string;
+  dataConfidence: string;
   tier: number;
   tierLabel: string;
-  partner?: string | null;
-  dataQuality?: string | null;
-  estimated?: boolean;
-  subtitle?: string;
-  stats: { label: string; value: string }[];
-  marketInsights: string;
-  strengths: string[];
-  weaknesses: string[];
-  comparativeContext: { inRegion: string; globally: string };
+  paragraphs: string[];
+  brief?: boolean;
 }
 
 export const marketProfiles: MarketProfile[] = [
   {
     "country": "Denmark",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Nordic",
-    "estimated": false,
-    "partner": "Teknologisk Institut",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "42.03% — highest in EU (verified)"
-      },
-      {
-        "label": "Year-over-year growth",
-        "value": "+14.45 pp — largest YoY increase in EU"
-      },
-      {
-        "label": "GenAI individual usage",
-        "value": "48.4% — highest in EU"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "30.7%"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Denmark is the European Union's clear enterprise-AI leader, with **42.03% of enterprises (10+ employees) using at least one AI technology in 2025**, the highest rate in the EU and the largest single-year jump on record (+14.45 percentage points) [1][2]. That lead rests on a digitally mature corporate culture, near-universal broadband, a cloud-first IT base, and an active public-sector mandate, backed by a dedicated national AI strategy and Denmark’s standing as the EU’s most digitalised society [39]. Unusually, Denmark is the one EU country where the most-used AI technology is natural-language generation rather than text mining, a sign that adoption has moved past basic analytics into generative, multi-purpose deployment [1].",
+      "The structure of Danish adoption is mature rather than nascent: the country sits well above the EU's 19.95% average [1], and its gains now come from deepening existing deployments rather than first-time adopters, which also caps how much headroom remains. The binding constraints are scale and cost — a 5.9M-population domestic market limits total addressable demand, and a premium wage structure makes every deployment expensive — while Danish SMEs still cite a lack of in-house experience as a barrier even at this high baseline. The outlook is continued leadership but slower percentage growth, as Denmark shifts from acquiring users to scaling governance and production use."
     ],
-    "marketInsights": "Denmark's digitally mature corporate culture and €200M national AI R&D commitment have produced the EU's highest enterprise adoption. Demand has shifted decisively from foundational awareness to advanced implementation, governance, and multi-purpose AI deployment.",
-    "strengths": [
-      "Undisputed EU leader on enterprise AI adoption — 22 pp above EU average.",
-      "Largest YoY adoption increase in the EU (Eurostat, 2025).",
-      "48.4% individual GenAI usage signals broad workforce readiness.",
-      "The one EU country where AI is most used for accounting/controlling/finance management — reflecting deep, value-driven deployment rather than surface marketing use.",
-      "Strong public-sector AI mandate via national digital strategy."
-    ],
-    "weaknesses": [
-      "Small absolute market (5.9M population) caps domestic training volume.",
-      "High baseline saturation risk in foundational training; providers must pivot to advanced content.",
-      "Premium wage/cost structure raises client expectations for customisation.",
-      "Limited Danish-language AI model availability.",
-      "\"Lack of experience\" still cited as primary barrier by Danish SMEs despite high headline adoption — suggesting surface-level integration in many firms."
-    ],
-    "comparativeContext": {
-      "inRegion": "EU leader at 42.03%, 4+ pp ahead of Finland and 7+ pp ahead of Sweden.",
-      "globally": "Among the most AI-ready markets worldwide alongside Singapore, UAE, and Switzerland."
-    }
+    "brief": false
   },
   {
     "country": "Finland",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Nordic",
-    "estimated": false,
-    "partner": "Sovelto Eduhouse",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "37.82% — 2nd in EU (verified)"
-      },
-      {
-        "label": "Year-over-year growth",
-        "value": "+13.45 pp — 2nd-largest in EU"
-      },
-      {
-        "label": "Cloud adoption",
-        "value": "79.21% of enterprises use paid cloud — highest in EU"
-      },
-      {
-        "label": "ICT specialists employed",
-        "value": "8% of workforce — among EU highest"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Finland is the EU's second-highest enterprise adopter at **37.82% in 2025**, with the second-largest year-over-year increase (+13.45 pp) [1][2], built on one of Europe's deepest technical talent pools, sovereign-grade cloud penetration, and an active national AI Programme. Adoption spans advanced implementation and AI-enabled cloud architecture rather than experimentation, and the foundation — high ICT-specialist employment and strong public-sector coordination — is among the most favourable in Europe for scaling.",
+      "Beneath the strong headline, Finland carries two structural tensions: it reports one of the EU's highest business ICT-security-incident rates, and a persistent skills gap despite its strong baseline talent. The 5.6M-population market and premium cost structure limit absolute scale, as in the rest of the Nordics. The outlook is solid continued growth, with the national programme and dense cloud base positioning Finland to convert its individual and SME momentum into deeper enterprise integration."
     ],
-    "marketInsights": "Finland's deep technical workforce, sovereign-grade cloud penetration, and active national AI Programme have driven exceptional adoption growth. Demand spans advanced implementation, governance, and AI-enabled cloud architecture.",
-    "strengths": [
-      "37.82% enterprise adoption with the EU's highest cloud-services penetration creates an ideal foundation for AI scaling.",
-      "+13.45 pp YoY growth — second only to Denmark.",
-      "8% of workforce are ICT specialists, materially above EU average — strong instructor and partner talent pool.",
-      "High enterprise social-media adoption (87.59%, EU highest) signals digital intensity across firm types.",
-      "Active national AI Programme and government coordination."
-    ],
-    "weaknesses": [
-      "Highest reported ICT security-incident rate in EU (42% of businesses) — creates demand for governance but also caution.",
-      "Small domestic market (5.6M population).",
-      "Premium cost structure.",
-      "Skills gap persists despite strong baseline talent — reflects evolving (not closing) demand."
-    ],
-    "comparativeContext": {
-      "inRegion": "Second-highest EU adoption, slightly behind Denmark.",
-      "globally": "Among top-tier global AI adopters by enterprise measure."
-    }
+    "brief": false
   },
   {
     "country": "Sweden",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Nordic",
-    "estimated": false,
-    "partner": "Cornerstone",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "35.04% — 3rd in EU (verified)"
-      },
-      {
-        "label": "Year-over-year growth",
-        "value": "continued strong acceleration (Sweden led EU YoY growth in 2024 at +14.7 pp)"
-      },
-      {
-        "label": "ICT specialists employed",
-        "value": "9% of workforce — highest in EU"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "31.2%"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Sweden ranks third in the EU at **35.04% enterprise adoption in 2025** [1], corroborated by Statistics Sweden's own 2025 AI-in-enterprises module [9], and anchored by the EU's largest ICT-specialist labour share and an industrial base — Ericsson, Volvo, ABB, Atlas Copco — with established AI programmes alongside the national \"AI Sweden\" centre. Adoption is concentrated in scaling and production deployment in banking, manufacturing, and the public sector, and high English proficiency eases tool diffusion.",
+      "The weaknesses are familiar Nordic ones: a mid-sized 10.6M-population market, a premium cost structure, and an SME tier that lags large-enterprise adoption. With a high baseline already reached, Sweden's first-time-adoption headroom is limited, so future gains will come from depth — embedding AI in core industrial and financial workflows rather than widening the user base. The outlook is steady top-three positioning with particular strength in industrial AI verticals."
     ],
-    "marketInsights": "Sweden combines the EU's deepest ICT-specialist talent pool with active national programmes (\"AI Sweden\") and early enterprise adoption in banking, industrial manufacturing, and public sector. Demand is concentrated in scaling and production deployment.",
-    "strengths": [
-      "35.04% enterprise adoption — #1 in YoY growth in 2024 and remains in top-3.",
-      "EU's largest ICT-specialist labour share (9%) — strongest instructor recruitment base in the region.",
-      "Strong industrial enterprise base (Ericsson, Volvo, ABB, Atlas Copco) with established AI programmes.",
-      "Mature national AI strategy with public-sector procurement support.",
-      "High English proficiency reduces localisation costs."
-    ],
-    "weaknesses": [
-      "Mid-sized domestic market (10.6M population).",
-      "Premium cost structure for training.",
-      "High baseline reduces foundational-content opportunity.",
-      "SME adoption lags large-enterprise rates (mirrors EU pattern)."
-    ],
-    "comparativeContext": {
-      "inRegion": "Consistent top-3 EU adopter alongside Denmark and Finland.",
-      "globally": "Among the world's most AI-ready economies; strong industrial AI vertical depth."
-    }
+    "brief": false
   },
   {
     "country": "Norway",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Nordic",
-    "estimated": false,
-    "partner": "Glasspaper",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "46.4% — #3 globally, #1 in Europe (verified)"
-      },
-      {
-        "label": "Microsoft AI Diffusion (H1 2025)",
-        "value": "45.3% — sustained leadership"
-      },
-      {
-        "label": "Strong public-sector AI deployment via national digitalisation programme",
-        "value": ""
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Norway leads Europe and ranks third globally on population-level AI usage — **46.4% of working-age people using generative AI in H2 2025** [4] — while Statistics Norway's ICT-usage survey carries the official enterprise measure [10]. Abundant low-cost energy and a cool climate make Norway an attractive data-centre location, and high GDP per capita, strong English proficiency, and an active national AI strategy support adoption across financial services, oil-and-gas technology, and the public sector.",
+      "The structural frictions are non-EU/EEA procurement complexity for some EU-funded programmes, a small 5.5M-population market, a high wage and cost base, and limited Norwegian-language model resources. Because Norway's strength is population-level diffusion rather than a published high enterprise rate, the story to watch is whether broad individual fluency converts into organisational deployment. The outlook is favourable: sovereign cloud and energy advantages give Norway a durable infrastructure edge even as costs constrain domestic scale."
     ],
-    "marketInsights": "Norway leads Europe on population-level AI usage and ranks #3 globally per Microsoft's 2026 measurement. Sovereign cloud and energy advantages support compute infrastructure. Enterprise demand spans financial services (DNB), oil & gas tech, and the public sector.",
-    "strengths": [
-      "#1 in Europe and #3 globally on AI diffusion (Microsoft, H2 2025).",
-      "Abundant energy and cool climate make Norway an attractive data-centre location.",
-      "High GDP per capita supports premium training pricing.",
-      "Active national AI strategy and public-sector adoption.",
-      "Strong English proficiency."
-    ],
-    "weaknesses": [
-      "Non-EU/EEA membership creates some procurement complexity for EU-funded programmes.",
-      "Small domestic market (5.5M population).",
-      "High wage/cost structure.",
-      "Limited Norwegian-language LLM resources."
-    ],
-    "comparativeContext": {
-      "inRegion": "Population-AI-usage leader (#1 in Europe per Microsoft Diffusion).",
-      "globally": "#3 worldwide after UAE and Singapore."
-    }
+    "brief": false
   },
   {
     "country": "Iceland",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "HIGH (newly official)",
     "region": "Europe",
     "subRegion": "Nordic",
-    "estimated": true,
-    "partner": "Promennt",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No standalone Eurostat enterprise AI figure (Iceland is an EFTA member outside the main EU dataset)",
-        "value": ""
-      },
-      {
-        "label": "Strong digital infrastructure baseline (near-universal broadband, top-tier cloud penetration)",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~25–30% (proxy, based on Nordic-region patterns and Iceland's digital-intensity scores)"
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Iceland now has its first official AI data: Statistics Iceland's 2025 ICT-usage survey (848 enterprises, 62% response) found that **about half of companies use some form of AI software**, with roughly a quarter using AI for specified tasks but only 14% holding a formal AI strategy [12] — a profile of widespread tool use running ahead of strategic implementation. Near-universal broadband, top-tier cloud penetration, renewable-powered data centres, and a highly educated, English-proficient workforce underpin that breadth.",
+      "The limits are structural: a ~390k-population market, high operating costs, and limited Icelandic-language model resources. The survey also found 31% of firms report concerns, most often a lack of in-house expertise, concentrated in smaller firms and those earlier in implementation [12]. The outlook positions Iceland as a niche but credible green-AI-infrastructure host and a regulatory bridge between US and EU markets, with the near-term task being to convert loose tool adoption into governed, strategic use."
     ],
-    "marketInsights": "Iceland's tiny domestic market is offset by extreme digital readiness and a sophisticated public sector. Renewable-powered data centres position Iceland as a niche but credible AI infrastructure host. Enterprise demand concentrates in financial services, tourism technology, and fisheries/marine tech.",
-    "strengths": [
-      "High digital infrastructure and broadband penetration (among EU/EFTA leaders).",
-      "Renewable energy abundance supports green AI data-centre positioning.",
-      "Highly educated workforce with strong English proficiency.",
-      "Public sector active in digital service modernisation.",
-      "Geographic and regulatory bridge between US and EU markets."
-    ],
-    "weaknesses": [
-      "Very small domestic market (~390k population) — severely limits training volume.",
-      "High operating costs.",
-      "Limited Icelandic-language AI model resources.",
-      "Brain-drain pressure to Nordic neighbours.",
-      "Limited published enterprise AI adoption statistics (data-quality flag)."
-    ],
-    "comparativeContext": {
-      "inRegion": "Strong digital-readiness percentile but small absolute scale.",
-      "globally": "Niche but well-positioned AI infrastructure host."
-    }
+    "brief": false
   },
   {
     "country": "Netherlands",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Computrain",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "33.2% (Eurostat 2025; note: 2025 break in time series — methodology change vs 2024; verified)"
-      },
-      {
-        "label": "Cloud services adoption",
-        "value": "92% of enterprises — among EU highest"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "36.3%"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "The Netherlands is a consistent EU top-five adopter at **33.2% of enterprises in 2025** [1] (a year with a noted break in the time series for the Netherlands), paired with the highest cloud penetration in the EU and a 38.9% working-age generative-AI usage rate [4]. Dutch firms operate AI maturely in logistics (the Port of Rotterdam), financial services (Amsterdam), and high-tech (Eindhoven/ASML), and the country's role as a major data-centre and internet-exchange hub gives it an unusually strong digital-infrastructure baseline.",
+      "The market is distinctly GDPR-conscious: privacy is cited as an adoption barrier by a majority of larger firms, and \"lack of experience\" is the leading blocker among firms still considering AI, while heavy reliance on US hyperscalers raises sovereignty concerns. A persistent SME-versus-large-enterprise gap remains. The outlook is continued top-tier positioning as a strategic European AI hub for multinationals, with data-residency and compliance demand a recurring driver."
     ],
-    "marketInsights": "Dutch enterprises operate AI maturely, with strong adoption in logistics (Rotterdam port), financial services (Amsterdam), and high-tech (Eindhoven/ASML). The market expects hands-on implementation support with multilingual delivery and GDPR-compliant data residency.",
-    "strengths": [
-      "33.2% enterprise adoption — top-5 in EU.",
-      "Highest cloud penetration in EU (92%) — foundational infrastructure for AI.",
-      "Major data-centre / data-exchange hub (AMS-IX, hyperscale presence).",
-      "28%/27% personal/work AI usage split — smallest gap in Europe, mature workplace integration.",
-      "Industry-cluster concentration (logistics, fintech, semiconductors) creates dense vertical demand."
-    ],
-    "weaknesses": [
-      "Privacy concerns: >50% of 100+ employee firms cite privacy as adoption barrier.",
-      "74.6% of considering-firms cite \"lack of experience\" as the primary blocker.",
-      "Heavy dependence on US hyperscalers raises sovereignty concerns.",
-      "Persistent SME-vs-large adoption gap.",
-      "Competitive AI talent market."
-    ],
-    "comparativeContext": {
-      "inRegion": "Consistent top-5 adopter with the best digital-infrastructure baseline.",
-      "globally": "Strategic European AI hub for multinationals."
-    }
+    "brief": false
   },
   {
     "country": "Belgium",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Computrain",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "34.54% — 4th in EU (verified)"
-      },
-      {
-        "label": "Year-over-year growth",
-        "value": "continued strong acceleration (Belgium was +10.9 pp in 2024)"
-      },
-      {
-        "label": "ERP software adoption",
-        "value": "62.45% of enterprises — 2nd-highest in EU"
-      },
-      {
-        "label": "Most-common AI use",
-        "value": "organisation of business administration processes"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Belgium ranks fourth in the EU at **34.54% enterprise adoption in 2025** [1], with strong ERP penetration and a 36.0% working-age usage rate [4]. EU institutional concentration in Brussels, a deep financial-services sector, and a chemicals-and-pharmaceuticals industrial base drive mature demand, while the AI4Belgium national programme attaches funding to strategic ambitions and EU AI Act preparation sustains compliance-focused activity.",
+      "Structurally, Belgium's multilingual, federal character cuts both ways: it serves Dutch-, French-, and German-language markets but adds linguistic and political complexity that slows national-strategy execution. A high wage structure and an SME adoption gap persist. The outlook is steady top-four positioning, with Belgium's governance and regulatory-readiness niche likely to deepen as the EU AI Act takes effect."
     ],
-    "marketInsights": "Belgium's combination of EU institutional presence (Brussels), financial services concentration, and chemicals/pharmaceuticals industries drives mature enterprise AI demand. The AI4Belgium national programme attaches funding to strategic ambitions.",
-    "strengths": [
-      "34.54% enterprise adoption — 4th in EU, ahead of Netherlands and Luxembourg in 2025 ranking.",
-      "2nd-highest ERP penetration in EU (62.45%) — strong digital foundation.",
-      "EU institutional concentration creates demand for governance, compliance, and EU AI Act training.",
-      "Trilingual market (Dutch, French, German) creates content reusability for adjacent markets.",
-      "Mature financial services and pharma verticals."
-    ],
-    "weaknesses": [
-      "Linguistic complexity raises localisation costs.",
-      "Federal political complexity affects national strategy execution speed.",
-      "SME adoption gap persists.",
-      "High wage structure constrains margins."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-4 adopter; EU AI Act preparation creates premium training demand.",
-      "globally": "EU regulatory hub; ideal launchpad for compliance-focused offerings."
-    }
+    "brief": false
   },
   {
     "country": "Luxembourg",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": null,
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "33.61% — 5th in EU (verified)"
-      },
-      {
-        "label": "High GDP per capita supports premium training spend",
-        "value": ""
-      },
-      {
-        "label": "Financial services concentration drives specialised AI demand",
-        "value": ""
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Luxembourg posts above-EU-average enterprise adoption in Eurostat's 2025 data [3], driven by an outsized financial-services and EU-institutional concentration that generates sophisticated, compliance-heavy AI demand in banking, fund administration, and insurance. High per-capita digital intensity and a multilingual (French/German/English) workforce reinforce a premium, specialised market.",
+      "The constraints are scale and competition: a ~660k-population market caps absolute demand, the talent market is intensely competitive, and the sectoral base is narrow. The outlook is a durable niche — per-capita financial sophistication second to none — rather than volume growth, with demand concentrated in regulated, high-value use cases."
     ],
-    "marketInsights": "Luxembourg's financial services and EU institutional concentration produce sophisticated AI demand at premium price points. The market is small in absolute terms but extraordinarily valuable per-engagement.",
-    "strengths": [
-      "33.61% enterprise adoption — top-5 in EU.",
-      "Banking, fund administration, and insurance concentration.",
-      "Premium pricing tolerance; high training-spend per learner.",
-      "Multilingual workforce (FR/DE/EN).",
-      "EU institutional presence creates governance-training demand."
-    ],
-    "weaknesses": [
-      "Tiny domestic market (~660k population) caps volume.",
-      "Highly competitive talent market.",
-      "Sophisticated client expectations require senior delivery talent.",
-      "No LLPA partner currently listed — gap to address."
-    ],
-    "comparativeContext": {
-      "inRegion": "Niche premium market.",
-      "globally": "Per-capita financial sophistication second to none."
-    }
+    "brief": false
   },
   {
     "country": "Germany",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "TÜV Rheinland",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~20% range (slightly above EU average; precise Eurostat 2025 country-level breakdown not yet published individually — must consult the interactive databrowser)"
-      },
-      {
-        "label": "Year-on-year growth",
-        "value": "from 11.6% (2023) to 19.8% (2024) — significant acceleration"
-      },
-      {
-        "label": "GenAI individual usage",
-        "value": "32% — below EU average"
-      },
-      {
-        "label": "Mittelstand digital lag persists",
-        "value": ""
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "Germany is the EU's largest economy and, on Eurostat's 2025 data [3], now sits above the EU average on adoption rate after a steep climb from earlier years; an OECD SME survey puts German SME generative-AI use at 51%, the highest of the seven countries it covered [6]. Concentrated industrial demand in automotive, manufacturing, and engineering, plus a strong certification and AI-assurance ecosystem aligned to the EU AI Act, are the main drivers, alongside a substantial startup scene in Berlin and Munich.",
+      "The structure is Mittelstand-shaped: large industrial firms move while resource-constrained SMEs lag, and below-average individual generative-AI usage signals workforce-readiness gaps. Fibre-infrastructure lag and a degree of regulatory conservatism slow deployment. The outlook hinges on whether the Mittelstand finds accessible, ROI-grounded adoption pathways; given the sheer size of the market, even modest rate gains translate into large absolute volume."
     ],
-    "marketInsights": "Germany's Mittelstand-led economy creates concentrated industrial AI demand in automotive, manufacturing, and engineering. Compliance and certification focus aligns naturally with EU AI Act preparation — and with TÜV's certification heritage. Mittelstand AI adoption requires accessible, ROI-grounded pathways.",
-    "strengths": [
-      "Largest EU economy — absolute market size enormous despite mid-tier adoption rate.",
-      "TÜV Rheinland partnership uniquely positioned for AI assurance/certification training.",
-      "463 AI startups; Berlin and Munich as innovation hubs.",
-      "Strong automotive and industrial AI vertical depth.",
-      "EU AI Act compliance creates sustained demand."
-    ],
-    "weaknesses": [
-      "Below-average individual GenAI usage (32%) signals workforce readiness gaps.",
-      "Fibre infrastructure lag (12.2% fibre-of-fixed-broadband, OECD-below).",
-      "Regulatory conservatism slows enterprise deployment.",
-      "Mittelstand resource constraints limit SME adoption.",
-      "AI use concentrated in advertising/market research (72%) and IT services (60%) — uneven economic spread."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-tier adoption rate but largest absolute market.",
-      "globally": "7th-largest AI startup ecosystem; DeepL among Europe's leading AI unicorns."
-    }
+    "brief": false
   },
   {
     "country": "Austria",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Enterprise Training Center",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~22–25% range (Eurostat 2025; modestly above EU average)"
-      },
-      {
-        "label": "Large enterprise adoption",
-        "value": "~50%; SME adoption: ~18%"
-      },
-      {
-        "label": "Lowest data-analytics adoption among EU",
-        "value": "only 26.34% perform data analytics"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "29.1%"
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "Austria reports modestly above-EU-average enterprise adoption in Eurostat's 2025 data [3], with an OECD SME survey putting Austrian SME generative-AI use at 42% [6], and a strong manufacturing and financial-services base centred on Vienna as a CEE regional hub. The German-language market shared with Germany and Switzerland eases tool and talent flows, and GDP per capita is high.",
+      "The defining structural weakness is a data-readiness gap: a low share of Austrian enterprises perform any data analytics, suggesting AI is being adopted on relatively weak data foundations, and a wide large-firm-versus-SME divide compounds this. A conservative enterprise culture and underinvestment in security relative to peers round out the barriers. The outlook is mid-tier adoption with the key task being to strengthen the underlying data layer so that AI use translates into value."
     ],
-    "marketInsights": "Austria's mid-tier adoption masks structural weaknesses in data-analytics readiness — among the lowest in the EU — indicating that AI adoption is happening on weak data foundations. This creates strong demand for data-fundamentals training as a prerequisite to scaling AI.",
-    "strengths": [
-      "Above-EU-average enterprise AI adoption.",
-      "Strong manufacturing and financial services base.",
-      "Vienna as a CEE regional hub.",
-      "High GDP per capita.",
-      "German-language content reusable with Germany and Switzerland."
-    ],
-    "weaknesses": [
-      "Critical data-readiness gap: only 26.34% of Austrian enterprises perform any data analytics — among EU lowest.",
-      "~32 pp size-class gap (large 50% vs SME 18%).",
-      "ICT security incidents low (12%) but reflects under-investment rather than perfect security.",
-      "Conservative enterprise culture."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-tier adoption with material data-foundation weakness.",
-      "globally": "Premium niche market."
-    }
+    "brief": false
   },
   {
     "country": "Switzerland",
-    "tier": 1,
-    "tierLabel": "Leader",
+    "dataConfidence": "MEDIUM",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Digicomp Academy",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (Q1 2026)",
-        "value": "37.8% — well above global average"
-      },
-      {
-        "label": "Microsoft AI Diffusion (H2 2025)",
-        "value": "34.8%"
-      },
-      {
-        "label": "GenAI individual usage",
-        "value": "47% — highest non-EU European country"
-      },
-      {
-        "label": "Swiss SME AI integration",
-        "value": "55% (22% fully integrated, 33% experimenting) per AXA/Sotomo"
-      }
+    "tier": 1,
+    "tierLabel": "Leader",
+    "paragraphs": [
+      "Switzerland combines premium financial-services and pharmaceutical demand with world-class research institutions (ETH Zurich, EPFL), and OECD ICT data places it among the more AI-engaged advanced economies [6], though its most-cited business figure comes from an AXA/Sotomo SME survey (~55% \"started integrating\" AI in 2024) [41] rather than a directly comparable statistics-office series. A strong data-protection framework and non-EU AI Act status create differentiation potential for firms seeking a distinct regulatory home.",
+      "Adoption prioritises quality, security, and regulatory alignment over speed, reflecting a conservative regulated-industry culture in banking, insurance, and pharma. A multilingual (German/French/Italian) operating environment, a small ~8.8M-population market, and a high wage base add complexity and cost. The outlook is a premium, deliberate adopter — deep in its core verticals, cautious elsewhere — with research strength a long-run advantage."
     ],
-    "marketInsights": "Switzerland's financial services and pharmaceutical sectors drive premium AI demand with strict compliance requirements. Premium pricing is accepted; clients prioritise quality, security, and regulatory alignment over cost.",
-    "strengths": [
-      "47% individual GenAI usage — among Europe's highest.",
-      "Premium market positioning enables sustainable high-margin training.",
-      "World-class universities (ETH Zurich, EPFL) and research ecosystem.",
-      "Strong data-protection framework; non-EU AI Act status creates differentiation potential.",
-      "Banking, insurance, and pharma create deep vertical opportunities."
-    ],
-    "weaknesses": [
-      "Multilingual delivery (DE/FR/IT) raises operational complexity.",
-      "Small domestic market (~8.8M population).",
-      "High wage/cost structure.",
-      "Conservative regulated-industry culture.",
-      "Limited official enterprise AI statistics (no Eurostat coverage)."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-tier on AI diffusion; among highest GenAI usage.",
-      "globally": "Premium financial and pharma AI hub."
-    }
+    "brief": false
   },
   {
     "country": "France",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~25–30% range (Eurostat 2025; France 2025 country-level breakdown not yet released individually — must consult databrowser)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "44.0% — #5 globally"
-      },
-      {
-        "label": "AI investment",
-        "value": "France attracted €109B in announcements (2025) under government AI strategy"
-      },
-      {
-        "label": "140%+ YoY enterprise AI customer growth (OpenAI)",
-        "value": ""
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "France pairs above-average enterprise adoption [3] with a top-six global working-age usage rate of 44.0% [4] and the largest national AI investment commitment in Europe, anchoring the most developed sovereign-AI strategy on the continent. Mistral AI provides a domestic frontier-model alternative, and strong public-sector engagement and active funding give France an unusually coherent national posture.",
+      "The structure shows a persistent SME-versus-large-enterprise gap and the compliance complexity of layering national digital-sovereignty rules on top of the EU AI Act, while a competitive talent market and multilingual content requirements add friction. The outlook is strong: France is both a top-tier diffusion market and a major investment destination, and its sovereign-AI bet positions it to capture more of the value chain domestically than most European peers."
     ],
-    "marketInsights": "France leads global AI investment among European nations, with strong national strategy and active funding. Mistral AI anchors a sovereign AI ecosystem. Enterprise demand is sophisticated, with strong sovereignty/regulation focus.",
-    "strengths": [
-      "#5 globally on AI diffusion (Microsoft, H2 2025).",
-      "€109B national AI investment commitment (largest in Europe).",
-      "Mistral AI provides domestic frontier-model alternative.",
-      "Strong public-sector AI engagement.",
-      "140%+ YoY enterprise AI customer growth."
-    ],
-    "weaknesses": [
-      "Persistent SME-vs-large adoption gap.",
-      "Regulatory complexity (EU AI Act + national digital sovereignty rules).",
-      "Multilingual delivery requirements for international content.",
-      "Competitive AI talent market."
-    ],
-    "comparativeContext": {
-      "inRegion": "AI-investment leader; sovereign AI strategy most developed.",
-      "globally": "Top-5 in AI diffusion; major investment destination."
-    }
+    "brief": false
   },
   {
     "country": "Ireland",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Nexus Human",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~25–30% range (Eurostat 2025; Ireland 2025 country-level breakdown not yet released individually)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "41.7% — #4 globally"
-      },
-      {
-        "label": "US tech multinational concentration (Google, Meta, Microsoft, Salesforce, AWS European HQs)",
-        "value": ""
-      },
-      {
-        "label": "Most-common AI use",
-        "value": "organisation of business administration processes"
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "Ireland's official CSO survey reports **more than 20% of enterprises used AI in 2025, up from over 15% in 2024** [11], alongside a top-four global working-age usage rate of 44.6% [4] and an OECD SME generative-AI figure of 45% [6], reflecting a distinctive economy shaped by the European headquarters of Google, Meta, Microsoft, Salesforce, and AWS. Those multinational subsidiaries operate to global AI standards and pull the national average up, while English-language operation and EU AI Act-compliance positioning make Ireland a gateway for US firms entering the EU.",
+      "The structure is bifurcated: fast-adopting multinational subsidiaries sit alongside a slower indigenous SME base, and heavy dependence on subsidiary activity makes the picture volatile. A small 5.1M-population market and a high wage structure cap domestic scale. The outlook is continued top-tier diffusion, with the strategic question being how much indigenous adoption can catch up to the multinational tier."
     ],
-    "marketInsights": "Ireland's US tech-multinational concentration creates a unique AI training market: clients are typically multinational subsidiaries with global standards but local delivery needs. Strong demand for English-language governance and implementation content.",
-    "strengths": [
-      "#4 globally on AI diffusion (Microsoft, H2 2025).",
-      "US tech multinational headquarters concentration.",
-      "English-language market reduces localisation costs.",
-      "EU AI Act compliance hub for US firms entering EU.",
-      "Strong digital infrastructure."
-    ],
-    "weaknesses": [
-      "Small domestic market (5.1M population).",
-      "Heavy dependence on multinational subsidiary demand (volatile).",
-      "High wage/cost structure.",
-      "Competitive talent market.",
-      "Indigenous SME adoption lags multinational subsidiary adoption."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-tier on AI diffusion.",
-      "globally": "Strategic gateway for US multinationals into the EU regulatory environment."
-    }
+    "brief": false
   },
   {
     "country": "United Kingdom",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "QA",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "UK DSIT enterprise AI adoption (5+ employees, fieldwork Feb–May 2025)",
-        "value": "16%"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "38.9%"
-      },
-      {
-        "label": "Private AI investment",
-        "value": "$4.5B (2024) — 3rd globally after US and China"
-      },
-      {
-        "label": "Near-term adoption pipeline",
-        "value": "14% of firms planning AI adoption within 3 months (highest since tracking began)"
-      },
-      {
-        "label": "ONS enterprise AI",
-        "value": "9% of UK firms have adopted AI as part of operations"
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "The UK is the clearest illustration of how methodology shapes the headline: the official DSIT survey (5+ employees, fieldwork Feb–May 2025) found **16% of firms currently use at least one AI technology** with 5% planning to and 80% doing neither [13]; the ONS Business Insights survey reported around **23%** by autumn 2025 [14]; and a British Chambers of Commerce survey put the figure near 54% — three \"true\" numbers measuring different populations. Financial-services depth in London, AI-safety leadership via the UK AI Safety Institute, and one of the strongest near-term pipelines in the survey set are the principal drivers.",
+      "By firm size the official data is stark — large enterprises at 36% versus micro firms at 14% [13] — and the most frequently cited barrier is a lack of identified business use case (71% of firms) [13], followed by limited skills and expertise. Post-Brexit regulatory divergence adds compliance complexity for multinationals. The outlook is solid mid-tier deployment underpinned by world-leading investment and a strong governance ecosystem, with the spread between surveys itself a caution against over-reading any single figure."
     ],
-    "marketInsights": "The UK's financial services depth, AI safety leadership (UK AI Safety Institute), and post-Brexit regulatory divergence create a distinct training market with specialised governance and compliance demand.",
-    "strengths": [
-      "3rd-largest global private AI investment.",
-      "Strongest near-term adoption pipeline in EU/UK survey set.",
-      "Financial services AI concentration in London.",
-      "AI Safety Institute creates governance and responsible-AI training demand.",
-      "English-language content market; most open to offshore outsourcing in Europe."
-    ],
-    "weaknesses": [
-      "Adoption acceleration lagging some global leaders (40% accelerating vs China 85%, India 74%).",
-      "33% cite expertise as top barrier.",
-      "Post-Brexit regulatory divergence creates compliance complexity for multinationals.",
-      "Uneven sector adoption (concentrated in financial services and tech).",
-      "Different measurements yield very different numbers (DSIT 16% vs ONS 9%) — methodology dependence."
-    ],
-    "comparativeContext": {
-      "inRegion": "Major investment leader, mid-tier deployment rate.",
-      "globally": "3rd-largest private AI investment market."
-    }
+    "brief": false
   },
   {
     "country": "Spain",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Netmind",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~20–25% range (Eurostat 2025; Spain 2025 country-level breakdown not yet released individually)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "39.7% — #6 globally"
-      },
-      {
-        "label": "ERP adoption",
-        "value": "60.38% — among EU highest"
-      },
-      {
-        "label": "BSC AI Factory anchors regional AI infrastructure",
-        "value": ""
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "Spain combines above-average enterprise adoption [3] with a top-six global working-age usage rate of 41.8% [4] and strong ERP penetration, supported by an active national AI strategy and the Barcelona Supercomputing Center's AI Factory. A large Spanish-speaking market gives Spanish-language AI products natural reach.",
+      "The structure shows the persistent SME gap, pronounced regional disparities (Madrid and Catalonia lead, southern regions lag), lower per-capita digital spend than Northern Europe, and brain drain to the UK and Germany. The outlook is mid-tier enterprise adoption paired with top-tier population diffusion, with the BSC infrastructure and national strategy providing a credible base for catch-up."
     ],
-    "marketInsights": "Spain combines strong digital infrastructure (3rd-highest EU ERP adoption) with active national AI strategy and the BSC AI Factory. Spanish-language content has natural Latin America export potential.",
-    "strengths": [
-      "Top-6 globally on AI diffusion (Microsoft).",
-      "3rd-highest ERP penetration in EU — strong foundation for AI.",
-      "BSC AI Factory (joint with Portugal and Romania) anchors regional infrastructure.",
-      "Spanish-language content addresses LatAm market.",
-      "Active national AI strategy."
-    ],
-    "weaknesses": [
-      "SME adoption gap persists.",
-      "Regional disparities (Madrid/Catalonia lead, southern regions lag).",
-      "Lower per-capita training spend than Northern Europe.",
-      "Brain drain to UK/Germany."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-tier enterprise adoption, top-tier diffusion.",
-      "globally": "Spanish-language hub for global content."
-    }
+    "brief": false
   },
   {
     "country": "Italy",
-    "tier": 2,
-    "tierLabel": "Advanced",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Pipeline",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~16% (Eurostat 2025; up from 8% in 2024 — doubled YoY; verified directionally)"
-      },
-      {
-        "label": "Cloud services adoption",
-        "value": "75.60% — 2nd-highest in EU"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "27.8%"
-      }
+    "tier": 2,
+    "tierLabel": "Advanced",
+    "paragraphs": [
+      "Italy roughly doubled enterprise AI adoption in a single year to about **16% in 2025** [1], driven by manufacturing and financial services and supported by the EU's second-highest cloud-services penetration. The strong cloud foundation means adoption is now playing catch-up to well-developed infrastructure rather than being constrained by it, and a large ~60M-population domestic market provides scale.",
+      "Italy still sits below the EU average, with a persistent north-south regional divide, an SME adoption lag, and lower individual generative-AI usage than Northern Europe. The outlook is a strong acceleration trajectory from a low base — a G7 economy with significant catch-up opportunity, particularly in its luxury-goods, automotive, and machinery manufacturing verticals."
     ],
-    "marketInsights": "Italy roughly doubled enterprise AI adoption in one year (8% → 16%), driven by manufacturing and financial services. Cloud infrastructure is well-developed; AI adoption is now playing catch-up to that foundation.",
-    "strengths": [
-      "Doubled YoY enterprise adoption — strong acceleration.",
-      "2nd-highest EU cloud adoption (75.60%).",
-      "Strong manufacturing AI vertical (luxury goods, automotive, machinery).",
-      "Active national AI strategy.",
-      "Italian-language content reusable for Italy-only market (~60M population)."
-    ],
-    "weaknesses": [
-      "Still below EU average (16% vs 20%).",
-      "Persistent north-south regional gap.",
-      "SME adoption lag.",
-      "Lower individual GenAI usage than Northern Europe."
-    ],
-    "comparativeContext": {
-      "inRegion": "Strong acceleration trajectory from low base.",
-      "globally": "G7 economy with significant catch-up opportunity."
-    }
+    "brief": false
   },
   {
     "country": "Portugal",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Western",
-    "estimated": false,
-    "partner": "Rumos",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~10–13% range (Eurostat 2025; Portugal recorded the smallest YoY increase in EU at +0.8 pp in 2024)"
-      },
-      {
-        "label": "BSC AI Factory participation",
-        "value": ""
-      },
-      {
-        "label": "Tourism and services sectors leading adoption",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Portugal records below-EU-average enterprise adoption in Eurostat's 2025 data [3], and the World Economic Forum and the European Commission's Digital Decade report both flag slow enterprise-AI uptake and digital-skills gaps as a drag on progress [40], even as Lisbon's status as a European tech hub and Web Summit host city builds momentum. Participation in the BSC AI Factory network and large Portuguese-speaking ties to Brazil and lusophone Africa give Portugal distinctive reach.",
+      "The structure shows below-average adoption, limited AI-infrastructure investment, and brain drain to the UK, Germany, and the Netherlands, set against an attractive cost of living that draws international talent. The outlook depends on converting Lisbon's hub momentum and skills inflows into broader enterprise adoption; the lusophone bridge gives Portugal a unique geographic positioning if it can close the skills gap."
     ],
-    "marketInsights": "Portugal's emerging-tier adoption masks a growing Lisbon tech-hub status and a Portuguese-language bridge to Brazil/Lusophone Africa. The 0.8 pp 2024 growth raised concerns; 2025 acceleration is needed.",
-    "strengths": [
-      "Lisbon emerging as European tech hub; Web Summit location.",
-      "Portuguese-language bridge to Brazil, Angola, Mozambique.",
-      "BSC AI Factory participation.",
-      "Attractive cost-of-living for international talent.",
-      "Tourism sector AI opportunity."
-    ],
-    "weaknesses": [
-      "Smallest YoY adoption increase in EU 2024 (+0.8 pp) — concerning momentum.",
-      "Below EU average enterprise adoption.",
-      "Limited AI infrastructure investment.",
-      "Brain drain to UK/Germany/Netherlands.",
-      "71% report difficulty hiring digital skills."
-    ],
-    "comparativeContext": {
-      "inRegion": "Lagging Northern Europe but tech-hub momentum.",
-      "globally": "Lusophone bridge gives unique geographic positioning."
-    }
+    "brief": false
   },
   {
     "country": "Czechia",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Gopas",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~15–18% range (Eurostat 2025; methodology break flagged)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "27.8%"
-      },
-      {
-        "label": "Strong manufacturing and automotive base",
-        "value": ""
-      },
-      {
-        "label": "One of EU's lowest ICT-women shares (13%)",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Czechia is among the stronger Central-and-Eastern-European adopters in Eurostat's 2025 data [3], with an industrial economy that generates concentrated manufacturing AI demand (Škoda and its supply chain) and a Prague tech ecosystem driving software-sector momentum. An active national strategy and a cost-competitive economy support a ~10.5M-population domestic market, and EU cluster analysis groups Czechia with France and Slovakia as growing-investment \"moderates.\"",
+      "The structure shows mid-tier digital intensity, an SME adoption lag, and one of the EU's lowest shares of women in ICT, a talent-pipeline constraint. The outlook is solid for the region — Czechia sits among the CEE front-runners — with industrial AI the clearest near-term opportunity."
     ],
-    "marketInsights": "Czechia's industrial economy creates concentrated manufacturing AI demand, while Prague's tech ecosystem drives software-sector momentum. Cluster analysis groups Czechia with France/Slovakia as \"Moderates\" with growing investment.",
-    "strengths": [
-      "Strong industrial AI demand (Škoda, manufacturing supply chain).",
-      "Prague as central European tech hub.",
-      "Active national AI strategy.",
-      "Cost-competitive operations.",
-      "Czech-language content reusable across the country (~10.5M population)."
-    ],
-    "weaknesses": [
-      "2025 break in time series — adoption figure must be interpreted with care.",
-      "Lowest ICT-women share in EU (13%) — diversity and talent-pipeline concern.",
-      "Mid-tier digital intensity.",
-      "SME adoption lag."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-tier; strongest among CEE except for Slovenia/Estonia.",
-      "globally": "Industrial AI niche with cost-competitive delivery."
-    }
+    "brief": false
   },
   {
     "country": "Slovakia",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Gopas",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~12–16% range (Eurostat 2025; below EU average)"
-      },
-      {
-        "label": "Lowest ICT security-incident rate in EU (12%, tied)",
-        "value": ""
-      },
-      {
-        "label": "Strong automotive manufacturing base (VW, KIA, PSA, Land Rover plants)",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Slovakia posts below-EU-average enterprise adoption [1] but hosts one of the densest industrial AI use cases in CEE through its per-capita-leading automotive manufacturing base (VW, KIA, PSA, Land Rover). A strong technical-education tradition, EU funding access, and cultural and linguistic ties with Czechia support adoption, and EU cluster analysis places Slovakia with the advancing \"moderates.\"",
+      "The barriers are a below-average baseline, brain drain to Czechia and Austria, limited AI-infrastructure investment, and a small ~5.5M-population market. The outlook is steady mid-CEE adoption anchored by concentrated automotive demand, with the depth of that single vertical both a strength and a concentration risk."
     ],
-    "marketInsights": "Slovakia's automotive concentration creates one of the densest industrial AI use cases in CEE. Slovakia clusters with Czechia and France as \"Moderates\" — advancing AI use in education, public sector, and business.",
-    "strengths": [
-      "Per-capita automotive manufacturing leader globally — concentrated industrial AI demand.",
-      "Cost-competitive operations.",
-      "Strong technical-education tradition.",
-      "EU funding access.",
-      "Shared cultural/linguistic ties with Czechia create regional content reusability."
-    ],
-    "weaknesses": [
-      "Below EU average enterprise adoption.",
-      "Brain drain to Czechia/Austria.",
-      "Limited AI infrastructure investment.",
-      "Small domestic market (~5.5M population)."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-CEE adoption tier.",
-      "globally": "Industrial AI niche."
-    }
+    "brief": false
   },
   {
     "country": "Hungary",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "MEDIUM",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Bittnet",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~13–16% range (Eurostat 2025; below EU average)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "27.9%"
-      },
-      {
-        "label": "Active national AI strategy",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Hungary shows below-EU-average enterprise adoption [3] with automotive and shared-services concentration generating industrial demand and Budapest emerging as a regional tech hub. An active national AI strategy and EU funding access support a cost-competitive economy.",
+      "The structure is constrained by limited fibre infrastructure, mid-tier digital intensity, and skills-gap pressure, while the political and regulatory environment can complicate EU programme participation. The outlook is mid-CEE — industrial AI demand provides a floor, but infrastructure and governance frictions cap the pace."
     ],
-    "marketInsights": "Hungary's automotive and shared-services concentration creates industrial AI demand. Budapest is an emerging tech hub. Bittnet's regional presence (Romania + Hungary) creates content-reuse opportunities.",
-    "strengths": [
-      "Industrial and automotive AI demand.",
-      "Budapest tech-hub momentum.",
-      "Cost-competitive operations.",
-      "EU funding access.",
-      "Cross-border content reusability with Bittnet's Romania operations."
-    ],
-    "weaknesses": [
-      "Below EU average adoption.",
-      "Limited fibre infrastructure.",
-      "Skills-gap pressure.",
-      "Mid-tier digital intensity.",
-      "Political/regulatory environment can complicate EU programme participation."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-CEE tier.",
-      "globally": "Industrial AI niche."
-    }
+    "brief": false
   },
   {
     "country": "Poland",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "CloudTeam",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "8.36% — 26th in EU (3rd-lowest; verified)"
-      },
-      {
-        "label": "Highest ICT security-incident rate in EU after Finland (32%)",
-        "value": ""
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "27.3%"
-      },
-      {
-        "label": "Lowest data-analytics adoption in EU (24.50%)",
-        "value": ""
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Poland combines the largest CEE economy with one of the EU's lowest enterprise-AI rates — **8.36% in 2025**, third-lowest in the bloc [1][2] — alongside the lowest data-analytics adoption in the EU, creating enormous catch-up potential. Individual generative-AI usage runs well ahead of enterprise adoption, indicating a large pool of informal \"shadow AI\" use sitting ahead of organisational integration, and a strong software-talent base in Warsaw and Kraków provides the human capital to close the gap.",
+      "The structure shows a weak data-foundation layer, a high business ICT-security-incident rate, and talent-retention pressure, even as the ~38M-population economy guarantees large absolute volume despite the low rate. The outlook is one of the EU's biggest catch-up opportunities: the talent and informal usage exist, so the binding task is converting individual use and economic scale into formal enterprise deployment."
     ],
-    "marketInsights": "Poland's large absolute economy combined with low enterprise AI adoption (8.36%) creates enormous catch-up potential. Polish individual GenAI usage (27.3%) is higher than enterprise adoption suggests — indicating informal individual use ahead of organisational integration.",
-    "strengths": [
-      "Largest CEE economy creates significant absolute volume opportunity despite low rate.",
-      "Strong technical talent base, especially in software.",
-      "Warsaw and Kraków as tech hubs.",
-      "Polish-language content (~38M population).",
-      "Active CloudTeam regional presence."
-    ],
-    "weaknesses": [
-      "8.36% enterprise adoption — 3rd-lowest in EU.",
-      "Lowest data-analytics adoption in EU.",
-      "Highest GenAI usage among populations with low enterprise adoption — large \"shadow AI\" gap.",
-      "Talent retention pressure."
-    ],
-    "comparativeContext": {
-      "inRegion": "Bottom tier on enterprise AI adoption.",
-      "globally": "Major catch-up opportunity given economic scale."
-    }
+    "brief": false
   },
   {
     "country": "Slovenia",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "MEDIUM",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "Kompas Xnet",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~15–20% range (Eurostat 2025; among intermediate EU adopters)"
-      },
-      {
-        "label": "Working-age AI adoption (Microsoft)",
-        "value": "24.6%"
-      },
-      {
-        "label": "Recognised by Eurostat cluster analysis as adopting AI for multiple purposes (with Belgium, Denmark, Netherlands, Sweden)",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Slovenia sits among the EU's intermediate adopters and is recognised in Eurostat cluster analysis — alongside Belgium, Denmark, the Netherlands, and Sweden — for adopting AI across multiple purposes [1], a quality signal even where the headline rate is mid-tier. Strong STEM education, a manufacturing base suited to applied AI, and high baseline digital literacy underpin adoption.",
+      "The constraints are a very small ~2.1M-population market, brain drain to Austria and Germany, limited Slovenian-language model resources, and modest AI-infrastructure investment. The outlook is that of a quality-of-adoption leader punching above its size — a niche specialist rather than a volume market."
     ],
-    "marketInsights": "Slovenia's small but highly educated workforce and manufacturing base create solid foundations. Eurostat groups Slovenia with Northern leaders for multi-purpose AI use — a quality signal even if the adoption rate is mid-tier.",
-    "strengths": [
-      "Recognised for broad AI-purpose adoption (Eurostat cluster).",
-      "Strong STEM education.",
-      "Manufacturing concentration enables applied AI.",
-      "Central European positioning.",
-      "High baseline digital literacy."
-    ],
-    "weaknesses": [
-      "Very small domestic market (~2.1M population).",
-      "Brain drain to Austria/Germany.",
-      "Limited Slovenian-language AI resources.",
-      "Limited AI infrastructure investment."
-    ],
-    "comparativeContext": {
-      "inRegion": "Quality-of-adoption leader despite mid-tier rate.",
-      "globally": "Niche specialist market."
-    }
+    "brief": false
   },
   {
     "country": "Croatia",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "MEDIUM",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Algebra Bernays University",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "~12–15% range (Eurostat 2025; mid-tier)"
-      },
-      {
-        "label": "Working-age AI adoption (Microsoft)",
-        "value": "21.8%"
-      },
-      {
-        "label": "ERP software adoption",
-        "value": "21.89% — LOWEST in EU"
-      },
-      {
-        "label": "Strong tourism sector",
-        "value": ""
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Croatia is a mid-tier CEE adopter with a moderate working-age usage rate [4], growing tourism-technology and startup demand, and EU funding access, but it carries a critical foundation gap: the lowest ERP adoption in the EU, which means AI is being layered onto relatively weak underlying enterprise systems [1]. Adriatic regional positioning and a growing academic-industry research base are supporting factors.",
+      "The structure is constrained by a small ~3.9M-population market, brain-drain pressure, and tourism seasonality that distorts investment cycles. The outlook is cautious: until the underlying enterprise-systems layer strengthens, AI adoption risks running ahead of the data and process foundations needed to extract value."
     ],
-    "marketInsights": "Croatia's tourism technology and emerging startup ecosystem create growing AI demand. EU funding access enables structural investment. Critical foundation gap: Croatia has the lowest ERP adoption in the EU at 21.89%, suggesting AI adoption is happening with weak underlying enterprise systems.",
-    "strengths": [
-      "Moderate AI adoption positioning (21.8% working-age).",
-      "EU funding access.",
-      "Tourism sector AI opportunity.",
-      "Adriatic regional hub positioning.",
-      "Algebra Bernays University offers strong academic-industry bridge."
-    ],
-    "weaknesses": [
-      "Lowest ERP adoption in EU (21.89%) — major data-foundation concern for AI scaling.",
-      "Small market (~3.9M population).",
-      "Brain-drain pressure.",
-      "Tourism seasonality affects training budgets.",
-      "Below EU average in key digital metrics."
-    ],
-    "comparativeContext": {
-      "inRegion": "Mid-tier adoption with foundational system gaps.",
-      "globally": "Tourism AI niche."
-    }
+    "brief": false
   },
   {
     "country": "Bulgaria",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "ITCE",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "8.55% — 25th in EU (verified)"
-      },
-      {
-        "label": "Lowest cloud adoption in EU (17.83%)",
-        "value": ""
-      },
-      {
-        "label": "Lowest social-media enterprise use in EU (41.51%)",
-        "value": ""
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "27.8%"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Bulgaria has a strong ICT-outsourcing sector that has not translated into domestic enterprise AI use — adoption is **8.55% in 2025**, near the EU floor, with the lowest cloud adoption in the EU [1][2] — signalling that foundational digital transformation must precede AI scaling. A significant technical-talent base, a cost-competitive economy, EU funding, and Sofia's emerging tech scene are the available strengths.",
+      "The structure is bottom-tier across virtually every EU digital indicator, with brain-drain pressure and limited domestic enterprise demand reinforcing the \"outsourcing-strong, domestic-weak\" pattern. The outlook depends on building basic digital foundations (cloud, data) before AI adoption can meaningfully accelerate."
     ],
-    "marketInsights": "Bulgaria's strong ICT outsourcing sector hasn't translated to domestic enterprise AI adoption. Bottom-tier across digital indicators (cloud, social, AI) signals that foundational digital transformation must precede AI scaling for most clients.",
-    "strengths": [
-      "Strong ICT outsourcing sector — significant technical talent base.",
-      "Cost-competitive operations.",
-      "EU funding access.",
-      "Sofia as emerging tech hub."
-    ],
-    "weaknesses": [
-      "Bottom-tier on virtually every EU digital metric (cloud, social, AI, ERP).",
-      "Lowest cloud adoption in EU (17.83%) — critical AI infrastructure gap.",
-      "Brain-drain pressure.",
-      "Limited domestic enterprise demand.",
-      "Significant catch-up required."
-    ],
-    "comparativeContext": {
-      "inRegion": "Bottom tier across digital indicators.",
-      "globally": "Outsourcing-strong, domestic-weak pattern."
-    }
+    "brief": false
   },
   {
     "country": "Romania",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Bittnet",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "5.21% — LOWEST in EU (verified)"
-      },
-      {
-        "label": "Year-over-year growth",
-        "value": "+2.14 pp (trajectory: 1.5% → 3.07% → 5.21%)"
-      },
-      {
-        "label": "GenAI individual usage",
-        "value": "17.8% — LOWEST in EU (verified)"
-      },
-      {
-        "label": "Cloud adoption",
-        "value": "24.94% — among EU lowest"
-      },
-      {
-        "label": "Large enterprise adoption",
-        "value": "20.75% (250+); SME adoption: 4.13% (10–49); size-class ratio 5.0x — most concentrated in EU"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Romania records the EU's lowest enterprise-AI adoption at **5.21% in 2025** [1][2], with the lowest individual generative-AI usage and among the lowest cloud adoption in the bloc, even as it hosts a strong ICT-outsourcing sector. The most concentrated size-class gap in the EU — large enterprises far ahead of SMEs — suggests the deficit sits in the counted small-and-medium layer rather than in national capability, and a National AI Strategy 2024–2027 allocates a share of GDP to research, with BSC AI Factory participation.",
+      "The barriers are the EU's lowest digital literacy and consumer awareness, a weak cloud base, and the extreme SME-versus-large divide. The outlook is a significant catch-up market built on a genuine technical foundation: the outsourcing talent exists, so the task is extending adoption beyond large firms into the SME tier that drags the average down."
     ],
-    "marketInsights": "Romania has the lowest enterprise AI adoption in the EU at 5.21%, yet hosts a strong ICT outsourcing sector. Members report client demand concentrated on awareness, foundational courses, and prompt engineering — not advanced topics. The size-class divide is the most concentrated in the EU when measured as a ratio. The gap most plausibly sits in the counted small-and-medium (10–249) layer, not in national capability or awareness.",
-    "strengths": [
-      "Strong technical talent in IT outsourcing.",
-      "Cost-competitive operations.",
-      "National AI Strategy 2024–2027 allocates 0.5% of GDP annually to research.",
-      "EU funding access (BSC AI Factory participation).",
-      "Bittnet established regional player with cross-border Hungary operations."
-    ],
-    "weaknesses": [
-      "Lowest enterprise AI adoption in EU (5.21%).",
-      "Lowest individual GenAI usage in EU (17.8%).",
-      "Lowest digital literacy and consumer awareness among EU members.",
-      "Most concentrated size-class gap in EU (5.0x ratio).",
-      "Outsourcing-strong, domestic-weak pattern."
-    ],
-    "comparativeContext": {
-      "inRegion": "EU floor on enterprise adoption.",
-      "globally": "Significant catch-up market with strong technical foundation."
-    }
+    "brief": false
   },
   {
     "country": "Serbia",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "MEDIUM",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Semos Education",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "~19% (estimated from regional patterns; Serbia not in Microsoft top-30)"
-      },
-      {
-        "label": "Active national AI Strategy 2025–2030 adopted (verified via EDIH/regional sources)",
-        "value": ""
-      },
-      {
-        "label": "Strong ICT sector but lagging enterprise digitalisation",
-        "value": ""
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Serbia is not in the Eurostat EU table and has no located statistics-office AI survey, but it leads the Western Balkans on policy ambition: it adopted one of the region's earliest national AI strategies (2020–2025) and a new 2025–2030 strategy in January 2025 [37], runs a National AI Platform and an AI research institute, and shows working-age generative-AI usage around 19–21% on Microsoft's proxy [4]. Belgrade is a regional tech hub with a strong ICT talent base.",
+      "The structure shows below-average enterprise adoption, an SME gap, brain drain to the EU, and transparency and governance gaps, with limited published enterprise statistics. The outlook is that of a policy-ambitious emerging market on an EU-accession standards-alignment path, where strategy currently outruns measured deployment."
     ],
-    "marketInsights": "Serbia's Research and Development Institute for Artificial Intelligence and active national strategy signal commitment. Serbian SMEs lag in advanced digital technology adoption per DESI; cluster analysis shows AI deployment primarily for operational efficiency, with limited strategic use.",
-    "strengths": [
-      "Active national AI strategy (2025–2030).",
-      "Strong ICT sector and talent base.",
-      "AI research institute established.",
-      "Belgrade as regional tech hub.",
-      "EU accession pathway driving standards alignment.",
-      "Semos regional presence across Serbia/Kosovo/Montenegro/North Macedonia enables shared content."
-    ],
-    "weaknesses": [
-      "Below EU average enterprise AI adoption.",
-      "SME adoption gap.",
-      "Brain drain pressure to EU.",
-      "Transparency and governance gaps.",
-      "Limited published enterprise statistics."
-    ],
-    "comparativeContext": {
-      "inRegion": "Western Balkans leader on policy ambition.",
-      "globally": "Emerging market with strong technical foundation."
-    }
+    "brief": false
   },
   {
     "country": "Albania",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "LOW",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "Semos Education",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No standalone Eurostat enterprise AI data published for Albania",
-        "value": ""
-      },
-      {
-        "label": "€8.8M (~$10M) government investment in Thinking Machines Lab (founded by ex-OpenAI CTO Mira Murati, Albanian-origin) — startup name verified; investment verified via Reuters and the 2025 budget amendment",
-        "value": ""
-      },
-      {
-        "label": "Digital Education Action Plan 2025–2030 integrates AI in education",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "<10% based on Western Balkans patterns"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "No national AI strategy or statistics-office survey is in place; adoption is best treated as a Western Balkans proxy in the low single-to-low-double digits, with high-profile government AI gestures and a young, English-proficient workforce as the main forward signals."
     ],
-    "marketInsights": "Albania has made notable AI policy and investment moves, including the high-profile Thinking Machines Lab investment. Enterprise adoption remains nascent; demand is concentrated in awareness and education-sector AI.",
-    "strengths": [
-      "High-profile government AI commitment (Thinking Machines Lab investment).",
-      "Digital Education Action Plan with AI integration.",
-      "Young, English-proficient workforce.",
-      "EU accession pathway.",
-      "Semos regional content reusability."
-    ],
-    "weaknesses": [
-      "Very limited enterprise AI adoption data — flag in client conversations.",
-      "Small economy and market.",
-      "Brain drain to EU.",
-      "Limited AI infrastructure.",
-      "Greenfield market — first-mover advantage but slow ramp."
-    ],
-    "comparativeContext": {
-      "inRegion": "Bottom-tier on enterprise data; policy ambition outpaces deployment.",
-      "globally": "Nascent emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Bosnia and Herzegovina",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "LOW",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "Lanaco Education Center",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No published Eurostat enterprise AI data",
-        "value": ""
-      },
-      {
-        "label": "UNDP and EU AI Act–aligned governance discussions underway",
-        "value": ""
-      },
-      {
-        "label": "Shop Circle has invested ~$20M and employs ~110 IT experts in Sarajevo",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "<10% based on Western Balkans patterns"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "No published national enterprise-AI figure exists; a complex federal political structure constrains national strategy, but a strong Sarajevo IT talent base and foreign tech investment validate the human capital, leaving adoption a low-single-to-double-digit estimate."
     ],
-    "marketInsights": "Bosnia's complex federal political structure constrains national AI strategy execution; UNDP reports highlight engagement with international guidance but limited domestic policy momentum. Foreign tech investment (Shop Circle) signals talent quality.",
-    "strengths": [
-      "Strong technical talent (Sarajevo IT ecosystem).",
-      "EEML (Eastern European Machine Learning Summer School) regional hub.",
-      "EU accession pathway.",
-      "Lower cost structure.",
-      "Lanaco established educational presence."
-    ],
-    "weaknesses": [
-      "Complex federal political structure slows national AI strategy.",
-      "No national e-service portal — fundamental digital government gap.",
-      "Very limited enterprise AI adoption data.",
-      "Brain-drain pressure.",
-      "Foundational digitalisation needed alongside AI."
-    ],
-    "comparativeContext": {
-      "inRegion": "Among the most fundamentally digitally-lagging EU neighbours.",
-      "globally": "Nascent emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Montenegro",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "LOW",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "Semos Education",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No published Eurostat enterprise AI data",
-        "value": ""
-      },
-      {
-        "label": "MontEDIH (European Digital Innovation Hub) launched in 2025 under the Digital Europe Programme (verified, European Commission)",
-        "value": ""
-      },
-      {
-        "label": "30% of public services available as digital transactions (regional mid-tier)",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "<10%"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "No national AI strategy or enterprise survey yet; a first public-administration AI readiness assessment with UNDP (2025) and a European Digital Innovation Hub are the main developments in a tiny ~620k-population market, so adoption is an estimate only."
     ],
-    "marketInsights": "Montenegro's MontEDIH launch (2025) supports SMEs and public organisations in digital and green transitions with AI/IoT/HPC focus. Tiny domestic market means regional service delivery (with the Semos network) is essential.",
-    "strengths": [
-      "MontEDIH launched 2025 — concrete delivery vehicle for digital programmes.",
-      "EU accession pathway.",
-      "Innovation-fund support for AI startups.",
-      "Semos regional content reusability."
-    ],
-    "weaknesses": [
-      "Tiny domestic market (~620k population).",
-      "Very limited enterprise AI adoption data.",
-      "Brain-drain pressure.",
-      "Limited AI infrastructure."
-    ],
-    "comparativeContext": {
-      "inRegion": "Smallest Balkan market by population.",
-      "globally": "Niche emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Kosovo",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "LOW",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "Semos Education",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No published Eurostat enterprise AI data; joined the EDIH network January 2025 (verified)",
-        "value": ""
-      },
-      {
-        "label": "10% of public services digitalised",
-        "value": ""
-      },
-      {
-        "label": "No national AI strategy or regulatory framework yet (verified)",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "<10%"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "No national AI strategy and no published enterprise-AI data; with only around 10% of public services digitalised, foundational digital adoption must precede AI scaling, making any figure a proxy."
     ],
-    "marketInsights": "Kosovo lacks a dedicated national AI strategy. Existing digital-transformation strategies focus on e-government, infrastructure, and service modernisation rather than AI specifically. Foundational digital adoption work must precede AI scaling for most clients.",
-    "strengths": [
-      "Young population, English-proficient workforce.",
-      "EU pathway aspiration.",
-      "Semos regional presence.",
-      "Greenfield AI market — first-mover advantage."
-    ],
-    "weaknesses": [
-      "No national AI strategy in place.",
-      "Only 10% of public services digitalised — fundamental e-gov gap.",
-      "No published enterprise AI adoption data.",
-      "Limited recognition (sovereignty issues affect EU programme access).",
-      "Brain-drain pressure."
-    ],
-    "comparativeContext": {
-      "inRegion": "Among the most digitally-nascent markets.",
-      "globally": "Emerging market with foundational work required."
-    }
+    "brief": true
   },
   {
     "country": "North Macedonia",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "LOW",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Semos Education",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "GenAI individual usage",
-        "value": "22% — among lowest in Europe"
-      },
-      {
-        "label": "INNOFEIT (European Digital Innovation Hub) launched 2025 (verified, European Commission)",
-        "value": ""
-      },
-      {
-        "label": "24% of public services available as digital transactions",
-        "value": ""
-      },
-      {
-        "label": "National AI strategy under development with EU-accession focus",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~10–15%"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "No national strategy is finalised, but selection as a EuroHPC \"AI Factory\" antenna (the Vezilka project) and a 2025 European Digital Innovation Hub launch are concrete steps; adoption remains an estimate in the low-to-mid-teens."
     ],
-    "marketInsights": "North Macedonia's emerging tech sector shows interest as part of broader economic modernisation. Greenfield market with first-mover advantage for quality providers. Semos's regional presence across the Western Balkans enables shared content delivery.",
-    "strengths": [
-      "Greenfield market with first-mover advantage.",
-      "EU accession trajectory drives standards alignment.",
-      "Cost-effective delivery location.",
-      "Regional connectivity for cross-border service.",
-      "Growing IT services sector."
-    ],
-    "weaknesses": [
-      "Below-average GenAI usage (22%).",
-      "Limited AI infrastructure.",
-      "Small market (~1.8M population).",
-      "Regulatory and governance gaps.",
-      "Brain drain to EU markets."
-    ],
-    "comparativeContext": {
-      "inRegion": "Among lowest GenAI adoption countries (with Bulgaria, Poland, Serbia).",
-      "globally": "Emerging market with EU-accession momentum."
-    }
+    "brief": true
   },
   {
     "country": "Greece",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": "Infolab",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "8.93% — 24th in EU (verified)"
-      },
-      {
-        "label": "Cloud adoption",
-        "value": "24.33% — 2nd-lowest in EU"
-      },
-      {
-        "label": "ICT-specialist workforce share",
-        "value": "3% — tied lowest in EU"
-      },
-      {
-        "label": "Most-common AI use",
-        "value": "ICT security (distinct pattern)"
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Greece records bottom-tier EU enterprise adoption at **8.93% in 2025**, with the second-lowest cloud adoption and a tied-lowest ICT-specialist workforce share in the bloc [1][2]. Distinctively, the most common AI use is ICT security rather than the marketing-and-sales pattern seen elsewhere, reflecting a regulated-industry concentration, and an active national strategy plus EU funding and a tourism-demand niche are the available drivers.",
+      "The structure is weak across digital indicators, with among the EU's weakest AI-reskilling initiatives and persistent brain-drain pressure. The outlook is a significant catch-up market where the priority is foundational — cloud, skills, and reskilling — before adoption can move off the EU floor."
     ],
-    "marketInsights": "Greece has the weakest AI reskilling initiatives in the EU per cluster analysis. The ICT-security primary use case (rather than marketing/sales as elsewhere) reflects regulated-industry concentration. Foundational digital and skills work required.",
-    "strengths": [
-      "Active national AI strategy.",
-      "EU funding access.",
-      "Tourism sector creates AI demand niche.",
-      "Athens emerging tech ecosystem."
-    ],
-    "weaknesses": [
-      "8.93% enterprise adoption — bottom-tier in EU.",
-      "Tied lowest ICT-specialist workforce share (3%).",
-      "2nd-lowest cloud adoption.",
-      "Weakest AI reskilling initiatives per EU cluster analysis.",
-      "Brain-drain pressure."
-    ],
-    "comparativeContext": {
-      "inRegion": "Bottom tier across digital indicators.",
-      "globally": "Significant catch-up market."
-    }
+    "brief": false
   },
   {
     "country": "Turkey",
-    "tier": 3,
-    "tierLabel": "Emerging",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": true,
-    "partner": "BilgeAdam IT Services",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "not in top-30 (likely mid-tier 15–25%)"
-      },
-      {
-        "label": "Active national AI strategy and significant investment",
-        "value": ""
-      },
-      {
-        "label": "Large absolute economy (top-20 globally) creates volume opportunity",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~15–20%"
-      }
+    "tier": 3,
+    "tierLabel": "Emerging",
+    "paragraphs": [
+      "Turkey's statistics office reported **7.5% of enterprises using AI in 2025**, up from 2.7% in 2021, with a steep size gradient (6.6% for firms with 10–49 employees, 9.6% for 50–249, and 24.1% for 250+) and information-and-communication (47.1%) and finance leading by sector [20]; the official ICT-survey trend is non-monotonic, having dipped before rising. A large top-20 economy, a young digital-native population (individual generative-AI use among 16–24-year-olds approaches 40%) [20], and a national AI strategy with an ambitious specialist-training target are the main drivers.",
+      "The structure shows a wide large-firm-versus-SME gap, economic volatility that affects investment, brain-drain pressure to the EU and US, and geopolitical friction around EU programme access. The outlook is substantial volume opportunity given the economy's size and demographics, provided macro instability does not crowd out business technology investment."
     ],
-    "marketInsights": "Turkey's combination of large economy, young digital-native population, and active national AI strategy creates substantial training opportunity. BilgeAdam's IT-services heritage positions a strong corporate channel.",
-    "strengths": [
-      "Large absolute economy and population (~85M).",
-      "Young workforce with strong digital adoption.",
-      "Active national AI strategy.",
-      "Istanbul and Ankara as tech hubs.",
-      "BilgeAdam established IT-services delivery network."
-    ],
-    "weaknesses": [
-      "Limited published enterprise AI adoption data.",
-      "Economic volatility (inflation) affects training budgets.",
-      "Brain-drain pressure to EU/US.",
-      "Geopolitical complexity affects EU programme access."
-    ],
-    "comparativeContext": {
-      "inRegion": "Among non-EU European markets, significant volume opportunity.",
-      "globally": "Top-20 economy with growing AI ecosystem."
-    }
+    "brief": false
   },
   {
     "country": "Cyprus",
-    "tier": 4,
-    "tierLabel": "Nascent",
+    "dataConfidence": "HIGH",
     "region": "Europe",
     "subRegion": "Central & Eastern",
-    "estimated": false,
-    "partner": null,
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "9.27% — bottom-tier in EU (verified)"
-      },
-      {
-        "label": "Financial services concentration creates niche premium demand",
-        "value": ""
-      },
-      {
-        "label": "Greek/Turkish bilingual capability",
-        "value": ""
-      }
+    "tier": 4,
+    "tierLabel": "Nascent",
+    "paragraphs": [
+      "Cyprus posts bottom-tier EU enterprise adoption at **9.27% in 2025** [1], with a small but financially sophisticated market generating niche premium demand and Greek/Turkish bilingual capability plus English proficiency supporting an EU regulatory-hub role. A national AI strategy (first approved in 2020) is being revised for the EU AI Act, with a national AI taskforce reconstituted in 2025.",
+      "The structure is constrained by a tiny domestic market, a concentrated sectoral base, and limited AI-infrastructure investment. The outlook is a specialised financial-services niche with strategic East-Mediterranean positioning rather than broad-based adoption."
     ],
-    "marketInsights": "Cyprus's small but financially-sophisticated market has below-EU-average enterprise AI adoption. Premium financial services niche creates specialised demand.",
-    "strengths": [
-      "Premium financial services concentration.",
-      "English-proficient market.",
-      "EU regulatory hub."
-    ],
-    "weaknesses": [
-      "Below EU average adoption (9.27%).",
-      "Tiny domestic market.",
-      "No LLPA partner currently listed — gap to address."
-    ],
-    "comparativeContext": {
-      "inRegion": "Bottom-tier on enterprise adoption.",
-      "globally": "Niche premium financial market."
-    }
+    "brief": false
   },
   {
     "country": "Singapore",
+    "dataConfidence": "HIGH",
+    "region": "Asia-Pacific",
     "tier": 1,
     "tierLabel": "Leader",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Working-age AI adoption (Microsoft Diffusion H2 2025)",
-        "value": "60.9% — #2 globally (verified)"
-      },
-      {
-        "label": "SME AI adoption",
-        "value": "14.5% (tripled YoY from 4.2%) (verified, IMDA)"
-      },
-      {
-        "label": "Non-SME adoption",
-        "value": "62.5% (up from 44%)"
-      },
-      {
-        "label": "Worker AI usage",
-        "value": "75% regularly use AI tools"
-      },
-      {
-        "label": "Government investment",
-        "value": "S$27B AI commitment; digital economy 18.6% of GDP"
-      }
+    "paragraphs": [
+      "Singapore is ASEAN's AI hub, and its official IMDA Digital Economy Report 2025 shows enterprise adoption climbing fast: **non-SME adoption reached 62.5% (from 44%) and SME adoption tripled to 14.5% (from 4.2%)**, while around three-quarters of workers report using AI at work and the digital economy now accounts for 18.6% of GDP [17]. Microsoft separately ranks Singapore second globally on working-age generative-AI usage at 60.9% [4]. National AI Strategy 2.0 and large-scale government programmes drive the push, and documented cost savings for SMEs using government-supported AI solutions provide a concrete ROI signal [17].",
+      "The structure shows the familiar split — large non-SME firms well ahead of a still-modest SME tier — and a heavy reliance on off-the-shelf generative-AI tools rather than custom deployment. High operating costs and a tight, competitive labour market are the binding constraints. The outlook is continued regional leadership, with the open question being how far SME adoption and depth of deployment can rise from here."
     ],
-    "marketInsights": "Singapore is ASEAN's AI hub. National AI Strategy 2.0, the Digital Leaders Programme (supporting 2,000 enterprises), and S$27B investment drive workforce upskilling at scale. 85% of AI-using workers report improved productivity. Note: the 60.9% is individual working-age usage; Singapore's own officials cite firm-level adoption nearer 23–28%. The two measure different things.",
-    "strengths": [
-      "#2 globally on working-age AI usage.",
-      "SME AI adoption tripled YoY.",
-      "S$27B government commitment.",
-      "Regional training hub for Southeast Asia.",
-      "Documented 52% average cost savings for SMEs using PSG AI-enabled solutions."
-    ],
-    "weaknesses": [
-      "High operating costs.",
-      "Talent competition in tight labour market.",
-      "SME adoption still modest in absolute terms (14.5%).",
-      "84% of AI-using firms rely on off-the-shelf GenAI tools (limited advanced demand).",
-      "IMDA flags hype-cycle concerns."
-    ],
-    "comparativeContext": {
-      "inRegion": "Regional AI hub.",
-      "globally": "#2 in working-age AI usage."
-    }
+    "brief": false
   },
   {
     "country": "Australia",
+    "dataConfidence": "HIGH",
+    "region": "Asia-Pacific",
     "tier": 1,
     "tierLabel": "Leader",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "Lumify Work",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI adoption",
-        "value": "35%+ of Australian businesses"
-      },
-      {
-        "label": "Large enterprise (500+)",
-        "value": "60%; enterprise AI growth 140%+ YoY (among fastest globally)"
-      },
-      {
-        "label": "GenAI individual usage",
-        "value": "49% (up from 38% in 2023)"
-      },
-      {
-        "label": "AI market value",
-        "value": "AUD 7.25B (2025); Microsoft AI Diffusion working-age usage 35.7%"
-      }
+    "paragraphs": [
+      "Australia's statistics office reports that AI is now the fastest-growing area for business R&D [26], and government and survey data put generative-AI individual usage at 49% (up from 38% in 2023) and large-enterprise adoption around 60%, with a 36.9% working-age usage rate [4]. A strong mining-and-resources industrial AI vertical and government R&D commitments support the momentum.",
+      "The structure shows a pronounced SME-versus-large gap (roughly 20% versus 60%) and a notable trust deficit: KPMG finds Australia lagging global AI trust despite rising use [27], and the Reserve Bank of Australia characterises enterprise-scale adoption as still early-stage. Geographic isolation is a mild structural factor. The outlook is among the faster-growing markets, with trust and SME depth the two issues to resolve."
     ],
-    "marketInsights": "Australia joins Brazil, Netherlands, and France among 140%+ YoY enterprise AI growth markets. RBA research signals continued tech-investment acceleration; trust remains a challenge (KPMG flags Australia as lagging global AI trust despite usage).",
-    "strengths": [
-      "140%+ YoY enterprise AI growth.",
-      "49% individual GenAI usage.",
-      "$124M government AI R&D commitment.",
-      "Strong mining/resources industrial AI vertical.",
-      "48% of businesses report positive AI ROI in year one."
-    ],
-    "weaknesses": [
-      "Trust deficit despite growing usage.",
-      "Significant SME-vs-large gap (20% vs 60%).",
-      "\"Adoption at enterprise scale still early-stage\" per RBA.",
-      "AI talent concentration below global leaders.",
-      "Geographic isolation affects instructor recruitment."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-tier alongside Singapore.",
-      "globally": "Among fastest-growing markets."
-    }
+    "brief": false
   },
   {
     "country": "New Zealand",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 1,
     "tierLabel": "Leader",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "Lumify Work",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Business AI adoption",
-        "value": "87% (Datacom State of AI Index 2025, n=200; verified — also reported by AI Forum NZ)"
-      },
-      {
-        "label": "Large enterprise (200+) adoption",
-        "value": "92%"
-      },
-      {
-        "label": "Knowledge-worker GenAI adoption",
-        "value": "84% (among world's highest)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "40.5%"
-      },
-      {
-        "label": "56% of businesses report financial returns; 93–96% of workers more efficient",
-        "value": ""
-      }
+    "paragraphs": [
+      "New Zealand posts one of the world's highest business-adoption figures by its leading survey — Datacom's State of AI Index 2025 (a vendor survey of senior leaders) found **87% of organisations use some form of AI, up from 48% in 2023, 92% among large enterprises, and 84% knowledge-worker generative-AI use** [29] — alongside a 40.5% working-age usage rate [4] and the country's first national AI Strategy (July 2025). The figure is definition-loose (\"AI in tools used\" rather than embedded in workflows), a caveat NZ analysts themselves raise [29].",
+      "The structure reveals the depth gap behind the breadth: only about 12% of organisations have scaled AI enterprise-wide [29], an off-the-shelf-tool preference limits deployment depth, and just a third of the public trusts AI. A smaller ~5.2M-population market caps scale. The outlook is top-tier on adoption breadth but with substantial room to convert tool use into scaled, governed deployment."
     ],
-    "marketInsights": "New Zealand surged from 48% (2023) to 87% (2025) business AI adoption. Off-the-shelf solution preference drives rapid deployment. Lumify's NZ/Australia regional positioning creates content reusability. First national AI Strategy released July 2025. Note: \"87%\" is definition-loose — \"AI in tools used\" rather than embedded in workflows. NZ analysts themselves flag this gap.",
-    "strengths": [
-      "87% business AI adoption — one of world's highest by this measure.",
-      "92% large enterprise adoption.",
-      "84% knowledge-worker GenAI adoption.",
-      "First national AI Strategy (July 2025) signals commitment.",
-      "$17M Responsible AI Adopt programme funding."
-    ],
-    "weaknesses": [
-      "Trust deficit (only 34% trust AI).",
-      "12% have scaled AI — \"shadow AI\" concern (52% of leaders flag unapproved tool usage).",
-      "Off-the-shelf preference limits advanced training demand.",
-      "Smaller absolute market (~5.2M population).",
-      "Late national strategy adoption."
-    ],
-    "comparativeContext": {
-      "inRegion": "Per-capita AI leader.",
-      "globally": "Top-tier on adoption breadth; gap on depth."
-    }
+    "brief": false
   },
   {
     "country": "Japan",
+    "dataConfidence": "HIGH",
+    "region": "Asia-Pacific",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Enterprise AI use in core business functions (OECD G7 analysis, 2024)",
-        "value": "1.9% — LOWEST among G7 (verified)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage growth",
-        "value": "among fastest globally (Q1 2026: 34.1% growth surge)"
-      },
-      {
-        "label": "Government AI computing allocation",
-        "value": "$740M"
-      },
-      {
-        "label": "Kore.ai survey",
-        "value": "56% AI adoption (slower than India 87%, North America 79%)"
-      }
+    "paragraphs": [
+      "Japan presents a paradox: the OECD reports that just **1.9% of Japanese firms use AI in core business functions — the lowest in the G7** [19] — even as individual usage grows among the fastest globally and the government commits heavily to AI computing. The world's third-largest economy provides enormous latent scale, with established programmes at Toyota, Sony, and Hitachi and a strong robotics-and-eldercare AI vertical, and the MIC's annual white paper frames the national policy push [18].",
+      "The structure is shaped by cautious, hierarchical decision-making, Japanese-language frontier-model gaps, and an aging workforce, which together slow enterprise scaling despite rising individual fluency. The outlook is a market with the most G7 catch-up to do on enterprise integration, where the binding question is whether cautious leadership culture can convert individual usage and government compute investment into core-function deployment."
     ],
-    "marketInsights": "Japan presents a paradox: rapid individual AI-usage growth (34% surge) but among the lowest enterprise core-business AI integration. Cautious leadership, hierarchical decision-making, and Japanese-language frontier-model gaps slow enterprise scaling. Demand is shifting from awareness to deployment.",
-    "strengths": [
-      "3rd-largest economy creates volume.",
-      "$740M government AI computing investment.",
-      "Strong industrial AI vertical (robotics, eldercare — 15,000+ eldercare robots deployed).",
-      "Major manufacturing firms (Toyota, Sony, Hitachi) with established AI programmes.",
-      "Rapid individual usage growth."
-    ],
-    "weaknesses": [
-      "Lowest G7 enterprise AI integration (1.9% per OECD).",
-      "Cautious leadership culture.",
-      "Japanese-language AI model capability gaps.",
-      "Aging workforce challenges.",
-      "Slower enterprise decision-making."
-    ],
-    "comparativeContext": {
-      "inRegion": "Massive scale, modest adoption depth.",
-      "globally": "G7 economy with most catch-up to do on enterprise AI."
-    }
+    "brief": false
   },
   {
     "country": "South Korea",
+    "dataConfidence": "HIGH",
+    "region": "Asia-Pacific",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage growth",
-        "value": "+43.2% (H1 2025 → Q1 2026) — LARGEST increase globally (verified)"
-      },
-      {
-        "label": "Climbed from #25 to #18 in Microsoft global ranking",
-        "value": ""
-      },
-      {
-        "label": "One of ChatGPT's fastest-growing markets — OpenAI opened a Seoul office",
-        "value": ""
-      },
-      {
-        "label": "Kore.ai survey",
-        "value": "64% AI adoption; government commitment $6.94B by 2027"
-      }
+    "paragraphs": [
+      "Korea's official figures span a wide range that is itself the story: the KOSIS Survey of Business Activities recorded **6.35%** and the NIA's Enterprise Informatization Statistics **30.3%** for the same 2023 reference year, with the NIA data showing a steep size gradient (63.3% for large firms versus 27.4% for mid-sized) [23][7]. Korea was also the single biggest mover on Microsoft's diffusion ranking, climbing seven places as working-age usage rose to 30.7% [4], helped by an AI Basic Act, a national strategy committee, and improved Korean-language models.",
+      "The structure reflects chaebol-led integration at Samsung, LG, and Hyundai, a strong semiconductor position, and a cautious leadership culture relative to the fastest adopters, with the recent surge coming off a relatively low base. The outlook is strong momentum with the caveat that the \"true\" adoption rate depends entirely on which official survey and threshold one uses — a reminder to cite scope precisely."
     ],
-    "marketInsights": "South Korea posted the largest single-period AI adoption jump of any country in H2 2025. Driven by government policy, improved Korean-language model capabilities, and consumer-facing features. Samsung, LG, Hyundai integrating AI across operations.",
-    "strengths": [
-      "Largest single-period AI adoption growth globally.",
-      "Samsung, LG, Hyundai conglomerate AI integration.",
-      "37% of global AI chips supplied by Korea.",
-      "Government AI National Strategy targeting top-3 by 2027.",
-      "Advanced 5G infrastructure."
-    ],
-    "weaknesses": [
-      "Was historically slow (recent surge from low base).",
-      "Cautious leadership in Kore.ai survey (64% — slower than India 87%).",
-      "Talent competition with Japanese and Chinese markets.",
-      "Chaebol concentration limits SME ecosystem."
-    ],
-    "comparativeContext": {
-      "inRegion": "Among fastest-growing markets.",
-      "globally": "#18 in Microsoft ranking with strongest momentum."
-    }
+    "brief": false
   },
   {
     "country": "Taiwan",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Asia-Pacific",
-    "estimated": true,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "28.6%"
-      },
-      {
-        "label": "Semiconductor concentration (TSMC) anchors global AI supply chain",
-        "value": ""
-      },
-      {
-        "label": "Hitachi Vantara APAC survey included Taiwan among assessed markets",
-        "value": ""
-      }
+    "paragraphs": [
+      "Taiwan's strategic weight comes from its semiconductor dominance (TSMC anchors the global AI hardware supply chain), and domestic enterprise adoption follows industrial patterns concentrated in manufacturing AI and design automation, with a 28.6% working-age usage rate on Microsoft's proxy [4]. An AI Action Plan 2.0 and a recently passed AI Basic Act provide the policy frame. No authoritative government enterprise-adoption percentage was confirmed, so secondary estimates around 30% should be verified before being used as a headline.",
+      "The structure is constrained by a semiconductor-dominant economy that limits AI use-case diversity, geopolitical risk that clouds long-run investment certainty, and limited published enterprise-survey data. The outlook is that of a critical AI supply-chain node whose own domestic adoption is solid but narrowly concentrated."
     ],
-    "marketInsights": "Taiwan's semiconductor dominance (TSMC) creates a strategic position in global AI hardware. Domestic enterprise AI adoption follows industrial patterns; demand concentrated in manufacturing AI and design automation.",
-    "strengths": [
-      "TSMC global semiconductor leadership.",
-      "Strong industrial AI demand.",
-      "High digital infrastructure.",
-      "Technical workforce.",
-      "28.6% diffusion among Microsoft top-30."
-    ],
-    "weaknesses": [
-      "Geopolitical risk affects long-term investment certainty.",
-      "Semiconductor-dominant economy limits AI use-case diversity.",
-      "Limited published enterprise survey data.",
-      "Mandarin Chinese language complexities for international content."
-    ],
-    "comparativeContext": {
-      "inRegion": "Strategic semiconductor anchor.",
-      "globally": "Critical AI supply-chain node."
-    }
+    "brief": false
   },
   {
     "country": "China",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Enterprise AI deployment",
-        "value": "58% — weak single-source figure (aggregator, McKinsey-based); IBM 2023 put it at 50%; treat as Tier C"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage",
-        "value": "~16% (verified) — gap between enterprise and population"
-      },
-      {
-        "label": "Private AI investment 2024",
-        "value": "$9.3B (2nd globally, verified)"
-      },
-      {
-        "label": "$47.5B semiconductor fund + $8.2B national AI fund; 69.7% of all AI patent grants (2023, Stanford HAI, verified)",
-        "value": ""
-      }
+    "paragraphs": [
+      "China leads enterprise AI deployment by several consultancy measures but lags on population-level generative-AI use — Microsoft's 16.3% working-age figure, which Microsoft itself warns understates China owing to limited telemetry [4] — while Stanford's AI Index notes China posted among the highest year-over-year increases in enterprise generative-AI use [5]. Massive state investment, a leading share of global AI patents, and domestic frontier models (DeepSeek, Qwen, Baidu Ernie) are the drivers, and adoption is strongly state-directed.",
+      "The structure is distorted by measurement: different surveys produce widely different numbers, a credibility risk that demands careful scoping, and US export restrictions on advanced chips plus limited access to international AI tools shape both capability and population usage. The outlook is the world's largest absolute market with genuine enterprise depth, best discussed in directional rather than precise terms given the measurement spread."
     ],
-    "marketInsights": "China leads enterprise AI deployment by some measures but lags in population-level generative AI use due to platform restrictions. Different survey methodologies produce wildly different numbers; cite scope carefully. Strong state-driven adoption.",
-    "strengths": [
-      "58% enterprise AI deployment (weak-source — treat as directional).",
-      "69.7% of global AI patent grants.",
-      "Massive state investment.",
-      "Domestic frontier models (DeepSeek, Qwen, Baidu Ernie).",
-      "Strong industrial AI integration."
-    ],
-    "weaknesses": [
-      "Different measurements yield wildly different numbers — credibility risk.",
-      "US export restrictions on advanced chips.",
-      "Limited international AI tool access affects population usage.",
-      "Regulatory complexity for foreign firms.",
-      "Restricted access to global AI ecosystem."
-    ],
-    "comparativeContext": {
-      "inRegion": "Largest absolute market.",
-      "globally": "#2 in AI investment; tied for enterprise deployment leadership."
-    }
+    "brief": false
   },
   {
     "country": "India",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Enterprise AI deployment",
-        "value": "87% (Kore.ai) — verified, but the top of a wide range; IBM 59%, Deloitte ~40% \"significant use\""
-      },
-      {
-        "label": "Stanford HAI / ADP",
-        "value": "80%+ of employees use AI at work semi-regularly/regularly (verified)"
-      },
-      {
-        "label": "IndiaAI Mission",
-        "value": "$1.25B commitment"
-      },
-      {
-        "label": "India registered \"sharpest rise in concern around AI usage\" (+14 pp) between 2024–2025",
-        "value": ""
-      }
+    "paragraphs": [
+      "India shows extraordinary enterprise engagement by its leading industry index — NASSCOM's AI Adoption Index puts **87% of companies in middle-to-advanced adoption stages** [30] — though other surveys read considerably lower and Microsoft's working-age figure is 15.7% [4], so the headline is best read as the top of a wide range. A massive English-proficient technical workforce, a national AI mission with substantial funding, and a strong domestic startup ecosystem drive the momentum, with over 80% of employees reporting semi-regular AI use at work.",
+      "The structure shows a wide gap between the IT-and-services sector and the broader economy, infrastructure constraints outside major cities, and highly variable deployment quality, while Stanford data note that India's rise in AI concern is now outpacing its rise in excitement — a maturing-market signal [5]. The outlook is top-tier population-scale engagement with the caveat that deployment depth and quality vary enormously."
     ],
-    "marketInsights": "India shows extraordinary enterprise AI adoption (87% per Kore.ai) and worker engagement (80%+ semi-regularly using AI). The Stanford HAI 2026 finding that India's increase in AI concern (+14 pp) outpaces its increase in excitement (+2 pp) signals a maturing market where productivity is real but trust is becoming a concern.",
-    "strengths": [
-      "87% enterprise AI adoption per Kore.ai — among world's highest (top of range).",
-      "80%+ of employees use AI semi-regularly at work.",
-      "IndiaAI Mission $1.25B commitment.",
-      "Massive English-proficient technical workforce.",
-      "IT services sector global leadership; strong domestic AI startup ecosystem."
-    ],
-    "weaknesses": [
-      "Rising AI concern outpacing excitement (Stanford HAI).",
-      "Wide gap between IT/services sector and broader economy.",
-      "Infrastructure constraints outside major cities.",
-      "3.5 GW data-centre capacity — relatively small.",
-      "Quality vs quantity of AI deployment varies widely."
-    ],
-    "comparativeContext": {
-      "inRegion": "Largest population-scale AI market.",
-      "globally": "Top-tier enterprise deployment by Kore.ai/McKinsey measures."
-    }
+    "brief": false
   },
   {
     "country": "Hong Kong",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "HKPC AI Readiness in Workplace Survey 2025 (n≈800, Sep 2025)",
-        "value": "AI adoption approaches ~90% (HKPC figure, not independently verified)"
-      },
-      {
-        "label": "Cisco AI Readiness Index 2025",
-        "value": "only 2% of Hong Kong organisations fully prepared for AI — lowest among 30 markets surveyed globally (verified)"
-      },
-      {
-        "label": "HKSAR Policy Address designated AI a pillar industry; HKPC \"AI for All\" initiative launched 2025",
-        "value": ""
-      },
-      {
-        "label": "Talent shortage cited as #1 enterprise challenge",
-        "value": ""
-      }
+    "paragraphs": [
+      "Hong Kong defines the adoption-versus-readiness paradox: local surveys put enterprise AI uptake near 90% in some form, yet Cisco's AI Readiness Index 2025 found **only 2% of organisations fully prepared to deploy AI — the lowest of 30 markets surveyed** [28]. The two figures come from different surveys with different samples and are both real but not directly comparable; government designation of AI as a pillar industry and the HKPC's \"AI for All\" programme sustain momentum.",
+      "The structure shows near-universal adoption resting on heavy reliance on off-the-shelf tools, an explicit #1-ranked talent shortage, and Mainland China data-sovereignty complexity for cross-border deployments. The outlook is the clearest demonstration in this report of the gap between adopting AI and being ready to extract value from it."
     ],
-    "marketInsights": "Hong Kong presents the most striking adoption–readiness paradox of any market in this report: ~90% of enterprises have adopted AI in some form, yet only 2% are fully ready to deploy it at scale (Cisco). The market is essentially the global benchmark for the strategic-clarity gap made literal. Demand is shifting from awareness to governance, scaling, and talent development. Note: the headline 90%-vs-2% paradox blends two different surveys with different samples (HKPC ~800 firms vs Cisco 500+ employee firms). Both figures are real but not directly comparable.",
-    "strengths": [
-      "Near-universal enterprise AI adoption (~90%) — high reach for foundational and implementation content.",
-      "Government designation of AI as pillar industry creates sustained demand.",
-      "HKPC's \"AI for All\" initiative anchors an enterprise-training channel.",
-      "Major financial services and trading concentration creates premium training niches.",
-      "Strong English/Cantonese/Mandarin trilingual content reusability across Greater China.",
-      "Strategic gateway between Mainland China AI ecosystem and Western platforms."
-    ],
-    "weaknesses": [
-      "Lowest AI readiness among 30 global markets (Cisco) despite ~90% adoption.",
-      "Talent shortage explicitly cited as #1 enterprise challenge.",
-      "Mainland China data-sovereignty complexity affects cross-border deployments.",
-      "Economic uncertainty affects training investment cycles.",
-      "Heavy reliance on off-the-shelf tools rather than custom deployment."
-    ],
-    "comparativeContext": {
-      "inRegion": "Highest adoption rate, lowest readiness — defines the regional paradox.",
-      "globally": "The clearest demonstration of the adoption-vs-value gap the report is built around."
-    }
+    "brief": false
   },
   {
     "country": "Indonesia",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "E-commerce merchant AI adoption",
-        "value": "42% (tied with Vietnam for ASEAN leadership)"
-      },
-      {
-        "label": "PwC Hopes and Fears",
-        "value": "96% of Indonesian daily AI users report productivity improvement (above 92% global)"
-      },
-      {
-        "label": "82% feel more job-secure; 72% have seen salary increases (above global)",
-        "value": ""
-      },
-      {
-        "label": "Large domestic market (273M population)",
-        "value": ""
-      }
+    "paragraphs": [
+      "Indonesia leads ASEAN on several bottom-up adoption measures, with e-commerce-merchant AI use around 42% and daily AI users reporting above-global productivity gains (a PwC sample put productivity improvement at 96% among daily users) [42], supported by a massive 270M-plus-population market and a young, digital-native workforce. McKinsey/EDB research finds nearly half of surveyed Southeast Asian firms have moved beyond pilots [38], and major cloud-and-AI infrastructure commitments from global hyperscalers reinforce the trajectory.",
+      "The structure shows skills gaps across generations, infrastructure variation outside the major islands, developing Bahasa Indonesia model resources, and limited published enterprise-survey data. The outlook is a large emerging market with strong productivity evidence and bottom-up momentum, where the constraint is even infrastructure and skills rather than demand."
     ],
-    "marketInsights": "Indonesia leads ASEAN on bottom-up adoption rates at population level. Daily AI users in Indonesia report higher productivity gains, job security, and salary increases than global averages — strong ROI evidence. Demand spans from Gen Z workforce to enterprise.",
-    "strengths": [
-      "42% e-commerce AI adoption (tied with Vietnam, ASEAN leader).",
-      "Above-global productivity ROI evidence (96%/82%/72%).",
-      "Massive domestic market.",
-      "Young, digital-native Gen Z workforce.",
-      "Strong consumer AI adoption."
-    ],
-    "weaknesses": [
-      "Skills gaps across generations.",
-      "Infrastructure variation outside major islands.",
-      "Limited published enterprise survey data.",
-      "Bahasa Indonesia AI model resources still developing."
-    ],
-    "comparativeContext": {
-      "inRegion": "ASEAN bottom-up adoption leader.",
-      "globally": "Large emerging market with strong productivity evidence."
-    }
+    "brief": false
   },
   {
     "country": "Malaysia",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Stanford HAI 2026",
-        "value": "Malaysia among countries where >80% of respondents say AI will profoundly change their lives in 3–5 years"
-      },
-      {
-        "label": "Largest increase in AI excitement from 2024 (Stanford HAI)",
-        "value": ""
-      },
-      {
-        "label": "Strong infrastructure investment",
-        "value": ""
-      }
+    "paragraphs": [
+      "Malaysia is making major AI-infrastructure bets and shows strong sentiment signals — Stanford data identify it among the countries with the largest increase in AI excitement [5] — backed by significant data-centre and cloud investment, an active national AI roadmap, a multilingual workforce, and strategic ASEAN positioning near Singapore; regional McKinsey/EDB analysis places it among the fast-moving SEA economies [38].",
+      "The structure shows limited published enterprise-adoption data, mid-tier per-capita digital intensity, talent competition, and brain drain to Singapore. The outlook is an emerging market with strong infrastructure-investment momentum and positive sentiment, where the missing piece is hard enterprise-adoption measurement."
     ],
-    "marketInsights": "Malaysia is making major AI infrastructure bets (data centres, cloud facilities). Stanford HAI 2026 identifies Malaysia as having the largest increase in AI excitement among surveyed countries. Demand spans from enterprise modernisation to government services.",
-    "strengths": [
-      "Major infrastructure investment momentum.",
-      "Strong AI excitement signal (Stanford HAI).",
-      "Active national AI roadmap.",
-      "Multilingual workforce (Malay/English/Chinese).",
-      "Strategic ASEAN positioning."
-    ],
-    "weaknesses": [
-      "Limited published enterprise AI adoption data.",
-      "Mid-tier per-capita digital intensity.",
-      "Brain drain to Singapore.",
-      "Talent competition."
-    ],
-    "comparativeContext": {
-      "inRegion": "ASEAN infrastructure investment leader.",
-      "globally": "Emerging market with strong momentum signals."
-    }
+    "brief": false
   },
   {
     "country": "Thailand",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "AI usage growth between H1 2025 and Q1 2026",
-        "value": "36.2% (among fastest globally)"
-      },
-      {
-        "label": "Stanford HAI 2026",
-        "value": ">80% say AI will profoundly change their lives in 3–5 years"
-      },
-      {
-        "label": "ASEAN-6 economy with active e-commerce AI use",
-        "value": ""
-      }
+    "paragraphs": [
+      "Thailand posted among the world's fastest AI-usage growth between H1 2025 and Q1 2026 on Microsoft's diffusion data [4], combining strong consumer adoption with city-scale smart-city AI projects and an active e-commerce AI ecosystem, and Stanford data place it among the high \"AI will change my life\" cohorts [5]. Tourism creates a distinct AI-demand niche.",
+      "The structure shows limited published enterprise-survey data, mid-tier digital infrastructure outside Bangkok, skills gaps, and developing Thai-language model resources. The outlook is top-tier growth momentum, with the task being to translate fast consumer and pilot activity into measured enterprise deployment."
     ],
-    "marketInsights": "Thailand posted 36.2% AI usage growth between H1 2025 and Q1 2026 — among the world's fastest. Strong consumer adoption combined with city-scale AI innovation projects (smart cities).",
-    "strengths": [
-      "36.2% AI usage growth — among world's fastest.",
-      "Strong tourism AI demand.",
-      "City-scale smart-city AI projects.",
-      "ASEAN positioning.",
-      "Active e-commerce AI ecosystem."
-    ],
-    "weaknesses": [
-      "Limited published enterprise survey data.",
-      "Mid-tier digital infrastructure outside Bangkok.",
-      "Skills gaps.",
-      "Thai-language AI model resources."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-tier growth momentum.",
-      "globally": "Among fastest-growing AI markets."
-    }
+    "brief": false
   },
   {
     "country": "Vietnam",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "E-commerce merchant AI adoption",
-        "value": "42% (tied with Indonesia for ASEAN leadership)"
-      },
-      {
-        "label": "Engineers using AI",
-        "value": "94.3% for writing code, 70% for documents, 62.9% for testing"
-      },
-      {
-        "label": "AI Readiness rating",
-        "value": "49% (vs 44% regional average)"
-      },
-      {
-        "label": "VIGEN — Vietnamese-language LLM in development",
-        "value": ""
-      }
+    "paragraphs": [
+      "Vietnam shows ASEAN-leading bottom-up adoption and strong readiness scoring above the regional average, ranking sixth on the WIN World AI Index 2025 [43], with e-commerce-merchant AI use around 42% and a real domestic foundation effort in Project ViGen (open Vietnamese datasets led by Meta, the National Innovation Center, and partners); regional McKinsey/EDB analysis places Vietnam among the fast-moving SEA economies [38]. A large, low-cost technical workforce and a December 2025 Law on Artificial Intelligence underpin the momentum.",
+      "The structure shows a gap between ambition and scaled deployment, limited enterprise-level data, skills-gap pressure on advanced applications, and still-maturing infrastructure. The outlook is a strong emerging market and ASEAN readiness leader, with deployment depth the next hurdle."
     ],
-    "marketInsights": "Vietnam shows ASEAN-leading bottom-up AI adoption among technical workers (94.3% of engineers use AI for coding) and strong AI readiness scoring above regional average. Domestic LLM development (VIGEN) supports cultural alignment.",
-    "strengths": [
-      "94.3% of engineers using AI (regional highest).",
-      "49% AI Readiness rating (above regional average).",
-      "Open-data repositories and VIGEN LLM development.",
-      "Strong technical workforce.",
-      "ASEAN growth leader on AI."
-    ],
-    "weaknesses": [
-      "Gap between ambition and scaled deployment.",
-      "Limited published enterprise-level data.",
-      "Skills-gap pressure on advanced applications.",
-      "Infrastructure investment still maturing."
-    ],
-    "comparativeContext": {
-      "inRegion": "ASEAN AI readiness leader.",
-      "globally": "Strong emerging market."
-    }
+    "brief": false
   },
   {
     "country": "Philippines",
+    "dataConfidence": "MEDIUM",
+    "region": "Asia-Pacific",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Reported as the only country where AI adoption declined in 2025 — from 37% to 35% (Cybernews/Stanford HAI cross-references) — distinctive claim, not independently verified",
-        "value": ""
-      },
-      {
-        "label": "Stanford HAI 2026",
-        "value": "Philippines among >80% saying AI will profoundly change lives in 3–5 years"
-      },
-      {
-        "label": "Underutilised academic research base",
-        "value": ""
-      }
+    "paragraphs": [
+      "The Philippines is an outlier whose adoption reportedly dipped in 2025 — the Cybernews AI Adoption Index — which tracks consumer AI-tool downloads, not enterprise use — recorded a fall from 37% to 35% (the only market in its dataset to decline), attributed largely to slower GDP growth [46], and the claim should be flagged as a single-index, consumer-level finding rather than an enterprise measure (other Philippine surveys range from low single digits to over 90% depending on scope). An English-language workforce, a large BPO industry creating an AI-demand niche, a strong academic research base, and a young population are the forward signals.",
+      "The structure shows an economic slowdown affecting investment, infrastructure gaps outside Manila, and limited published enterprise data. The outlook is a recovery candidate whose distinctive reported decline needs verification and careful scoping before it is quoted as fact."
     ],
-    "marketInsights": "The Philippines posted the only year-over-year AI adoption decline among major markets in 2025 — driven largely by 4.4% GDP growth (weakest since 2011 outside the pandemic). Strong English-language workforce and academic base remain assets for recovery.",
-    "strengths": [
-      "English-language workforce (massive advantage).",
-      "BPO industry concentration creates AI demand niche.",
-      "Strong academic research base.",
-      "Young population.",
-      "Stanford HAI positive sentiment."
-    ],
-    "weaknesses": [
-      "Reported as the only country with declining AI adoption in 2025 (37% → 35%) — verify before quoting.",
-      "Economic slowdown affecting investment.",
-      "Infrastructure gaps outside Manila.",
-      "Limited published enterprise data."
-    ],
-    "comparativeContext": {
-      "inRegion": "Outlier with declining adoption.",
-      "globally": "Recovery candidate."
-    }
+    "brief": false
   },
   {
     "country": "Sri Lanka",
+    "dataConfidence": "LOW",
+    "region": "Asia-Pacific",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "Asia-Pacific",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "National AI Strategy released (under MODE/ICTA, 2025); AI Sri Lanka 2028 framework",
-        "value": ""
-      },
-      {
-        "label": "Local projection",
-        "value": "60% of medium-to-large Sri Lankan businesses to adopt at least one AI solution by 2027"
-      },
-      {
-        "label": "Adoption skews to banks and IT services; SMEs cite cost and expertise barriers",
-        "value": ""
-      }
+    "paragraphs": [
+      "No statistics-office survey exists; an official \"AI Sri Lanka\" national strategy (2024–2028) with a dedicated budget line and a National Centre for AI are the concrete developments, while adoption itself remains an estimate concentrated in larger banks and IT-services firms."
     ],
-    "marketInsights": "Sri Lanka's national AI strategy targets a regional AI hub role. Enterprise adoption is concentrated in larger banks and IT services. Skills bootcamps and pilot programmes are active; foundational digital infrastructure (power, connectivity outside major cities) constrains broader scaling.",
-    "strengths": [
-      "Active national AI Strategy (AI Sri Lanka 2028).",
-      "Strong English-proficient technical workforce.",
-      "ICTA-led pilot programmes and skills bootcamps.",
-      "IT-services sector momentum (hSenid, IFS, WSO2).",
-      "Lower-cost agility advantage over larger markets."
-    ],
-    "weaknesses": [
-      "Power instability and weak internet outside major cities.",
-      "Patchy cloud capacity.",
-      "SMEs cite cost and expertise as barriers.",
-      "Cultural preference for stability over innovation.",
-      "Brain-drain pressure."
-    ],
-    "comparativeContext": {
-      "inRegion": "Nascent but strategically active.",
-      "globally": "Emerging market with strong policy ambition."
-    }
+    "brief": true
   },
   {
     "country": "United Arab Emirates",
+    "dataConfidence": "MEDIUM/HIGH",
+    "region": "Middle East",
     "tier": 1,
     "tierLabel": "Leader",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "ThinkSmart",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "64.0% — #1 globally (verified)"
-      },
-      {
-        "label": "35 data centres — highest in MENA; highest regional public cloud spend per employee ($228)",
-        "value": ""
-      },
-      {
-        "label": "AI Strategy 2031 + world's first Minister of AI",
-        "value": ""
-      },
-      {
-        "label": "G42 / 5GW supercomputing complex announced; Stargate project (OpenAI + Nvidia) in UAE",
-        "value": ""
-      }
+    "paragraphs": [
+      "The UAE leads the world on population-level AI usage — **64.0% of working-age people using generative AI in H2 2025, up from 59.4% and #1 globally** [4] — and BCG's GCC AI Pulse classes it an \"AI Contender,\" the top regional tier [31]. A National AI Strategy 2031, the world's first AI minister (appointed 2017), the largest data-centre footprint in MENA (around 35 facilities, per Emirates NBD Research) [44], and marquee infrastructure including the Stargate UAE campus make the UAE the region's pace-setter.",
+      "The structure shows a heavy dependence on foreign expertise, a small ~10M-population base, a rapidly evolving regulatory framework, and geopolitical considerations affecting advanced-chip access. The outlook is regional leadership extending its lead, with the strategic question being how far world-leading individual usage and infrastructure convert into deep domestic enterprise deployment."
     ],
-    "marketInsights": "The UAE leads global AI adoption with 64.0% of working-age population using AI tools (Microsoft Diffusion, H2 2025). The country has consistently ranked #1 and continues to extend its lead. BCG classifies UAE as an AI Contender alongside Saudi Arabia (verified).",
-    "strengths": [
-      "#1 globally in AI working-age adoption (64.0%).",
-      "35 data centres — highest regional.",
-      "5GW supercomputing complex.",
-      "World's first Ministry of AI.",
-      "$100B+ in committed AI infrastructure partnerships; Stargate project with OpenAI and Nvidia."
-    ],
-    "weaknesses": [
-      "Geopolitical considerations affect US chip access (G42 had to divest from Chinese hardware).",
-      "Talent dependency on foreign expertise.",
-      "Regulatory framework evolving rapidly.",
-      "Small absolute population (~10M)."
-    ],
-    "comparativeContext": {
-      "inRegion": "Regional AI leader.",
-      "globally": "#1 in working-age AI adoption."
-    }
+    "brief": false
   },
   {
     "country": "Saudi Arabia",
+    "dataConfidence": "HIGH (with vendor contrast)",
+    "region": "Middle East",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "ThinkSmart",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "BCG GCC AI Pulse 2025",
-        "value": "AI Contender (alongside UAE) (verified)"
-      },
-      {
-        "label": "72% of Saudi companies have adopted a strategy to deploy emerging AI",
-        "value": ""
-      },
-      {
-        "label": "LEAP 2025",
-        "value": "$14.9B+ AI investment announcement; $1.5B Groq/Aramco Digital partnership"
-      },
-      {
-        "label": "\"Project Transcendence\" $100B initiative; Stanford HAI 2026",
-        "value": ">80% of Saudi employees use AI semi-regularly/regularly"
-      }
+    "paragraphs": [
+      "Saudi Arabia is the report's clearest official-versus-vendor case: its own statistics office, GASTAT, reports **33.1% of establishments used AI in 2025 (up from 27.6% in 2024)** on a UNCTAD-aligned methodology [21], while a SAP/YouGov vendor survey of senior IT decision-makers put the figure at 81% [35] — a roughly 48-point gap driven entirely by who is counted and how. By GASTAT's sector data, ICT leads at 61.1%, finance/insurance at 52.9%, and education at 51% [21]. Vision 2030, the SDAIA regulator, the HUMAIN national champion, and very large LEAP and \"Project Transcendence\" investment commitments drive the push, and BCG also classes the kingdom an \"AI Contender\" [31].",
+      "The structure shows a soft-regulation approach that raises governance questions, heavy talent dependency on foreign expertise, still-developing Arabic-language model resources, and recent rapid acceleration from a lower base. The outlook is the largest absolute AI economy in MENA by investment, with a credible path toward its top-15-AI-nation-by-2030 goal — provided the official adoption rate (33.1%, not 81%) is used as the realistic baseline."
     ],
-    "marketInsights": "Saudi Arabia's Vision 2030 and SDAIA-led national AI architecture target top-15 AI nation status by 2030. $135B projected AI economic contribution by 2030 — largest in MENA in absolute terms. Demand spans from foundational training to advanced deployment.",
-    "strengths": [
-      "72% of companies adopted AI strategy.",
-      "$14.9B+ LEAP 2025 announcements; $100B Project Transcendence.",
-      "HUMAIN national AI architecture.",
-      "Vision 2030 driving demand.",
-      "$135B projected economic AI contribution by 2030."
-    ],
-    "weaknesses": [
-      "Soft-regulation approach raises governance concerns.",
-      "Talent dependency on foreign expertise.",
-      "Data limitations.",
-      "Saudi-Arabic AI model resources still developing.",
-      "Recent rapid acceleration from lower base."
-    ],
-    "comparativeContext": {
-      "inRegion": "Largest absolute AI economy.",
-      "globally": "Top-tier on policy commitment and investment."
-    }
+    "brief": false
   },
   {
     "country": "Qatar",
+    "dataConfidence": "MEDIUM",
+    "region": "Middle East",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "ThinkSmart",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "BCG GCC AI Pulse 2025",
-        "value": "AI Practitioner (with Bahrain, Kuwait, Oman) (verified)"
-      },
-      {
-        "label": "$2.5B Digital Agenda 2030 investment",
-        "value": ""
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "35.7% — top-30 globally"
-      },
-      {
-        "label": "Qai national AI infrastructure company",
-        "value": ""
-      }
+    "paragraphs": [
+      "Qatar is classed an \"AI Practitioner\" by BCG [31] and shows a 38.3% working-age usage rate [4], backed by a roughly $2.5B Digital Agenda 2030 commitment, the Qai national AI company (launched late 2025 under the sovereign wealth fund), and premium infrastructure financed by sovereign wealth. National Vision 2030 anchors the strategy.",
+      "The structure is constrained by a small ~3M-population base, talent dependency, a limited domestic enterprise base, and a soft-regulation approach. The outlook is a well-funded, top-tier diffusion grower whose small market caps absolute scale but whose infrastructure ambitions are concrete."
     ],
-    "marketInsights": "Qatar's Digital Agenda 2030 commits $2.5B to AI capabilities. National Vision 2030 anchors strategy. Qai serves as central AI infrastructure coordinator. Sovereign wealth supports premium AI infrastructure builds.",
-    "strengths": [
-      "$2.5B Digital Agenda 2030 commitment.",
-      "Sovereign wealth supports premium infrastructure.",
-      "Qai national AI architecture.",
-      "Strategic positioning between Asia and Europe.",
-      "Top-30 globally on diffusion."
-    ],
-    "weaknesses": [
-      "Small absolute population (~3M).",
-      "Talent dependency.",
-      "Limited domestic enterprise base.",
-      "Soft-regulation approach."
-    ],
-    "comparativeContext": {
-      "inRegion": "AI Practitioner per BCG.",
-      "globally": "Top-30 on diffusion."
-    }
+    "brief": false
   },
   {
     "country": "Bahrain",
+    "dataConfidence": "LOW/MEDIUM",
+    "region": "Middle East",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": true,
-    "partner": "ThinkSmart",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "BCG GCC AI Pulse 2025",
-        "value": "AI Practitioner (verified)"
-      },
-      {
-        "label": "AWS cloud region (since 2019) hosts regional demand",
-        "value": ""
-      },
-      {
-        "label": "National Policy on AI focused on ethical innovation",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~15–25%"
-      }
+    "paragraphs": [
+      "Classed an \"AI Practitioner\" by BCG [31], Bahrain's main assets are an AWS Middle East cloud region (operating since 2019), a regulatory-innovation focus, and a National Policy on AI; with no national enterprise survey and a tiny ~1.5M-population market, adoption is best given as a single estimated line in the mid-teens to mid-twenties."
     ],
-    "marketInsights": "Bahrain's AWS cloud region and regulatory-innovation focus position it as a niche AI hub. National AI policy emphasises ethical innovation and responsible use. Smaller scale than UAE/Saudi but positioned for regulatory leadership.",
-    "strengths": [
-      "AWS cloud region presence.",
-      "Regulatory-innovation focus.",
-      "Cloud-friendly business environment.",
-      "Strategic positioning.",
-      "ThinkSmart regional content reusability across GCC."
-    ],
-    "weaknesses": [
-      "Tiny domestic market (~1.5M population).",
-      "Limited enterprise AI adoption data.",
-      "Talent dependency.",
-      "Constrained absolute investment scale."
-    ],
-    "comparativeContext": {
-      "inRegion": "AI Practitioner with regulatory niche.",
-      "globally": "Specialised emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Kuwait",
+    "dataConfidence": "LOW/MEDIUM",
+    "region": "Middle East",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": true,
-    "partner": "ThinkSmart",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "BCG GCC AI Pulse 2025",
-        "value": "AI Practitioner (verified)"
-      },
-      {
-        "label": "AI strategy under development",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~15–20%"
-      }
+    "paragraphs": [
+      "Classed an \"AI Practitioner\" by BCG [31], Kuwait trails its Gulf neighbours on AI maturity and has no national AI-infrastructure champion yet; with sovereign wealth available and a strategy in development but no enterprise survey, adoption is an estimate only."
     ],
-    "marketInsights": "Kuwait sits behind UAE/Saudi in AI maturity. Potential to establish a national AI infrastructure company (similar to UAE's G42, Saudi HUMAIN, Qatar's Qai) would accelerate progress. Currently in a \"participant\" rather than \"shaper\" role in the GCC AI build-out.",
-    "strengths": [
-      "Sovereign wealth available for AI investment.",
-      "ThinkSmart GCC-wide content reusability.",
-      "Strategic positioning.",
-      "Active AI strategy work."
-    ],
-    "weaknesses": [
-      "Trails UAE/Saudi/Qatar on infrastructure.",
-      "No national AI infrastructure company yet.",
-      "Smaller scale than larger GCC peers.",
-      "Limited enterprise AI data."
-    ],
-    "comparativeContext": {
-      "inRegion": "Lagging GCC neighbours.",
-      "globally": "Emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Oman",
+    "dataConfidence": "LOW/MEDIUM",
+    "region": "Middle East",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": true,
-    "partner": "ThinkSmart",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "BCG GCC AI Pulse 2025",
-        "value": "AI Practitioner (verified)"
-      },
-      {
-        "label": "AI Program under Vision 2040; \"AI and Digital Future Program\" (2024–2026) prioritising data centres",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~10–15%"
-      }
+    "paragraphs": [
+      "Classed an \"AI Practitioner\" by BCG [31], Oman is in a foundation-building stage under Vision 2040, with a data-centre-focused \"AI and Digital Future\" programme; absent an enterprise survey, adoption is an estimated single line in the low-to-mid-teens."
     ],
-    "marketInsights": "Oman's AI strategy is rolling out via Vision 2040. Infrastructure focus (data centres) signals a foundation-building stage. Smaller GCC market with steady but slower progress than UAE/Saudi.",
-    "strengths": [
-      "AI and Digital Future Program 2024–2026.",
-      "Vision 2040 strategic anchor.",
-      "Data-centre infrastructure focus.",
-      "Stable regulatory environment.",
-      "ThinkSmart GCC content reusability."
-    ],
-    "weaknesses": [
-      "Smaller GCC market.",
-      "Lagging UAE/Saudi pace.",
-      "Limited enterprise AI adoption data.",
-      "Talent dependency."
-    ],
-    "comparativeContext": {
-      "inRegion": "Foundation-building stage.",
-      "globally": "Nascent emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Israel",
+    "dataConfidence": "HIGH",
+    "region": "Middle East",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Middle East",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "Unitraining",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "33.9%"
-      },
-      {
-        "label": "US–Israel strategic AI partnership launched early 2026",
-        "value": ""
-      },
-      {
-        "label": "Major AI startup ecosystem; minimal Chinese-model uptake",
-        "value": ""
-      }
+    "paragraphs": [
+      "Israel's statistics office (CBS) runs one of the few dedicated national business-AI surveys, finding **39% of businesses (10+ employees) used AI in production of goods and services in March 2026, up from about 28% in June 2025** across a sample exceeding 36,000 firms [22]. A world-leading per-capita startup density, deep post-military technical talent, major multinational R&D presence (Google, Microsoft, Intel, Nvidia), and a US–Israel strategic AI partnership signed in early 2026 drive sophisticated adoption.",
+      "The structure shows a sharply dual economy — high-tech adoption around 65% versus far lower rates in traditional sectors, and a stark Tel Aviv-versus-Jerusalem regional split [22] — alongside a small ~10M-population market, intense talent-retention competition with global firms, and limited Hebrew-language model resources. The outlook is top-tier per-capita strength aligned with the US and Europe rather than the Gulf, with the dual-economy gap the main internal challenge."
     ],
-    "marketInsights": "Israel's AI startup ecosystem is among the densest globally per capita. The US–Israel strategic partnership on AI research signals deep alignment. Domestic enterprise demand is sophisticated; demand for advanced governance and applied AI training.",
-    "strengths": [
-      "World-leading AI startup density per capita.",
-      "US–Israel strategic AI partnership.",
-      "Strong technical workforce (post-IDF tech corps).",
-      "Major multinational R&D presence (Google, Microsoft, Intel, Nvidia).",
-      "33.9% diffusion among top markets."
-    ],
-    "weaknesses": [
-      "Small absolute domestic market (~10M).",
-      "Talent-retention competition with global firms.",
-      "Hebrew-language AI model resources limited.",
-      "Geopolitical tensions affect international partnerships."
-    ],
-    "comparativeContext": {
-      "inRegion": "Distinct from GCC pattern; aligned with US/Europe.",
-      "globally": "Top-tier AI ecosystem per capita."
-    }
+    "brief": false
   },
   {
     "country": "United States",
+    "dataConfidence": "HIGH",
+    "region": "North America",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "LLPA Central",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "US Census BTOS",
-        "value": "17.3% of businesses use AI for any function (Nov 2025 wave; verified)"
-      },
-      {
-        "label": "Stanford HAI 2025",
-        "value": "78% of organizations using AI (broader definition, includes pilots)"
-      },
-      {
-        "label": "McKinsey Global AI Survey",
-        "value": "88% (any business function use)"
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "28.3% — fell from #23 to #24 globally (verified)"
-      },
-      {
-        "label": "Private AI investment 2024",
-        "value": "$109.1B (12x China); 53.7 GW data-centre capacity (world leader)"
-      }
+    "paragraphs": [
+      "The US is the largest paradox in global AI: the official Census BTOS shows enterprise use of roughly **17–20% across late-2025 and early-2026 waves (about 19.8% in May 2026, and 37% among firms with 250+ employees)** [15], the OECD puts US core-function use highest in the G7 at around 6% [6], and Microsoft places working-age usage at 28.3% and only 24th globally [4] — all against world-leading private AI investment of $109.1B in 2024 [5] and roughly three-quarters of global AI venture capital [8]. Frontier-model leadership (OpenAI, Anthropic, Google, Meta) and a vast enterprise customer base are the structural strengths.",
+      "The structure shows steep firm-size gradients (large enterprises far ahead of small ones), uneven sectoral adoption (information and finance well above the national rate) [15], and the wide spread between official enterprise surveys (~18%) and broad organizational self-reports (78–88%) [5], a credibility caution in itself. The outlook is undisputed investment and capability leadership paired with mid-tier population diffusion — the gap between building AI and broadly using it is the defining US feature."
     ],
-    "marketInsights": "The US presents the largest paradox in global AI: world-leading investment ($109B) and infrastructure (53.7 GW data centres), but middle-tier working-age usage (#24 per Microsoft Diffusion). Different surveys yield very different numbers (17% BTOS, 78% Stanford HAI, 88% McKinsey) — methodology matters.",
-    "strengths": [
-      "World-leading AI investment ($109.1B private 2024).",
-      "53.7 GW data-centre capacity — world leader.",
-      "38% of global AI investment originates in US.",
-      "Frontier model leadership (OpenAI, Anthropic, Google, Meta).",
-      "Massive enterprise customer base."
-    ],
-    "weaknesses": [
-      "Working-age AI usage (#24) lags major economies despite leading investment.",
-      "BTOS 17.3% enterprise AI use trails Eurostat EU27 (20.0%).",
-      "Different methodologies produce wildly different numbers — credibility risk.",
-      "Uneven sectoral adoption."
-    ],
-    "comparativeContext": {
-      "inRegion": "Largest by far.",
-      "globally": "Investment leader, adoption mid-tier on population, top-tier on enterprise."
-    }
+    "brief": false
   },
   {
     "country": "Canada",
+    "dataConfidence": "HIGH",
+    "region": "North America",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": null,
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Statistics Canada",
-        "value": "12.2% of Canadian firms used AI to produce goods or services in 2025 — doubled from previous year"
-      },
-      {
-        "label": "Additional 14.5% planning to adopt within 12 months",
-        "value": ""
-      },
-      {
-        "label": "Microsoft AI Diffusion working-age usage (H2 2025)",
-        "value": "33.5%"
-      },
-      {
-        "label": "$2.4B national AI announcement; 7% of global AI research papers; Hinton/Bengio research legacy",
-        "value": ""
-      }
+    "paragraphs": [
+      "Statistics Canada reports that **12.2% of businesses used AI to produce goods or deliver services in Q2 2025, double the 6.1% of a year earlier, with a further 14.5% planning to adopt within twelve months** [16][17] — a fast-doubling but still sub-EU rate, supported by a world-class research base (the Hinton/Bengio lineage, MILA, the Vector Institute), a national investment commitment, and strong international talent attraction in a bilingual market. By sector, information-and-cultural, professional-scientific, and finance lead, with a 35.0% working-age usage rate [4].",
+      "The structure shows the rate trailing the EU and US, productivity challenges that predate AI, brain drain to the US tech sector, and uneven sectoral adoption; among non-adopters, the dominant reason is simply that AI is seen as not relevant [16]. The outlook is research-strong but deployment-mid-tier, with the doubling trajectory the encouraging signal."
     ],
-    "marketInsights": "Canada's AI adoption (12.2%) trails the EU27 average (20%) but doubled in one year. Strong research base (Hinton, Bengio, MILA) creates an academic-industry talent bridge. Bilingual English/French market.",
-    "strengths": [
-      "Doubled YoY firm AI adoption.",
-      "Strong research base (7% of global AI papers).",
-      "$2.4B national investment.",
-      "Bilingual EN/FR market.",
-      "Strong international talent attraction (Vector Institute, MILA); 33.5% diffusion, top-15 globally."
-    ],
-    "weaknesses": [
-      "12.2% enterprise adoption — trails EU27 and US.",
-      "Productivity challenges precede AI deployment.",
-      "Brain drain to US tech sector.",
-      "No LLPA partner currently listed — gap to address."
-    ],
-    "comparativeContext": {
-      "inRegion": "Strong research; trailing on enterprise deployment.",
-      "globally": "Top-15 on diffusion; investment-strong, deployment-mid-tier."
-    }
+    "brief": false
   },
   {
     "country": "Mexico",
+    "dataConfidence": "HIGH (with vendor contrast)",
+    "region": "North America",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "CompuEducation",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "AI investment (2018–2024)",
-        "value": "~$640M secured; ILIA 2025 \"Adopter\" category"
-      },
-      {
-        "label": "Firms that have implemented AI or plan to within 2 years",
-        "value": "~81% (IDC); roughly half have begun"
-      },
-      {
-        "label": "Comprehensive GenAI deployment",
-        "value": "~5% of firms (≈90% in pilots/isolated use)"
-      },
-      {
-        "label": "AI governance frameworks",
-        "value": "~17% of firms"
-      },
-      {
-        "label": "CEO sentiment",
-        "value": "~70% of large-company CEOs expect GenAI to intensify competition; ~87% acknowledge its role"
-      }
+    "paragraphs": [
+      "Mexico's official economic census (INEGI, Censos Económicos 2024) found that **only 0.5% of the country's roughly 5.45M economic units reported using AI systems** — a figure that looks startling only because it counts every microbusiness on a strict definition, against vendor surveys of larger firms that reach around 81% \"using or planning\" [24]. Even in manufacturing, census-based AI use is around 4.8% [24]. Nearshoring momentum, a large manufacturing and automotive base, and a large Spanish-speaking market are the genuine drivers, and ILIA classes Mexico an \"adopter\" [32].",
+      "The structure shows a vast micro-and-SME tail with near-zero adoption sitting beneath a thin layer of advanced large firms, limited AI-governance frameworks, and data-centre investment concentrated outside the country. The outlook is real enterprise demand among larger firms colliding with one of the widest firm-size adoption gaps anywhere — the all-establishment census rate (0.5%) and the large-firm vendor rate (~81%) describe the same economy from opposite ends."
     ],
-    "marketInsights": "Mexico's nearshoring momentum and strong manufacturing/automotive base create real enterprise demand, but deployment is early: most firms are piloting rather than running AI in production, and governance frameworks lag (~17%). The result is a quality-vs-quantity tension — broad interest, narrow comprehensive deployment. Note: prior versions of this profile contained unsupported statistics (95% enterprise adoption, 100% of CEOs) that have been removed.",
-    "strengths": [
-      "Nearshoring momentum driving technology investment.",
-      "Spanish-language hub for LatAm.",
-      "Strong manufacturing concentration.",
-      "Government-university-industry partnerships.",
-      "ILIA \"Adopter\" classification."
-    ],
-    "weaknesses": [
-      "Only ~17% of firms have AI governance frameworks.",
-      "Lags Chile, Brazil, Uruguay (LatAm pioneers).",
-      "Data-centre investment concentrated outside Mexico.",
-      "Only 4 in 10 rural Latin Americans have internet — rural reach limited.",
-      "Quality-vs-quantity gap in deployment."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top adopter after LatAm pioneers.",
-      "globally": "Major Spanish-language manufacturing AI market."
-    }
+    "brief": false
   },
   {
     "country": "Dominican Republic",
+    "dataConfidence": "LOW",
+    "region": "North America",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": true,
-    "partner": "Interactive Technology Group",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "ILIA 2025 \"Adopter\" category",
-        "value": ""
-      },
-      {
-        "label": "First Caribbean nation with a National AI Strategy (ENIA, October 2023) (verified)",
-        "value": ""
-      },
-      {
-        "label": "50th globally and 7th in LatAm/Caribbean on Global Responsible AI Index (verified)",
-        "value": ""
-      },
-      {
-        "label": "Hosted Third Ministerial Summit on AI Ethics 2025 (verified)",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~10–15%"
-      }
+    "paragraphs": [
+      "No statistics-office AI survey exists; the Dominican Republic punches above its weight on governance — first Caribbean nation with a national AI strategy (ENIA, 2023), a strong Responsible AI Index placement, and host of a regional AI-ethics summit — while enterprise adoption itself remains an estimate, classed an ILIA \"adopter\" [32]."
     ],
-    "marketInsights": "The Dominican Republic punches above its weight on AI governance, hosting the regional AI Ethics summit and ranking 7th in LatAm on Responsible AI. Enterprise adoption itself remains nascent; governance/policy leadership precedes deployment scale.",
-    "strengths": [
-      "ILIA \"Adopter\" classification (above explorer tier).",
-      "First Caribbean nation with a National AI Strategy.",
-      "7th in LatAm on Global Responsible AI Index.",
-      "Hosted Third Ministerial Summit on AI Ethics 2025.",
-      "Spanish-language content reusability; Caribbean regional hub potential."
-    ],
-    "weaknesses": [
-      "Limited published enterprise AI adoption data.",
-      "Smaller market scale.",
-      "Talent-retention challenges.",
-      "AI investment <0.03% of GDP."
-    ],
-    "comparativeContext": {
-      "inRegion": "Policy and governance leader in the Caribbean.",
-      "globally": "Niche but credible emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Puerto Rico",
+    "dataConfidence": "LOW",
+    "region": "North America",
     "tier": 4,
     "tierLabel": "Nascent",
-    "region": "North America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": true,
-    "partner": "Interactive Technology Group",
-    "dataQuality": "LOW",
-    "stats": [
-      {
-        "label": "No standalone Puerto Rico enterprise AI survey published",
-        "value": ""
-      },
-      {
-        "label": "Economic conditions affect enterprise tech investment",
-        "value": ""
-      },
-      {
-        "label": "Active local AI consultancy ecosystem",
-        "value": ""
-      },
-      {
-        "label": "Estimated enterprise AI adoption",
-        "value": "~10–20%"
-      }
+    "paragraphs": [
+      "No standalone enterprise-AI survey is published; as a US territory it is partly captured in US Census data by geography [15] and benefits from US-ecosystem exposure, but a country-level adoption figure remains an estimate."
     ],
-    "marketInsights": "Puerto Rico's unique economic and statistical position makes country-level AI data scarce. As a US territory, it benefits from US private AI investment exposure but lags on enterprise deployment surveys. Local consultancies report growing AI-bot integration in financial services and economics.",
-    "strengths": [
-      "US territory status — access to US ecosystem.",
-      "Bilingual EN/ES workforce.",
-      "Caribbean strategic positioning.",
-      "Interactive Technology Group regional content reusability with DR."
-    ],
-    "weaknesses": [
-      "Economic conditions affect tech investment.",
-      "No standalone enterprise AI survey data.",
-      "Brain drain to US mainland.",
-      "Limited domestic AI infrastructure.",
-      "Small absolute market."
-    ],
-    "comparativeContext": {
-      "inRegion": "Niche US-territory market.",
-      "globally": "Specialised emerging market."
-    }
+    "brief": true
   },
   {
     "country": "Brazil",
+    "dataConfidence": "HIGH",
+    "region": "South America",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "Green",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "ILIA 2025 \"Pioneer\" classification (60+ points; top-3 in LatAm)",
-        "value": ""
-      },
-      {
-        "label": "Enterprise AI growth",
-        "value": "140%+ YoY (among fastest globally)"
-      },
-      {
-        "label": "68% of Brazilian professionals use AI daily (Read AI)",
-        "value": ""
-      },
-      {
-        "label": "Microsoft $2.7B investment commitment through 2027",
-        "value": ""
-      },
-      {
-        "label": "Only 33% have formal AI access and training at work — informal usage outpacing support",
-        "value": ""
-      }
+    "paragraphs": [
+      "Brazil has both an official survey and a clear regional lead: Cetic.br/NIC.br's TIC Empresas 2024 found **13% of firms (10+ employees) use AI applications, rising to 38% among large firms and 38% in the ICT sector**, with process-and-workflow automation the most common use [25], while ILIA 2025 ranks Brazil a regional \"pioneer\" with a score of 67.39 [32]. A Bain & Company survey adds that 67% of Brazilian organisations now rank AI among their top five strategic priorities, up sharply from a year earlier [45], and a major Microsoft cloud-and-AI investment reinforces the infrastructure base.",
+      "The structure shows formal organisational deployment lagging informal professional usage, pronounced regional disparities (São Paulo leads, the North and Northeast lag), limited AI-governance frameworks, and infrastructure gaps outside major centres. The outlook is the region's clearest leader with diverse sector adoption (fintech, agtech, retail) and a large Portuguese-speaking market, where the task is converting strategic priority into scaled deployment."
     ],
-    "marketInsights": "Brazil leads LatAm as one of three \"Pioneers\" alongside Chile and Uruguay. 140%+ YoY enterprise growth puts Brazil among the world's fastest-growing markets. The gap between informal usage (68%) and formal training/access (33%) is a major opportunity for structured training programmes.",
-    "strengths": [
-      "ILIA \"Pioneer\" classification.",
-      "140%+ YoY enterprise AI growth.",
-      "68% of professionals use AI daily.",
-      "Microsoft $2.7B investment (largest country commitment).",
-      "Diverse sector adoption (fintech, agtech, retail); Portuguese-language hub."
-    ],
-    "weaknesses": [
-      "Only 33% have formal AI training at work.",
-      "Regional disparities (São Paulo leads; North/Northeast lag).",
-      "Only 17% of regional companies have AI governance frameworks.",
-      "Economic inequality limits SME adoption.",
-      "Infrastructure gaps outside major centres."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-3 pioneer.",
-      "globally": "Among fastest-growing markets."
-    }
+    "brief": false
   },
   {
     "country": "Argentina",
+    "dataConfidence": "MEDIUM",
+    "region": "South America",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "IT College",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "ILIA",
-        "value": "4th in LatAm technology adoption and 4th on AI governance"
-      },
-      {
-        "label": "National Artificial Intelligence Plan (PNIA) since 2019",
-        "value": ""
-      },
-      {
-        "label": "Weak infrastructure (below LatAm average on connectivity and fixed/mobile speeds)",
-        "value": ""
-      }
+    "paragraphs": [
+      "Argentina ranks among Latin America's stronger performers on technology adoption and AI governance per ILIA [32], with a national AI plan dating to 2019 and a strong research base among the top five regional sources of AI publications, supported by a large Spanish-speaking market.",
+      "The structure is undercut by weak digital infrastructure — below the regional average on connectivity and fixed/mobile speeds, with low 5G deployment — and by economic volatility that disrupts investment cycles and brain-drain pressure. The outlook is top-tier on governance and research but constrained by infrastructure and macro instability, a governance-ahead-of-deployment pattern."
     ],
-    "marketInsights": "Argentina ranks 4th in LatAm on technology adoption and 4th on AI governance. Strong governance vision is undercut by weak digital infrastructure (below LatAm average on connectivity). Economic volatility affects training-investment cycles.",
-    "strengths": [
-      "Top-4 LatAm AI adoption and governance.",
-      "PNIA national plan since 2019.",
-      "Strong research base (top-5 LatAm for AI publications).",
-      "Spanish-language hub for Southern Cone.",
-      "IT College regional cross-border with Uruguay."
-    ],
-    "weaknesses": [
-      "Weak infrastructure (below LatAm average on connectivity speeds).",
-      "Low 5G deployment; low IPv6 adoption.",
-      "Brain-drain pressure (talent migration to LatAm leaders).",
-      "Economic volatility affects training budgets."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-tier on governance and research; mid-tier on infrastructure.",
-      "globally": "Major Spanish-language market."
-    }
+    "brief": false
   },
   {
     "country": "Colombia",
+    "dataConfidence": "MEDIUM",
+    "region": "South America",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "Intelligent Training",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "ILIA 2025 \"Adopter\" category (35–60 points)",
-        "value": ""
-      },
-      {
-        "label": "Advanced AI governance ranking (62.62 in ILIA 2024)",
-        "value": ""
-      },
-      {
-        "label": "Strong public-sector AI engagement; among top-5 LatAm for AI publications",
-        "value": ""
-      }
+    "paragraphs": [
+      "Colombia is among Latin America's most active \"adopter\" countries per ILIA [32], with advanced AI-governance scoring, strong public-sector engagement and citizen-participation use cases, and a top-five regional position for AI publications, anchored by an emerging Bogotá tech hub.",
+      "The structure shows the country trailing the regional pioneers, infrastructure gaps in rural areas, brain-drain pressure, and limited per-capita digital spend. The outlook is a solid Spanish-language emerging market with particular strength in governance and public-sector AI."
     ],
-    "marketInsights": "Colombia is among LatAm's most active \"Adopter\" countries, with notable AI governance and citizen-participation work. Strong public-sector AI integration. Demand spans government modernisation and enterprise.",
-    "strengths": [
-      "ILIA \"Adopter\" classification.",
-      "Top-tier AI governance.",
-      "Strong citizen-participation AI use cases.",
-      "Bogotá emerging tech hub.",
-      "Spanish-language content for LatAm."
-    ],
-    "weaknesses": [
-      "Trails LatAm pioneers (Chile, Brazil, Uruguay).",
-      "Infrastructure gaps in rural areas.",
-      "Brain-drain pressure.",
-      "Limited per-capita training spend."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top \"Adopter\" alongside Mexico, Ecuador, Costa Rica.",
-      "globally": "Spanish-language emerging market."
-    }
+    "brief": false
   },
   {
     "country": "Uruguay",
+    "dataConfidence": "MEDIUM",
+    "region": "South America",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "South America",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "IT College",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "ILIA 2025 \"Pioneer\" classification (60+ points; top-3 in LatAm)",
-        "value": ""
-      },
-      {
-        "label": "First country in LatAm to sign the Council of Europe AI Convention",
-        "value": ""
-      },
-      {
-        "label": "Advanced AI governance (69.43 ILIA score); better per-capita digital indicators than larger LatAm economies",
-        "value": ""
-      }
+    "paragraphs": [
+      "Uruguay is an ILIA \"pioneer\" with a score of 62.32 and the region's governance-and-regulation leader — the first Latin American country to sign the Council of Europe AI Convention — with better per-capita digital indicators than larger regional economies and competitive per-capita compute capacity [32].",
+      "The structure is constrained chiefly by scale: a very small ~3.4M-population market, limited absolute investment, brain-drain pressure, and talent-concentration challenges. The outlook is a niche regulatory-innovation leader that punches well above its size on governance while remaining small in absolute terms."
     ],
-    "marketInsights": "Uruguay leads LatAm on AI governance and regulatory innovation. First in region to sign the binding Council of Europe AI Convention. Small but highly-capable market with cross-border content reusability with Argentina via IT College.",
-    "strengths": [
-      "ILIA \"Pioneer\" classification.",
-      "First LatAm signatory of the Council of Europe AI Convention.",
-      "Top-tier AI governance (69.43).",
-      "Strong per-capita digital indicators.",
-      "Spanish-language regional reusability; IT College cross-border with Argentina."
-    ],
-    "weaknesses": [
-      "Very small absolute market (~3.4M population).",
-      "Brain-drain pressure.",
-      "Limited absolute investment scale.",
-      "Talent concentration challenges."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top-3 pioneer with governance leadership.",
-      "globally": "Niche regulatory-innovation market."
-    }
+    "brief": false
   },
   {
     "country": "South Africa",
+    "dataConfidence": "MEDIUM",
+    "region": "Africa",
     "tier": 2,
     "tierLabel": "Advanced",
-    "region": "Africa",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "CTU Training Solutions",
-    "dataQuality": "HIGH",
-    "stats": [
-      {
-        "label": "Continental adoption rate",
-        "value": "21.1% — leading Africa"
-      },
-      {
-        "label": "GenAI adult adoption",
-        "value": "45.4% (OECD-Cisco)"
-      },
-      {
-        "label": "AI readiness",
-        "value": "77% of businesses prepared to adopt AI immediately"
-      },
-      {
-        "label": "AI market",
-        "value": "600+ AI companies (most in Africa); internet penetration 74.7%"
-      }
+    "paragraphs": [
+      "South Africa leads the continent on AI usage, with OECD–Cisco research putting adult generative-AI adoption at **45.4%** [33] and Microsoft placing working-age usage at **21.1%, the highest in Africa** [4] — two population metrics measured differently and roughly twofold apart, so they should be presented separately rather than as a trend. Strong digital infrastructure (around 75% internet penetration), the largest domestic AI-company base on the continent, and concentrated demand in financial services, mining, and telecoms drive adoption.",
+      "The structure shows significant regional inequality, skills-retention challenges (brain drain), SME budget constraints, and infrastructure concentrated in major metros, against a draft national AI plan and an active Fourth Industrial Revolution body. The outlook is clear continental leadership comparable to advanced European and Asian markets on population-level generative-AI use, with the depth of enterprise deployment the open question."
     ],
-    "marketInsights": "South Africa leads African AI adoption by a significant margin (21.1% vs second-place Egypt 13.4%). The 600+ AI companies and 45.4% adult GenAI adoption reflect both ecosystem maturity and enterprise readiness. Demand spans financial services (Johannesburg banks), mining, and telecoms.",
-    "strengths": [
-      "Continental AI leader.",
-      "600+ AI companies (most in Africa).",
-      "45.4% adult GenAI adoption (top globally).",
-      "77% of businesses ready to adopt.",
-      "Strong regulatory framework (POPIA, Cybercrimes Act); robust IoT market ($6.8B in 2024)."
-    ],
-    "weaknesses": [
-      "Significant regional inequality.",
-      "Skills-retention challenges (brain drain).",
-      "SME budget constraints.",
-      "Well-being concerns flagged by OECD-Cisco.",
-      "Infrastructure concentrated in major metros."
-    ],
-    "comparativeContext": {
-      "inRegion": "Continental leader by significant margin.",
-      "globally": "Comparable to advanced European/Asian markets on GenAI adoption."
-    }
+    "brief": false
   },
   {
     "country": "Morocco",
+    "dataConfidence": "LOW/MEDIUM",
+    "region": "Africa",
     "tier": 3,
     "tierLabel": "Emerging",
-    "region": "Africa",
-    "subRegion": "CENTRAL & EASTERN",
-    "estimated": false,
-    "partner": "ThinkSmart",
-    "dataQuality": "MEDIUM",
-    "stats": [
-      {
-        "label": "Continental adoption",
-        "value": "10.9% — top in North Africa, 5th in Africa"
-      },
-      {
-        "label": "85% of businesses have invested in AI or plan to within 3–5 years",
-        "value": ""
-      },
-      {
-        "label": "Government AI Readiness Index 2025",
-        "value": "87th globally, gained 14 positions; 8th in MENA"
-      },
-      {
-        "label": "Morocco AI 2030 strategy",
-        "value": "$10B GDP target; $16.6B Tanger data-centre project"
-      }
+    "paragraphs": [
+      "Morocco is positioning as North Africa's premier AI hub, with the top regional working-age usage rate (10.9%) [4][33] and a \"Morocco Digital 2030\" strategy placing sovereign AI at its core, backed by the Jazari Institutes national network of excellence centres and a roughly $10B GDP-contribution target by 2030 [36]. Business-investment intent is reportedly high, and partnerships (including with a European frontier-model firm) reinforce the push.",
+      "The structure shows a wide gap between large enterprises and the country's several hundred thousand SMEs, most of which remain at early AI stages, plus French/Arabic/Berber multilingual complexity and limited published enterprise-survey data. The outlook is an emerging market with strong policy momentum and clear regional-hub ambition, where measured enterprise adoption has yet to catch up to strategy."
     ],
-    "marketInsights": "Morocco is rapidly positioning as Africa's premier North African AI hub. \"AI Made in Morocco\" strategy and the Jazari Institutes network (launched July 2025) create distributed national AI architecture. 85% of businesses have invested or plan to invest in AI — strong enterprise demand signal.",
-    "strengths": [
-      "\"Morocco AI 2030\" national strategy.",
-      "Jazari Institutes network (12-region distribution).",
-      "$16.6B Tanger data-centre project.",
-      "Top North African adoption rate (10.9%).",
-      "85% business investment intent; ThinkSmart MENA content reusability."
-    ],
-    "weaknesses": [
-      "Significant gap between large enterprises and 600,000+ SMEs.",
-      "Most SMEs still in early AI stages.",
-      "French/Arabic/Berber multilingual delivery complexity.",
-      "Brain drain to France/Spain.",
-      "Limited published enterprise survey data."
-    ],
-    "comparativeContext": {
-      "inRegion": "Top in North Africa.",
-      "globally": "Emerging market with strong policy momentum."
-    }
+    "brief": false
   }
 ];

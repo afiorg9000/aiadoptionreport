@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { ChevronRight, ChevronDown, Menu, X, Globe } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { ChevronRight, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -9,7 +9,7 @@ type NavItem = {
 };
 
 interface MarketProfileSidebarProps {
-  groupedProfiles: Record<string, { country: string; provider: string }[]>;
+  groupedProfiles: Record<string, { country: string }[]>;
 }
 
 const NavItemComponent = ({
@@ -41,7 +41,7 @@ const NavItemComponent = ({
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className={cn("flex", hasChildren ? "items-start" : "items-center")}>
         {hasChildren && (
           <button
             onClick={() => toggleSection(item.id)}
@@ -57,14 +57,16 @@ const NavItemComponent = ({
         <button
           onClick={() => onNavigate(item.id)}
           className={cn(
-            "flex-1 text-left py-1 text-xs rounded transition-all duration-200 truncate",
-            !hasChildren && "pl-4",
+            "flex-1 text-left py-1 text-xs rounded transition-all duration-200",
+            hasChildren ? "leading-snug" : "truncate",
+            !hasChildren && depth === 0 && "pl-0",
+            !hasChildren && depth > 0 && "pl-3",
             depth === 0 && "font-medium",
             isActive
               ? "text-llpa-blue font-medium"
               : hasActiveChild
-              ? "text-foreground"
-              : "text-muted-foreground hover:text-foreground"
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground",
           )}
         >
           {item.title}
@@ -89,6 +91,9 @@ const NavItemComponent = ({
   );
 };
 
+const getAllIds = (items: NavItem[]): string[] =>
+  items.flatMap((item) => [item.id, ...(item.items ? getAllIds(item.items) : [])]);
+
 const MarketProfileSidebar = ({ groupedProfiles }: MarketProfileSidebarProps) => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
@@ -96,24 +101,23 @@ const MarketProfileSidebar = ({ groupedProfiles }: MarketProfileSidebarProps) =>
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   // Build nav data from grouped profiles
-  const navData: NavItem[] = [
-    ...Object.entries(groupedProfiles).map(([region, profiles]) => ({
-      id: `region-${region.toLowerCase().replace(/\s+/g, '-')}`,
-      title: region,
-      items: profiles.map((profile) => ({
-        id: `country-${profile.country.toLowerCase().replace(/\s+/g, '-')}`,
-        title: profile.country,
+  const navData: NavItem[] = useMemo(
+    () => [
+      ...Object.entries(groupedProfiles).map(([region, profiles]) => ({
+        id: `region-${region.toLowerCase().replace(/\s+/g, "-")}`,
+        title: region,
+        items: profiles.map((profile) => ({
+          id: `country-${profile.country.toLowerCase().replace(/\s+/g, "-")}`,
+          title: profile.country,
+        })),
       })),
-    })),
-    { id: "references", title: "References" },
-  ];
+      { id: "reading-the-profiles", title: "Reading the profiles" },
+      { id: "references", title: "References" },
+    ],
+    [groupedProfiles],
+  );
 
-  // Flatten all IDs for scroll tracking
-  const getAllIds = (items: NavItem[]): string[] => {
-    return items.flatMap((item) => [item.id, ...(item.items ? getAllIds(item.items) : [])]);
-  };
-
-  const allIds = getAllIds(navData);
+  const allIds = useMemo(() => getAllIds(navData), [navData]);
 
   const toggleSection = (id: string) => {
     setExpandedSections((prev) => {
@@ -167,7 +171,7 @@ const MarketProfileSidebar = ({ groupedProfiles }: MarketProfileSidebarProps) =>
 
     const handleScroll = () => {
       // Track active section from all possible IDs
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 120;
       
       for (let i = allIds.length - 1; i >= 0; i--) {
         const section = document.getElementById(allIds[i]);
@@ -192,7 +196,10 @@ const MarketProfileSidebar = ({ groupedProfiles }: MarketProfileSidebarProps) =>
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 100;
+      const offsetPosition =
+        element.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
     setIsOpen(false);
   };
@@ -217,11 +224,11 @@ const MarketProfileSidebar = ({ groupedProfiles }: MarketProfileSidebarProps) =>
     </div>
   );
 
-  // Desktop: render as a sticky right-rail element
+  // Desktop: sticky sidebar aligned with content column
   if (isLargeScreen) {
     return (
-      <nav className="sticky top-20 h-[calc(100vh-5rem)] pt-6 w-56 flex-shrink-0">
-        <div className="bg-background/70 backdrop-blur-md border-l border-border h-full overflow-hidden">
+      <nav className="sticky top-24 pt-2 w-full max-w-[15rem] flex-shrink-0 hidden xl:block">
+        <div className="border-l border-border pl-4 max-h-[calc(100vh-7rem)] overflow-y-auto">
           {navContent}
         </div>
       </nav>

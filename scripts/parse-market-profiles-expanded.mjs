@@ -1,5 +1,10 @@
 /**
- * Parse src/data/marketProfilesExpanded.md → src/data/marketProfilesData.ts
+ * Parse src/data/marketProfilesExpanded.md → marketProfilesData.ts + meta
+ *
+ * Cited Edition format:
+ *   ## Europe — Nordic
+ *   ### Denmark — *HIGH*
+ *   Two paragraphs...
  *
  * Usage: node scripts/parse-market-profiles-expanded.mjs
  */
@@ -11,103 +16,103 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const inputPath = join(root, "src/data/marketProfilesExpanded.md");
 const outputPath = join(root, "src/data/marketProfilesData.ts");
+const metaPath = join(root, "src/data/marketProfilesMeta.ts");
 const tierPath = join(root, "src/data/marketTierClassification.ts");
 
-function slugCountry(name) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const TIER_BY_COUNTRY = {
+  Denmark: 1, Finland: 1, Sweden: 1, Norway: 1, Iceland: 3,
+  Netherlands: 1, Belgium: 1, Luxembourg: 1, Germany: 2, Austria: 2,
+  Switzerland: 1, France: 2, Ireland: 2, "United Kingdom": 2, Spain: 2,
+  Italy: 2, Portugal: 3,
+  Czechia: 3, Slovakia: 3, Hungary: 3, Poland: 4, Slovenia: 3,
+  Croatia: 3, Bulgaria: 4, Romania: 4, Serbia: 4, Albania: 4,
+  "Bosnia and Herzegovina": 4, Montenegro: 4, Kosovo: 4,
+  "North Macedonia": 4, Greece: 4, Turkey: 3, Cyprus: 4,
+  Singapore: 1, Australia: 1, "New Zealand": 1, Japan: 2, "South Korea": 2,
+  Taiwan: 2, China: 2, India: 2, "Hong Kong": 3, Indonesia: 3,
+  Malaysia: 3, Thailand: 3, Vietnam: 3, Philippines: 4, "Sri Lanka": 4,
+  "United Arab Emirates": 1, "Saudi Arabia": 2, Qatar: 2, Bahrain: 4,
+  Kuwait: 4, Oman: 4, Israel: 2,
+  "United States": 2, Canada: 2, Mexico: 2, "Dominican Republic": 4,
+  "Puerto Rico": 4,
+  Brazil: 2, Argentina: 3, Colombia: 3, Uruguay: 2,
+  "South Africa": 2, Morocco: 3,
+};
+
+const TIER_LABELS = { 1: "Leader", 2: "Advanced", 3: "Emerging", 4: "Nascent" };
+
+function normalizeSubRegion(name) {
+  if (!name) return undefined;
+  const trimmed = name.trim();
+  if (/^central & eastern$/i.test(trimmed)) return "Central & Eastern";
+  if (/^nordic$/i.test(trimmed)) return "Nordic";
+  if (/^western$/i.test(trimmed)) return "Western";
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
 }
 
-function parseBullets(block) {
-  return block
-    .split("\n")
-    .map((l) => l.trim())
-    .filter((l) => l.startsWith("- "))
-    .map((l) => l.replace(/^-\s+/, "").replace(/\*\*/g, "").trim());
-}
+function parseRegionHeader(title) {
+  if (/^references$/i.test(title)) return null;
+  if (/^enterprise ai adoption/i.test(title)) return null;
 
-function parseStats(block) {
-  return parseBullets(block).map((line) => {
-    const m = line.match(/^(.+?):\s*(.+)$/);
-    if (m) return { label: m[1].trim(), value: m[2].trim() };
-    return { label: line, value: "" };
-  });
-}
-
-function parseComparative(block) {
-  const inRegion =
-    block.match(/\*\*In Europe:\*\*\s*([\s\S]*?)(?=\n-\s*\*\*Globally|\n\*\*Globally|$)/i)?.[1]?.trim() ||
-    block.match(/\*\*In Asia-Pacific:\*\*\s*([\s\S]*?)(?=\n-\s*\*\*Globally|\n\*\*Globally|$)/i)?.[1]?.trim() ||
-    block.match(/\*\*In (?:Latin America|Middle East|Africa|North America|South America|Caribbean)[^:]*:\*\*\s*([\s\S]*?)(?=\n-\s*\*\*Globally|\n\*\*Globally|$)/i)?.[1]?.trim() ||
-    block.match(/\*\*In region:\*\*\s*([\s\S]*?)(?=\n-\s*\*\*Globally|\n\*\*Globally|$)/i)?.[1]?.trim() ||
-    "";
-  const globally =
-    block.match(/\*\*Globally:\*\*\s*([\s\S]*?)$/i)?.[1]?.trim() ||
-    block.match(/Globally:\s*([\s\S]*?)$/i)?.[1]?.trim() ||
-    "";
-  const clean = (s) =>
-    s
-      .replace(/^-\s+/, "")
-      .replace(/\n---[\s\S]*$/, "")
-      .trim();
-  return { inRegion: clean(inRegion), globally: clean(globally) };
-}
-
-function parseProfile(body, meta) {
-  const sections = {};
-  const re = /^### (.+)$/gm;
-  let match;
-  const headers = [];
-  while ((match = re.exec(body)) !== null) {
-    headers.push({ title: match[1].trim(), index: match.index, len: match[0].length });
+  if (/^Europe\s*—\s*(.+)/i.test(title)) {
+    return { region: "Europe", subRegion: normalizeSubRegion(title.split("—")[1]) };
   }
-  for (let i = 0; i < headers.length; i++) {
-    const start = headers[i].index + headers[i].len;
-    const end = i + 1 < headers.length ? headers[i + 1].index : body.length;
-    sections[headers[i].title.toLowerCase()] = body.slice(start, end).trim();
-  }
-
-  const partnerMatch = body.match(/\*\*LLPA partner:\s*([^*]+)\*\*/i);
-  const qualityMatch = body.match(/Data quality:\s*(\w+)/i);
-
-  return {
-    ...meta,
-    partner: partnerMatch?.[1]?.trim() || null,
-    dataQuality: qualityMatch?.[1] || null,
-    stats: parseStats(sections["current statistics (2025 reference year)"] || sections["current statistics"] || ""),
-    marketInsights: (sections["market insights"] || "").replace(/\n/g, " ").trim(),
-    strengths: parseBullets(sections["strengths"] || ""),
-    weaknesses: parseBullets(sections["weaknesses"] || ""),
-    comparativeContext: parseComparative(sections["comparative context"] || ""),
-  };
+  if (/^Asia-Pacific$/i.test(title)) return { region: "Asia-Pacific" };
+  if (/^Middle East$/i.test(title)) return { region: "Middle East" };
+  if (/^North America$/i.test(title)) return { region: "North America" };
+  if (/^South America$/i.test(title)) return { region: "South America" };
+  if (/^Africa$/i.test(title)) return { region: "Africa" };
+  return null;
 }
 
-function parseMarkdown(md) {
+function parseIntro(md) {
+  const titleMatch = md.match(/^# (.+)$/m);
+  const title = titleMatch?.[1]?.trim() || "67 Market Profiles on Adoption";
+
+  const introEnd = md.search(/\n---\n\n## /);
+  const introBlock = introEnd > 0 ? md.slice(0, introEnd) : "";
+  const withoutTitle = introBlock.replace(/^# .+\n+/, "").trim();
+
+  let subtitle = "";
+  let caution = "";
+
+  if (/^\*\*One cross-cutting caution\.\*\*/.test(withoutTitle)) {
+    caution = withoutTitle.trim();
+  } else {
+    const [subtitleRaw, cautionRaw] = withoutTitle.split(/\n\n(?=\*\*One cross-cutting caution\.\*\*)/);
+    subtitle = subtitleRaw?.replace(/^\*|\*$/g, "").trim() || "";
+    caution = cautionRaw?.trim() || "";
+  }
+
+  const summaryMatch = md.match(/\*Data-confidence summary:[\s\S]*?gap is explained\.\*/);
+  const referencesSummary = summaryMatch?.[0]?.replace(/^\*|\*$/g, "") || "";
+
+  return { title, subtitle, description: subtitle, caution, referencesSummary };
+}
+
+function isStructuralParagraph(p) {
+  if (p === "---") return true;
+  if (/^## .+$/.test(p)) return true;
+  return false;
+}
+
+function parseProfiles(md) {
   const profiles = [];
-  let region = "Global";
-  let subRegion;
-
-  const regionRe = /^# (.+)$/gm;
-  const countryRe = /^## (.+?) — Tier (\d) \((\w+)\)([^\n]*)/gm;
+  const regionRe = /^## (.+)$/gm;
+  const countryRe = /^### (.+?) — \*(.+)\*\s*$/gm;
 
   const regionHeaders = [];
   let m;
   while ((m = regionRe.exec(md)) !== null) {
-    if (!m[1].startsWith("LLPA") && !m[1].includes("CONSOLIDATED") && !m[1].includes("USING")) {
-      regionHeaders.push({ title: m[1], index: m.index });
-    }
+    const parsed = parseRegionHeader(m[1]);
+    if (parsed) regionHeaders.push({ ...parsed, index: m.index });
   }
 
   const countryHeaders = [];
   while ((m = countryRe.exec(md)) !== null) {
-    const tail = m[4] || "";
     countryHeaders.push({
       country: m[1].trim(),
-      tier: Number(m[2]),
-      tierLabel: m[3],
-      estimated: /\[estimated\]/i.test(tail),
-      subtitle: tail.includes("—")
-        ? tail.replace(/\[estimated\]/gi, "").replace(/^[\s—]+/, "").trim() || undefined
-        : undefined,
+      dataConfidence: m[2].trim(),
       index: m.index,
       len: m[0].length,
     });
@@ -116,108 +121,63 @@ function parseMarkdown(md) {
   for (let i = 0; i < countryHeaders.length; i++) {
     const h = countryHeaders[i];
     const start = h.index + h.len;
-    const end = i + 1 < countryHeaders.length ? countryHeaders[i + 1].index : md.length;
-    let body = md.slice(start, end);
-    // Stop at horizontal rule before consolidated index / appendix sections
-    const appendix = body.search(/\n---\n\n# (?:CONSOLIDATED|DATA QUALITY|PARTNER|USING THESE)/);
-    if (appendix !== -1) body = body.slice(0, appendix);
-    body = body.trim();
+    const end =
+      i + 1 < countryHeaders.length
+        ? countryHeaders[i + 1].index
+        : md.search(/\n## References\n/i) !== -1
+          ? md.search(/\n## References\n/i)
+          : md.length;
+    let body = md.slice(start, end).trim();
+    const paragraphs = body
+      .split(/\n\n+/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+      .filter((p) => !isStructuralParagraph(p));
 
-    // Find region header before this country
-    let r = "Global";
-    let sr;
-    for (const rh of regionHeaders) {
-      if (rh.index < h.index) {
-        const t = rh.title;
-        if (t.includes("—")) {
-          const parts = t.split("—").map((s) => s.trim());
-          r = parts[0].replace(/^EUROPE\s*/, "Europe").replace(/^ASIA-PACIFIC/, "Asia-Pacific").replace(/^MIDDLE EAST/, "Middle East").replace(/^NORTH AMERICA/, "North America").replace(/^SOUTH AMERICA/, "South America").replace(/^AFRICA/, "Africa");
-          sr = parts[1] || undefined;
-        } else if (t.startsWith("EUROPE")) {
-          r = "Europe";
-          sr = t.replace(/^EUROPE\s*—\s*/, "").trim() || undefined;
-        } else if (t === "ASIA-PACIFIC") r = "Asia-Pacific";
-        else if (t === "MIDDLE EAST") r = "Middle East";
-        else if (t === "NORTH AMERICA") r = "North America";
-        else if (t === "SOUTH AMERICA") r = "South America";
-        else if (t === "AFRICA") r = "Africa";
-      }
-    }
-
-    // Normalize region names from headers like "# EUROPE — NORDIC"
     const lastRegion = regionHeaders.filter((rh) => rh.index < h.index).pop();
-    if (lastRegion) {
-      const t = lastRegion.title;
-      if (/^EUROPE\s*—\s*(.+)/i.test(t)) {
-        r = "Europe";
-        sr = t.replace(/^EUROPE\s*—\s*/i, "").trim();
-        sr = sr.charAt(0) + sr.slice(1).toLowerCase();
-        if (sr === "Central & eastern") sr = "Central & Eastern";
-        if (sr === "Nordic") sr = "Nordic";
-        if (sr === "Western") sr = "Western";
-      } else if (t === "ASIA-PACIFIC") {
-        r = "Asia-Pacific";
-        sr = undefined;
-      } else if (t === "MIDDLE EAST") {
-        r = "Middle East";
-      } else if (t === "NORTH AMERICA") {
-        r = "North America";
-      } else if (t === "SOUTH AMERICA") {
-        r = "South America";
-      } else if (t === "AFRICA") {
-        r = "Africa";
-      }
-    }
+    const tier = TIER_BY_COUNTRY[h.country] || 3;
 
-    profiles.push(
-      parseProfile(body, {
-        country: h.country,
-        tier: h.tier,
-        tierLabel: h.tierLabel,
-        region: r,
-        subRegion: sr,
-        estimated: h.estimated || false,
-        subtitle: h.subtitle,
-      }),
-    );
+    profiles.push({
+      country: h.country,
+      dataConfidence: h.dataConfidence,
+      region: lastRegion?.region || "Global",
+      subRegion: lastRegion?.subRegion,
+      tier,
+      tierLabel: TIER_LABELS[tier] || "Emerging",
+      paragraphs,
+      brief: /^LOW/i.test(h.dataConfidence) && paragraphs.length <= 1,
+    });
   }
 
   return profiles;
 }
 
-function esc(s) {
-  return JSON.stringify(s);
-}
-
 async function main() {
   const md = await readFile(inputPath, "utf8");
-  const profiles = parseMarkdown(md);
+  const meta = parseIntro(md);
+  const profiles = parseProfiles(md);
   console.log(`Parsed ${profiles.length} country profiles`);
 
-  const out = `/* AUTO-GENERATED by scripts/parse-market-profiles-expanded.mjs — do not edit by hand */
+  const dataOut = `/* AUTO-GENERATED by scripts/parse-market-profiles-expanded.mjs — do not edit by hand */
 
 export interface MarketProfile {
   region: string;
   subRegion?: string;
   country: string;
+  dataConfidence: string;
   tier: number;
   tierLabel: string;
-  partner?: string | null;
-  dataQuality?: string | null;
-  estimated?: boolean;
-  subtitle?: string;
-  stats: { label: string; value: string }[];
-  marketInsights: string;
-  strengths: string[];
-  weaknesses: string[];
-  comparativeContext: { inRegion: string; globally: string };
+  paragraphs: string[];
+  brief?: boolean;
 }
 
 export const marketProfiles: MarketProfile[] = ${JSON.stringify(profiles, null, 2)};
 `;
 
-  await writeFile(outputPath, out);
-  console.log(`Wrote ${outputPath}`);
+  const metaOut = `/* AUTO-GENERATED by scripts/parse-market-profiles-expanded.mjs — do not edit by hand */
+
+export const marketProfilesMeta = ${JSON.stringify(meta, null, 2)};
+`;
 
   const tierOut = `/* AUTO-GENERATED by scripts/parse-market-profiles-expanded.mjs — do not edit by hand */
 
@@ -261,7 +221,11 @@ export const tierDistributionSummary = ([1, 2, 3, 4] as MarketTier[]).map((tier)
 export const totalClassifiedMarkets = marketTierEntries.length;
 `;
 
+  await writeFile(outputPath, dataOut);
+  await writeFile(metaPath, metaOut);
   await writeFile(tierPath, tierOut);
+  console.log(`Wrote ${outputPath}`);
+  console.log(`Wrote ${metaPath}`);
   console.log(`Wrote ${tierPath}`);
 }
 

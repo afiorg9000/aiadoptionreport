@@ -6,406 +6,50 @@ export interface MarketProfileReference {
 }
 
 export const marketProfileReferences: MarketProfileReference[] = [
-  {
-    id: 1,
-    source: "Eurostat",
-    description: "Use of artificial intelligence in enterprises (December 2025)",
-    url: "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises"
-  },
-  {
-    id: 2,
-    source: "Invest in Denmark",
-    description: "Denmark Tops Europe in AI Adoption — a testbed for tomorrow's AI breakthroughs (2025)",
-    url: "https://investindk.com/insights/denmark-tops-europe-in-ai-adoption-a-testbed-for-tomorrows-ai-breakthroughs"
-  },
-  {
-    id: 3,
-    source: "Eurostat",
-    description: "32.7% of EU people used generative AI tools in 2025 (December 2025)",
-    url: "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251216-3"
-  },
-  {
-    id: 4,
-    source: "World Economic Forum",
-    description: "Europe is lagging in AI adoption (September 2025)",
-    url: "https://www.weforum.org/stories/2025/09/europe-ai-adoption-lag/"
-  },
-  {
-    id: 5,
-    source: "Eurostat",
-    description: "Use of AI in Enterprises by Size Class (2024)",
-    url: undefined
-  },
-  {
-    id: 6,
-    source: "Stanford University",
-    description: "AI Index Report 2025",
-    url: "https://aiindex.stanford.edu/"
-  },
-  {
-    id: 11,
-    source: "IMDA Singapore",
-    description: "Singapore's Digital Economy at 18.6% of GDP (October 2025)",
-    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/singapore-digital-economy"
-  },
-  {
-    id: 13,
-    source: "IMDA Singapore",
-    description: "Annual Report & Singapore Digital Economy Report 2025 (October 2025)",
-    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/factsheets/2025/ar-sgde-2025"
-  },
-  {
-    id: 14,
-    source: "IMDA Singapore",
-    description: "Singapore Ramps Up AI Push for 2,000 Local Enterprises (September 2025)",
-    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/sg-ramps-up-ai-push-to-turn-digital-ambition-into-real-world-impact"
-  },
-  {
-    id: 16,
-    source: "Techgoondu",
-    description: "Amid worries of a bubble, Singapore grows AI adoption to boost digital economy (October 2025)",
-    url: "https://www.techgoondu.com/2025/10/06/amid-worries-of-a-bubble-singapore-grows-ai-adoption-to-boost-digital-economy/"
-  },
-  {
-    id: 18,
-    source: "IMDA Singapore",
-    description: "Singapore to Build AI-Fluent Workforce (August 2025)",
-    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/sg-to-build-ai-fluent-workforce-to-accelerate-national-ai-ambition"
-  },
-  {
-    id: 22,
-    source: "Dept. of Industry, Science and Resources Australia",
-    description: "AI adoption in Australian businesses for 2025 Q1 (August 2025)",
-    url: "https://www.industry.gov.au/news/ai-adoption-australian-businesses-2025-q1"
-  },
-  {
-    id: 24,
-    source: "RBA",
-    description: "Technology Investment and AI: What Are Firms Telling Us? (November 2025)",
-    url: "https://www.rba.gov.au/publications/bulletin/2025/nov/technology-investment-and-ai-what-are-firms-telling-us.html"
-  },
-  {
-    id: 26,
-    source: "OpenAI",
-    description: "The state of enterprise AI (2025)",
-    url: "https://openai.com/index/the-state-of-enterprise-ai-2025-report/"
-  },
-  {
-    id: 27,
-    source: "Local Digital",
-    description: "AI and Automation Adoption Statistics in Australian Businesses for 2025 (January 2025)",
-    url: "https://www.localdigital.com.au/blog/ai-and-automation-adoption-statistics-in-australian-businesses-for-2025"
-  },
-  {
-    id: 28,
-    source: "Expert Market Research Australia",
-    description: "Australia Artificial Intelligence Market Share (2025)",
-    url: "https://www.expertmarketresearch.com.au/reports/australia-artificial-intelligence-ai-market"
-  },
-  {
-    id: 29,
-    source: "IBM",
-    description: "Data Suggests Growth in Enterprise Adoption of AI is Due to Widespread Deployment by Early Adopters (January 2024)",
-    url: "https://newsroom.ibm.com/2024-01-10-Data-Suggests-Growth-in-Enterprise-Adoption-of-AI-is-Due-to-Widespread-Deployment-by-Early-Adopters"
-  },
-  {
-    id: 34,
-    source: "Euronews",
-    description: "ChatGPT, Gemini, Grok and others: Which countries use generative AI tools most across Europe? (December 2025)",
-    url: "https://www.euronews.com/next/2025/12/29/chatgpt-gemini-grok-and-others-which-countries-use-generative-ai-tools-most-across-europe"
-  },
-  {
-    id: 35,
-    source: "Holland Blog",
-    description: "How Dutch Companies Are Adopting AWS, Azure & Google Cloud (November 2025)",
-    url: "https://hollandblog.nl/how-dutch-companies-are-adopting-aws-azure-google-cloud"
-  },
-  {
-    id: 39,
-    source: "CBS Netherlands",
-    description: "Increasing use of AI by business (February 2025)",
-    url: "https://www.cbs.nl/en-gb/news/2025/09/increasing-use-of-ai-by-business"
-  },
-  {
-    id: 42,
-    source: "Tech In Africa",
-    description: "AI Adoption in Africa 2025: South Africa Leads, Others Catch Up (January 2025)",
-    url: "https://www.techinafrica.com/ai-adoption-africa-2025-south-africa-leads-others-catch-up/"
-  },
-  {
-    id: 44,
-    source: "Tech Financials",
-    description: "AI Adoption Soars In SA: 77% of Businesses Ready, 51% See Results (July 2025)",
-    url: "https://techfinancials.co.za/2025/07/03/77-of-sa-businesses-ai-ready-over-half-see-benefits/"
-  },
-  {
-    id: 45,
-    source: "DigitalDefynd",
-    description: "30 Interesting Artificial Intelligence Statistics About Africa (June 2025)",
-    url: "https://digitaldefynd.com/IQ/artificial-intelligence-statistics-about-africa/"
-  },
-  {
-    id: 47,
-    source: "iAfrica",
-    description: "South Africa Leads Africa's AI Adoption as Kenya, Nigeria and Others Accelerate Use (January 2025)",
-    url: "https://iafrica.com/south-africa-leads-africas-ai-adoption-as-kenya-nigeria-and-others-accelerate-use/"
-  },
-  {
-    id: 48,
-    source: "Microsoft AI Economy Institute",
-    description: "Global AI Adoption in 2025 (January 2026)",
-    url: "https://www.microsoft.com/en-us/corporate-responsibility/topics/ai-economy-institute/reports/global-ai-adoption-2025/"
-  },
-  {
-    id: 49,
-    source: "IT News Africa",
-    description: "Generative AI Adoption in South Africa Hits 45.4%, OECD–Cisco Research Shows (December 2025)",
-    url: "https://www.itnewsafrica.com/2025/12/generative-ai-adoption-in-south-africa-hits-45-4-oecd-cisco-research-shows/"
-  },
-  {
-    id: 52,
-    source: "Intelligent CIO LATAM",
-    description: "Latin America's AI market set to hit US $30.20 billion by 2033 (November 2025)",
-    url: "https://www.intelligentcio.com/latam/2025/11/27/latin-americas-ai-market-set-to-hit-us-30-20-billion-by-2033/"
-  },
-  {
-    id: 54,
-    source: "MDPI Applied Sciences",
-    description: "AI-Enhanced Manufacturing in Latin America (October 2025)",
-    url: "https://www.mdpi.com/2076-3417/15/20/11056"
-  },
-  {
-    id: 56,
-    source: "ECLAC",
-    description: "Latin America and the Caribbean Accelerate the Adoption of Artificial Intelligence (2025)",
-    url: "https://www.cepal.org/en/pressreleases/latin-america-and-caribbean-accelerate-adoption-artificial-intelligence-though"
-  },
-  {
-    id: 58,
-    source: "Latinometrics",
-    description: "Latin America emerges as a $10B AI infrastructure hub by 2029 (November 2025)",
-    url: "https://www.latinometrics.com/articles/ai-adoption"
-  },
-  {
-    id: 59,
-    source: "Hispanic Executive",
-    description: "AI Adoption in Latin America Unlocks New Potential (May 2025)",
-    url: "https://hispanicexecutive.com/ai-adoption-in-latin-america-how-the-region-sets-its-own-terms/"
-  },
-  {
-    id: 60,
-    source: "Read AI",
-    description: "Brazil Survey: 68% of Brazilians Use AI Everyday (2025)",
-    url: "https://www.read.ai/post/brazil-survey-68-of-brazilians-use-ai-everyday-but-only-31-have-formal-access-and-training-at-work--and-they-want-more"
-  },
-  {
-    id: 62,
-    source: "OECD",
-    description: "AI adoption by small and medium-sized enterprises (December 2025)",
-    url: "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/12/ai-adoption-by-small-and-medium-sized-enterprises_9c48eae6/426399c1-en.pdf"
-  },
-  {
-    id: 65,
-    source: "CBI Netherlands",
-    description: "The European market potential for AI software development services (2024)",
-    url: "https://www.cbi.eu/market-information/outsourcing-itobpo/artificial-intelligence-ai-and-machine-learning-ml/market-potential"
-  },
-  {
-    id: 68,
-    source: "Insight EU Monitoring",
-    description: "Eurostat: Usage of AI technologies increasing in EU enterprises (December 2025)",
-    url: "https://ieu-monitoring.com/editorial/eurostat-usage-of-ai-technologies-increasing-in-eu-enterprises/537599"
-  },
-  {
-    id: 69,
-    source: "Euronews",
-    description: "ChatGPT, Gemini, Grok and others: Which countries use generative AI tools most across Europe? (December 2025)",
-    url: "https://www.euronews.com/next/2025/12/29/chatgpt-gemini-grok-and-others-which-countries-use-generative-ai-tools-most-across-europe"
-  },
-  {
-    id: 71,
-    source: "Microsoft",
-    description: "AI adoption in the Adriatic region is gaining momentum (November 2025)",
-    url: "https://news.microsoft.com/source/emea/features/ai-diffusion-report-mapping-global-ai-adoption-and-innovation-2/"
-  },
-  {
-    id: 72,
-    source: "MDPI Economies",
-    description: "Artificial Intelligence Adoption in the European Union: A Data-Driven Cluster Analysis (2021–2024) (May 2025)",
-    url: "https://www.mdpi.com/2227-7099/13/5/145"
-  },
-  {
-    id: 75,
-    source: "CEE Digital",
-    description: "CEE AI Challengers 2025: Analysis of EU strategies and recommendations (2025)",
-    url: "https://ceedigital.org/assets/pdf/Report_CEE_AI_CHALLENGERS_2025.pdf"
-  },
-  {
-    id: 77,
-    source: "Various UK sources",
-    description: "Various UK statistics compiled from ONS, Netguru, and AMRA/ELMA analysis",
-    url: undefined
-  },
-  {
-    id: 80,
-    source: "Training Provider Surveys",
-    description: "Member Interview Data (July-September 2025)",
-    url: undefined
-  },
-  {
-    id: 83,
-    source: "Ministry of Economic Affairs Finland",
-    description: "National AI Strategy",
-    url: undefined
-  },
-  {
-    id: 84,
-    source: "AuroraAI Programme",
-    description: "AuroraAI Programme Documentation",
-    url: undefined
-  },
-  {
-    id: 85,
-    source: "Finnish Government",
-    description: "AI strategy and adoption documentation",
-    url: undefined
-  },
-  {
-    id: 86,
-    source: "Finnish Government",
-    description: "Automated decision-making frameworks",
-    url: undefined
-  },
-  {
-    id: 87,
-    source: "Finnish Government",
-    description: "Education system and digital intensity statistics",
-    url: undefined
-  },
-  {
-    id: 88,
-    source: "Finnish Government",
-    description: "AI skills distribution analysis",
-    url: undefined
-  },
-  {
-    id: 89,
-    source: "Finnish Government",
-    description: "AI 4.0 programme SME focus",
-    url: undefined
-  },
-  {
-    id: 90,
-    source: "Finnish Government",
-    description: "Manufacturing sector AI adoption",
-    url: undefined
-  },
-  {
-    id: 91,
-    source: "Finnish Government",
-    description: "AI Business Programme ecosystem documentation",
-    url: undefined
-  },
-  {
-    id: 93,
-    source: "Finnish Government",
-    description: "Start-up ecosystem analysis",
-    url: undefined
-  },
-  {
-    id: 94,
-    source: "Finnish Government",
-    description: "AI productivity projections",
-    url: undefined
-  },
-  {
-    id: 404,
-    source: "Chambers & Partners",
-    description: "Artificial Intelligence 2024 – North Macedonia",
-    url: "https://practiceguides.chambers.com/practice-guides/artificial-intelligence-2024/north-macedonia/trends-and-developments"
-  },
-  {
-    id: 405,
-    source: "FutureCIO",
-    description: "AWS finds 20% AI adoption growth in Singapore (November 2025)",
-    url: "https://futurecio.tech/aws-finds-20-ai-adoption-growth-in-singapore/"
-  },
-  {
-    id: 406,
-    source: "IMDA Singapore",
-    description: "Singapore's Digital Economy at 18.6% of GDP, up from 14.9% in 2019 — fuelled by digitalisation and AI adoption (canonical IMDA press release, 6 October 2025)",
-    url: "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/singapore-digital-economy"
-  },
-  {
-    id: 407,
-    source: "Introl",
-    description: "Singapore's $27B AI Revolution Powers Southeast Asia 2025 (August 2025)",
-    url: "https://introl.com/blog/singapore-ai-revolution-27-billion-investment-2025"
-  },
-  {
-    id: 408,
-    source: "Dept. of Industry Australia",
-    description: "AI Adoption Tracker – Q4 2024",
-    url: "https://www.industry.gov.au/news/ai-adoption-australian-businesses-2024-q4"
-  },
-  {
-    id: 409,
-    source: "Local Digital",
-    description: "AI and Automation Adoption Statistics in Australian Businesses for 2025 (January 2025)",
-    url: "https://www.localdigital.com.au/blog/ai-and-automation-adoption-statistics-in-australian-businesses-for-2025"
-  },
-  {
-    id: 410,
-    source: "RBA",
-    description: "Technology Investment and AI: What Are Firms Telling Us? (November 2025)",
-    url: "https://www.rba.gov.au/publications/bulletin/2025/nov/technology-investment-and-ai-what-are-firms-telling-us.html"
-  },
-  {
-    id: 411,
-    source: "Dept. of Industry Australia",
-    description: "AI adoption in Australian businesses for 2025 Q1 (August 2025)",
-    url: "https://www.industry.gov.au/news/ai-adoption-australian-businesses-2025-q1"
-  },
-  {
-    id: 412,
-    source: "KPMG",
-    description: "Global study reveals Australia lags in trust of AI despite growing use (July 2025)",
-    url: "https://kpmg.com/au/en/media/media-releases/2025/04/global-study-reveals-australia-lags-in-trust-of-ai-despite-growing-use.html"
-  },
-  {
-    id: 413,
-    source: "Tech in Africa",
-    description: "AI Adoption in Africa 2025: South Africa Leads, Others Catch Up (January 2025)",
-    url: "https://www.techinafrica.com/ai-adoption-africa-2025-south-africa-leads-others-catch-up/"
-  },
-  {
-    id: 414,
-    source: "Statista",
-    description: "Artificial Intelligence – South Africa Market Forecast (2025)",
-    url: "https://www.statista.com/outlook/tmo/artificial-intelligence/south-africa"
-  },
-  {
-    id: 415,
-    source: "Mastercard",
-    description: "Harnessing the transformative power of AI in Africa (August 2025)",
-    url: "https://www.mastercard.com/news/media/ue4fmcc5/mastercard-ai-in-africa-2025.pdf"
-  },
-  {
-    id: 416,
-    source: "Alex Imas (Substack)",
-    description: "What is the impact of AI on productivity? Reconciling the micro and the macro evidence (March 2026)",
-    url: "https://aleximas.substack.com/p/what-is-the-impact-of-ai-on-productivity"
-  },
-  {
-    id: 417,
-    source: "Wang et al. (CMU/Stanford)",
-    description: "How Well Does Agent Development Reflect Real-World Work? arXiv:2603.01203 (March 2026)",
-    url: "https://arxiv.org/abs/2603.01203"
-  },
-  {
-    id: 418,
-    source: "AI Agents for Human Work",
-    description: "Benchmarking Agents Against Real-World Work - mapping 43 benchmarks to 1,016 occupations (2026)",
-    url: "https://zorazrw.github.io/ai4work/"
-  }
+  { id: 1, source: "Eurostat", description: "Use of artificial intelligence in enterprises, Statistics Explained (December 2025; EU27 19.95%, large enterprises 55.03%).", url: "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises" },
+  { id: 2, source: "Eurostat", description: "News release: 20% of EU enterprises use AI technologies (11 December 2025).", url: "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2" },
+  { id: 3, source: "Eurostat", description: "Dataset isoc_eb_ai — AI use by enterprises; per-country and size-class tables.", url: "https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table?lang=en" },
+  { id: 4, source: "Microsoft AI Economy Institute", description: "Measuring AI Diffusion / Global AI Adoption (AI Diffusion Report, H2 2025).", url: "https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/AI-Usage-Technical-Report.pdf" },
+  { id: 5, source: "Stanford HAI", description: "AI Index Report 2025 and 2026, Economy chapter (US private AI investment $109.1B in 2024; organizational adoption 78%→88%).", url: "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" },
+  { id: 6, source: "OECD", description: "AI adoption by small and medium-sized enterprises (January 2026; OECD firm average 20.2%, ICT 57.3%).", url: "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/12/ai-adoption-by-small-and-medium-sized-enterprises_9c48eae6/426399c1-en.pdf" },
+  { id: 7, source: "OECD / Korea Labor Institute", description: "Artificial Intelligence and the Labour Market in Korea (October 2025; cites NIA and KOSIS figures).", url: "https://www.oecd.org/en/publications/artificial-intelligence-and-the-labour-market-in-korea_68ab1a5a-en.html" },
+  { id: 8, source: "OECD", description: "Venture capital investments in artificial intelligence through 2025 (February 2026; US ~75% / USD 194bn of 2025 global AI VC).", url: "https://www.oecd.org/en/publications/venture-capital-investments-in-artificial-intelligence-through-2025_a13752f5-en.html" },
+  { id: 9, source: "Statistics Sweden (SCB)", description: "Artificial intelligence in enterprises 2025.", url: "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/research-and-the-digital-society/ovrigt/artificial-intelligence-in-sweden/pong/statistical-news/artificiell-intelligens-i-sverige-2025/" },
+  { id: 10, source: "Statistics Norway (SSB)", description: "ICT usage in enterprises.", url: "https://www.ssb.no/en/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/statistikk/bruk-av-ikt-i-naeringslivet" },
+  { id: 11, source: "Central Statistics Office Ireland (CSO)", description: "Information Society Statistics — Enterprises 2025 (>20% of enterprises used AI in 2025).", url: "https://www.cso.ie/en/releasesandpublications/ep/p-isse/informationsocietystatistics-enterprises2025" },
+  { id: 12, source: "Statistics Iceland", description: "Widespread use of AI, but strategic implementation and policymaking less frequent (10 March 2026).", url: "https://statice.is/publications/news-archive/science-and-technology/information-and-communication-technology-2024" },
+  { id: 13, source: "UK DSIT / IFF Research", description: "AI Adoption Research (CATI fieldwork Feb–May 2025; 16% adoption among firms with 5+ employees).", url: "https://www.gov.uk/government/publications/ai-adoption-research" },
+  { id: 14, source: "Office for National Statistics (UK)", description: "Business insights and impact on the UK economy, BICS Wave 141 (~23% AI use).", url: "https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/bulletins/businessinsightsandimpactontheukeconomy/2october2025" },
+  { id: 15, source: "U.S. Census Bureau", description: "AI Use at U.S. Businesses (May 2026; BTOS ~17–20%, 19.8% May 2026 wave).", url: "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html" },
+  { id: 16, source: "Statistics Canada", description: "AI use by businesses, table 33-10-1004-01 (Q2 2025; 12.2% used AI in production).", url: "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3310100401" },
+  { id: 17, source: "Statistics Canada", description: "Analysis on expected use of artificial intelligence by businesses, third quarter of 2025 (14.5% plan within 12 months).", url: "https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2025011-eng.htm" },
+  { id: 18, source: "Ministry of Internal Affairs and Communications (Japan)", description: "2025 White Paper on Information and Communications.", url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html" },
+  { id: 19, source: "OECD", description: "Artificial Intelligence and the Labour Market in Japan (AI in core business functions 1.9%, lowest in G7).", url: "https://www.oecd.org/en/publications/artificial-intelligence-and-the-labour-market-in-japan_b825563e-en.html" },
+  { id: 20, source: "Turkish Statistical Institute (TÜİK)", description: "Artificial Intelligence Statistics, 2025 (enterprises 7.5%, individuals 19.2%).", url: "https://turkishminute.com/2025/10/01/one-in-five-people-in-turkey-now-use-ai-official-data-show/" },
+  { id: 21, source: "GASTAT (Saudi Arabia)", description: "Establishments' ICT Access and Usage Statistics (AI adoption 33.1% in 2025, 27.6% in 2024).", url: "https://www.stats.gov.sa/" },
+  { id: 22, source: "Israel Central Bureau of Statistics", description: "Business AI use via the Business Tendency Survey (39% March 2026; ~28% June 2025).", url: "https://en.idi.org.il/articles/60189" },
+  { id: 23, source: "NIA / Statistics Korea", description: "Enterprise Informatization Statistics (30.3%, ref 2023) and KOSIS Survey of Business Activities (6.35%, ref 2023).", url: "https://www.nia.or.kr/" },
+  { id: 24, source: "INEGI (Mexico)", description: "Censos Económicos 2024 — digital technologies (0.5% of economic units use AI).", url: "https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/ro_inftics_ce24.pdf" },
+  { id: 25, source: "Cetic.br / NIC.br (Brazil)", description: "TIC Empresas 2024 (13% of firms use AI applications).", url: "https://cetic.br/noticia/empresas-contratam-solucoes-de-ia-no-setor-privado-mas-parcerias-com-universidades-ainda-sao-limitadas-revela-pesquisa/" },
+  { id: 26, source: "Australian Bureau of Statistics", description: "AI now fastest growing area for business R&D (22 August 2025).", url: "https://www.abs.gov.au/media-centre/media-releases/ai-now-fastest-growing-area-business-rd" },
+  { id: 27, source: "KPMG", description: "Trust, attitudes and use of AI: Global insights 2025 (Australia trust gap).", url: "https://kpmg.com/au/en/insights/artificial-intelligence-ai/trust-in-ai-global-insights-2025.html" },
+  { id: 28, source: "Cisco", description: "AI Readiness Index 2025 (Hong Kong 2% fully prepared, lowest of 30 markets).", url: "https://www.scmp.com/tech/tech-trends/article/3329198/hong-kong-lags-ai-readiness-among-30-global-markets-survey-shows" },
+  { id: 29, source: "Datacom", description: "State of AI Index 2025, New Zealand (87% business, 92% large-enterprise, 84% knowledge-worker, 12% scaled).", url: "https://thecolab.ai/blog/nz-ai-adoption-2025/" },
+  { id: 30, source: "NASSCOM / EY", description: "AI Adoption Index 2.0 — 87% of enterprises in Enthusiast/Expert middle stages (500 firms, 7 sectors).", url: "https://www.nasscom.in/knowledge-center/publications/nasscom-ai-adoption-index" },
+  { id: 31, source: "BCG", description: "GCC AI Pulse 2025 (UAE/Saudi Contenders; Qatar/Bahrain/Kuwait/Oman Practitioners).", url: "https://www.gulf-insider.com/uae-ranks-among-top-global-ai-contenders/" },
+  { id: 32, source: "ECLAC / CENIA", description: "Latin American Artificial Intelligence Index (ILIA) 2025 (Pioneers: Chile 70.56, Brazil 67.39, Uruguay 62.32).", url: "https://www.cepal.org/en/pressreleases/latin-america-and-caribbean-accelerate-adoption-artificial-intelligence-though" },
+  { id: 33, source: "OECD–Cisco", description: "Generative AI adoption research (December 2025; South Africa adult GenAI 45.4%, Morocco 10.9%).", url: "https://www.itnewsafrica.com/2025/12/generative-ai-adoption-in-south-africa-hits-45-4-oecd-cisco-research-shows/" },
+  { id: 34, source: "McKinsey / GCC Board Directors Institute", description: "The State of AI in GCC Countries (2025; adoption 84%, up from 62% in 2023; 31% scaled).", url: "https://gccbdi.org/sites/default/files/2025-11/The-state-of-AI-in-GCC-countries-In-pursuit-of-scale-and-value.pdf" },
+  { id: 35, source: "SAP / YouGov", description: "KSA Business AI Survey (November 2025; 81% of Saudi enterprises deploying industry-specific AI). Vendor survey — contrast with GASTAT [21].", url: "https://news.sap.com/mena/2025/11/sap-ksa-2025-business-ai-survey-sap-now/" },
+  { id: 36, source: "Morocco Digital 2030 / Jazari Institutes", description: "AI Made in Morocco strategy and national network of excellence centres (launched July 2025).", url: "https://cafrad.io/en/ai-made-in-morocco-artificial-intelligence-at-the-heart-of-digital-transformation-and-public-services-the-director-general-of-cafrad-participates-in-the-launch-of-the-national-network-of-centers-of-e/" },
+  { id: 37, source: "Serbia", description: "Strategy for the Development of Artificial Intelligence 2025–2030 (adopted January 2025).", url: "https://westernbalkans-infohub.eu/news/serbia-adopts-strategy-for-the-development-of-artificial-intelligence-for-the-period-2025-2030/" },
+  { id: 38, source: "McKinsey / Singapore EDB", description: "AI in Southeast Asia: An Era of Opportunity (February 2026).", url: "https://www.edb.gov.sg/content/dam/edb-en/business-insights/market-and-industry-reports/ai-in-southeast-asia-an-era-of-opportunity/State_of_Ai_SEA_Digital.pdf" },
+  { id: 39, source: "Invest in Denmark", description: "AI in Denmark — national AI strategy and Denmark's position as the EU's most digitalised society.", url: "https://investindk.com/ai-in-denmark" },
+  { id: 40, source: "World Economic Forum / European Commission", description: "Europe AI adoption lag (September 2025); Portugal 2025 Digital Decade Country Report.", url: "https://www.weforum.org/stories/2025/09/europe-ai-adoption-lag/" },
+  { id: 41, source: "AXA / Sotomo", description: "KMU-Arbeitsmarktstudie 2024 — 55% of Swiss SMEs \"started integrating\" AI.", url: "https://www.kmu.admin.ch/kmu/en/home/new/news/2024/one_in_five_companies_has_already_integrated_ai_into_its_operations.html" },
+  { id: 42, source: "PwC", description: "Global Workforce Hopes & Fears Survey 2025, Indonesia edition (96% of daily GenAI users report productivity gains).", url: "https://www.pwc.com/id/en/media-centre/press-release/2026/english/hopes-and-fears-2025.html" },
+  { id: 43, source: "WIN World AI Index 2025", description: "Vietnam 6th of 40 at 59.2; 3rd globally on AI trust.", url: "https://en.vietnamplus.vn/vietnam-among-worlds-top-10-countries-in-ai-awareness-readiness-post323147.vnp" },
+  { id: 44, source: "Emirates NBD Research", description: "UAE Data Center Capacity to Surge 165% by 2028 (~35 existing data centres).", url: "https://www.emiratesnbdresearch.com/en/articles/uae-data-center-capacity-to-surge-165-percent-by-2028" },
+  { id: 45, source: "Bain & Company", description: "Generative AI Adoption Survey, 4th edition (67% of Brazilian companies rank AI a top-five strategic priority).", url: "https://www.bain.com/insights/executive-survey-ai-moves-from-pilots-to-production/" },
+  { id: 46, source: "Cybernews", description: "AI Adoption Index 2025 — consumer AI-tool downloads; Philippines the only market to decline (37%→35%).", url: "https://cybernews.com/ai-news/ai-adoption-index-2025-which-countries-use-ai-tools-the-most/" },
 ];

@@ -335,7 +335,7 @@ const GlobalAILandscape = () => {
             <div id="strategic-context-1" className={spacing.blockMargin}>
               <div className={`space-y-4 ${typography.body}`}>
                 <p>
-                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={4} /> This section sets out how 66 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
+                  Enterprise AI adoption is accelerating unevenly across markets. The December 2025 Eurostat release puts EU enterprise AI adoption at <strong>20.0%</strong> (reference year 2025), up from 13.5% in 2024 — but the distribution is wide: Nordic markets lead at 35–42%, while parts of Eastern and Southern Europe remain below 10%.<CitationLink id={4} /> This section sets out how 67 markets are classified and the structural patterns that cut across them. Detailed country-by-country analysis is in the companion <strong>Regional Market Profiles</strong> document.
                 </p>
               </div>
             </div>
@@ -428,7 +428,7 @@ const GlobalAILandscape = () => {
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Regional Market Profiles</h4>
                     <p className="text-sm text-muted-foreground">
-                      66 markets across Europe, Asia-Pacific, the Americas, the Middle East, and Africa — with enterprise adoption statistics, local training partner, and verification status for every figure.
+                      67 cited market profiles — two-paragraph adoption snapshots with inline source markers and data-confidence flags.
                     </p>
                   </div>
                   <Link to="/market-profiles" className="inline-flex items-center gap-2 px-5 py-2.5 bg-llpa-blue text-white font-medium rounded-lg hover:bg-llpa-blue/90 transition-colors shadow-sm whitespace-nowrap">

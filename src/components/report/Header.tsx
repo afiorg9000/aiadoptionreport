@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import llpaLogo from "@/assets/llpa-logo-white.svg";
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
   return (
     <>
       <a
-        href="#executive-summary"
+        href={sectionHref("executive-summary")}
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium focus:shadow-lg"
       >
         Skip to main content
@@ -34,25 +37,25 @@ const Header = () => {
               aria-label="Main navigation"
             >
               <a
-                href="#executive-summary"
+                href={sectionHref("executive-summary")}
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors"
               >
                 Summary
               </a>
               <a
-                href="#methodology"
+                href={sectionHref("methodology")}
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden md:block"
               >
                 Methodology
               </a>
               <a
-                href="#section-1"
+                href={sectionHref("section-1")}
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden lg:block"
               >
                 Findings
               </a>
               <a
-                href="#references"
+                href={sectionHref("references")}
                 className="font-body text-sm text-slate-400 hover:text-white transition-colors hidden md:block"
               >
                 References
